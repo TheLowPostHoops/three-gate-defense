@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Three Gates: rim protection explorer</title>
+<meta name="description" content="Rim protection is three skills, not one. Explore redirect, deter and contest for NBA defenders, 2024-25 and 2025-26.">
+<style>
+:root{--bg:#ffffff;--ink:#121212;--mute:#6b6b6b;--line:#e3e3e3;--soft:#f5f5f4;--rule:#121212;--red:#1f5fbf;--det:#c25a00;--con:#b3204a;--two:#6b46c1;--bal:#8c8c8c;--leak:#b3261e;--pos:#1a6d3a;--lk:#6b4226}
+@media (prefers-color-scheme:dark){:root{--bg:#121212;--ink:#f2f2f2;--mute:#a0a0a0;--line:#2e2e2e;--soft:#1c1c1c;--rule:#f2f2f2;--red:#6ea2f0;--det:#f0a040;--con:#f06f98;--two:#a58be8;--bal:#8c8c8c;--leak:#ff8a80;--pos:#6fd08c;--lk:#d2a679}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif}
+.mast{background:#121212;color:#fff;border-bottom:3px solid #fff}
+.mast div{max-width:1120px;margin:0 auto;padding:12px 20px;display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.mast b{font:700 1.05rem/1 Georgia,"Times New Roman",serif;letter-spacing:.14em;text-transform:uppercase}
+.mast span{font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:#bdbdbd}
+main{max-width:1120px;margin:0 auto;padding:22px 20px 64px}
+h1{font:700 1.75rem/1.15 Georgia,"Times New Roman",serif;margin:0 0 4px;letter-spacing:-.01em}
+.dek{font-size:.92rem;color:var(--mute);margin:0 0 16px;max-width:60em}
+h2{font:700 .8rem/1.2 -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;text-transform:uppercase;letter-spacing:.14em;margin:44px 0 14px;padding-top:12px;border-top:3px solid var(--rule)}
+p{margin:0 0 14px;max-width:44em}
+.mono,.small{font-family:inherit}
+@media(max-width:760px){h1{font-size:1.45rem}}
+.r{color:var(--red)}.d{color:var(--det)}.c{color:var(--con)}
+.ctl{display:flex;flex-wrap:wrap;gap:12px 22px;align-items:flex-end;margin:16px 0;padding:14px 16px;background:var(--soft);font-size:.82rem}
+.ctl label{display:flex;flex-direction:column;gap:4px;color:var(--mute);font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:.68rem}
+select,input[type=text]{font:inherit;font-size:.9rem;text-transform:none;letter-spacing:0;font-weight:400;padding:7px 9px;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:2px}
+input[type=range]{width:150px;accent-color:var(--ink)}
+details{border:1px solid var(--line);padding:10px 14px;margin:12px 0;font-size:.88rem}
+summary{cursor:pointer;font-weight:700;font-size:.78rem;text-transform:uppercase;letter-spacing:.1em}
+.sl{display:flex;flex-wrap:wrap;gap:12px 24px;margin-top:12px}
+.sl label{display:flex;flex-direction:column;gap:4px;font-size:.78rem;color:var(--mute)}
+.sl label b{color:var(--ink)}
+.types{display:flex;flex-wrap:wrap;gap:6px 18px;margin:8px 0 14px;font-size:.82rem}
+.types label{display:flex;gap:6px;align-items:center;color:var(--ink)}
+.sw{width:10px;height:10px;display:inline-block;border-radius:50%}
+.grid{display:grid;grid-template-columns:minmax(0,2.1fr) minmax(0,1fr);gap:28px;align-items:start}
+@media(max-width:820px){.grid{grid-template-columns:minmax(0,1fr)}}
+svg{width:100%;display:block;border:1px solid var(--line);border-top:3px solid var(--rule);background:var(--bg)}
+svg text{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;font-size:10.5px;fill:var(--mute)}
+svg .lab{fill:var(--ink);font-weight:600}
+.grid-l{stroke:var(--soft)}.zero{stroke:var(--mute);stroke-dasharray:3 3}
+#card{border-top:3px solid var(--rule);padding:12px 2px 0;font-size:.92rem}
+#card h3{margin:0;font:700 1.55rem/1.15 Georgia,"Times New Roman",serif}
+.sub{color:var(--mute);font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;margin:4px 0 12px}
+.bar{margin:12px 0}.bar .t{display:flex;justify-content:space-between;font-size:.84rem}
+.bar .t b{text-transform:uppercase;letter-spacing:.08em;font-size:.74rem}
+.bar .t span{font-variant-numeric:tabular-nums}
+.rail{position:relative;height:8px;background:var(--soft);margin-top:5px}
+.rail i{position:absolute;top:0;bottom:0}.rail b{position:absolute;left:50%;top:-3px;bottom:-3px;width:1px;background:var(--mute)}
+.rail u{position:absolute;top:3px;height:2px;background:var(--ink);opacity:.6}
+.kv{font-size:.86rem;margin-top:14px;border-top:1px solid var(--line);padding-top:10px}
+.kv div{margin:5px 0}
+.tablewrap{overflow-x:auto;margin-top:8px}
+table{border-collapse:collapse;width:100%;font-size:.82rem;min-width:760px;font-variant-numeric:tabular-nums}
+th,td{padding:9px 10px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
+th:first-child,td:first-child,th:last-child,td:last-child{text-align:left}
+th{cursor:pointer;color:var(--ink);font-weight:700;font-size:.68rem;text-transform:uppercase;letter-spacing:.09em;border-bottom:2px solid var(--rule);user-select:none;position:sticky;top:0;background:var(--bg)}
+td:first-child{font-weight:600}
+tbody tr{cursor:pointer}tbody tr:hover{background:var(--soft)}
+.pos{color:var(--pos)}.neg{color:var(--leak)}
+button{font:inherit;font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;border:1px solid var(--ink);background:var(--bg);color:var(--ink);padding:9px 16px;cursor:pointer;margin-top:14px;border-radius:2px}
+button:hover{background:var(--ink);color:var(--bg)}
+#tip{position:fixed;display:none;pointer-events:none;background:#121212;color:#fff;padding:7px 10px;font-size:12px;line-height:1.4;z-index:5;border-radius:2px}
+ul.l{margin:0 0 12px;padding-left:0;list-style:none;max-width:46em}ul.l li{margin:0;padding:12px 0;border-bottom:1px solid var(--line);font-size:.95rem}
+.foot{color:var(--mute);font-size:.8rem;margin-top:44px;border-top:1px solid var(--line);padding-top:14px;max-width:60em}
+.key{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:18px;margin:6px 0 0}
+.key.k3{grid-template-columns:repeat(3,minmax(0,1fr));margin-top:22px}
+.key>div{min-width:0;border-top:3px solid var(--rule);padding-top:8px;font-size:.84rem;color:var(--ink)}
+.key b{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;margin-bottom:4px}
+@media(max-width:900px){.key,.key.k3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.key,.key.k3{grid-template-columns:minmax(0,1fr)}}
+</style>
+</head>
+<body>
+<div class="mast"><div><b>The Low Post</b><span>@LowPostHoops</span></div></div>
+<main>
+<h1>Rim protection explorer</h1>
+<p class="dek">Every NBA defender on three gates: Redirect, Deter and Contest. 2024-25 and 2025-26 combined. Click a dot or a row for a player.</p>
+<div class="ctl">
+ <label>X axis<select id="xs"></select></label>
+ <label>Y axis<select id="ys"></select></label>
+ <label>Minimum minutes <span id="mmv">1,350</span><input id="mm" type="range" min="1350" max="4500" step="50" value="1350"></label>
+ <label>Find a player<input id="q" type="text" placeholder="Wembanyama"></label>
+</div>
+<details id="bl"><summary>Blend the gates (your own weights)</summary>
+ <div class="sl">
+  <label class="mono"><span>Redirect weight <b id="wrv">0.0</b></span><input id="wr" type="range" min="0" max="2" step="0.1" value="0"></label>
+  <label class="mono"><span>Deter weight <b id="wdv">1.0</b></span><input id="wd" type="range" min="0" max="2" step="0.1" value="1"></label>
+  <label class="mono"><span>Contest weight <b id="wcv">1.0</b></span><input id="wc" type="range" min="0" max="2" step="0.1" value="1"></label>
+  <label class="mono"><span>Presets</span><select id="pre"><option value="0,1,1">Rim score (default)</option><option value="1,1,1">All three equal</option><option value="0,1,0">Deter only</option><option value="0,0,1">Contest only</option><option value="1,0,0">Redirect only</option></select></label>
+ </div>
+ <p class="small" style="margin:10px 0 0;color:var(--mute)">This makes a number called "Your blend" that you can put on either axis. It is whatever you weight it to be. I do not rank players by an all-in-one total, and the reasons are at the bottom.</p>
+</details>
+<div class="types" id="types"></div>
+
+<div class="grid">
+ <div><svg id="plot" role="img" aria-label="Scatter plot of NBA defenders on the chosen gates"></svg></div>
+ <div id="card"></div>
+</div>
+
+<h2>Key</h2>
+<div class="key">
+<div><b class="r">Redirect</b>Quality of the shots opponents take away from the rim while he is on the floor. Points per 100 possessions, higher is better.</div>
+<div><b class="d">Deter</b>How rarely opponents take shots at the rim against him. Same units.</div>
+<div><b class="c">Contest</b>How much less often rim shots go in than that shot normally would. Same units.</div>
+<div><b>Rim score</b>Deter plus Contest. Blocks are not in it. Redirect is left out because it mostly mirrors Deter (correlation -0.69).</div>
+<div><b>Backstop</b>Context only, nothing is subtracted. Rates the best shot-blocker playing alongside him by block rate: strong, some or little.</div>
+</div>
+<div class="key k3">
+<div><b class="d">Deterrer</b>Strong at Deter only. He changes which shots the offense chooses to take (Valančiūnas, Green).</div>
+<div><b class="c">Contester</b>Strong at Contest only. The shots at the rim go in less often (Gafford, McDaniels).</div>
+<div><b class="r">Redirector</b>Strong at Redirect only. The offense is pushed into worse shots away from the rim (Suggs, Walter).</div>
+<div><b style="color:var(--two)">Two gates</b>Strong at two gates (or, for one player, all three), usually Contest and Deter (Wembanyama, Clingan) or Contest and Redirect (Gilgeous-Alexander).</div>
+<div><b>Balanced</b>Not strong or weak at any one gate. Most players land here.</div>
+<div><b style="color:var(--lk)">Leaky</b>No strong gate and a clearly below-average total (Missi, Portis).</div>
+</div>
+<p class="small" style="margin:12px 0 0;color:var(--mute)">"Strong" means roughly the top fifth of the players shown on that gate.</p>
+
+<h2>The table</h2>
+<p style="color:var(--mute);max-width:72ch;font-size:.92rem">Click a header to sort, click a row to see that player. "Rim rank range" is where the player landed in 90% of 200 resamples of the data. A wide range means the number is noisy, and almost everyone's is wider than you would guess.</p>
+<div class="tablewrap"><table id="tb"><thead></thead><tbody></tbody></table></div>
+<button id="more"></button>
+
+<h2>What this does not do</h2>
+<ul class="l">
+<li><b>It does not pick the best defender.</b> It is about rim protection. Perimeter defense, off-ball work, communication and effort are mostly outside what these three gates capture.</li>
+<li><b>I tried an all-in-one total and dropped it.</b> Adding the three gates together did not hold up in my own tests. Guards who play next to elite shot-blockers made up too much of the top of the list, and players' totals were not stable when they changed teams. So there is no combined ranking here.</li>
+<li><b>Teammates matter.</b> A guard whose team has a great rim protector behind him can look better on Redirect than he would alone. I tried to adjust for that and it did not move the scores in a way I trust, so I show it as context instead. The "Backstop" line on each player says how good the best shot-blocker playing alongside him was.</li>
+<li><b>One season is noisy.</b> Rim score repeats from one season to the next at about 0.43 among rim protectors, and 0.28 for the ones who changed teams. That is why I show ranges, not ranks. It does predict next season's team rim defense a little better than just using last year's team (0.60 against 0.57).</li>
+<li><b>The top is a cluster.</b> Wembanyama, Clingan, Nurkić and Hartenstein are separated by less than the uncertainty. Wembanyama leads the table, and he finished first in 30% of resamples. What sets him apart is Contest: +1.16, against +0.28 to +0.41 for the other three.</li>
+</ul>
+
+<div class="foot">
+Method in short: opponent shots are matched to the lineups on the floor and a ridge regression gives each player a value on each gate, adjusted for the offensive players he faced. Expected points come from shot type and location. Standard errors are 200 bootstrap resamples. "Strong" on a gate means roughly the top fifth of this group. Players with fewer than 1,350 defensive minutes in the two seasons are left out. Scores are not adjusted for minutes, because the uncertainty in this model barely changes with them: the median rim-score error is 0.66 for players under 1,700 minutes and 0.65 above 3,500. The method does pull players with fewer minutes toward the middle, so scores under about 2,000 minutes are probably a little understated. Data: NBA play-by-play and shot data, 2024-25 and 2025-26 (through May 9, 2026).
+</div>
+</main>
+<div id="tip"></div>
+<script>
+const TEAMS=["Atlanta Hawks", "Boston Celtics", "Brooklyn Nets", "Charlotte Hornets", "Chicago Bulls", "Cleveland Cavaliers", "Dallas Mavericks", "Denver Nuggets", "Detroit Pistons", "Golden State Warriors", "Houston Rockets", "Indiana Pacers", "LA Clippers", "Los Angeles Lakers", "Memphis Grizzlies", "Miami Heat", "Milwaukee Bucks", "Minnesota Timberwolves", "Multiple teams", "New Orleans Pelicans", "New York Knicks", "Oklahoma City Thunder", "Orlando Magic", "Philadelphia 76ers", "Phoenix Suns", "Portland Trail Blazers", "Sacramento Kings", "San Antonio Spurs", "Toronto Raptors", "Utah Jazz", "Washington Wizards"];
+const ARCH=["Balanced", "Contester", "Deterrer", "Leaky", "Redirector", "Three-gate", "Two-gate Contester+Deterrer", "Two-gate Contester+Redirector"];
+const D=[
+["Victor Wembanyama",27,3475,-3.16,3.42,1.16,0.6,0.67,0.2,0.67,1,8,-0.1,6],
+["Donovan Clingan",25,3403,-4.31,4.25,0.28,0.59,0.55,0.23,0.58,1,9,0.09,6],
+["Jusuf Nurkić",29,2076,-2.72,3.81,0.39,0.48,0.7,0.17,0.71,1,10,0.32,6],
+["Isaiah Hartenstein",21,2832,-2.81,3.8,0.4,0.57,0.71,0.2,0.7,1,15,1.06,6],
+["Jonas Valanciunas",7,2318,-3.3,3.99,-0.3,0.6,0.66,0.18,0.71,2,19,0.43,2],
+["Neemias Queta",1,2816,-3.24,3.24,0.43,0.61,0.62,0.2,0.67,2,19,0.76,6],
+["Draymond Green",9,3653,-2.88,3.54,-0.03,0.53,0.71,0.18,0.76,2,25,0.15,2],
+["Rudy Gobert",17,4892,-1.87,2.9,0.54,0.51,0.72,0.18,0.72,2,27,0.62,6],
+["Chet Holmgren",21,2983,-3.08,1.81,1.31,0.66,0.66,0.21,0.68,3,33,0.53,6],
+["Cade Cunningham",8,4757,-0.59,2.78,0.26,0.54,0.6,0.19,0.6,5,33,1.8,6],
+["Jaren Jackson Jr.",14,3515,-2.7,2.1,0.87,0.61,0.66,0.22,0.62,5,38,0.81,6],
+["Derrick White",1,5234,-1.75,2.65,0.31,0.49,0.53,0.18,0.56,5,33,1.25,6],
+["Kevon Looney",18,1351,-1.94,2.92,0.03,0.56,0.6,0.17,0.6,5,36,0.23,2],
+["Zach Edey",14,1648,-2.29,2.33,0.57,0.52,0.64,0.2,0.65,6,39,1.14,6],
+["Jaylin Williams",21,2052,-2.13,2.73,0.01,0.52,0.65,0.17,0.63,6,49,0.66,2],
+["Ivica Zubac",12,3901,-2.25,2.42,0.18,0.54,0.68,0.18,0.66,7,53,0.19,2],
+["Domantas Sabonis",26,2890,-0.82,2.48,-0.05,0.68,0.83,0.19,0.84,7,86,0.45,2],
+["Brook Lopez",12,4012,-2.19,1.93,0.44,0.5,0.6,0.2,0.61,10,67,0.5,6],
+["Luke Kornet",27,2782,-1.73,1.6,0.74,0.51,0.57,0.22,0.58,12,68,0.36,6],
+["De'Aaron Fox",27,4575,-1.92,2.42,-0.2,0.62,0.8,0.23,0.77,9,92,2.11,2],
+["Kevin Porter Jr.",16,2625,-1.88,2.25,-0.06,0.62,0.6,0.21,0.64,11,78,1.01,2],
+["Isaiah Stewart",8,2706,-2.56,1.46,0.66,0.57,0.58,0.21,0.57,13,81,0.47,6],
+["Steven Adams",10,1430,-2.99,2.29,-0.22,0.61,0.57,0.17,0.61,12,87,0.7,2],
+["Ajay Mitchell",21,2166,0.27,1.73,0.32,0.55,0.57,0.21,0.54,13,73,1.37,6],
+["Alex Caruso",21,2090,0.64,1.65,0.39,0.57,0.59,0.18,0.61,11,81,1.06,6],
+["Lauri Markkanen",29,2811,-0.57,1.75,0.28,0.61,0.72,0.19,0.75,10,94,1.35,6],
+["Nique Clifford",26,1814,-0.72,2.18,-0.15,0.63,0.66,0.18,0.68,11,92,0.3,2],
+["AJ Green",16,3758,-0.35,1.88,0.15,0.56,0.64,0.2,0.66,11,94,1.43,2],
+["Bam Adebayo",15,4830,0.27,1.9,0.06,0.56,0.6,0.19,0.6,15,92,0.52,2],
+["Nikola Jokić",7,4911,-1.27,2.03,-0.12,0.54,0.64,0.16,0.63,16,99,0.43,2],
+["Mason Plumlee",18,1404,-1.41,1.91,0.0,0.5,0.58,0.16,0.54,16,92,0.45,2],
+["Walker Kessler",29,1823,-3.32,1.74,0.15,0.62,0.65,0.19,0.66,14,101,0.15,2],
+["Ryan Dunn",24,2657,-2.05,1.39,0.49,0.54,0.7,0.23,0.7,13,115,0.76,6],
+["OG Anunoby",20,5030,-1.42,1.39,0.42,0.54,0.66,0.2,0.71,16,116,0.37,6],
+["Collin Murray-Boyles",28,1354,-0.98,1.7,0.09,0.54,0.64,0.17,0.65,14,102,0.84,2],
+["Mark Williams",24,2503,-3.33,2.18,-0.4,0.62,0.74,0.19,0.75,13,130,-0.03,2],
+["Marcus Smart",13,2636,0.11,2.03,-0.25,0.65,0.64,0.2,0.62,16,116,0.94,2],
+["Donovan Mitchell",5,4738,-0.1,1.33,0.34,0.55,0.61,0.21,0.61,19,131,1.58,6],
+["Mouhamed Gueye",0,1691,-0.18,1.58,0.08,0.55,0.64,0.19,0.64,17,130,0.41,2],
+["Jaylen Brown",1,4644,-2.08,1.58,0.05,0.53,0.56,0.19,0.6,18,121,1.34,2],
+["Marvin Bagley III",18,1393,-1.61,1.6,0.03,0.68,0.68,0.2,0.66,19,126,0.5,2],
+["Kris Dunn",12,3845,0.28,2.02,-0.4,0.57,0.61,0.19,0.62,19,116,0.96,2],
+["Scottie Barnes",28,4868,-0.22,0.92,0.68,0.61,0.56,0.24,0.59,21,121,0.61,1],
+["Stephen Curry",9,3388,-0.73,1.74,-0.17,0.7,0.67,0.18,0.67,18,134,0.59,2],
+["Thomas Bryant",18,1573,-1.56,1.26,0.29,0.6,0.72,0.21,0.71,16,153,0.37,6],
+["Evan Mobley",5,4394,-1.02,1.1,0.42,0.61,0.63,0.23,0.62,19,130,0.38,6],
+["Kevin Durant",10,4884,-2.22,1.53,-0.02,0.61,0.72,0.2,0.74,19,153,0.68,2],
+["Bradley Beal",18,1756,-0.5,1.35,0.16,0.68,0.72,0.14,0.74,20,167,0.93,2],
+["Baylor Scheierman",1,1820,-0.88,1.38,0.13,0.53,0.56,0.15,0.56,23,122,1.06,2],
+["Ryan Kalkbrenner",3,1411,-1.63,1.37,0.14,0.52,0.64,0.17,0.66,22,141,0.01,2],
+["Daniel Gafford",6,2319,-2.59,0.57,0.92,0.6,0.69,0.21,0.71,20,160,0.49,1],
+["Brandin Podziemski",9,3830,-0.21,1.73,-0.24,0.56,0.63,0.18,0.61,22,126,0.43,2],
+["Quinten Post",9,1755,-1.82,1.4,0.09,0.65,0.64,0.2,0.67,18,145,0.27,2],
+["Kyshawn George",30,3066,-1.35,1.37,0.12,0.62,0.67,0.23,0.65,18,137,1.54,2],
+["Lonzo Ball",18,1438,0.29,1.34,0.11,0.68,0.77,0.19,0.77,18,157,0.95,2],
+["Kristaps Porziņģis",18,1918,-2.06,0.89,0.52,0.6,0.62,0.2,0.6,25,145,0.5,1],
+["Jaxson Hayes",13,2294,-0.77,1.22,0.17,0.58,0.63,0.18,0.66,20,151,-0.05,2],
+["Bogdan Bogdanović",18,1703,-0.93,1.36,0.04,0.61,0.59,0.17,0.61,26,150,0.77,2],
+["Jonathan Kuminga",18,1997,0.69,1.16,0.22,0.66,0.73,0.2,0.72,21,163,0.55,2],
+["Clint Capela",10,2053,-1.53,0.57,0.79,0.54,0.57,0.18,0.59,26,136,0.3,1],
+["Franz Wagner",22,3041,1.1,1.08,0.26,0.55,0.56,0.18,0.57,30,138,1.55,5],
+["Amen Thompson",10,5167,-0.95,1.22,0.11,0.58,0.68,0.22,0.69,22,163,0.55,2],
+["Paul George",23,2720,-0.25,1.1,0.23,0.6,0.62,0.22,0.6,29,146,0.72,2],
+["Moses Moody",9,3007,0.01,1.57,-0.29,0.59,0.6,0.22,0.61,26,153,0.49,2],
+["Duncan Robinson",8,4008,-0.64,1.44,-0.21,0.5,0.61,0.22,0.67,27,169,1.16,2],
+["Sam Merrill",5,2798,-0.7,0.98,0.26,0.57,0.61,0.23,0.6,32,164,1.33,1],
+["Terry Rozier",15,1577,-1.14,1.22,-0.01,0.56,0.74,0.22,0.73,28,186,0.42,2],
+["Keegan Murray",26,3284,-1.19,1.31,-0.1,0.59,0.88,0.2,0.89,19,192,0.26,2],
+["Jaden McDaniels",17,5001,-1.26,0.38,0.82,0.53,0.7,0.2,0.71,27,177,1.33,1],
+["Aaron Holiday",10,1544,-0.27,1.22,-0.07,0.59,0.66,0.18,0.69,26,186,0.59,2],
+["Payton Pritchard",1,4798,-0.69,1.15,-0.01,0.51,0.55,0.23,0.54,38,152,1.25,2],
+["Ausar Thompson",8,3358,-0.32,0.73,0.4,0.55,0.76,0.22,0.72,22,170,1.3,1],
+["Isaiah Collier",29,3234,-1.41,1.38,-0.29,0.6,0.66,0.19,0.67,34,191,0.99,2],
+["Dylan Harper",27,1671,0.39,1.09,-0.02,0.57,0.61,0.21,0.63,30,169,2.64,2],
+["Georges Niang",18,1628,-1.11,1.03,0.03,0.62,0.66,0.16,0.64,29,173,0.99,0],
+["Jalen Pickett",7,1432,-1.98,1.0,0.05,0.58,0.61,0.18,0.58,39,167,0.6,0],
+["Karl-Anthony Towns",20,4944,-0.92,1.19,-0.15,0.51,0.63,0.23,0.68,27,170,0.33,2],
+["Joel Embiid",23,1911,-1.58,0.87,0.11,0.67,0.67,0.19,0.67,41,196,0.23,0],
+["Pascal Siakam",11,4338,-0.73,0.85,0.13,0.48,0.67,0.22,0.72,31,196,1.77,0],
+["Wendell Carter Jr.",22,4111,-0.16,1.25,-0.27,0.51,0.61,0.19,0.63,36,192,0.54,2],
+["John Collins",12,2969,-2.19,0.98,-0.01,0.57,0.61,0.19,0.61,34,163,1.3,3],
+["Myles Turner",16,3883,-1.37,0.62,0.35,0.54,0.62,0.19,0.65,32,194,-0.05,1],
+["Cole Anthony",18,1682,0.33,0.64,0.33,0.55,0.66,0.24,0.66,35,189,1.36,1],
+["Malik Monk",26,3278,-0.52,1.01,-0.05,0.56,0.72,0.21,0.75,30,197,0.4,0],
+["Kel'el Ware",15,3036,-3.1,0.85,0.07,0.59,0.58,0.19,0.61,32,184,0.17,3],
+["Jalen Duren",8,4099,-0.62,0.92,-0.02,0.57,0.66,0.2,0.66,39,190,0.84,0],
+["Sion James",3,1731,-0.53,0.92,-0.03,0.56,0.61,0.2,0.63,33,192,1.65,0],
+["Karlo Matković",19,1613,-0.62,0.46,0.41,0.74,0.7,0.18,0.7,40,215,0.73,1],
+["Daniss Jenkins",8,1558,0.95,0.79,0.06,0.57,0.66,0.17,0.7,34,197,1.45,4],
+["Onyeka Okongwu",0,4394,0.24,0.88,-0.07,0.46,0.55,0.2,0.58,42,181,0.13,0],
+["T.J. McConnell",11,2211,0.56,0.98,-0.18,0.66,0.75,0.2,0.76,34,222,1.07,0],
+["Toumani Camara",25,5230,0.34,0.74,0.06,0.56,0.6,0.21,0.6,47,194,1.94,0],
+["Cedric Coward",14,1539,-1.67,0.46,0.32,0.66,0.68,0.21,0.62,46,194,1.15,1],
+["Jonathan Isaac",22,1523,0.96,0.54,0.23,0.5,0.6,0.16,0.6,47,195,0.74,4],
+["Kyle Filipowski",29,3192,0.04,1.05,-0.29,0.67,0.69,0.19,0.72,38,204,0.45,0],
+["Dwight Powell",6,1395,0.36,0.52,0.24,0.58,0.54,0.21,0.57,47,189,0.31,0],
+["Andrew Wiggins",15,3751,-0.81,0.87,-0.11,0.58,0.74,0.2,0.75,38,228,0.68,0],
+["Josh Green",3,2669,0.07,0.73,0.02,0.64,0.73,0.2,0.73,42,224,1.19,0],
+["Desmond Bane",22,4990,-0.59,1.15,-0.42,0.52,0.62,0.19,0.62,49,204,1.1,2],
+["Kenrich Williams",21,1927,-0.34,0.93,-0.21,0.61,0.56,0.19,0.55,48,195,0.72,0],
+["Cason Wallace",21,3917,1.04,0.0,0.71,0.49,0.6,0.22,0.56,51,181,1.32,7],
+["Tobias Harris",8,4164,-0.09,0.37,0.3,0.6,0.67,0.2,0.65,46,204,1.63,1],
+["Giannis Antetokounmpo",16,3172,-0.64,0.68,-0.0,0.51,0.66,0.19,0.72,41,220,1.54,0],
+["Jakob Poeltl",28,2833,0.25,0.46,0.21,0.59,0.68,0.2,0.7,46,228,0.67,0],
+["Sam Hauser",1,3511,-1.85,1.02,-0.36,0.56,0.66,0.19,0.64,51,215,1.28,3],
+["Day'Ron Sharpe",2,1913,0.15,0.74,-0.09,0.49,0.65,0.17,0.68,45,214,0.16,0],
+["Luguentz Dort",21,3939,-1.17,0.35,0.31,0.57,0.63,0.22,0.63,46,212,1.37,1],
+["Adem Bona",23,2115,-0.38,0.06,0.57,0.62,0.56,0.21,0.6,51,208,0.13,1],
+["DeMar DeRozan",26,5004,-0.97,1.09,-0.48,0.54,0.69,0.22,0.69,39,210,0.41,2],
+["Jericho Sims",18,1860,-1.05,0.8,-0.21,0.61,0.52,0.21,0.55,53,197,0.32,0],
+["Dennis Schröder",26,3766,-0.89,0.86,-0.28,0.6,0.71,0.25,0.69,41,221,0.98,0],
+["Jalen Suggs",22,2719,1.98,0.67,-0.09,0.55,0.71,0.2,0.71,37,216,1.16,4],
+["Jordan Goodwin",24,2001,1.41,0.84,-0.27,0.59,0.64,0.18,0.69,42,213,0.56,4],
+["Jarrett Allen",5,3913,-1.36,0.06,0.51,0.58,0.61,0.21,0.63,55,217,0.86,1],
+["Trayce Jackson-Davis",18,1395,-0.68,0.62,-0.06,0.7,0.64,0.17,0.63,52,218,0.36,0],
+["Dillon Brooks",24,3981,0.22,0.55,0.01,0.52,0.65,0.2,0.63,51,203,0.84,0],
+["LaMelo Ball",3,3379,-0.37,0.64,-0.08,0.57,0.66,0.2,0.64,47,221,1.29,0],
+["Jaylen Wells",14,3703,-0.25,0.38,0.16,0.49,0.61,0.22,0.6,55,215,1.4,0],
+["Andre Drummond",23,2039,-0.43,0.64,-0.11,0.63,0.72,0.19,0.74,50,253,0.11,0],
+["Julian Strawther",7,2189,-0.51,0.32,0.19,0.58,0.6,0.22,0.63,60,222,0.76,0],
+["Ochai Agbaji",28,2576,-0.7,0.56,-0.05,0.64,0.6,0.22,0.62,48,222,0.84,0],
+["Mike Conley",17,2756,0.0,0.49,0.02,0.61,0.69,0.2,0.66,54,242,1.3,0],
+["Isaiah Joe",21,3044,-0.73,0.6,-0.11,0.5,0.55,0.23,0.56,58,214,0.99,0],
+["Keyonte George",29,3749,-1.86,0.9,-0.4,0.57,0.64,0.2,0.64,43,227,1.07,3],
+["Naz Reid",17,4188,1.61,0.07,0.42,0.52,0.59,0.25,0.59,60,222,0.88,7],
+["Kawhi Leonard",12,3130,-0.51,0.82,-0.33,0.57,0.73,0.2,0.75,48,239,1.05,0],
+["P.J. Washington",6,3408,-0.3,0.16,0.32,0.54,0.63,0.18,0.64,61,241,1.25,1],
+["Anthony Edwards",17,4985,-0.41,0.48,-0.02,0.53,0.73,0.19,0.69,50,230,1.32,0],
+["Sidy Cissoko",18,1496,0.98,0.45,-0.01,0.58,0.7,0.2,0.63,59,241,1.91,4],
+["Fred VanVleet",10,1965,0.64,0.3,0.14,0.62,0.65,0.17,0.65,54,225,0.82,0],
+["Herbert Jones",19,2131,1.06,0.46,-0.02,0.56,0.64,0.18,0.66,57,234,1.37,4],
+["Corey Kispert",0,2600,-0.77,0.41,0.02,0.52,0.75,0.22,0.79,52,259,0.9,0],
+["Shai Gilgeous-Alexander",21,4865,1.5,-0.01,0.43,0.58,0.6,0.22,0.61,69,254,1.15,7],
+["Jaden Ivey",18,1463,0.03,0.28,0.14,0.57,0.67,0.21,0.61,66,237,1.98,0],
+["Craig Porter Jr.",5,1598,0.06,0.25,0.17,0.52,0.67,0.19,0.67,53,233,1.04,0],
+["Goga Bitadze",22,2380,0.76,0.36,0.05,0.49,0.64,0.19,0.65,61,244,0.59,0],
+["Luka Dončić",13,3832,-1.33,0.71,-0.3,0.56,0.64,0.21,0.65,53,237,1.09,0],
+["Mitchell Robinson",20,1502,0.12,0.44,-0.05,0.61,0.69,0.14,0.67,57,244,0.08,0],
+["Jaime Jaquez Jr.",15,3324,-1.53,0.24,0.13,0.52,0.55,0.22,0.59,69,243,0.86,3],
+["Derrick Jones Jr.",12,3077,0.91,0.72,-0.36,0.51,0.6,0.19,0.61,76,244,0.95,4],
+["Collin Gillespie",24,2733,0.93,0.59,-0.22,0.58,0.67,0.21,0.66,64,245,0.74,4],
+["LeBron James",13,4544,-1.59,0.63,-0.28,0.68,0.6,0.19,0.6,65,241,1.18,3],
+["Jalen Smith",4,1948,-0.11,-0.46,0.81,0.51,0.63,0.24,0.65,60,239,0.86,1],
+["Max Strus",5,1741,-1.53,0.29,0.06,0.71,0.71,0.23,0.75,58,258,1.39,3],
+["Pelle Larsson",15,2513,0.33,0.5,-0.16,0.6,0.72,0.22,0.73,57,265,0.93,0],
+["Tyrese Martin",18,1945,0.61,0.81,-0.49,0.51,0.61,0.17,0.62,67,238,0.69,0],
+["Landry Shamet",20,1929,0.42,0.24,0.06,0.62,0.78,0.2,0.77,71,265,0.77,0],
+["Paolo Banchero",22,4146,-0.47,0.48,-0.19,0.54,0.69,0.21,0.76,55,270,0.87,0],
+["Khris Middleton",30,2209,-0.51,0.5,-0.23,0.55,0.6,0.23,0.6,68,241,1.92,0],
+["Bruce Brown",7,2880,-0.21,0.47,-0.23,0.56,0.58,0.22,0.6,79,249,0.56,0],
+["Jalen Williams",21,3109,1.39,-0.22,0.46,0.59,0.77,0.21,0.8,56,276,1.22,7],
+["Jamal Shead",28,3316,0.98,0.45,-0.23,0.57,0.61,0.2,0.61,75,257,0.93,4],
+["Svi Mykhailiuk",29,1854,0.0,0.3,-0.08,0.61,0.69,0.18,0.71,71,270,0.59,0],
+["Russell Westbrook",26,3805,-0.27,0.4,-0.18,0.55,0.77,0.19,0.76,66,276,0.58,0],
+["Ronald Holland II",8,2690,1.54,-0.0,0.19,0.56,0.69,0.17,0.68,73,273,1.9,4],
+["Jabari Smith Jr.",10,4432,0.34,-0.48,0.66,0.58,0.66,0.18,0.66,77,270,0.64,1],
+["Jock Landale",18,1905,-0.6,0.32,-0.14,0.63,0.62,0.2,0.68,62,257,0.79,0],
+["Aaron Wiggins",21,3067,-0.94,0.48,-0.34,0.53,0.59,0.23,0.64,68,263,0.95,0],
+["Norman Powell",15,3518,0.92,0.23,-0.1,0.6,0.63,0.18,0.62,76,250,0.92,4],
+["Anthony Davis",6,2248,-0.85,-0.04,0.17,0.54,0.7,0.17,0.71,75,285,0.22,0],
+["Jordan Walsh",1,1617,0.12,-0.14,0.24,0.58,0.62,0.16,0.62,90,270,0.98,0],
+["Dyson Daniels",0,5073,1.28,0.23,-0.14,0.53,0.61,0.19,0.59,84,263,0.8,4],
+["Nick Richards",18,1862,-2.59,0.18,-0.1,0.66,0.89,0.19,0.9,53,291,0.6,3],
+["Gui Santos",9,2015,0.46,0.17,-0.1,0.54,0.66,0.17,0.66,81,263,0.32,0],
+["Grayson Allen",24,2881,-0.27,0.61,-0.56,0.58,0.68,0.2,0.7,81,273,0.82,0],
+["Nikola Jović",15,1890,-0.73,0.21,-0.17,0.58,0.74,0.21,0.78,79,293,0.71,0],
+["Ousmane Dieng",18,1455,-0.27,0.4,-0.35,0.46,0.62,0.23,0.66,83,276,0.75,0],
+["Kyle Kuzma",16,3543,-1.36,0.37,-0.33,0.45,0.58,0.17,0.61,85,258,1.45,3],
+["Jordan Clarkson",20,2247,-0.04,-0.28,0.31,0.65,0.71,0.22,0.73,72,273,1.21,1],
+["Tim Hardaway Jr.",7,4212,-1.59,0.18,-0.15,0.56,0.59,0.22,0.61,86,269,1.07,3],
+["Dorian Finney-Smith",10,2334,-0.15,-0.43,0.46,0.69,0.69,0.19,0.69,91,279,0.74,1],
+["Tristan da Silva",22,3472,-0.89,0.02,-0.04,0.6,0.62,0.22,0.63,91,276,1.49,0],
+["VJ Edgecombe",23,2893,-0.34,-0.27,0.26,0.67,0.65,0.22,0.65,89,278,1.45,0],
+["Miles McBride",20,2711,0.37,-0.21,0.19,0.56,0.58,0.2,0.6,88,272,0.61,0],
+["Javonte Green",8,2678,0.65,0.07,-0.09,0.51,0.62,0.21,0.67,84,279,1.29,0],
+["Walter Clayton Jr.",18,1352,-0.62,0.28,-0.31,0.64,0.65,0.18,0.67,87,273,0.29,0],
+["Cody Williams",29,2602,-0.52,0.39,-0.43,0.74,0.73,0.2,0.73,75,293,0.81,0],
+["Kentavious Caldwell-Pope",14,3239,1.5,-0.02,-0.02,0.59,0.68,0.21,0.63,103,276,1.51,4],
+["Malik Beasley",18,2106,0.86,-0.2,0.13,0.58,0.66,0.19,0.64,85,272,2.03,0],
+["Ty Jerome",18,1648,-0.39,0.07,-0.14,0.68,0.8,0.19,0.82,64,288,1.04,0],
+["Royce O'Neale",24,3930,-0.36,0.27,-0.35,0.55,0.56,0.19,0.59,104,272,0.83,0],
+["Pat Spencer",9,1398,0.94,0.42,-0.51,0.6,0.73,0.21,0.73,84,300,0.24,4],
+["Damian Lillard",16,1989,-0.72,-0.1,0.01,0.64,0.77,0.17,0.76,67,296,1.97,0],
+["Precious Achiuwa",26,2822,-0.29,0.01,-0.11,0.6,0.76,0.23,0.76,79,301,0.05,0],
+["Keon Ellis",26,3328,1.03,0.04,-0.16,0.51,0.64,0.23,0.7,95,289,0.41,4],
+["Deni Avdija",25,4357,0.13,-0.4,0.28,0.68,0.74,0.2,0.73,85,293,2.0,1],
+["Alperen Sengun",10,4809,0.34,-0.16,0.03,0.53,0.64,0.19,0.67,83,280,0.55,0],
+["Santi Aldama",14,2720,-0.07,-0.02,-0.12,0.57,0.61,0.21,0.61,107,288,1.19,0],
+["Immanuel Quickley",28,3025,-0.77,-0.28,0.12,0.56,0.71,0.2,0.7,89,294,1.14,0],
+["Robert Williams III",25,1402,-0.08,-0.49,0.32,0.56,0.81,0.2,0.79,77,298,0.17,1],
+["Buddy Hield",9,2523,-0.22,-0.33,0.15,0.57,0.62,0.19,0.63,91,276,0.53,0],
+["Kevin Huerter",4,3122,-0.16,-0.07,-0.11,0.52,0.73,0.19,0.71,93,294,0.99,0],
+["Jimmy Butler III",9,2773,-0.17,-0.07,-0.14,0.62,0.75,0.2,0.76,86,304,0.45,0],
+["Ace Bailey",29,1920,-0.06,0.06,-0.27,0.61,0.74,0.22,0.75,99,300,0.23,0],
+["Isaac Okoro",4,2595,-0.39,-0.42,0.21,0.6,0.78,0.22,0.75,90,300,1.25,0],
+["Brandon Miller",3,2768,0.19,-0.33,0.1,0.66,0.73,0.17,0.72,101,298,1.27,0],
+["Dalen Terry",18,1484,0.87,-0.46,0.23,0.61,0.72,0.17,0.71,110,305,0.8,0],
+["Brice Sensabaugh",29,3081,-0.76,0.22,-0.46,0.72,0.78,0.23,0.8,91,309,0.67,3],
+["Aaron Nesmith",11,2282,-0.32,-0.32,0.08,0.59,0.73,0.19,0.74,90,301,1.77,0],
+["Christian Braun",7,4125,-0.33,-0.4,0.15,0.54,0.67,0.19,0.64,112,283,0.52,0],
+["Jrue Holiday",25,3528,0.37,-0.35,0.1,0.53,0.66,0.22,0.67,97,292,1.86,0],
+["Maxime Raynaud",26,1908,-0.53,0.13,-0.39,0.63,0.91,0.18,0.9,78,318,0.31,0],
+["Anthony Black",22,3785,1.14,-0.21,-0.05,0.56,0.67,0.21,0.7,109,304,1.47,4],
+["Julian Champagnie",27,4257,0.19,-0.88,0.61,0.54,0.62,0.21,0.65,101,289,2.96,1],
+["Zaccharie Risacher",0,3276,0.75,-0.53,0.26,0.51,0.57,0.2,0.62,116,292,0.75,1],
+["Deandre Ayton",13,3311,-0.8,0.07,-0.35,0.56,0.62,0.24,0.64,116,300,0.06,3],
+["Trendon Watford",18,1694,-1.21,-0.12,-0.17,0.55,0.65,0.19,0.66,110,288,1.02,3],
+["Aaron Gordon",7,2460,-0.36,-0.13,-0.17,0.57,0.72,0.19,0.7,118,307,0.43,0],
+["Devin Booker",24,4843,0.39,-0.58,0.27,0.67,0.68,0.2,0.7,95,295,0.85,1],
+["Cameron Johnson",7,3475,0.39,-0.31,-0.01,0.55,0.74,0.18,0.73,105,313,0.74,0],
+["Cooper Flagg",6,2242,0.1,-0.36,0.04,0.59,0.7,0.2,0.68,119,303,1.02,0],
+["Caris LeVert",8,2682,-0.91,-0.55,0.22,0.67,0.73,0.2,0.71,104,307,1.29,3],
+["Caleb Martin",18,1982,0.3,-0.44,0.11,0.54,0.68,0.2,0.67,107,304,0.54,0],
+["Jeremiah Fears",19,2023,-0.08,-0.41,0.01,0.7,0.7,0.16,0.68,98,293,1.58,0],
+["Simone Fontecchio",15,2245,0.24,-0.45,0.04,0.57,0.66,0.21,0.7,116,300,1.48,0],
+["Jaylen Clark",17,1363,0.68,-0.66,0.23,0.57,0.71,0.2,0.67,110,311,0.99,0],
+["Jalen Wilson",2,2669,1.3,-0.19,-0.25,0.6,0.67,0.21,0.67,124,311,0.67,4],
+["Dominick Barlow",23,2077,0.71,-0.64,0.19,0.61,0.67,0.22,0.7,124,311,1.11,0],
+["Oso Ighodaro",24,2842,1.91,-0.4,-0.04,0.56,0.69,0.19,0.68,127,317,0.13,4],
+["Jaylon Tyson",5,2281,0.3,-0.46,0.01,0.54,0.63,0.23,0.59,130,301,1.27,0],
+["Kon Knueppel",3,2435,0.12,-0.36,-0.09,0.57,0.71,0.18,0.71,128,318,1.6,0],
+["Coby White",4,3538,-0.18,-0.36,-0.09,0.52,0.67,0.23,0.67,116,310,0.97,0],
+["Peyton Watson",7,3135,-0.55,-0.37,-0.09,0.55,0.64,0.19,0.62,137,301,0.01,3],
+["Bennedict Mathurin",11,3554,0.8,-0.87,0.42,0.51,0.6,0.19,0.59,125,295,1.59,1],
+["Keon Johnson",2,1772,0.75,-0.62,0.16,0.54,0.63,0.17,0.62,119,292,1.12,0],
+["Scotty Pippen Jr.",14,1804,1.32,-0.86,0.39,0.57,0.63,0.18,0.66,112,288,1.44,7],
+["Jeremiah Robinson-Earl",18,1530,-0.26,-0.21,-0.27,0.48,0.71,0.2,0.77,110,312,0.64,0],
+["Gary Payton II",9,1928,0.97,-0.41,-0.1,0.53,0.61,0.19,0.65,129,302,0.43,4],
+["Spencer Jones",7,1626,0.66,-0.31,-0.2,0.66,0.78,0.17,0.75,99,315,0.52,0],
+["Stephon Castle",27,4279,0.25,-0.65,0.13,0.57,0.66,0.2,0.67,135,309,2.91,0],
+["Austin Reaves",13,4261,0.83,-0.12,-0.39,0.54,0.64,0.18,0.64,121,302,1.26,0],
+["Alex Sarr",30,3018,-0.88,-0.69,0.17,0.55,0.66,0.19,0.67,125,311,0.54,3],
+["Al Horford",9,2542,-0.45,-0.27,-0.26,0.62,0.59,0.25,0.59,137,313,0.77,3],
+["Harrison Barnes",27,4152,-0.98,-0.84,0.29,0.57,0.69,0.22,0.71,121,319,2.75,1],
+["Rui Hachimura",13,3934,-0.59,-0.17,-0.39,0.5,0.69,0.2,0.71,138,319,1.22,3],
+["Tidjane Salaün",3,1738,-0.28,-0.41,-0.15,0.68,0.72,0.16,0.75,114,319,0.95,0],
+["Scoot Henderson",25,2532,0.96,-0.92,0.36,0.57,0.72,0.23,0.69,130,320,1.9,7],
+["Amir Coffey",24,2116,-0.3,-0.51,-0.06,0.56,0.69,0.24,0.71,105,318,0.55,0],
+["Taurean Prince",16,2647,0.0,-0.85,0.27,0.51,0.61,0.21,0.64,137,311,1.62,1],
+["Zion Williamson",19,2593,-0.42,-0.9,0.31,0.54,0.71,0.21,0.72,131,313,1.4,1],
+["Jalen Brunson",20,5022,0.6,-0.71,0.1,0.57,0.59,0.17,0.59,134,314,0.65,0],
+["Quentin Grimes",23,4207,-0.13,-1.16,0.54,0.54,0.61,0.23,0.61,144,308,1.31,1],
+["Collin Sexton",3,3228,-0.61,-0.55,-0.07,0.56,0.62,0.23,0.62,147,315,1.72,3],
+["GG Jackson",14,1566,-1.62,-0.57,-0.07,0.65,0.68,0.18,0.67,133,318,0.65,3],
+["Ryan Rollins",16,3072,0.16,-0.5,-0.15,0.54,0.64,0.19,0.66,134,314,1.49,0],
+["Chris Paul",12,2434,-0.52,-0.73,0.06,0.66,0.72,0.23,0.71,124,316,2.73,3],
+["Dalton Knecht",13,1960,-0.93,-0.29,-0.39,0.64,0.63,0.18,0.68,153,322,1.09,3],
+["Luke Kennard",13,3281,0.03,-0.52,-0.16,0.57,0.57,0.23,0.6,144,306,1.13,0],
+["Max Christie",6,4188,0.23,-0.45,-0.24,0.52,0.69,0.23,0.71,142,325,1.32,0],
+["John Konchar",18,1610,0.81,-0.43,-0.27,0.52,0.68,0.18,0.7,143,323,0.81,0],
+["Sandro Mamukelashvili",28,2401,1.06,-0.64,-0.06,0.56,0.64,0.18,0.63,152,314,1.12,4],
+["Ziaire Williams",2,2647,2.34,-0.75,0.05,0.6,0.74,0.18,0.75,125,326,0.95,4],
+["Andrew Nembhard",11,3470,0.83,-0.97,0.26,0.54,0.66,0.22,0.65,139,315,2.04,1],
+["Kyrie Irving",6,1729,0.22,-1.02,0.28,0.6,0.68,0.2,0.69,121,317,1.89,1],
+["Gradey Dick",28,2552,0.61,-0.62,-0.12,0.67,0.7,0.2,0.73,133,319,0.99,0],
+["Micah Potter",18,1564,-0.88,-0.58,-0.17,0.68,0.73,0.23,0.67,132,324,0.46,3],
+["Anfernee Simons",1,3519,-0.12,-0.81,0.04,0.54,0.64,0.25,0.64,158,317,1.38,0],
+["Nikola Vučević",4,4056,-0.79,-0.36,-0.43,0.48,0.65,0.2,0.62,154,320,0.87,3],
+["Kyle Anderson",18,1816,0.62,-0.52,-0.28,0.63,0.76,0.2,0.75,148,331,0.58,0],
+["Cameron Payne",18,1410,1.18,-0.75,-0.07,0.56,0.73,0.2,0.71,135,316,0.71,4],
+["Jamal Murray",7,5141,-0.9,-0.2,-0.62,0.64,0.67,0.19,0.67,144,321,0.62,3],
+["Bobby Portis",16,2744,-1.61,-0.31,-0.52,0.58,0.57,0.23,0.62,160,315,0.87,3],
+["Jamison Battle",28,1556,0.78,-0.99,0.16,0.6,0.65,0.19,0.62,165,327,0.72,0],
+["Ja Morant",14,1983,1.36,-1.18,0.34,0.65,0.71,0.21,0.68,149,328,1.61,7],
+["Noah Clowney",2,2675,0.43,-1.42,0.57,0.56,0.59,0.19,0.6,164,317,0.91,1],
+["Yves Missi",19,3131,-1.87,-1.07,0.2,0.57,0.65,0.17,0.66,165,327,0.11,3],
+["Dean Wade",5,2672,1.39,-1.18,0.31,0.61,0.74,0.21,0.75,140,334,1.29,7],
+["Jaden Hardy",18,1722,1.63,-0.81,-0.08,0.52,0.62,0.19,0.65,157,321,0.97,4],
+["RJ Barrett",28,3689,-0.02,-0.72,-0.17,0.61,0.62,0.23,0.61,156,319,1.08,0],
+["Tyler Herro",15,3609,-0.31,-0.73,-0.16,0.63,0.67,0.19,0.68,162,326,0.79,3],
+["Jose Alvarado",19,2672,0.81,-1.14,0.24,0.53,0.63,0.2,0.66,168,327,1.07,0],
+["Davion Mitchell",15,3847,-0.07,-0.91,0.01,0.6,0.67,0.22,0.7,145,333,1.04,3],
+["Tre Johnson",30,1380,0.87,-0.77,-0.14,0.54,0.62,0.22,0.62,169,327,1.95,0],
+["Gabe Vincent",13,2351,0.39,-0.87,-0.04,0.54,0.64,0.2,0.63,159,323,1.04,0],
+["Donte DiVincenzo",17,4004,0.81,-1.24,0.31,0.53,0.68,0.21,0.72,161,332,1.37,1],
+["Tari Eason",10,2945,1.59,-0.86,-0.08,0.59,0.66,0.22,0.69,166,333,0.68,4],
+["Jarred Vanderbilt",13,1653,1.63,-0.61,-0.35,0.64,0.73,0.18,0.78,162,335,0.58,4],
+["Tre Jones",4,2535,0.95,-0.99,0.03,0.64,0.71,0.24,0.67,168,334,1.44,4],
+["Brandon Williams",6,1856,1.24,-0.71,-0.26,0.53,0.67,0.21,0.67,155,330,0.97,4],
+["Bones Hyland",18,1447,1.69,-1.01,0.03,0.59,0.71,0.23,0.67,180,334,1.11,4],
+["Haywood Highsmith",18,1822,0.57,-0.74,-0.25,0.58,0.72,0.18,0.69,171,332,0.45,0],
+["Josh Okogie",18,1968,1.0,-1.0,0.01,0.59,0.74,0.2,0.74,158,337,0.63,4],
+["D'Angelo Russell",18,1847,0.06,-1.2,0.22,0.6,0.77,0.2,0.74,160,336,1.55,0],
+["De'Andre Hunter",5,2774,1.23,-1.21,0.22,0.63,0.61,0.18,0.63,172,328,1.19,4],
+["Miles Bridges",3,4224,-0.52,-1.15,0.15,0.59,0.63,0.19,0.65,159,325,1.3,3],
+["Jordan Miller",12,1674,-0.09,-0.61,-0.4,0.55,0.62,0.17,0.59,178,327,0.77,3],
+["Julian Phillips",18,1482,0.54,-1.09,0.08,0.61,0.74,0.17,0.73,158,334,0.45,0],
+["Jake LaRavia",13,3333,1.23,-0.81,-0.23,0.53,0.65,0.21,0.66,164,337,0.99,4],
+["Terance Mann",2,2831,1.3,-0.7,-0.37,0.65,0.72,0.19,0.76,175,340,0.74,4],
+["Josh Giddey",4,3699,-0.33,-1.28,0.18,0.59,0.73,0.23,0.76,166,341,1.01,3],
+["Matas Buzelis",4,3598,0.23,-1.91,0.8,0.6,0.69,0.22,0.67,192,338,0.23,1],
+["Vít Krejčí",0,2451,1.46,-0.99,-0.13,0.63,0.65,0.22,0.66,197,337,0.92,4],
+["Reed Sheppard",10,2851,0.16,-1.23,0.07,0.55,0.58,0.23,0.62,193,335,0.57,3],
+["James Harden",12,5321,0.66,-1.12,-0.05,0.54,0.65,0.21,0.64,179,333,0.96,0],
+["Cam Spencer",14,1871,0.79,-1.02,-0.17,0.68,0.72,0.19,0.71,184,340,0.98,0],
+["Nic Claxton",2,3573,-0.11,-1.59,0.39,0.53,0.65,0.19,0.65,201,334,0.1,1],
+["Olivier-Maxence Prosper",18,1505,1.09,-1.05,-0.15,0.63,0.69,0.19,0.71,188,338,0.76,4],
+["Tyus Jones",22,3034,-0.21,-0.91,-0.3,0.53,0.61,0.19,0.61,189,330,0.92,3],
+["Spencer Dinwiddie",18,2044,-0.03,-1.48,0.26,0.61,0.72,0.2,0.75,171,338,1.45,1],
+["Darius Garland",5,3481,0.58,-1.54,0.26,0.56,0.62,0.2,0.63,210,338,1.37,1],
+["CJ McCollum",0,4128,0.35,-1.45,0.16,0.64,0.58,0.25,0.55,221,336,1.27,3],
+["Kelly Oubre Jr.",23,3806,1.22,-1.21,-0.09,0.62,0.72,0.17,0.75,176,342,0.69,4],
+["Jay Huff",11,2366,-0.89,-1.85,0.54,0.62,0.71,0.23,0.74,188,342,0.13,1],
+["Justin Champagnie",30,2604,-0.49,-1.08,-0.25,0.54,0.74,0.21,0.71,201,344,1.18,3],
+["Rayan Rupert",18,1469,0.49,-0.97,-0.37,0.63,0.76,0.19,0.76,173,343,1.29,0],
+["Jared McCain",18,1704,0.83,-1.31,-0.04,0.52,0.62,0.17,0.6,210,338,1.0,0],
+["Derik Queen",19,1937,-0.47,-1.2,-0.14,0.61,0.63,0.16,0.62,204,338,0.31,3],
+["Rob Dillingham",18,1401,0.55,-1.45,0.09,0.51,0.6,0.19,0.6,205,339,0.85,0],
+["Trey Murphy III",19,4022,1.06,-1.32,-0.06,0.67,0.71,0.17,0.73,188,344,1.34,4],
+["Keldon Johnson",27,3718,0.61,-1.43,0.05,0.53,0.64,0.19,0.64,214,341,2.18,0],
+["Zach LaVine",26,3699,-0.46,-0.82,-0.58,0.59,0.82,0.21,0.81,201,346,0.43,3],
+["Nick Smith Jr.",18,1705,0.35,-1.39,-0.06,0.67,0.62,0.19,0.63,224,342,0.93,3],
+["Jerami Grant",25,3177,1.34,-1.52,0.06,0.66,0.69,0.2,0.71,200,344,1.8,4],
+["Bilal Coulibaly",30,3266,1.36,-1.07,-0.4,0.56,0.66,0.24,0.65,223,341,1.57,4],
+["Mikal Bridges",20,5782,0.16,-1.43,-0.04,0.52,0.55,0.18,0.56,217,337,0.51,3],
+["Jabari Walker",18,1469,2.6,-1.18,-0.32,0.63,0.67,0.17,0.66,200,341,1.2,4],
+["Nicolas Batum",12,2515,1.16,-1.69,0.18,0.52,0.71,0.2,0.74,198,345,0.68,4],
+["Jayson Tatum",1,3225,0.71,-1.49,-0.03,0.6,0.61,0.18,0.62,216,340,1.4,0],
+["Kris Murray",25,2288,2.24,-1.64,0.12,0.68,0.6,0.22,0.65,224,344,1.95,4],
+["Trae Young",0,3016,1.0,-1.46,-0.07,0.63,0.73,0.22,0.74,216,347,0.94,4],
+["Josh Hart",20,5020,1.45,-0.96,-0.6,0.54,0.56,0.22,0.59,233,343,0.49,4],
+["Moussa Diabaté",3,2974,2.27,-1.63,0.06,0.56,0.69,0.21,0.69,231,345,0.13,4],
+["Nickeil Alexander-Walker",0,4650,1.17,-1.71,0.14,0.64,0.57,0.22,0.59,231,341,0.82,4],
+["Jalen Johnson",0,3870,0.85,-1.58,-0.03,0.58,0.64,0.23,0.67,227,346,0.76,0],
+["Jarace Walker",11,2979,1.89,-1.56,-0.12,0.6,0.68,0.2,0.68,242,347,1.4,4],
+["Patrick Williams",4,2915,1.51,-1.32,-0.36,0.63,0.86,0.22,0.83,218,348,0.63,4],
+["Shaedon Sharpe",25,3640,0.78,-1.88,0.13,0.61,0.82,0.22,0.8,227,348,1.9,3],
+["Jordan Hawkins",19,1931,-0.52,-1.73,-0.03,0.72,0.89,0.2,0.9,193,350,0.99,3],
+["Ben Sheppard",11,2434,2.1,-1.6,-0.16,0.67,0.62,0.22,0.61,256,345,1.51,4],
+["Cam Thomas",18,1567,-0.28,-1.42,-0.39,0.66,0.82,0.18,0.83,207,348,0.75,3],
+["Saddiq Bey",19,2147,0.24,-1.56,-0.26,0.64,0.76,0.19,0.78,225,348,1.44,3],
+["Jordan Poole",19,2788,0.74,-1.53,-0.31,0.63,0.78,0.21,0.76,236,348,1.53,3],
+["Ja'Kobe Walter",28,2645,2.59,-1.68,-0.19,0.58,0.62,0.22,0.63,271,348,0.97,4],
+["Devin Vassell",27,4120,0.42,-2.27,0.39,0.54,0.7,0.2,0.66,243,348,2.7,1],
+["Gary Trent Jr.",16,3111,0.81,-1.3,-0.59,0.59,0.62,0.2,0.65,260,347,1.38,3],
+["Tyrese Haliburton",18,2275,1.13,-1.86,-0.04,0.64,0.63,0.2,0.64,262,348,2.02,4],
+["Obi Toppin",11,1827,0.96,-1.58,-0.35,0.63,0.64,0.21,0.62,251,346,1.12,4],
+["Jalen Green",24,3446,0.05,-1.59,-0.35,0.57,0.71,0.18,0.72,237,349,0.8,3],
+["Naji Marshall",6,3913,-0.0,-1.36,-0.57,0.52,0.57,0.21,0.57,275,345,1.16,3],
+["Bub Carrington",30,4529,0.37,-1.6,-0.39,0.52,0.62,0.19,0.64,275,349,1.43,3],
+["Michael Porter Jr.",2,4145,1.06,-2.11,0.12,0.57,0.66,0.2,0.66,252,348,0.78,4],
+["Justin Edwards",23,2098,2.44,-1.74,-0.36,0.64,0.66,0.2,0.65,264,348,0.68,4],
+["Dejounte Murray",19,1354,2.21,-1.76,-0.44,0.68,0.78,0.17,0.81,252,351,1.22,4],
+["Klay Thompson",6,3315,0.17,-2.41,0.18,0.5,0.66,0.24,0.66,280,350,1.37,3],
+["Ayo Dosunmu",4,3299,1.31,-2.26,-0.07,0.59,0.82,0.22,0.81,264,351,1.01,4],
+["Brandon Ingram",28,3187,1.64,-2.2,-0.15,0.55,0.65,0.19,0.69,285,350,1.18,4],
+["Jeremy Sochan",18,1765,2.04,-2.72,0.21,0.65,0.65,0.21,0.63,308,351,1.71,4],
+["Tyrese Maxey",23,4794,2.0,-2.59,-0.08,0.55,0.67,0.18,0.69,310,351,0.89,4],
+["Guerschon Yabusele",4,2772,1.91,-2.57,-0.22,0.64,0.81,0.19,0.8,294,352,0.26,4],
+["Jonathan Mogbo",28,1467,2.51,-2.56,-0.3,0.6,0.65,0.17,0.63,312,351,0.41,4],
+["Julius Randle",17,4940,1.3,-2.9,0.03,0.6,0.71,0.19,0.7,315,352,1.28,4],
+["Will Riley",30,1572,3.02,-3.48,-0.48,0.64,0.56,0.18,0.57,348,352,0.92,4]
+].map(a=>({name:a[0],team:TEAMS[a[1]],mins:a[2],redirect:a[3],deter:a[4],contest:a[5],rse:a[6],dse:a[7],cse:a[8],rimse:a[9],lo:a[10],hi:a[11],ma:a[12],arch:ARCH[a[13]]}));
+D.forEach(d=>{d.rim=+(d.deter+d.contest).toFixed(3)});
+const AX={redirect:{n:'Redirect',c:'--red'},deter:{n:'Deter',c:'--det'},contest:{n:'Contest',c:'--con'},rim:{n:'Rim score',c:'--ink'},blend:{n:'Your blend',c:'--ink'}};
+const GROUPS=[['Deterrer',['Deterrer'],'--det'],['Contester',['Contester'],'--con'],['Redirector',['Redirector'],'--red'],['Two gates',['Two-gate Contester+Deterrer','Two-gate Contester+Redirector','Three-gate'],'--two'],['Balanced',['Balanced'],'--bal'],['Leaky',['Leaky'],'--lk']];
+const NAMED=['Rudy Gobert','Victor Wembanyama','Chet Holmgren','Draymond Green','Daniel Gafford','Alex Caruso','Donovan Clingan','Isaiah Hartenstein','Cade Cunningham','Derrick White'];
+const st={x:'deter',y:'contest',min:1350,q:'',sel:'Victor Wembanyama',on:new Set(GROUPS.map(g=>g[0])),sort:'rim',dir:-1,all:false};
+const W={r:0,d:1,c:1};
+const $=id=>document.getElementById(id);
+const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const f2=v=>(v>0?'+':'')+v.toFixed(2);
+const nm=s=>s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
+function groupOf(a){return GROUPS.find(g=>g[1].includes(a))}
+function blend(){D.forEach(d=>{d.blend=W.r*d.redirect+W.d*d.deter+W.c*d.contest})}
+function vis(){const q=nm(st.q.trim());return D.filter(d=>d.mins>=st.min&&st.on.has(groupOf(d.arch)[0])&&(!q||nm(d.name).includes(q)))}
+function ticks(lo,hi){const raw=(hi-lo)/6,p=Math.pow(10,Math.floor(Math.log10(raw))),m=[1,2,5,10].find(m=>m*p>=raw)*p,o=[];for(let v=Math.ceil(lo/m)*m;v<=hi+1e-9;v+=m)o.push(+v.toFixed(6));return o}
+function backstop(ma){return ma>=0.9?'strong':ma>=0.3?'some':'little'}
+function plot(){
+ const svg=$('plot'),w0=svg.clientWidth||640,H=Math.max(360,Math.min(520,w0*.72));
+ svg.setAttribute('viewBox','0 0 '+w0+' '+H);svg.setAttribute('height',H);
+ const m={l:44,r:14,t:12,b:40},w=w0-m.l-m.r,h=H-m.t-m.b;
+ const pad=a=>{const lo=Math.min(...a),hi=Math.max(...a),p=(hi-lo)*.06;return[lo-p,hi+p]};
+ const [x0,x1]=pad(D.map(d=>d[st.x])),[y0,y1]=pad(D.map(d=>d[st.y]));
+ const X=v=>m.l+(v-x0)/(x1-x0)*w,Y=v=>m.t+h-(v-y0)/(y1-y0)*h;let s='';
+ ticks(x0,x1).forEach(t=>{s+='<line class="grid-l" x1="'+X(t)+'" x2="'+X(t)+'" y1="'+m.t+'" y2="'+(m.t+h)+'"/><text x="'+X(t)+'" y="'+(H-24)+'" text-anchor="middle">'+t+'</text>'});
+ ticks(y0,y1).forEach(t=>{s+='<line class="grid-l" y1="'+Y(t)+'" y2="'+Y(t)+'" x1="'+m.l+'" x2="'+(m.l+w)+'"/><text x="'+(m.l-6)+'" y="'+(Y(t)+3)+'" text-anchor="end">'+t+'</text>'});
+ if(x0<0&&x1>0)s+='<line class="zero" x1="'+X(0)+'" x2="'+X(0)+'" y1="'+m.t+'" y2="'+(m.t+h)+'"/>';
+ if(y0<0&&y1>0)s+='<line class="zero" y1="'+Y(0)+'" y2="'+Y(0)+'" x1="'+m.l+'" x2="'+(m.l+w)+'"/>';
+ s+='<text x="'+(m.l+w/2)+'" y="'+(H-7)+'" text-anchor="middle" class="lab">'+AX[st.x].n+' (points per 100 possessions, higher is better)</text>';
+ s+='<text transform="translate(11 '+(m.t+h/2)+') rotate(-90)" text-anchor="middle" class="lab">'+AX[st.y].n+'</text>';
+ const V=vis(),ids=new Set(V.map(d=>d.name));
+ D.filter(d=>!ids.has(d.name)).forEach(d=>{s+='<circle cx="'+X(d[st.x])+'" cy="'+Y(d[st.y])+'" r="2.5" fill="'+css('--line')+'"/>'});
+ const R=d=>2.5+Math.sqrt(Math.max(0,d.mins-1500))/24;
+ V.slice().sort((a,b)=>b.mins-a.mins).forEach(d=>{const sel=d.name===st.sel;s+='<circle class="dot" data-n="'+d.name.replace(/"/g,'&quot;')+'" cx="'+X(d[st.x])+'" cy="'+Y(d[st.y])+'" r="'+R(d).toFixed(1)+'" fill="'+css(groupOf(d.arch)[2])+'" fill-opacity="'+(sel?1:.7)+'" '+(sel?'stroke="'+css('--ink')+'" stroke-width="2"':'')+'/>'});
+ const lab=new Set(NAMED.map(nm));lab.add(nm(st.sel));
+ V.filter(d=>lab.has(nm(d.name))).forEach(d=>{const x=X(d[st.x]),y=Y(d[st.y]),right=x<w0-120;s+='<text class="lab" x="'+(x+(right?7:-7))+'" y="'+(y-6)+'" text-anchor="'+(right?'start':'end')+'">'+d.name+'</text>'});
+ svg.innerHTML=s;
+ svg.querySelectorAll('.dot').forEach(el=>{
+  el.addEventListener('click',()=>{st.sel=el.dataset.n;render()});
+  el.addEventListener('mousemove',e=>{const d=D.find(p=>p.name===el.dataset.n),t=$('tip');t.style.display='block';t.style.left=Math.min(e.clientX+12,innerWidth-240)+'px';t.style.top=(e.clientY+12)+'px';t.innerHTML=d.name+'<br>Redirect '+f2(d.redirect)+' &middot; Deter '+f2(d.deter)+'<br>Contest '+f2(d.contest)+' &middot; Rim '+f2(d.rim)});
+  el.addEventListener('mouseleave',()=>$('tip').style.display='none');
+ });
+}
+function bar(k,label,cls,v,se){
+ const mx=5,sc=x=>50+Math.max(-1,Math.min(1,x/mx))*50,a=sc(0),b=sc(v);
+ return '<div class="bar"><div class="t"><b class="'+cls+'">'+label+'</b><span>'+f2(v)+' <span style="color:var(--mute)">&plusmn;'+se.toFixed(2)+'</span></span></div><div class="rail"><b></b><i style="left:'+Math.min(a,b)+'%;width:'+Math.abs(b-a)+'%;background:var('+AX[k].c+')"></i><u style="left:'+sc(v-se)+'%;width:'+(sc(v+se)-sc(v-se))+'%"></u></div></div>';
+}
+function card(){
+ const p=D.find(d=>d.name===st.sel);if(!p){$('card').innerHTML='<p class="sub">Pick a player.</p>';return}
+ $('card').innerHTML='<h3>'+p.name+'</h3><div class="sub">'+p.team+' &middot; '+p.mins.toLocaleString()+' defensive minutes &middot; '+p.arch+'</div>'+
+ bar('redirect','Redirect','r',p.redirect,p.rse)+bar('deter','Deter','d',p.deter,p.dse)+bar('contest','Contest','c',p.contest,p.cse)+
+ '<div class="kv"><div class="mono"><b>Rim score '+f2(p.rim)+'</b> &plusmn;'+p.rimse.toFixed(2)+'</div>'+
+ '<div class="mono">Rim rank range: '+p.lo+' to '+p.hi+' of '+D.length+'</div>'+
+ '<div class="mono">Backstop: <b>'+backstop(p.ma)+'</b> <span style="color:var(--mute)">(best shot-blocker playing with him; see key)</span></div>'+
+ '<div style="margin-top:8px;color:var(--mute)">'+explain(p)+'</div></div>';
+}
+function pct(p,k){return D.filter(d=>d[k]<=p[k]).length/D.length}
+function topPct(p,k){const t=Math.round((1-pct(p,k))*100);return t<=0?1:t}
+function explain(p){
+ const o=[],pd=pct(p,'deter'),pc=pct(p,'contest'),pr=pct(p,'redirect'),prim=pct(p,'rim'),L=D.length;
+ const rk=D.filter(d=>d.rim>p.rim).length+1;
+ o.push('Rim score '+f2(p.rim)+', which ranks '+rk+(rk%10==1&&rk!=11?'st':rk%10==2&&rk!=12?'nd':rk%10==3&&rk!=13?'rd':'th')+' of '+L+'. Over repeated resamples of the data his rank ran from '+p.lo+' to '+p.hi+', so read the rank as a range.');
+ const parts=[];
+ if(pd>=.8)parts.push('Deter is a strength (top '+topPct(p,'deter')+'%): teams take fewer shots at the rim with him on the floor');
+ else if(pd<=.2)parts.push('Deter is a weakness (bottom '+Math.max(1,Math.round(pd*100))+'%): teams take more shots at the rim against him');
+ if(pc>=.8)parts.push('Contest is a strength (top '+topPct(p,'contest')+'%): shots at the rim go in less often than they normally would');
+ else if(pc<=.2)parts.push('Contest is a weakness (bottom '+Math.max(1,Math.round(pc*100))+'%): shots at the rim go in more often than they normally would');
+ if(pr>=.8)parts.push('Redirect is a strength (top '+topPct(p,'redirect')+'%): the shots opponents take away from the rim are worse than usual');
+ else if(pr<=.2&&pd>=.6)parts.push('Redirect is low because teams that can\'t reach the rim take more shots from farther out, so that is the flip side of his Deter, not a separate flaw');
+ else if(pr<=.2)parts.push('Redirect is a weakness (bottom '+Math.max(1,Math.round(pr*100))+'%): the shots opponents take away from the rim are better than usual');
+ o.push(parts.length?parts.join('. ')+'.':'No gate stands out. He sits near the middle on all three.');
+ if(p.deter>1.5&&p.contest<0.5&&p.rim>1.5)o.push('Almost all of his rim score is Deter, which is the gate most affected by scheme and role, so treat it as the least certain part.');
+ if(p.contest>0.8&&p.deter>1.5)o.push('He gets credit at both Deter and Contest, which is the strongest kind of rim score.');
+ if(p.ma>=0.9)o.push('Backstop is strong: he played next to a good shot-blocker, so part of his number may reflect that teammate.');
+ else if(p.ma<0.3)o.push('Backstop is little: he had almost no shot-blocking help next to him, so his number is more likely his own.');
+ if(p.mins<2000)o.push('With fewer than 2,000 minutes, the method pulls his numbers toward the middle, so his true numbers are probably a little further from zero than shown.');
+ if(p.hi-p.lo>=30)o.push('The data can\'t separate him from many players near him.');
+ return o.join(' ');
+}
+function table(){
+ const cols=[['name','Player'],['mins','Min'],['redirect','Redirect'],['deter','Deter'],['contest','Contest'],['rim','Rim score'],['hi','Rim rank range'],['ma','Backstop'],['arch','Type']];
+ $('tb').querySelector('thead').innerHTML='<tr>'+cols.map(c=>'<th data-k="'+c[0]+'">'+c[1]+(st.sort===c[0]?(st.dir>0?' ↑':' ↓'):'')+'</th>').join('')+'</tr>';
+ const key=st.sort;let V=vis().slice().sort((a,b)=>(typeof a[key]==='string'?a[key].localeCompare(b[key]):a[key]-b[key])*st.dir);
+ const tot=V.length;if(!st.all)V=V.slice(0,15);
+ const cl=v=>v>0.005?'pos':v<-0.005?'neg':'';
+ $('tb').querySelector('tbody').innerHTML=V.map(d=>'<tr data-n="'+d.name.replace(/"/g,'&quot;')+'"><td>'+d.name+'</td><td>'+d.mins.toLocaleString()+'</td>'+['redirect','deter','contest','rim'].map(k=>'<td class="'+cl(d[k])+'">'+f2(d[k])+'</td>').join('')+'<td>'+d.lo+' to '+d.hi+'</td><td>'+backstop(d.ma)+'</td><td>'+d.arch.replace('Two-gate ','')+'</td></tr>').join('');
+ $('more').textContent=st.all?'Show top 15':'Show all '+tot;
+ $('tb').querySelectorAll('th').forEach(th=>th.addEventListener('click',()=>{let k=th.dataset.k;if(k==='hi')k='rim';if(st.sort===k)st.dir*=-1;else{st.sort=k;st.dir=(k==='name'||k==='arch')?1:-1}table()}));
+ $('tb').querySelectorAll('tbody tr').forEach(tr=>tr.addEventListener('click',()=>{st.sel=tr.dataset.n;render();$('card').scrollIntoView({behavior:'smooth',block:'nearest'})}));
+}
+function types(){
+ $('types').innerHTML=GROUPS.map(g=>'<label><input type="checkbox" data-g="'+g[0]+'" '+(st.on.has(g[0])?'checked':'')+'><span class="sw" style="background:var('+g[2]+')"></span>'+g[0]+'</label>').join('');
+ $('types').querySelectorAll('input').forEach(b=>b.addEventListener('change',()=>{const g=b.dataset.g;b.checked?st.on.add(g):st.on.delete(g);render()}));
+}
+function render(){blend();types();plot();card();table();$('mmv').textContent=st.min.toLocaleString()}
+['xs','ys'].forEach(id=>{const s=$(id);Object.keys(AX).forEach(k=>s.add(new Option(AX[k].n,k)));s.value=id==='xs'?st.x:st.y;s.addEventListener('change',()=>{st[id==='xs'?'x':'y']=s.value;render()})});
+$('mm').addEventListener('input',e=>{st.min=+e.target.value;render()});
+$('q').addEventListener('input',e=>{st.q=e.target.value;const q=nm(e.target.value.trim());if(q){const hit=D.find(d=>nm(d.name).includes(q));if(hit)st.sel=hit.name}render()});
+$('more').addEventListener('click',()=>{st.all=!st.all;table()});
+function setW(){['wr','wd','wc'].forEach(i=>{$(i+'v').textContent=(+$(i).value).toFixed(1)})}
+['wr','wd','wc'].forEach(i=>$(i).addEventListener('input',()=>{W[i[1]]=+$(i).value;setW();render()}));
+$('pre').addEventListener('change',e=>{const v=e.target.value.split(',').map(Number);W.r=v[0];W.d=v[1];W.c=v[2];$('wr').value=v[0];$('wd').value=v[1];$('wc').value=v[2];setW();render()});
+let rt;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(plot,120)});
+matchMedia('(prefers-color-scheme:dark)').addEventListener('change',()=>setTimeout(render,50));
+render();
+</script>
+</body>
+</html>

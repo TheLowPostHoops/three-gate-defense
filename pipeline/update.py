@@ -260,7 +260,7 @@ def main():
                          round(r.contest_se, 2), round(r.rim_se, 2), int(r.rk_lo), int(r.rk_hi), round(r.ma, 2), arcs.index(r.arch)])
     last_game = None
     try:
-        raw = pd.read_csv(os.path.join(DATA, f"shotdetail_{used[-1]}.csv"), usecols=["GAME_DATE"], low_memory=False).GAME_DATE.astype(str)
+        sd = pd.read_csv(os.path.join(DATA, f"shotdetail_{used[-1]}.csv"), usecols=["GAME_ID", "GAME_DATE"], low_memory=False); have = set(int(g) for g in D[used[-1]].gid); raw = sd[sd.GAME_ID.astype(int).isin(have)].GAME_DATE.astype(str)
         last_game = datetime.datetime.strptime(raw.max(), "%Y%m%d").date().isoformat()
     except Exception: pass
     names = {y: f"{y}-{str(y + 1)[2:]}" for y in used}

@@ -8,7 +8,7 @@ Window: the two most recent completed seasons plus the current one. The oldest c
 current season fades in as games are played (weight = games played / 41, capped at 1), so a new season cannot swing
 the numbers in its first few weeks.
 """
-import os, sys, io, re, json, time, tarfile, shutil, pickle, argparse, datetime, subprocess, urllib.request
+import os, sys, io, re, json, unicodedata, time, tarfile, shutil, pickle, argparse, datetime, subprocess, urllib.request
 import numpy as np, pandas as pd, scipy.sparse as sp
 from sklearn.linear_model import Ridge
 
@@ -20,7 +20,9 @@ XR, RA, SC, LAM = 1.331, 26.1, 1000.0, 2500.0       # rim attempts per 100 poss.
 MIN_MINUTES = 1350                                    # defensive minutes needed to be listed
 RAMP_GAMES = 41                                       # games before the current season counts in full
 LEAKY_SHARE = None                                    # filled in below
-SPLINE = (0.027, 0.415, 0.208, 2.0)                   # projection: next-season rim score = a + b*x + c*max(x-knot, 0), from the backtest
+COEF = (0.029, 0.42, 0.627)                          # projection: next-season rim score = a + b*Deter + c*Contest, from the backtest (Contest carries over more per point)
+GATE_D = (0.033, 0.413)                               # next-season Deter = a + b*Deter
+GATE_C = (0.010, 0.274)                               # next-season Contest = a + b*Contest
 PROJ_SD = 0.95                                        # residual spread of that projection in the backtest
 
 
@@ -276,16 +278,19 @@ def main():
         json.dump(new, open(fp, "w", encoding="utf-8"), ensure_ascii=False, separators=(",", ":")); log("wrote players.json", len(rows_out), "players")
     # ---- preseason projection: only written before the new season has games (or when forced)
     if (not cur_has) or a.force_projection:
-        f = lambda x: SPLINE[0] + SPLINE[1] * x + SPLINE[2] * np.maximum(x - SPLINE[3], 0)
-        P["proj"] = f(P.raw_rim); rg = np.random.default_rng(5); S = P.proj.values[None, :] + rg.normal(0, PROJ_SD, (20000, len(P)))
+        cfg = json.load(open(os.path.join(HERE, "settings.json"))); strip = lambda t: "".join(c for c in unicodedata.normalize("NFD", t) if unicodedata.category(c) != "Mn").lower()
+        drop = {strip(n) for n in cfg.get("projection_exclude", [])}                       # players no longer in the league
+        P = P[[strip(n) not in drop for n in P.name]].copy()
+        P["proj"] = COEF[0] + COEF[1] * P.deter + COEF[2] * P.contest; P["proj_d"] = GATE_D[0] + GATE_D[1] * P.deter; P["proj_c"] = GATE_C[0] + GATE_C[1] * P.contest
+        rg = np.random.default_rng(5); S = P.proj.values[None, :] + rg.normal(0, PROJ_SD, (20000, len(P)))
         rk = (-S).argsort(1).argsort(1) + 1; P["p10"] = (rk <= 10).mean(0); P["p1"] = (rk == 1).mean(0)
         P["pr_lo"] = np.percentile(rk, 10, axis=0).round(); P["pr_hi"] = np.percentile(rk, 90, axis=0).round()
         P = P.sort_values("proj", ascending=False)
         proj = []
-        for i, (p, r) in enumerate(P.head(60).iterrows(), 1):
+        for i, (p, r) in enumerate(P.iterrows(), 1):
             proj.append([i, r["name"], r.team, int(round(r.mins)), round(r.raw_rim, 2), round(r.proj, 2), round(r.proj - 1.28 * PROJ_SD, 2), round(r.proj + 1.28 * PROJ_SD, 2),
-                         round(float(r.p10), 3), round(float(r.p1), 3), int(r.pr_lo), int(r.pr_hi), r.arch])
-        pm = dict(season=f"{cur}-{str(cur + 1)[2:]}", built_from=[names[y] for y in used], built_on=today.isoformat(), slope=SPLINE[1], resid_sd=PROJ_SD)
+                         round(float(r.p10), 3), round(float(r.p1), 3), int(r.pr_lo), int(r.pr_hi), r.arch, round(r.deter, 2), round(r.contest, 2), round(r.proj_d, 2), round(r.proj_c, 2)])
+        pm = dict(season=f"{cur}-{str(cur + 1)[2:]}", built_from=[names[y] for y in used], built_on=today.isoformat(), deter_weight=COEF[1], contest_weight=COEF[2], excluded=sorted(cfg.get("projection_exclude", [])), resid_sd=PROJ_SD)
         pp = os.path.join(a.out, "projection.json")
         try: old = json.load(open(pp, encoding="utf-8")); same = old["rows"] == proj and old["meta"]["built_from"] == pm["built_from"]
         except Exception: same = False

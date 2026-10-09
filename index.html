@@ -108,9 +108,10 @@ ul.l{margin:0 0 12px;padding-left:0;list-style:none;max-width:46em}ul.l li{margi
  <div id="card"></div>
 </div>
 
-<h2 id="proj">Projected best rim protectors, <span id="pseason"></span></h2>
+<h2 id="proj">Projected best defenders, <span id="pseason"></span></h2>
 <div id="pwrap" hidden>
 <p class="dek" id="pdek"></p>
+<p class="small" style="margin:0 0 8px">Rank by <select id="pby"><option value="rim">Rim score</option><option value="tot">Total defense</option></select></p>
 <div class="tablewrap"><table id="pt"><thead></thead><tbody></tbody></table></div>
 <button id="pmore"></button>
 <div class="two" id="pgates"></div>
@@ -156,8 +157,27 @@ ul.l{margin:0 0 12px;padding-left:0;list-style:none;max-width:46em}ul.l li{margi
 const J=await (await fetch('data/players.json?'+Date.now())).json();
 const TEAMS=J.teams, ARCH=J.arch, M=J.meta;
 let PJ=null; try{PJ=await (await fetch('data/projection.json?'+Date.now())).json()}catch(e){}
-const D=J.rows.map(a=>({name:a[0],team:TEAMS[a[1]],mins:a[2],redirect:a[3],deter:a[4],contest:a[5],rse:a[6],dse:a[7],cse:a[8],rimse:a[9],lo:a[10],hi:a[11],ma:a[12],arch:ARCH[a[13]]}));
+const D=J.rows.map(a=>({name:a[0],team:TEAMS[a[1]],mins:a[2],redirect:a[3],deter:a[4],contest:a[5],rse:a[6],dse:a[7],cse:a[8],rimse:a[9],lo:a[10],hi:a[11],ma:a[12],arch:ARCH[a[13]],tot:a[14],totse:a[15],reb:a[16],rebse:a[17],tov:a[18],ft:a[19]}));
 D.forEach(d=>{d.rim=+(d.deter+d.contest).toFixed(3)});
+let TK=null; try{TK=await (await fetch('data/tracking.json?'+Date.now())).json()}catch(e){}
+const TKM={};let NBIG=0;
+if(TK){
+ const C=TK.meta.cols,ix=k=>C.indexOf(k),rows=TK.rows.map(r=>{const o={};C.forEach((c,i)=>o[c]=r[i]);o.dconv=o.dreb_chances>0?o.dreb/o.dreb_chances:null;return o});
+ const big=rows.filter(o=>o.rim6_fga>=400);NBIG=big.length;
+ const M2=[['rim6_diff',0,0,'makes shooters miss at the rim more than they normally would','lets shooters make more rim shots than they normally would'],
+  ['dconv',1,0,'turns a high share of defensive-rebound chances into rebounds','secures a low share of his defensive-rebound chances'],
+  ['post_ppp',0,40,'defends post-ups well','gives up a lot of points in post-ups'],
+  ['roll_ppp',0,40,'defends the rolling big man well','gives up a lot of points to the rolling big man in pick-and-roll'],
+  ['pnrbh_ppp',0,60,'holds up when switched onto the ball handler','struggles when switched onto the ball handler'],
+  ['spot_ppp',0,150,'guards spot-up shooters well','gives up a lot of points on spot-up shots (closeouts)'],
+  ['out15_diff',0,250,'contests shots from 15 feet and out well','lets shooters hit more than normal from 15 feet and out'],
+  ['def_mph',1,0,'moves faster than most big men on defense','is slower than most big men on defense'],
+  ['pf36',0,0,'rarely fouls for a big man','fouls a lot for a big man'],
+  ['blk36',1,0,'blocks more shots than most big men','blocks fewer shots than most big men']];
+ const posk={post_ppp:'post_poss',roll_ppp:'roll_poss',pnrbh_ppp:'pnrbh_poss',spot_ppp:'spot_poss',out15_diff:'out15_fga'};
+ big.forEach(o=>{o.good=[];o.bad=[];for(const [k,hi,minp,g,b] of M2){const v=o[k];if(v==null||(minp&&o[posk[k]]<minp))continue;const pool=big.filter(q=>q[k]!=null&&(!minp||q[posk[k]]>=minp));const worse=pool.filter(q=>hi?q[k]<v:q[k]>v).length/pool.length;if(worse>=.8)o.good.push([worse,g]);else if(worse<=.2)o.bad.push([worse,b])}o.good.sort((a,b)=>b[0]-a[0]);o.bad.sort((a,b)=>a[0]-b[0]);o.big=true});
+ const nn=z=>z.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();rows.forEach(o=>TKM[nn(o.name)]=o);
+}
 const AX={redirect:{n:'Redirect',c:'--red'},deter:{n:'Deter',c:'--det'},contest:{n:'Contest',c:'--con'},rim:{n:'Rim score',c:'--ink'},blend:{n:'Your blend',c:'--ink'}};
 const GROUPS=[['Deterrer',['Deterrer'],'--det'],['Contester',['Contester'],'--con'],['Redirector',['Redirector'],'--red'],['Two gates',['Two-gate Contester+Deterrer','Two-gate Contester+Redirector','Three-gate'],'--two'],['Balanced',['Balanced'],'--bal'],['Leaky',['Leaky'],'--lk']];
 const NAMED=['Rudy Gobert','Victor Wembanyama','Chet Holmgren','Draymond Green','Daniel Gafford','Alex Caruso','Donovan Clingan','Isaiah Hartenstein','Cade Cunningham','Derrick White'];
@@ -209,14 +229,37 @@ function card(){
  '<div class="kv"><div class="mono"><b>Rim score '+f2(p.rim)+'</b> &plusmn;'+p.rimse.toFixed(2)+'</div>'+
  '<div class="mono">Rim rank range: '+p.lo+' to '+p.hi+' of '+D.length+'</div>'+
  '<div class="mono">Backstop: <b>'+backstop(p.ma)+'</b> <span style="color:var(--mute)">(best shot-blocker playing with him; see key)</span></div>'+
- projLine(p)+'<div style="margin-top:8px;color:var(--mute)">'+explain(p)+'</div></div>';
+ projLine(p)+totLine(p)+'<div style="margin-top:8px;color:var(--mute)">'+explain(p)+realLife(p)+'</div></div>';
 }
+function ordn(n){return n+(n%10==1&&n!=11?'st':n%10==2&&n!=12?'nd':n%10==3&&n!=13?'rd':'th')}
+function totLine(p){
+ if(p.tot==null)return '';
+ const rt=D.filter(d=>d.tot>p.tot).length+1,rr=D.filter(d=>d.reb>p.reb).length+1;
+ return '<div class="mono">Total defense: <b>'+f2(p.tot)+'</b> &plusmn;'+p.totse.toFixed(2)+', ranks '+rt+' of '+D.length+' <span style="color:var(--mute)">(points per 100 possessions, everything counted)</span></div><div class="mono">Rebounding: <b>'+f2(p.reb)+'</b> &plusmn;'+p.rebse.toFixed(2)+', ranks '+rr+' of '+D.length+' <span style="color:var(--mute)">(opponent offensive rebounds prevented)</span></div>'
+}
+function realLife(p){
+ if(p.tot==null)return '';
+ const rkR=D.filter(d=>d.rim>p.rim).length+1,rkT=D.filter(d=>d.tot>p.tot).length+1;
+ const net=p.redirect+p.deter+p.contest,oth=p.tot-(net+p.reb+p.tov+p.ft);
+ const dr=[['his shot defense overall',net],['rebounding',p.reb],['forcing turnovers',p.tov],['free throws',p.ft],['everything else (fouls and shooting luck)',oth]];
+ const neg=dr.filter(x=>x[1]<=-.5).sort((a,b)=>a[1]-b[1]).slice(0,2),pos=dr.filter(x=>x[1]>=.5).sort((a,b)=>b[1]-a[1]).slice(0,2);
+ const fl=a=>a.map(x=>x[0]+' ('+f2(x[1])+')').join(' and ');
+ let o=' <b style="color:var(--ink)">Everything counted.</b> His total defense is '+f2(p.tot)+' points per 100 possessions, which ranks '+rkT+' of '+D.length+', against '+rkR+' on rim score.';
+ if(rkT-rkR>=20)o+=' The rim numbers are '+(rkT-rkR>=50?'not':'only partly')+' turning into the same rank overall.'+(neg.length?' The biggest drags are '+fl(neg)+'.':'');
+ else if(rkR-rkT>=20)o+=' He is worth more overall than his rim score says.'+(pos.length?' The biggest boosts are '+fl(pos)+'.':'');
+ else o+=' That is in line with his rim rank.';
+ const t=TK&&TKM[nm(p.name)];
+ if(t&&t.big){o+=' <b style="color:var(--ink)">NBA.com tracking, compared with the '+NBIG+' big men who defended 400 or more rim shots over 2024-25 and 2025-26:</b>';
+  if(t.good.length)o+=' he '+t.good.slice(0,4).map(x=>x[1]).join('; ')+'.';
+  if(t.bad.length)o+=' On the other side, he '+t.bad.slice(0,4).map(x=>x[1]).join('; ')+'.';
+  if(!t.good.length&&!t.bad.length)o+=' he is near average on everything tracked.'}
+ return o}
 function projLine(p){
  if(!PJ)return '';
  const ex=(PJ.meta.excluded||[]).some(n=>nm(n)===nm(p.name));
  if(ex)return '<div class="mono">2026-27 projection: <b>left out</b> <span style="color:var(--mute)">(no longer in the league)</span></div>';
  const r=PJ.rows.find(r=>r[1]===p.name);if(!r)return '';
- return '<div class="mono">2026-27 projection: <b>'+f2(r[5])+'</b> rim score, ranks '+r[0]+' of '+PJ.rows.length+' <span style="color:var(--mute)">(80% range '+f2(r[6])+' to '+f2(r[7])+')</span></div>'
+ return '<div class="mono">2026-27 projection: <b>'+f2(r[5])+'</b> rim score, ranks '+r[0]+' of '+PJ.rows.length+' <span style="color:var(--mute)">(80% range '+f2(r[6])+' to '+f2(r[7])+')</span></div>'+(r[17]!=null?'<div class="mono">2026-27 projected total defense: <b>'+f2(r[17])+'</b>, ranks '+r[19]+' of '+PJ.rows.length+'</div>':'')
 }
 function pct(p,k){return D.filter(d=>d[k]<=p[k]).length/D.length}
 function topPct(p,k){const t=Math.round((1-pct(p,k))*100);return t<=0?1:t}
@@ -277,21 +320,22 @@ const fmtDate=s=>{if(!s)return '';const d=new Date(s+'T12:00:00');return d.toLoc
  $('dek').innerHTML='Every NBA defender on three gates: Redirect, Deter and Contest. Based on '+win+' play-by-play.'+extra+' Updated '+fmtDate(M.updated)+(M.data_through?', games through '+fmtDate(M.data_through):'')+'. Click a dot or a row for a player.'+(PJ?' <a href="#proj">Preseason projections</a>.':'');
  $('foot').innerHTML='Method in short: opponent shots are matched to the lineups on the floor and a ridge regression gives each player a value on each gate, adjusted for the offensive players he faced. Expected points come from shot type and location. Standard errors are '+M.resamples+' bootstrap resamples. "Strong" on a gate means roughly the top fifth of this group. Players with fewer than '+M.min_minutes.toLocaleString()+' defensive minutes in the window are left out. Scores are not adjusted for minutes, because the uncertainty in this model barely changes with them: the median rim-score error is about 0.65 for players with 1,350 to 1,700 minutes and for players with 3,500 or more. The method does pull players with fewer minutes toward the middle, so scores under about 2,000 minutes are probably a little understated. Data: NBA play-by-play and shot data from the open nba_data repository, refreshed every Monday morning during the season.';
 })();
-const PS={all:false};
+const PS={all:false,by:'rim'};
 function projection(){
  if(!PJ){return}
- const pm=PJ.meta;$('pwrap').hidden=false;$('pseason').textContent=pm.season;
- $('pdek').innerHTML='Built '+fmtDate(pm.built_on)+' from '+pm.built_from.join(' and ')+'. This is a projection of each player\'s rim score for '+pm.season+', not a measurement, and it is not updated during the season. It pulls the two-season score most of the way back toward average, because that is how much has carried into the following season in the past, and it counts a point of Contest more than a point of Deter, because Contest has carried over better per point. Players no longer in the league are left out.';
- const cols=['#','Player','Team ('+pm.built_from[pm.built_from.length-1]+')','Last two seasons','Projected','80% range','Chance top 10','Type'];
+ const pm=PJ.meta;$('pwrap').hidden=false;$('pseason').textContent=pm.season;const T=PS.by==='tot'&&PJ.rows[0][17]!=null,sd=T?(pm.total_sd||1.25):0.95;
+ $('pdek').innerHTML='Built '+fmtDate(pm.built_on)+' from '+pm.built_from.join(' and ')+'. These are projections for '+pm.season+', not measurements, and they are not updated during the season. <b>Rim score</b> projects the rim number itself. <b>Total defense</b> projects points per 100 possessions saved with everything counted: the three shot gates, rebounding, turnovers forced and free throws. Both pull the two-season numbers most of the way back toward average, because that is how much has carried into the following season in the past. Players no longer in the league are left out.';
+ const cols=['#','Player','Team ('+pm.built_from[pm.built_from.length-1]+')','Last two seasons','Projected','80% range','Chance top 10',T?'Rebounding':'Type'];
  $('pt').querySelector('thead').innerHTML='<tr>'+cols.map(c=>'<th style="cursor:default">'+c+'</th>').join('')+'</tr>';
- let R=PJ.rows;const tot=Math.min(60,R.length);R=R.slice(0,PS.all?60:15);
- $('pt').querySelector('tbody').innerHTML=R.map(r=>'<tr><td>'+r[0]+'</td><td>'+r[1]+'</td><td>'+r[2]+'</td><td>'+f2(r[4])+'</td><td><b>'+f2(r[5])+'</b></td><td>'+f2(r[6])+' to '+f2(r[7])+'</td><td>'+Math.round(r[8]*100)+'%</td><td>'+r[12].replace('Two-gate ','')+'</td></tr>').join('');
+ let R=T?PJ.rows.slice().sort((a,b)=>a[19]-b[19]):PJ.rows;const tot=Math.min(60,R.length);R=R.slice(0,PS.all?60:15);
+ $('pt').querySelector('tbody').innerHTML=R.map((r,i)=>{const cur=T?r[20]:r[4],pr=T?r[17]:r[5],p10=T?r[18]:r[8];return '<tr><td>'+(T?r[19]:r[0])+'</td><td>'+r[1]+'</td><td>'+r[2]+'</td><td>'+f2(cur)+'</td><td><b>'+f2(pr)+'</b></td><td>'+f2(pr-1.28*sd)+' to '+f2(pr+1.28*sd)+'</td><td>'+Math.round(p10*100)+'%</td><td>'+(T?f2(r[21]):r[12].replace('Two-gate ',''))+'</td></tr>'}).join('');
  $('pmore').textContent=PS.all?'Show top 15':'Show top '+tot;
  const mk=(title,idx,cur)=>{const L=PJ.rows.slice().sort((a,b)=>b[idx]-a[idx]).slice(0,10);return '<div><h3>'+title+'</h3><table class="gt"><thead><tr><th>#</th><th>Player</th><th>Last two seasons</th><th>Projected</th></tr></thead><tbody>'+L.map((r,i)=>'<tr><td>'+(i+1)+'</td><td>'+r[1]+'</td><td>'+f2(r[cur])+'</td><td><b>'+f2(r[idx])+'</b></td></tr>').join('')+'</tbody></table></div>'};
  $('pgates').innerHTML=mk('Best projected Deterrers',15,13)+mk('Best projected Contesters',16,14);
- $('pnote').innerHTML='<b>How well this has worked.</b> Over the past 8 seasons, a point of Contest carried about 0.63 of a point into the next season\'s rim score and a point of Deter about 0.42, so the projection counts Contest more. Of the 10 players projected highest, about 3 on average finished in the next season\'s top 10 on the same measure; picking 10 at random would give fewer than 1. Treat the list as who is most likely, not who is certain. It knows nothing about injuries, age, trades, contract situations or role changes since last season, and the team shown is where the player last played. The two short lists are projected one gate at a time. Contest varies much less from player to player than Deter, so its numbers are smaller.';
+ $('pnote').innerHTML='<b>How well this has worked.</b> Over the past 8 seasons, a point of Contest carried about 0.63 of a point into the next season\'s rim score and a point of Deter about 0.42, so the rim projection counts Contest more. Of the 10 players projected highest, about 3 on average finished in the next season\'s top 10 on the same measure; picking 10 at random would give fewer than 1. The total-defense projection is a little less accurate in absolute terms because total defense is noisier (typical miss about 1.25 points per 100 possessions against 0.95 for the rim score), and it also gets about 3 of 10. Age and rebounding on their own did not improve either projection in the backtest. Treat the lists as who is most likely, not who is certain. They know nothing about injuries, trades, contract situations or role changes since last season, and the team shown is where the player last played. The two short lists are projected one gate at a time. Contest varies much less from player to player than Deter, so its numbers are smaller.';
 }
 $('pmore').addEventListener('click',()=>{PS.all=!PS.all;projection()});
+$('pby').addEventListener('change',e=>{PS.by=e.target.value;PS.all=false;projection()});
 projection();
 render();
 </script>

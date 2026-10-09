@@ -74,6 +74,11 @@ ul.l{margin:0 0 12px;padding-left:0;list-style:none;max-width:46em}ul.l li{margi
 #pt td:nth-child(2),#pt th:nth-child(2),#pt td:nth-child(3),#pt th:nth-child(3){text-align:left}
 #pt td:nth-child(2){font-weight:600}#pt td:first-child{font-weight:400;color:var(--mute)}
 #pmore{margin-top:10px}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;margin-top:30px}
+@media(max-width:820px){.two{grid-template-columns:minmax(0,1fr)}}
+.two h3{font:700 .72rem/1.2 -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;margin:0 0 6px}
+.gt{min-width:0}.gt th{cursor:default;position:static}.gt tbody tr{cursor:default}
+.gt td:nth-child(2),.gt th:nth-child(2){text-align:left}.gt td:last-child,.gt th:last-child{text-align:right}.gt td:first-child{color:var(--mute);font-weight:400}.gt td:nth-child(2){font-weight:600}
 </style>
 </head>
 <body>
@@ -108,6 +113,7 @@ ul.l{margin:0 0 12px;padding-left:0;list-style:none;max-width:46em}ul.l li{margi
 <p class="dek" id="pdek"></p>
 <div class="tablewrap"><table id="pt"><thead></thead><tbody></tbody></table></div>
 <button id="pmore"></button>
+<div class="two" id="pgates"></div>
 <p class="small" id="pnote" style="margin:12px 0 0;color:var(--mute);max-width:72ch"></p>
 </div>
 
@@ -203,7 +209,14 @@ function card(){
  '<div class="kv"><div class="mono"><b>Rim score '+f2(p.rim)+'</b> &plusmn;'+p.rimse.toFixed(2)+'</div>'+
  '<div class="mono">Rim rank range: '+p.lo+' to '+p.hi+' of '+D.length+'</div>'+
  '<div class="mono">Backstop: <b>'+backstop(p.ma)+'</b> <span style="color:var(--mute)">(best shot-blocker playing with him; see key)</span></div>'+
- '<div style="margin-top:8px;color:var(--mute)">'+explain(p)+'</div></div>';
+ projLine(p)+'<div style="margin-top:8px;color:var(--mute)">'+explain(p)+'</div></div>';
+}
+function projLine(p){
+ if(!PJ)return '';
+ const ex=(PJ.meta.excluded||[]).some(n=>nm(n)===nm(p.name));
+ if(ex)return '<div class="mono">2026-27 projection: <b>left out</b> <span style="color:var(--mute)">(no longer in the league)</span></div>';
+ const r=PJ.rows.find(r=>r[1]===p.name);if(!r)return '';
+ return '<div class="mono">2026-27 projection: <b>'+f2(r[5])+'</b> rim score, ranks '+r[0]+' of '+PJ.rows.length+' <span style="color:var(--mute)">(80% range '+f2(r[6])+' to '+f2(r[7])+')</span></div>'
 }
 function pct(p,k){return D.filter(d=>d[k]<=p[k]).length/D.length}
 function topPct(p,k){const t=Math.round((1-pct(p,k))*100);return t<=0?1:t}
@@ -220,7 +233,8 @@ function explain(p){
  else if(pr<=.2&&pd>=.6)parts.push('Redirect is low because teams that can\'t reach the rim take more shots from farther out, so that is the flip side of his Deter, not a separate flaw');
  else if(pr<=.2)parts.push('Redirect is a weakness (bottom '+Math.max(1,Math.round(pr*100))+'%): the shots opponents take away from the rim are better than usual');
  o.push(parts.length?parts.join('. ')+'.':'No gate stands out. He sits near the middle on all three.');
- if(p.deter>1.5&&p.contest<0.5&&p.rim>1.5)o.push('Almost all of his rim score is Deter, which is the gate most affected by scheme and role, so treat it as the least certain part.');
+ if(pd>=.8&&p.contest<0.5){const c=p.contest;o.push('Almost all of his rim score is Deter ('+f2(p.deter)+' Deter, '+f2(c)+' Contest). Teams really do take fewer shots at the rim against him. '+(c>0.15?'The shots that do go up miss only slightly more often than average. Contest scores are small for everyone, so a top-fifth rank there is a small effect.':c>=-0.15?'The shots that do go up are made about as often as average.':'The shots that do go up go in a bit more often than average.')+' Deter is also the gate most affected by scheme and role, so treat it as the least certain part.')}
+ if(pc>=.8&&p.deter<1.5)o.push('His value is mostly in Contest: shots at the rim miss more often with him there, and he does less than the top Deterrers to keep teams from taking them.');
  if(p.contest>0.8&&p.deter>1.5)o.push('He gets credit at both Deter and Contest, which is the strongest kind of rim score.');
  if(p.ma>=0.9)o.push('Backstop is strong: he played next to a good shot-blocker, so part of his number may reflect that teammate.');
  else if(p.ma<0.3)o.push('Backstop is little: he had almost no shot-blocking help next to him, so his number is more likely his own.');
@@ -267,13 +281,15 @@ const PS={all:false};
 function projection(){
  if(!PJ){return}
  const pm=PJ.meta;$('pwrap').hidden=false;$('pseason').textContent=pm.season;
- $('pdek').innerHTML='Built '+fmtDate(pm.built_on)+' from '+pm.built_from.join(' and ')+'. This is a projection of each player\'s rim score for '+pm.season+', not a measurement, and it is not updated during the season. It starts from the two-season rim score and pulls it most of the way back toward average, because that is how much of a rim score has carried into the following season in the past.';
+ $('pdek').innerHTML='Built '+fmtDate(pm.built_on)+' from '+pm.built_from.join(' and ')+'. This is a projection of each player\'s rim score for '+pm.season+', not a measurement, and it is not updated during the season. It pulls the two-season score most of the way back toward average, because that is how much has carried into the following season in the past, and it counts a point of Contest more than a point of Deter, because Contest has carried over better per point. Players no longer in the league are left out.';
  const cols=['#','Player','Team ('+pm.built_from[pm.built_from.length-1]+')','Last two seasons','Projected','80% range','Chance top 10','Type'];
  $('pt').querySelector('thead').innerHTML='<tr>'+cols.map(c=>'<th style="cursor:default">'+c+'</th>').join('')+'</tr>';
- let R=PJ.rows;const tot=R.length;if(!PS.all)R=R.slice(0,15);
+ let R=PJ.rows;const tot=Math.min(60,R.length);R=R.slice(0,PS.all?60:15);
  $('pt').querySelector('tbody').innerHTML=R.map(r=>'<tr><td>'+r[0]+'</td><td>'+r[1]+'</td><td>'+r[2]+'</td><td>'+f2(r[4])+'</td><td><b>'+f2(r[5])+'</b></td><td>'+f2(r[6])+' to '+f2(r[7])+'</td><td>'+Math.round(r[8]*100)+'%</td><td>'+r[12].replace('Two-gate ','')+'</td></tr>').join('');
  $('pmore').textContent=PS.all?'Show top 15':'Show top '+tot;
- $('pnote').innerHTML='<b>How well this has worked.</b> Over the past 8 seasons, two-season rim scores kept about 0.43 of their distance from average into the next season (correlation 0.51). Of the 10 players projected highest, about 3 on average finished in the next season\'s top 10 on the same measure; picking 10 at random would give fewer than 1. So treat the list as who is most likely, not who is certain. It knows nothing about injuries, age, trades, contract situations or role changes since last season, and the team shown is where the player last played.';
+ const mk=(title,idx,cur)=>{const L=PJ.rows.slice().sort((a,b)=>b[idx]-a[idx]).slice(0,10);return '<div><h3>'+title+'</h3><table class="gt"><thead><tr><th>#</th><th>Player</th><th>Last two seasons</th><th>Projected</th></tr></thead><tbody>'+L.map((r,i)=>'<tr><td>'+(i+1)+'</td><td>'+r[1]+'</td><td>'+f2(r[cur])+'</td><td><b>'+f2(r[idx])+'</b></td></tr>').join('')+'</tbody></table></div>'};
+ $('pgates').innerHTML=mk('Best projected Deterrers',15,13)+mk('Best projected Contesters',16,14);
+ $('pnote').innerHTML='<b>How well this has worked.</b> Over the past 8 seasons, a point of Contest carried about 0.63 of a point into the next season\'s rim score and a point of Deter about 0.42, so the projection counts Contest more. Of the 10 players projected highest, about 3 on average finished in the next season\'s top 10 on the same measure; picking 10 at random would give fewer than 1. Treat the list as who is most likely, not who is certain. It knows nothing about injuries, age, trades, contract situations or role changes since last season, and the team shown is where the player last played. The two short lists are projected one gate at a time. Contest varies much less from player to player than Deter, so its numbers are smaller.';
 }
 $('pmore').addEventListener('click',()=>{PS.all=!PS.all;projection()});
 projection();

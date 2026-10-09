@@ -89,7 +89,7 @@ def run(year):
                 if secs > 0 or any(acc.values()):
                     ph = acc["fga_h"] + 0.44 * acc["fta_h"] - acc["orb_h"] + acc["tov_h"]
                     pv = acc["fga_v"] + 0.44 * acc["fta_v"] - acc["orb_v"] + acc["tov_v"]
-                    game_stints.append((gid, per, tuple(sorted(lineup["H"])), tuple(sorted(lineup["V"])), secs, acc["pts_h"], acc["pts_v"], ph, pv))
+                    game_stints.append((gid, per, tuple(sorted(lineup["H"])), tuple(sorted(lineup["V"])), secs, acc["pts_h"], acc["pts_v"], ph, pv, acc["orb_h"], acc["orb_v"], acc["tov_h"], acc["tov_v"], acc["fta_h"], acc["fta_v"], acc["fga_h"], acc["fga_v"]))
                     for s in "HV":
                         for p in lineup[s]: T(p, tally)["sec"] += secs
                 acc = dict(pts_h=0, pts_v=0, fga_h=0, fga_v=0, fta_h=0, fta_v=0, orb_h=0, orb_v=0, tov_h=0, tov_v=0)
@@ -160,7 +160,7 @@ def run(year):
                 flush(0)
             prev_end = {"H": set(lineup["H"]), "V": set(lineup["V"])}
         if game_ok:
-            stints.extend((year,) + s + (home_id, vis_id) for s in game_stints)
+            stints.extend((year,) + s[:9] + (home_id, vis_id) + s[9:] for s in game_stints)
         else:
             stats["bad_games"] += 1
     return stints, tally, stats

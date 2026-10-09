@@ -81,7 +81,8 @@ def run(year):
                 prev_end = {"H": set(), "V": set()}
                 continue
             # ---- walk the period
-            acc = dict(pts_h=0, pts_v=0, fga_h=0, fga_v=0, fta_h=0, fta_v=0, orb_h=0, orb_v=0, tov_h=0, tov_v=0)
+            acc = dict(pts_h=0, pts_v=0, fga_h=0, fga_v=0, fta_h=0, fta_v=0, orb_h=0, orb_v=0, tov_h=0, tov_v=0, trp_h=0, trp_v=0, trt_h=0, trt_v=0)
+            cur = [None]
             t_flush = plen; pending = []; last_miss_side = None
             def flush(t_now):
                 nonlocal acc, t_flush
@@ -89,11 +90,23 @@ def run(year):
                 if secs > 0 or any(acc.values()):
                     ph = acc["fga_h"] + 0.44 * acc["fta_h"] - acc["orb_h"] + acc["tov_h"]
                     pv = acc["fga_v"] + 0.44 * acc["fta_v"] - acc["orb_v"] + acc["tov_v"]
-                    game_stints.append((gid, per, tuple(sorted(lineup["H"])), tuple(sorted(lineup["V"])), secs, acc["pts_h"], acc["pts_v"], ph, pv, acc["orb_h"], acc["orb_v"], acc["tov_h"], acc["tov_v"], acc["fta_h"], acc["fta_v"], acc["fga_h"], acc["fga_v"]))
+                    game_stints.append((gid, per, tuple(sorted(lineup["H"])), tuple(sorted(lineup["V"])), secs, acc["pts_h"], acc["pts_v"], ph, pv, acc["orb_h"], acc["orb_v"], acc["tov_h"], acc["tov_v"], acc["fta_h"], acc["fta_v"], acc["fga_h"], acc["fga_v"], acc["trp_h"], acc["trp_v"], acc["trt_h"], acc["trt_v"]))
                     for s in "HV":
                         for p in lineup[s]: T(p, tally)["sec"] += secs
-                acc = dict(pts_h=0, pts_v=0, fga_h=0, fga_v=0, fta_h=0, fta_v=0, orb_h=0, orb_v=0, tov_h=0, tov_v=0)
+                acc = dict(pts_h=0, pts_v=0, fga_h=0, fga_v=0, fta_h=0, fta_v=0, orb_h=0, orb_v=0, tov_h=0, tov_v=0, trp_h=0, trp_v=0, trt_h=0, trt_v=0)
                 t_flush = t_now
+            def close_poss():
+                c = cur[0]
+                if c is not None and c["live"] and c["shot"] is not None and c["shot"] <= 8:
+                    k = c["side"].lower(); acc["trp_" + k] += 1; acc["trt_" + k] += c["pts"]
+                cur[0] = None
+            def open_poss(side, t, live):
+                close_poss(); cur[0] = dict(side=side, start=t, live=live, shot=None, pts=0)
+            def see_action(side, t):
+                c = cur[0]
+                if c is None or c["side"] != side:
+                    open_poss(side, t, False); c = cur[0]
+                if c["shot"] is None: c["shot"] = c["start"] - t
             for e in pe:
                 et = e.EVENTMSGTYPE; tnow = tsec(e.PCTIMESTRING)
                 if et == 8:
@@ -115,7 +128,9 @@ def run(year):
                 sc = parse_score(e.SCORE)
                 if sc is not None:
                     dv, dh = sc[0] - last_score[0], sc[1] - last_score[1]
-                    if 0 <= dv <= 4 and 0 <= dh <= 4: acc["pts_v"] += dv; acc["pts_h"] += dh
+                    if 0 <= dv <= 4 and 0 <= dh <= 4:
+                        acc["pts_v"] += dv; acc["pts_h"] += dh
+                        if cur[0] is not None: cur[0]["pts"] += (dh if cur[0]["side"] == "H" else dv)
                     last_score = sc
                 s1 = SIDE.get(e.PERSON1TYPE)
                 desc = e.HOMEDESCRIPTION + " " + e.VISITORDESCRIPTION
@@ -125,6 +140,7 @@ def run(year):
                         stats["acts"] += 1
                         if e.PLAYER1_ID not in lineup[s1]: stats["off_court"] += 1
                 if et in (1, 2) and s1:
+                    see_action(s1, tnow)
                     acc["fga_" + s1.lower()] += 1
                     p = T(e.PLAYER1_ID, tally); p["fga"] += 1
                     is3 = "3PT" in desc
@@ -135,10 +151,12 @@ def run(year):
                         if e.PERSON2TYPE in (4, 5) and e.PLAYER2_ID: T(e.PLAYER2_ID, tally)["ast"] += 1
                         else: p["ufgm"] += 1
                         last_miss_side = None
+                        open_poss("V" if s1 == "H" else "H", tnow, False)
                     else:
                         last_miss_side = s1
                         if e.PERSON3TYPE in (4, 5) and e.PLAYER3_ID: T(e.PLAYER3_ID, tally)["blk"] += 1
                 elif et == 3 and e.EVENTMSGACTIONTYPE not in TECH_FT and s1:
+                    see_action(s1, tnow)
                     acc["fta_" + s1.lower()] += 1
                     p = T(e.PLAYER1_ID, tally); p["fta"] += 1
                     if "MISS" in desc: last_miss_side = s1
@@ -148,14 +166,17 @@ def run(year):
                     if s and last_miss_side:
                         off = (s == last_miss_side)
                         if off: acc["orb_" + s.lower()] += 1
+                        else: open_poss(s, tnow, True)
                         if e.PERSON1TYPE in (4, 5) and e.PLAYER1_ID:
                             T(e.PLAYER1_ID, tally)["oreb" if off else "dreb"] += 1
                     last_miss_side = None
                 elif et == 5 and s1:
                     acc["tov_" + s1.lower()] += 1
+                    open_poss("V" if s1 == "H" else "H", tnow, bool(e.PERSON2TYPE in (4, 5) and e.PLAYER2_ID))
                     if e.PERSON1TYPE in (4, 5) and e.PLAYER1_ID: T(e.PLAYER1_ID, tally)["tov"] += 1
                     if e.PERSON2TYPE in (4, 5) and e.PLAYER2_ID: T(e.PLAYER2_ID, tally)["stl"] += 1
                     last_miss_side = None
+            close_poss()
             if pending:
                 flush(0)
             prev_end = {"H": set(lineup["H"]), "V": set(lineup["V"])}

@@ -111,7 +111,7 @@ ul.l{margin:0 0 12px;padding-left:0;list-style:none;max-width:46em}ul.l li{margi
 <h2 id="proj">Projected best defenders, <span id="pseason"></span></h2>
 <div id="pwrap" hidden>
 <p class="dek" id="pdek"></p>
-<p class="small" style="margin:0 0 8px">Rank by <select id="pby"><option value="rim">Rim score</option><option value="tot">Total defense</option></select></p>
+<p class="small" style="margin:0 0 8px">Rank by <select id="pby"><option value="rim">Rim score</option><option value="tot">Total defense (exploratory)</option></select></p>
 <div class="tablewrap"><table id="pt"><thead></thead><tbody></tbody></table></div>
 <button id="pmore"></button>
 <div class="two" id="pgates"></div>
@@ -235,7 +235,7 @@ function ordn(n){return n+(n%10==1&&n!=11?'st':n%10==2&&n!=12?'nd':n%10==3&&n!=1
 function totLine(p){
  if(p.tot==null)return '';
  const rt=D.filter(d=>d.tot>p.tot).length+1,rr=D.filter(d=>d.reb>p.reb).length+1;
- return '<div class="mono">Total defense: <b>'+f2(p.tot)+'</b> &plusmn;'+p.totse.toFixed(2)+', ranks '+rt+' of '+D.length+' <span style="color:var(--mute)">(points per 100 possessions, everything counted)</span></div><div class="mono">Rebounding: <b>'+f2(p.reb)+'</b> &plusmn;'+p.rebse.toFixed(2)+', ranks '+rr+' of '+D.length+' <span style="color:var(--mute)">(opponent offensive rebounds prevented)</span></div>'
+ return '<div class="mono">Total defense (exploratory): <b>'+f2(p.tot)+'</b> &plusmn;'+p.totse.toFixed(2)+', ranks '+rt+' of '+D.length+' <span style="color:var(--mute)">(points per 100 possessions, everything counted)</span></div><div class="mono">Rebounding: <b>'+f2(p.reb)+'</b> &plusmn;'+p.rebse.toFixed(2)+', ranks '+rr+' of '+D.length+' <span style="color:var(--mute)">(opponent offensive rebounds prevented)</span></div>'
 }
 function realLife(p){
  if(p.tot==null)return '';
@@ -244,12 +244,12 @@ function realLife(p){
  const dr=[['his shot defense overall',net],['rebounding',p.reb],['forcing turnovers',p.tov],['free throws',p.ft],['everything else (fouls and shooting luck)',oth]];
  const neg=dr.filter(x=>x[1]<=-.5).sort((a,b)=>a[1]-b[1]).slice(0,2),pos=dr.filter(x=>x[1]>=.5).sort((a,b)=>b[1]-a[1]).slice(0,2);
  const fl=a=>a.map(x=>x[0]+' ('+f2(x[1])+')').join(' and ');
- let o=' <b style="color:var(--ink)">Everything counted.</b> His total defense is '+f2(p.tot)+' points per 100 possessions, which ranks '+rkT+' of '+D.length+', against '+rkR+' on rim score.';
+ let o=' <b style="color:var(--ink)">Everything counted (exploratory).</b> His total defense is '+f2(p.tot)+' points per 100 possessions, which ranks '+rkT+' of '+D.length+', against '+rkR+' on rim score.';
  if(rkT-rkR>=20)o+=' The rim numbers are '+(rkT-rkR>=50?'not':'only partly')+' turning into the same rank overall.'+(neg.length?' The biggest drags are '+fl(neg)+'.':'');
  else if(rkR-rkT>=20)o+=' He is worth more overall than his rim score says.'+(pos.length?' The biggest boosts are '+fl(pos)+'.':'');
  else o+=' That is in line with his rim rank.';
  const t=TK&&TKM[nm(p.name)];
- if(t&&t.big){o+=' <b style="color:var(--ink)">NBA.com tracking, compared with the '+NBIG+' big men who defended 400 or more rim shots over 2024-25 and 2025-26:</b>';
+ if(t&&t.big){o+=' <b style="color:var(--ink)">NBA.com tracking, compared with the '+NBIG+' big men who defended 400 or more rim shots over 2024-25 and 2025-26 (descriptive only, these numbers did not improve forecasts when tested):</b>';
   if(t.good.length)o+=' he '+t.good.slice(0,4).map(x=>x[1]).join('; ')+'.';
   if(t.bad.length)o+=' On the other side, he '+t.bad.slice(0,4).map(x=>x[1]).join('; ')+'.';
   if(!t.good.length&&!t.bad.length)o+=' he is near average on everything tracked.'}
@@ -259,7 +259,7 @@ function projLine(p){
  const ex=(PJ.meta.excluded||[]).some(n=>nm(n)===nm(p.name));
  if(ex)return '<div class="mono">2026-27 projection: <b>left out</b> <span style="color:var(--mute)">(no longer in the league)</span></div>';
  const r=PJ.rows.find(r=>r[1]===p.name);if(!r)return '';
- return '<div class="mono">2026-27 projection: <b>'+f2(r[5])+'</b> rim score, ranks '+r[0]+' of '+PJ.rows.length+' <span style="color:var(--mute)">(80% range '+f2(r[6])+' to '+f2(r[7])+')</span></div>'+(r[17]!=null?'<div class="mono">2026-27 projected total defense: <b>'+f2(r[17])+'</b>, ranks '+r[19]+' of '+PJ.rows.length+'</div>':'')
+ return '<div class="mono">2026-27 projection: <b>'+f2(r[5])+'</b> rim score, ranks '+r[0]+' of '+PJ.rows.length+' <span style="color:var(--mute)">(80% range '+f2(r[6])+' to '+f2(r[7])+')</span></div>'+(r[17]!=null?'<div class="mono">2026-27 projected total defense (exploratory): <b>'+f2(r[17])+'</b>, ranks '+r[19]+' of '+PJ.rows.length+'</div>':'')
 }
 function pct(p,k){return D.filter(d=>d[k]<=p[k]).length/D.length}
 function topPct(p,k){const t=Math.round((1-pct(p,k))*100);return t<=0?1:t}
@@ -332,7 +332,7 @@ function projection(){
  $('pmore').textContent=PS.all?'Show top 15':'Show top '+tot;
  const mk=(title,idx,cur)=>{const L=PJ.rows.slice().sort((a,b)=>b[idx]-a[idx]).slice(0,10);return '<div><h3>'+title+'</h3><table class="gt"><thead><tr><th>#</th><th>Player</th><th>Last two seasons</th><th>Projected</th></tr></thead><tbody>'+L.map((r,i)=>'<tr><td>'+(i+1)+'</td><td>'+r[1]+'</td><td>'+f2(r[cur])+'</td><td><b>'+f2(r[idx])+'</b></td></tr>').join('')+'</tbody></table></div>'};
  $('pgates').innerHTML=mk('Best projected Deterrers',15,13)+mk('Best projected Contesters',16,14);
- $('pnote').innerHTML='<b>How well this has worked.</b> Over the past 8 seasons, a point of Contest carried about 0.63 of a point into the next season\'s rim score and a point of Deter about 0.42, so the rim projection counts Contest more. Of the 10 players projected highest, about 3 on average finished in the next season\'s top 10 on the same measure; picking 10 at random would give fewer than 1. The total-defense projection is a little less accurate in absolute terms because total defense is noisier (typical miss about 1.25 points per 100 possessions against 0.95 for the rim score), and it also gets about 3 of 10. Age and rebounding on their own did not improve either projection in the backtest. Treat the lists as who is most likely, not who is certain. They know nothing about injuries, trades, contract situations or role changes since last season, and the team shown is where the player last played. The two short lists are projected one gate at a time. Contest varies much less from player to player than Deter, so its numbers are smaller.';
+ $('pnote').innerHTML='<b>How well this has worked.</b> Over the past 8 seasons, a point of Contest carried about 0.63 of a point into the next season\'s rim score and a point of Deter about 0.42, so the rim projection counts Contest more. Of the 10 players projected highest, about 3 on average finished in the next season\'s top 10 on the same measure; picking 10 at random would give fewer than 1. The total-defense projection is a little less accurate in absolute terms because total defense is noisier (typical miss about 1.25 points per 100 possessions against 0.95 for the rim score), and it also gets about 3 of 10. Age, height, rebounding, extra seasons of data and the NBA.com tracking numbers were each tested as additions to the projection and none cleared its pre-set bar, so none is in it. Total defense passed three of four pre-set tests (repeatability 0.38, repeatability for players who changed teams 0.30, and next-season team forecast 0.57 against 0.53 for last year\'s team) and narrowly failed the fourth, independence from teammates (0.15 against a bar of under 0.15), which is why it is labeled exploratory. Treat the lists as who is most likely, not who is certain. They know nothing about injuries, trades, contract situations or role changes since last season, and the team shown is where the player last played. The two short lists are projected one gate at a time. Contest varies much less from player to player than Deter, so its numbers are smaller.';
 }
 $('pmore').addEventListener('click',()=>{PS.all=!PS.all;projection()});
 $('pby').addEventListener('change',e=>{PS.by=e.target.value;PS.all=false;projection()});

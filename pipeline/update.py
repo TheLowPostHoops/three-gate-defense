@@ -28,6 +28,7 @@ TOT_SD = 1.253                                        # residual spread of that 
 PROJ_SD = 0.925                                       # residual spread of that projection in the backtest (typical miss 0.92)
 # rim projection also uses individual play-by-play events per 36 minutes (blocks, steals, shooting fouls, other fouls, charges drawn, defensive rebounds); passed its pre-set test
 RIMX = dict(a=0.0381, deter=0.3623, contest=0.4272, blk=0.0789, stl=0.0319, sfl=0.0525, pf=-0.0071, chg=0.1123, dreb=0.0799)   # fitted with each rate capped at 3 spreads from the mean
+MIN_ALONE = 400                                       # alone minutes needed before Carry is shown
 EVMS = dict(blk=(0.765, 0.6257), stl=(1.1979, 0.3967), sfl=(1.4688, 0.5202), pf=(1.139, 0.3704), chg=(0.0774, 0.107), dreb=(5.166, 1.9729))   # backtest mean and spread of each per-36 rate
 
 
@@ -178,6 +179,38 @@ def backstop(d, z):
     return {p: num[p] / den[p] for p in num}
 
 
+
+def fit_alone(d, target, w, alone):
+    """ridge fit with one extra column per defender, on only in the stints where he is the only top-fifth rim protector on the floor (so his 'alone' effect is pulled toward his overall effect)"""
+    pl = sorted(set(p for t in d.att for p in t) | set(p for t in d.deff for p in t)); idx = {p: i for i, p in enumerate(pl)}; n = len(pl); r_, c_ = [], []
+    for i, (a, df, al) in enumerate(zip(d.att.values, d.deff.values, alone)):
+        for p in a: r_.append(i); c_.append(idx[p])
+        for j, p in enumerate(df):
+            r_.append(i); c_.append(n + idx[p])
+            if al[j]: r_.append(i); c_.append(2 * n + idx[p])
+    X = sp.csr_matrix((np.ones(len(r_)), (r_, c_)), shape=(len(d), 3 * n))
+    m = Ridge(alpha=LAM, solver="sparse_cg", max_iter=3000, tol=1e-6).fit(X, d[target].values, sample_weight=w)
+    return idx, m.coef_[n:2 * n], m.coef_[2 * n:]
+
+
+def carry_x(d, P):
+    """Carry: rim score (Deter + Contest) in stints with no OTHER top-fifth rim protector on the floor; top fifth = 80th percentile of the rim score among listed players"""
+    rim = (P.deter + P.contest).to_dict(); thr = np.percentile(list(rim.values()), 80); Q = {p for p, v in rim.items() if v >= thr}
+    alone, asec = [], {}
+    for df, s, wm in zip(d.deff.values, d.secs.values, d.wm.values):
+        al = []
+        for p in df:
+            a = not any((o in Q) for o in df if o != p); al.append(a)
+            if a: asec[p] = asec.get(p, 0) + s * wm
+        alone.append(al)
+    wm = d.wm.values; ix, cd, cda = fit_alone(d, "deter", d.poss.values * wm, alone); _, cc, cca = fit_alone(d, "contest", d.rn.values * wm, alone)
+    out = {}
+    for p in P.index:
+        mins = asec.get(p, 0) / 60
+        out[p] = (-(cd[ix[p]] + cda[ix[p]]) * XR - (cc[ix[p]] + cca[ix[p]]) / 100 * 2 * RA, mins) if p in ix else (np.nan, 0.0)
+    return out
+
+
 def latest_team(frames):
     """team of the most recent season the player appeared in; 'Multiple teams' if he had more than one in that season."""
     out = {}
@@ -296,13 +329,18 @@ def main():
     R["rk"] = R.groupby("b").rim.rank(ascending=False); q = R.groupby("pid").rk.quantile([.05, .95]).unstack()
     P["rk_lo"] = q[.05].round(); P["rk_hi"] = q[.95].round(); P["raw_rim"] = P.deter + P.contest
     P = P.dropna(subset=["rim_se"]); P["name"] = [NAMES.get(p, str(p)) for p in P.index]
+    # events (blocks + steals + charges drawn) per 36 defensive minutes, weighted by season weight, and the Event gap (events beyond what his total defense explains)
+    EVS = {y: season_events(y, set(int(x) for x in D[y].gid)) for y in used}
+    P["ev36"] = [sum(W[y] * (EVS[y].get(p, {}).get("blk", 0) + EVS[y].get(p, {}).get("stl", 0) + EVS[y].get(p, {}).get("chg", 0)) for y in used) / P.mins[p] * 36 for p in P.index]
+    ze = (P.ev36 - P.ev36.mean()) / P.ev36.std(); zt = (P.total - P.total.mean()) / P.total.std(); rho = float(np.corrcoef(ze, zt)[0, 1]); P["egap"] = ze - rho * zt
+    CY = carry_x(d, P); P["carry"] = [CY[p][0] if CY[p][1] >= MIN_ALONE else np.nan for p in P.index]; log("carry shown for", int(P.carry.notna().sum()), "players; event gap rho", round(rho, 3))
     leaky_share = float(json.load(open(os.path.join(HERE, "settings.json")))["leaky_share"])
     P["arch"] = ordinal_arch(P, leaky_share); P = P.sort_values("raw_rim", ascending=False)
     # ---- write explorer data
     teams = sorted(set(P.team)); arcs = sorted(set(P.arch)); rows_out = []
     for p, r in P.iterrows():
         rows_out.append([r["name"], teams.index(r.team), int(round(r.mins)), round(r.redirect, 2), round(r.deter, 2), round(r.contest, 2), round(r.redirect_se, 2), round(r.deter_se, 2),
-                         round(r.contest_se, 2), round(r.rim_se, 2), int(r.rk_lo), int(r.rk_hi), round(r.ma, 2), arcs.index(r.arch), round(r.total, 2), round(r.total_se, 2), round(r.reb, 2), round(r.reb_se, 2), round(r.tov, 2), round(r.ft, 2), round(r.tr, 2)])
+                         round(r.contest_se, 2), round(r.rim_se, 2), int(r.rk_lo), int(r.rk_hi), round(r.ma, 2), arcs.index(r.arch), round(r.total, 2), round(r.total_se, 2), round(r.reb, 2), round(r.reb_se, 2), round(r.tov, 2), round(r.ft, 2), round(r.tr, 2), (None if r.carry != r.carry else round(r.carry, 2)), round(r.egap, 2), round(r.ev36, 2)])
     last_game = None
     try:
         sd = pd.read_csv(os.path.join(DATA, f"shotdetail_{used[-1]}.csv"), usecols=["GAME_ID", "GAME_DATE"], low_memory=False); have = set(int(g) for g in D[used[-1]].gid); raw = sd[sd.GAME_ID.astype(int).isin(have)].GAME_DATE.astype(str)
@@ -326,7 +364,7 @@ def main():
         P = P[[strip(n) not in drop for n in P.name]].copy()
         EV = {}
         for y in used:
-            for p, v in season_events(y, set(int(x) for x in D[y].gid)).items():
+            for p, v in EVS[y].items():
                 u = EV.setdefault(p, dict(blk=0, stl=0, sfl=0, pf=0, chg=0, dreb=0))
                 for k in u: u[k] += v[k]
         P["proj"] = RIMX["a"] + RIMX["deter"] * P.deter + RIMX["contest"] * P.contest

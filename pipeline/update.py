@@ -23,6 +23,8 @@ LEAKY_SHARE = None                                    # filled in below
 COEF = (0.029, 0.42, 0.627)                          # projection: next-season rim score = a + b*Deter + c*Contest, from the backtest (Contest carries over more per point)
 GATE_D = (0.033, 0.413)                               # next-season Deter = a + b*Deter
 GATE_C = (0.010, 0.274)                               # next-season Contest = a + b*Contest
+TOT = dict(a=0.088, deter=0.283, contest=0.843, reb=0.426, tov=0.498, ft=0.216, redirect=0.111, other=0.174)   # projection of next-season total defense from the gates, from the same backtest
+TOT_SD = 1.253                                        # residual spread of that projection in the backtest
 PROJ_SD = 0.95                                        # residual spread of that projection in the backtest
 
 
@@ -100,7 +102,7 @@ def shot_values(y, tables):
 
 def build_rim(y, stints, tables):
     A = shot_values(y, tables)
-    raw = pd.DataFrame(stints, columns=["season", "gid", "per", "H", "V", "secs", "pts_h", "pts_v", "poss_h", "poss_v", "home", "vis"])
+    raw = pd.DataFrame(stints, columns=["season", "gid", "per", "H", "V", "secs", "pts_h", "pts_v", "poss_h", "poss_v", "home", "vis", "orb_h", "orb_v", "tov_h", "tov_v", "fta_h", "fta_v", "fga_h", "fga_v"])
     raw["ord"] = np.arange(len(raw)); raw["end"] = raw.groupby(["gid", "per"]).secs.cumsum()
     sh = A; el = np.where(sh.PERIOD <= 4, 720, 300) - (sh.MINUTES_REMAINING * 60 + sh.SECONDS_REMAINING)
     grp = {k: (v.end.values, v.ord.values) for k, v in raw.groupby(["gid", "per"])}; teams = raw[["gid", "home"]].drop_duplicates().set_index("gid").home.to_dict()
@@ -119,11 +121,12 @@ def build_rim(y, stints, tables):
 
 
 def rows(r):
-    a = pd.DataFrame(dict(att=r.H, deff=r.V, poss=r.poss_h, xq=r.xq_h, rn=r.rn_h, rm=r.rm_h, rx=r.rx_h, gid=r.gid, secs=r.secs, tm=r.vis))
-    b = pd.DataFrame(dict(att=r.V, deff=r.H, poss=r.poss_v, xq=r.xq_v, rn=r.rn_v, rm=r.rm_v, rx=r.rx_v, gid=r.gid, secs=r.secs, tm=r.home))
+    a = pd.DataFrame(dict(att=r.H, deff=r.V, poss=r.poss_h, xq=r.xq_h, rn=r.rn_h, rm=r.rm_h, rx=r.rx_h, gid=r.gid, secs=r.secs, tm=r.vis, pts=r.pts_h, orb=r.orb_h, tov=r.tov_h, fta=r.fta_h))
+    b = pd.DataFrame(dict(att=r.V, deff=r.H, poss=r.poss_v, xq=r.xq_v, rn=r.rn_v, rm=r.rm_v, rx=r.rx_v, gid=r.gid, secs=r.secs, tm=r.home, pts=r.pts_v, orb=r.orb_v, tov=r.tov_v, fta=r.fta_v))
     d = pd.concat([a, b], ignore_index=True); d = d[d.poss >= 1.0].reset_index(drop=True)
     d["nonrim"] = 100 * d.xq / d.poss; d["deter"] = 100 * d.rn / d.poss
     d["contest"] = np.where(d.rn > 0, (d.rm - d.rx) / d.rn.clip(lower=1) * 100, 0.0)
+    for k in ("pts", "orb", "tov", "fta"): d[k + "100"] = 100 * d[k] / d.poss
     return d
 
 
@@ -142,6 +145,12 @@ def gates(d):
     wm = d.wm.values; f = {k: fit(d, k, d[wc].values * wm) for k, wc in (("nonrim", "poss"), ("deter", "poss"), ("contest", "rn"))}
     idx = f["nonrim"][0]
     return idx, -f["nonrim"][1], -f["deter"][1] * XR, -f["contest"][1] / 100 * 2 * RA
+
+
+def gates_x(d):
+    """the three shot gates plus total defense, defensive rebounding, turnovers forced and free throws (all in points per 100 possessions, positive is better)"""
+    idx, red, det, con = gates(d); w = d.poss.values * d.wm.values; f = {k: fit(d, k, w)[1] for k in ("pts100", "orb100", "tov100", "fta100")}
+    return idx, dict(redirect=red, deter=det, contest=con, total=-f["pts100"], reb=-f["orb100"] * 1.1, tov=f["tov100"] * 1.1, ft=-f["fta100"] * 0.76)
 
 
 def exposure(d, key=None):
@@ -231,9 +240,9 @@ def main():
         br = t.blk / (t.sec / 60.0); ok = t.sec >= max(thr, 6000)
         mu, sd = br[ok].mean(), br[ok].std(); BR[y] = ((br - mu) / sd).where(ok, 0.0).to_dict()
     d = pd.concat([D[y] for y in used], ignore_index=True)
-    t0 = time.time(); idx, red, det, con = gates(d); sec = exposure(d); log("fit", round(time.time() - t0, 1), "s")
+    t0 = time.time(); idx, G = gates_x(d); sec = exposure(d); log("fit", round(time.time() - t0, 1), "s")
     keep = {p for p in idx if sec.get(p, 0) / 60 >= MIN_MINUTES}
-    P = pd.DataFrame([dict(pid=p, mins=sec[p] / 60, redirect=red[i], deter=det[i], contest=con[i]) for p, i in idx.items() if p in keep]).set_index("pid")
+    P = pd.DataFrame([dict(pid=p, mins=sec[p] / 60, **{k: v[i] for k, v in G.items()}) for p, i in idx.items() if p in keep]).set_index("pid")
     ma = {}
     for y in used:
         m = backstop(D[y], BR[y]); s = exposure(D[y])
@@ -244,12 +253,12 @@ def main():
     gids = d.gid.values; ug = np.unique(gids); pos = {g: np.where(gids == g)[0] for g in ug}; rng = np.random.default_rng(a.seed); res = []
     for b in range(a.boot):
         pick = rng.choice(ug, len(ug)); ix = np.concatenate([pos[g] for g in pick]); s = d.iloc[ix].reset_index(drop=True)
-        i2, r2, d2, c2 = gates(s)
+        i2, G2 = gates_x(s)
         for p, i in i2.items():
-            if p in keep: res.append((b, p, r2[i], d2[i], c2[i]))
+            if p in keep: res.append((b, p) + tuple(G2[k][i] for k in ("redirect", "deter", "contest", "total", "reb")))
         if b % 20 == 0: log("resample", b, round(time.time() - t0))
-    R = pd.DataFrame(res, columns=["b", "pid", "redirect", "deter", "contest"]); R["rim"] = R.deter + R.contest
-    se = R.groupby("pid")[["redirect", "deter", "contest", "rim"]].std().add_suffix("_se"); P = P.join(se)
+    R = pd.DataFrame(res, columns=["b", "pid", "redirect", "deter", "contest", "total", "reb"]); R["rim"] = R.deter + R.contest
+    se = R.groupby("pid")[["redirect", "deter", "contest", "rim", "total", "reb"]].std().add_suffix("_se"); P = P.join(se)
     R["rk"] = R.groupby("b").rim.rank(ascending=False); q = R.groupby("pid").rk.quantile([.05, .95]).unstack()
     P["rk_lo"] = q[.05].round(); P["rk_hi"] = q[.95].round(); P["raw_rim"] = P.deter + P.contest
     P = P.dropna(subset=["rim_se"]); P["name"] = [NAMES.get(p, str(p)) for p in P.index]
@@ -259,7 +268,7 @@ def main():
     teams = sorted(set(P.team)); arcs = sorted(set(P.arch)); rows_out = []
     for p, r in P.iterrows():
         rows_out.append([r["name"], teams.index(r.team), int(round(r.mins)), round(r.redirect, 2), round(r.deter, 2), round(r.contest, 2), round(r.redirect_se, 2), round(r.deter_se, 2),
-                         round(r.contest_se, 2), round(r.rim_se, 2), int(r.rk_lo), int(r.rk_hi), round(r.ma, 2), arcs.index(r.arch)])
+                         round(r.contest_se, 2), round(r.rim_se, 2), int(r.rk_lo), int(r.rk_hi), round(r.ma, 2), arcs.index(r.arch), round(r.total, 2), round(r.total_se, 2), round(r.reb, 2), round(r.reb_se, 2), round(r.tov, 2), round(r.ft, 2)])
     last_game = None
     try:
         sd = pd.read_csv(os.path.join(DATA, f"shotdetail_{used[-1]}.csv"), usecols=["GAME_ID", "GAME_DATE"], low_memory=False); have = set(int(g) for g in D[used[-1]].gid); raw = sd[sd.GAME_ID.astype(int).isin(have)].GAME_DATE.astype(str)
@@ -282,15 +291,19 @@ def main():
         drop = {strip(n) for n in cfg.get("projection_exclude", [])}                       # players no longer in the league
         P = P[[strip(n) not in drop for n in P.name]].copy()
         P["proj"] = COEF[0] + COEF[1] * P.deter + COEF[2] * P.contest; P["proj_d"] = GATE_D[0] + GATE_D[1] * P.deter; P["proj_c"] = GATE_C[0] + GATE_C[1] * P.contest
+        P["other"] = P.total - (P.redirect + P.deter + P.contest + P.reb + P.tov + P.ft)
+        P["proj_t"] = TOT["a"] + sum(TOT[k] * P[k] for k in ("deter", "contest", "reb", "tov", "ft", "redirect", "other"))
         rg = np.random.default_rng(5); S = P.proj.values[None, :] + rg.normal(0, PROJ_SD, (20000, len(P)))
         rk = (-S).argsort(1).argsort(1) + 1; P["p10"] = (rk <= 10).mean(0); P["p1"] = (rk == 1).mean(0)
+        St = P.proj_t.values[None, :] + rg.normal(0, TOT_SD, (20000, len(P))); rkt = (-St).argsort(1).argsort(1) + 1; P["p10_t"] = (rkt <= 10).mean(0)
+        P["rk_t"] = P.proj_t.rank(ascending=False).astype(int)
         P["pr_lo"] = np.percentile(rk, 10, axis=0).round(); P["pr_hi"] = np.percentile(rk, 90, axis=0).round()
         P = P.sort_values("proj", ascending=False)
         proj = []
         for i, (p, r) in enumerate(P.iterrows(), 1):
             proj.append([i, r["name"], r.team, int(round(r.mins)), round(r.raw_rim, 2), round(r.proj, 2), round(r.proj - 1.28 * PROJ_SD, 2), round(r.proj + 1.28 * PROJ_SD, 2),
-                         round(float(r.p10), 3), round(float(r.p1), 3), int(r.pr_lo), int(r.pr_hi), r.arch, round(r.deter, 2), round(r.contest, 2), round(r.proj_d, 2), round(r.proj_c, 2)])
-        pm = dict(season=f"{cur}-{str(cur + 1)[2:]}", built_from=[names[y] for y in used], built_on=today.isoformat(), deter_weight=COEF[1], contest_weight=COEF[2], excluded=sorted(cfg.get("projection_exclude", [])), resid_sd=PROJ_SD)
+                         round(float(r.p10), 3), round(float(r.p1), 3), int(r.pr_lo), int(r.pr_hi), r.arch, round(r.deter, 2), round(r.contest, 2), round(r.proj_d, 2), round(r.proj_c, 2), round(r.proj_t, 2), round(float(r.p10_t), 3), int(r.rk_t), round(r.total, 2), round(r.reb, 2)])
+        pm = dict(season=f"{cur}-{str(cur + 1)[2:]}", built_from=[names[y] for y in used], built_on=today.isoformat(), deter_weight=COEF[1], contest_weight=COEF[2], total_sd=TOT_SD, excluded=sorted(cfg.get("projection_exclude", [])), resid_sd=PROJ_SD)
         pp = os.path.join(a.out, "projection.json")
         try: old = json.load(open(pp, encoding="utf-8")); same = old["rows"] == proj and old["meta"]["built_from"] == pm["built_from"]
         except Exception: same = False

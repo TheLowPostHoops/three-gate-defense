@@ -25,7 +25,10 @@ GATE_D = (0.033, 0.413)                               # next-season Deter = a + 
 GATE_C = (0.010, 0.274)                               # next-season Contest = a + b*Contest
 TOT = dict(a=0.088, deter=0.283, contest=0.843, reb=0.426, tov=0.498, ft=0.216, redirect=0.111, other=0.174)   # projection of next-season total defense from the gates, from the same backtest
 TOT_SD = 1.253                                        # residual spread of that projection in the backtest
-PROJ_SD = 0.95                                        # residual spread of that projection in the backtest
+PROJ_SD = 0.925                                       # residual spread of that projection in the backtest (typical miss 0.92)
+# rim projection also uses individual play-by-play events per 36 minutes (blocks, steals, shooting fouls, other fouls, charges drawn, defensive rebounds); passed its pre-set test
+RIMX = dict(a=0.0381, deter=0.3623, contest=0.4272, blk=0.0789, stl=0.0319, sfl=0.0525, pf=-0.0071, chg=0.1123, dreb=0.0799)   # fitted with each rate capped at 3 spreads from the mean
+EVMS = dict(blk=(0.765, 0.6257), stl=(1.1979, 0.3967), sfl=(1.4688, 0.5202), pf=(1.139, 0.3704), chg=(0.0774, 0.107), dreb=(5.166, 1.9729))   # backtest mean and spread of each per-36 rate
 
 
 def log(*a): print(*a, flush=True)
@@ -196,6 +199,31 @@ def ordinal_arch(P, leaky_share):
     return P.apply(arch, axis=1)
 
 
+def season_events(y, gids):
+    """individual events for the games used: blocks, steals, shooting fouls, other personal fouls, charges drawn, defensive rebounds, by player"""
+    d = pd.read_csv(os.path.join(DATA, f"nbastats_{y}.csv"), low_memory=False, usecols=["GAME_ID", "EVENTNUM", "EVENTMSGTYPE", "EVENTMSGACTIONTYPE", "PLAYER1_ID", "PLAYER1_TEAM_ID", "PLAYER2_ID", "PLAYER3_ID"])
+    d = d[d.GAME_ID.isin(gids)].sort_values(["GAME_ID", "EVENTNUM"], kind="stable").reset_index(drop=True)
+    T = {}
+    def add(p, k):
+        if p == p and p and p < 1e8: T.setdefault(int(p), dict(blk=0, stl=0, sfl=0, pf=0, chg=0, dreb=0))[k] += 1
+    g, et, at = d.GAME_ID.values, d.EVENTMSGTYPE.values, d.EVENTMSGACTIONTYPE.values
+    p1, p2, p3, t1 = d.PLAYER1_ID.values, d.PLAYER2_ID.values, d.PLAYER3_ID.values, d.PLAYER1_TEAM_ID.values
+    last_miss, lastg = None, None
+    for i in range(len(d)):
+        if g[i] != lastg: lastg = g[i]; last_miss = None
+        e = et[i]
+        if e == 2:
+            last_miss = t1[i]; add(p3[i], "blk")
+        elif e == 4:
+            if p1[i] < 1e8 and last_miss is not None and t1[i] == t1[i] and t1[i] != last_miss: add(p1[i], "dreb")
+        elif e == 5: add(p2[i], "stl")
+        elif e == 6:
+            if at[i] == 2: add(p1[i], "sfl")
+            elif at[i] in (1, 3): add(p1[i], "pf")
+            elif at[i] == 26: add(p2[i], "chg")
+    return T
+
+
 def ordinal(n): return "%d%s" % (n, "th" if 10 <= n % 100 <= 20 else {1: "st", 2: "nd", 3: "rd"}.get(n % 10, "th"))
 
 
@@ -290,7 +318,15 @@ def main():
         cfg = json.load(open(os.path.join(HERE, "settings.json"))); strip = lambda t: "".join(c for c in unicodedata.normalize("NFD", t) if unicodedata.category(c) != "Mn").lower()
         drop = {strip(n) for n in cfg.get("projection_exclude", [])}                       # players no longer in the league
         P = P[[strip(n) not in drop for n in P.name]].copy()
-        P["proj"] = COEF[0] + COEF[1] * P.deter + COEF[2] * P.contest; P["proj_d"] = GATE_D[0] + GATE_D[1] * P.deter; P["proj_c"] = GATE_C[0] + GATE_C[1] * P.contest
+        EV = {}
+        for y in used:
+            for p, v in season_events(y, set(int(x) for x in D[y].gid)).items():
+                u = EV.setdefault(p, dict(blk=0, stl=0, sfl=0, pf=0, chg=0, dreb=0))
+                for k in u: u[k] += v[k]
+        P["proj"] = RIMX["a"] + RIMX["deter"] * P.deter + RIMX["contest"] * P.contest
+        for k, (mu_, sd_) in EVMS.items():
+            P["r_" + k] = [EV.get(p, {}).get(k, 0) / P.mins[p] * 36 for p in P.index]; P["proj"] = P.proj + RIMX[k] * ((P["r_" + k] - mu_) / sd_).clip(-3, 3)
+        P["proj_d"] = GATE_D[0] + GATE_D[1] * P.deter; P["proj_c"] = GATE_C[0] + GATE_C[1] * P.contest
         P["other"] = P.total - (P.redirect + P.deter + P.contest + P.reb + P.tov + P.ft)
         P["proj_t"] = TOT["a"] + sum(TOT[k] * P[k] for k in ("deter", "contest", "reb", "tov", "ft", "redirect", "other"))
         rg = np.random.default_rng(5); S = P.proj.values[None, :] + rg.normal(0, PROJ_SD, (20000, len(P)))

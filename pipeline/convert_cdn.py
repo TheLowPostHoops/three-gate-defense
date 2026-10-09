@@ -65,9 +65,13 @@ for gid, g in d.groupby("gameId", sort=True):
             if pid == 0: emit(r, 5, 0, t, 2 if t == home else 3, p2, opp(t) if p2 else 0, desc=ds)
             else: emit(r, 5, 0, pid, side(t), p2, opp(t) if p2 else 0, desc=ds)
         elif a == "foul":
-            st = str(r.subType); lastfoul = (st, r.clock)
-            at = 11 if st == "technical" else (4 if st == "offensive" else 1)
-            if pid: emit(r, 6, at, pid, side(t))
+            st = str(r.subType); ds_ = str(r.descriptor); lastfoul = (st, r.clock)
+            # stats.nba.com action codes: 2 shooting, 3 loose ball, 4 offensive, 26 offensive charge, 11 technical, 1 other personal
+            if st == "technical": at = 11
+            elif st == "offensive": at = 26 if ds_ == "charge" else 4
+            else: at = 2 if ds_ == "shooting" else (3 if ds_ == "loose ball" else 1)
+            dr = int(r.foulDrawnPersonId) if pd.notna(r.foulDrawnPersonId) else 0
+            if pid: emit(r, 6, at, pid, side(t), dr, opp(t) if dr else 0)
         elif a == "violation":
             if pid: emit(r, 7, 1, pid, side(t))
         elif a == "substitution":

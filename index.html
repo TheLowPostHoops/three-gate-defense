@@ -42,6 +42,7 @@ svg text{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,san
 svg .lab{fill:var(--ink);font-weight:600}
 .grid-l{stroke:var(--soft)}.zero{stroke:var(--mute);stroke-dasharray:3 3}
 #card{border-top:3px solid var(--rule);padding:12px 2px 0;font-size:.92rem}
+.sim{cursor:pointer;color:var(--ink);text-decoration:underline;text-decoration-color:var(--rule)}.sim:hover{text-decoration-color:var(--ink)}.tp{font-size:.88rem;margin:12px 0 2px;line-height:1.45}.tp div{margin:5px 0}
 #card h3{margin:0;font:700 1.55rem/1.15 Georgia,"Times New Roman",serif}
 .sub{color:var(--mute);font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;margin:4px 0 12px}
 .bar{margin:12px 0}.bar .t{display:flex;justify-content:space-between;font-size:.84rem}
@@ -222,14 +223,27 @@ function bar(k,label,cls,v,se){
  const mx=5,sc=x=>50+Math.max(-1,Math.min(1,x/mx))*50,a=sc(0),b=sc(v);
  return '<div class="bar"><div class="t"><b class="'+cls+'">'+label+'</b><span>'+f2(v)+' <span style="color:var(--mute)">&plusmn;'+se.toFixed(2)+'</span></span></div><div class="rail"><b></b><i style="left:'+Math.min(a,b)+'%;width:'+Math.abs(b-a)+'%;background:var('+AX[k].c+')"></i><u style="left:'+sc(v-se)+'%;width:'+(sc(v+se)-sc(v-se))+'%"></u></div></div>';
 }
+
+const TYPEX={'Deterrer':'He changes which shots the offense takes: teams go to the rim less often with him on the floor, and the shots that do go up are about average.','Contester':'Shots at the rim go in less often with him there, while teams still take about as many as usual.','Redirector':'Away from the rim, the offense ends up with worse shots than normal while he is on the floor.','Two-gate Contester+Deterrer':'He ranks in the top fifth at both rim jobs: teams take fewer shots there, and the ones they take miss more often than normal.','Two-gate Contester+Redirector':'He makes shots at the rim miss and pushes the offense into worse shots away from it.','Three-gate':'Strong at all three gates, which is rare.','Balanced':'No gate stands out, good or bad. That means about average, not poor, and it is where most players land.','Leaky':'No strong gate and a clearly below-average total. Treat it as a flag to look closer, not a verdict.'};
+let ZC=null;
+function simList(p){
+ if(!ZC){const ks=['redirect','deter','contest'];const mu={},sd={};ks.forEach(k=>{const v=D.map(d=>d[k]);const m=v.reduce((a,b)=>a+b,0)/v.length;mu[k]=m;sd[k]=Math.sqrt(v.reduce((a,b)=>a+(b-m)*(b-m),0)/v.length)||1});ZC={ks,mu,sd}}
+ const z=d=>ZC.ks.map(k=>(d[k]-ZC.mu[k])/ZC.sd[k]),zp=z(p);
+ return D.filter(d=>d.name!==p.name).map(d=>{const q=z(d);return {d,dist:Math.sqrt(q.reduce((a,b,i)=>a+(b-zp[i])*(b-zp[i]),0))}}).sort((a,b)=>a.dist-b.dist).slice(0,5);
+}
+function typeBlock(p){
+ const n=D.filter(d=>d.arch===p.arch).length,sim=simList(p);
+ return '<div class="tp"><div><b style="color:var(--ink)">Type: '+p.arch.replace('Two-gate ','Two gates, ')+'.</b> '+(TYPEX[p.arch]||'')+' <span style="color:var(--mute)">'+n+' of '+D.length+' players are this type.</span></div>'+
+ '<div><b style="color:var(--ink)">Most like him</b> <span style="color:var(--mute)">(closest shape across Redirect, Deter and Contest, not the same rim score):</span> '+sim.map(x=>'<span class="sim" data-n="'+x.d.name.replace(/"/g,'&quot;')+'">'+x.d.name+'</span>').join(', ')+'.</div></div>'}
 function card(){
  const p=D.find(d=>d.name===st.sel);if(!p){$('card').innerHTML='<p class="sub">Pick a player.</p>';return}
  $('card').innerHTML='<h3>'+p.name+'</h3><div class="sub">'+p.team+' &middot; '+p.mins.toLocaleString()+' defensive minutes &middot; '+p.arch+'</div>'+
  bar('redirect','Redirect','r',p.redirect,p.rse)+bar('deter','Deter','d',p.deter,p.dse)+bar('contest','Contest','c',p.contest,p.cse)+
- '<div class="kv"><div class="mono"><b>Rim score '+f2(p.rim)+'</b> &plusmn;'+p.rimse.toFixed(2)+'</div>'+
+ typeBlock(p)+'<div class="kv"><div class="mono"><b>Rim score '+f2(p.rim)+'</b> &plusmn;'+p.rimse.toFixed(2)+'</div>'+
  '<div class="mono">Rim rank range: '+p.lo+' to '+p.hi+' of '+D.length+'</div>'+
  '<div class="mono">Backstop: <b>'+backstop(p.ma)+'</b> <span style="color:var(--mute)">(best shot-blocker playing with him; see key)</span></div>'+
  projLine(p)+totLine(p)+'<div style="margin-top:8px;color:var(--mute)">'+explain(p)+realLife(p)+'</div></div>';
+ $('card').querySelectorAll('.sim').forEach(el=>el.addEventListener('click',()=>{st.sel=el.dataset.n;render()}));
 }
 function ordn(n){return n+(n%10==1&&n!=11?'st':n%10==2&&n!=12?'nd':n%10==3&&n!=13?'rd':'th')}
 function totLine(p){

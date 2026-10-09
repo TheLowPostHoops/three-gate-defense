@@ -105,7 +105,11 @@ def shot_values(y, tables):
 
 def build_rim(y, stints, tables):
     A = shot_values(y, tables)
-    raw = pd.DataFrame(stints, columns=["season", "gid", "per", "H", "V", "secs", "pts_h", "pts_v", "poss_h", "poss_v", "home", "vis", "orb_h", "orb_v", "tov_h", "tov_v", "fta_h", "fta_v", "fga_h", "fga_v"])
+    cl = ["season", "gid", "per", "H", "V", "secs", "pts_h", "pts_v", "poss_h", "poss_v", "home", "vis", "orb_h", "orb_v", "tov_h", "tov_v", "fta_h", "fta_v", "fga_h", "fga_v"]
+    if stints and len(stints[0]) == 24: cl = cl + ["trp_h", "trp_v", "trt_h", "trt_v"]
+    raw = pd.DataFrame(stints, columns=cl)
+    for k in ("trp_h", "trp_v", "trt_h", "trt_v"):
+        if k not in raw: raw[k] = 0.0
     raw["ord"] = np.arange(len(raw)); raw["end"] = raw.groupby(["gid", "per"]).secs.cumsum()
     sh = A; el = np.where(sh.PERIOD <= 4, 720, 300) - (sh.MINUTES_REMAINING * 60 + sh.SECONDS_REMAINING)
     grp = {k: (v.end.values, v.ord.values) for k, v in raw.groupby(["gid", "per"])}; teams = raw[["gid", "home"]].drop_duplicates().set_index("gid").home.to_dict()
@@ -124,12 +128,12 @@ def build_rim(y, stints, tables):
 
 
 def rows(r):
-    a = pd.DataFrame(dict(att=r.H, deff=r.V, poss=r.poss_h, xq=r.xq_h, rn=r.rn_h, rm=r.rm_h, rx=r.rx_h, gid=r.gid, secs=r.secs, tm=r.vis, pts=r.pts_h, orb=r.orb_h, tov=r.tov_h, fta=r.fta_h))
-    b = pd.DataFrame(dict(att=r.V, deff=r.H, poss=r.poss_v, xq=r.xq_v, rn=r.rn_v, rm=r.rm_v, rx=r.rx_v, gid=r.gid, secs=r.secs, tm=r.home, pts=r.pts_v, orb=r.orb_v, tov=r.tov_v, fta=r.fta_v))
+    a = pd.DataFrame(dict(att=r.H, deff=r.V, poss=r.poss_h, xq=r.xq_h, rn=r.rn_h, rm=r.rm_h, rx=r.rx_h, gid=r.gid, secs=r.secs, tm=r.vis, pts=r.pts_h, orb=r.orb_h, tov=r.tov_h, fta=r.fta_h, trt=r.trt_h))
+    b = pd.DataFrame(dict(att=r.V, deff=r.H, poss=r.poss_v, xq=r.xq_v, rn=r.rn_v, rm=r.rm_v, rx=r.rx_v, gid=r.gid, secs=r.secs, tm=r.home, pts=r.pts_v, orb=r.orb_v, tov=r.tov_v, fta=r.fta_v, trt=r.trt_v))
     d = pd.concat([a, b], ignore_index=True); d = d[d.poss >= 1.0].reset_index(drop=True)
     d["nonrim"] = 100 * d.xq / d.poss; d["deter"] = 100 * d.rn / d.poss
     d["contest"] = np.where(d.rn > 0, (d.rm - d.rx) / d.rn.clip(lower=1) * 100, 0.0)
-    for k in ("pts", "orb", "tov", "fta"): d[k + "100"] = 100 * d[k] / d.poss
+    for k in ("pts", "orb", "tov", "fta", "trt"): d[k + "100"] = 100 * d[k] / d.poss
     return d
 
 
@@ -150,10 +154,12 @@ def gates(d):
     return idx, -f["nonrim"][1], -f["deter"][1] * XR, -f["contest"][1] / 100 * 2 * RA
 
 
-def gates_x(d):
+def gates_x(d, tr=False):
     """the three shot gates plus total defense, defensive rebounding, turnovers forced and free throws (all in points per 100 possessions, positive is better)"""
     idx, red, det, con = gates(d); w = d.poss.values * d.wm.values; f = {k: fit(d, k, w)[1] for k in ("pts100", "orb100", "tov100", "fta100")}
-    return idx, dict(redirect=red, deter=det, contest=con, total=-f["pts100"], reb=-f["orb100"] * 1.1, tov=f["tov100"] * 1.1, ft=-f["fta100"] * 0.76)
+    out = dict(redirect=red, deter=det, contest=con, total=-f["pts100"], reb=-f["orb100"] * 1.1, tov=f["tov100"] * 1.1, ft=-f["fta100"] * 0.76)
+    if tr: out["tr"] = -fit(d, "trt100", w)[1]          # points per 100 possessions saved on transition possessions (a part of total defense, not an extra amount)
+    return idx, out
 
 
 def exposure(d, key=None):
@@ -268,7 +274,7 @@ def main():
         br = t.blk / (t.sec / 60.0); ok = t.sec >= max(thr, 6000)
         mu, sd = br[ok].mean(), br[ok].std(); BR[y] = ((br - mu) / sd).where(ok, 0.0).to_dict()
     d = pd.concat([D[y] for y in used], ignore_index=True)
-    t0 = time.time(); idx, G = gates_x(d); sec = exposure(d); log("fit", round(time.time() - t0, 1), "s")
+    t0 = time.time(); idx, G = gates_x(d, tr=True); sec = exposure(d); log("fit", round(time.time() - t0, 1), "s")
     keep = {p for p in idx if sec.get(p, 0) / 60 >= MIN_MINUTES}
     P = pd.DataFrame([dict(pid=p, mins=sec[p] / 60, **{k: v[i] for k, v in G.items()}) for p, i in idx.items() if p in keep]).set_index("pid")
     ma = {}
@@ -296,7 +302,7 @@ def main():
     teams = sorted(set(P.team)); arcs = sorted(set(P.arch)); rows_out = []
     for p, r in P.iterrows():
         rows_out.append([r["name"], teams.index(r.team), int(round(r.mins)), round(r.redirect, 2), round(r.deter, 2), round(r.contest, 2), round(r.redirect_se, 2), round(r.deter_se, 2),
-                         round(r.contest_se, 2), round(r.rim_se, 2), int(r.rk_lo), int(r.rk_hi), round(r.ma, 2), arcs.index(r.arch), round(r.total, 2), round(r.total_se, 2), round(r.reb, 2), round(r.reb_se, 2), round(r.tov, 2), round(r.ft, 2)])
+                         round(r.contest_se, 2), round(r.rim_se, 2), int(r.rk_lo), int(r.rk_hi), round(r.ma, 2), arcs.index(r.arch), round(r.total, 2), round(r.total_se, 2), round(r.reb, 2), round(r.reb_se, 2), round(r.tov, 2), round(r.ft, 2), round(r.tr, 2)])
     last_game = None
     try:
         sd = pd.read_csv(os.path.join(DATA, f"shotdetail_{used[-1]}.csv"), usecols=["GAME_ID", "GAME_DATE"], low_memory=False); have = set(int(g) for g in D[used[-1]].gid); raw = sd[sd.GAME_ID.astype(int).isin(have)].GAME_DATE.astype(str)

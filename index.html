@@ -126,6 +126,8 @@ ul.l{margin:0 0 12px;padding-left:0;list-style:none;max-width:46em}ul.l li{margi
 <div><b class="c">Contest</b>How much less often rim shots go in than that shot normally would. Same units.</div>
 <div><b>Rim score</b>Deter plus Contest. Blocks are not in it. Redirect is left out because it mostly mirrors Deter (correlation -0.69).</div>
 <div><b>Backstop</b>Context only, nothing is subtracted. Rates the best shot-blocker playing alongside him by block rate: strong, some or little.</div>
+<div><b>Carry</b>His rim score counting only the minutes when no other top-fifth rim protector is on the floor with him. It asks how much of the rim defense is his own. It tracks the rim score closely (0.93), does not forecast next season any better, and is not steadier for players who change teams, so treat it as a description. Shown for players with 400 or more of those minutes.</div>
+<div><b>Event gap</b>How many blocks, steals and charges drawn per 36 minutes he gets compared with what his total defense would predict. Zero means his defense accounts for them, positive means more than it explains, negative means fewer. It is a style description: players with a high gap did not defend worse the next season (they were slightly better), so it does not show that chasing blocks and steals costs a team anything.</div>
 </div>
 <div class="key k3">
 <div><b class="d">Deterrer</b>Strong at Deter only. He changes which shots the offense chooses to take (Valančiūnas, Green).</div>
@@ -148,6 +150,7 @@ ul.l{margin:0 0 12px;padding-left:0;list-style:none;max-width:46em}ul.l li{margi
 <li><b>There is no all-in-one total.</b> Adding the three gates together did not hold up in pre-set tests. Guards who play next to elite shot-blockers made up too much of the top of the list, and players' totals were not stable when they changed teams. The three gates are shown separately and the only ranking is the rim score.</li>
 <li><b>Teammates matter.</b> A guard whose team has a great rim protector behind him can look better on Redirect than he would alone. An adjustment was tested and did not move the scores in a way that holds up, so it is shown as context instead. The "Backstop" line on each player says how good the best shot-blocker playing alongside him was.</li>
 <li><b>One season is noisy.</b> Rim score repeats from one season to the next at about 0.43 among rim protectors, and 0.28 for the ones who changed teams. That is why ranges are shown, not ranks. It does predict next season's team rim defense a little better than just using last year's team (0.60 against 0.57).</li>
+<li><b>Carry and Event gap are descriptions, not grades.</b> Carry did not forecast next season better than the rim score or hold up better for players who change teams. Event gap is steady from year to year (0.72), but players with a high gap did not defend worse the next season, so it does not show that chasing blocks and steals hurts. Neither is used in the projection.</li>
 <li><b>The top is a cluster.</b> The players at the top of the rim score list are separated by less than the uncertainty. The rank range column shows how much each player's rank moves when the data is resampled, so read that, not the rank.</li>
 </ul>
 
@@ -158,7 +161,7 @@ ul.l{margin:0 0 12px;padding-left:0;list-style:none;max-width:46em}ul.l li{margi
 const J=await (await fetch('data/players.json?'+Date.now())).json();
 const TEAMS=J.teams, ARCH=J.arch, M=J.meta;
 let PJ=null; try{PJ=await (await fetch('data/projection.json?'+Date.now())).json()}catch(e){}
-const D=J.rows.map(a=>({name:a[0],team:TEAMS[a[1]],mins:a[2],redirect:a[3],deter:a[4],contest:a[5],rse:a[6],dse:a[7],cse:a[8],rimse:a[9],lo:a[10],hi:a[11],ma:a[12],arch:ARCH[a[13]],tot:a[14],totse:a[15],reb:a[16],rebse:a[17],tov:a[18],ft:a[19],tr:a[20]}));
+const D=J.rows.map(a=>({name:a[0],team:TEAMS[a[1]],mins:a[2],redirect:a[3],deter:a[4],contest:a[5],rse:a[6],dse:a[7],cse:a[8],rimse:a[9],lo:a[10],hi:a[11],ma:a[12],arch:ARCH[a[13]],tot:a[14],totse:a[15],reb:a[16],rebse:a[17],tov:a[18],ft:a[19],tr:a[20],ca:a[21],eg:a[22],e36:a[23]}));
 D.forEach(d=>{d.rim=+(d.deter+d.contest).toFixed(3)});
 let TK=null; try{TK=await (await fetch('data/tracking.json?'+Date.now())).json()}catch(e){}
 const TKM={};let NBIG=0;
@@ -249,7 +252,7 @@ function ordn(n){return n+(n%10==1&&n!=11?'st':n%10==2&&n!=12?'nd':n%10==3&&n!=1
 function totLine(p){
  if(p.tot==null)return '';
  const rt=D.filter(d=>d.tot>p.tot).length+1,rr=D.filter(d=>d.reb>p.reb).length+1;
- return '<div class="mono">Total defense (exploratory): <b>'+f2(p.tot)+'</b> &plusmn;'+p.totse.toFixed(2)+', ranks '+rt+' of '+D.length+' <span style="color:var(--mute)">(points per 100 possessions, everything counted)</span></div><div class="mono">Rebounding: <b>'+f2(p.reb)+'</b> &plusmn;'+p.rebse.toFixed(2)+', ranks '+rr+' of '+D.length+' <span style="color:var(--mute)">(opponent offensive rebounds prevented)</span></div>'+(p.tr!=null?'<div class="mono">Transition defense (descriptive): <b>'+f2(p.tr)+'</b>, ranks '+(D.filter(d=>d.tr>p.tr).length+1)+' of '+D.length+' <span style="color:var(--mute)">(points per 100 possessions saved when the opponent breaks quickly after a miss or turnover; part of total defense, not on top of it, and it also reflects how often his own team gives up those chances)</span></div>':'')
+ return '<div class="mono">Total defense (exploratory): <b>'+f2(p.tot)+'</b> &plusmn;'+p.totse.toFixed(2)+', ranks '+rt+' of '+D.length+' <span style="color:var(--mute)">(points per 100 possessions, everything counted)</span></div><div class="mono">Rebounding: <b>'+f2(p.reb)+'</b> &plusmn;'+p.rebse.toFixed(2)+', ranks '+rr+' of '+D.length+' <span style="color:var(--mute)">(opponent offensive rebounds prevented)</span></div>'+(p.tr!=null?'<div class="mono">Transition defense (descriptive): <b>'+f2(p.tr)+'</b>, ranks '+(D.filter(d=>d.tr>p.tr).length+1)+' of '+D.length+' <span style="color:var(--mute)">(points per 100 possessions saved when the opponent breaks quickly after a miss or turnover; part of total defense, not on top of it, and it also reflects how often his own team gives up those chances)</span></div>':'')+(p.ca!=null?'<div class="mono">Carry (description): <b>'+f2(p.ca)+'</b>, ranks '+(D.filter(d=>d.ca!=null&&d.ca>p.ca).length+1)+' of '+D.filter(d=>d.ca!=null).length+' <span style="color:var(--mute)">(his rim score in the minutes when no other top-fifth rim protector is on the floor; it mostly matches his rim score and did not forecast next season better, see key)</span></div>':'')+(p.eg!=null?'<div class="mono">Event gap (style, not a grade): <b>'+f2(p.eg)+'</b>, ranks '+(D.filter(d=>d.eg>p.eg).length+1)+' of '+D.length+' <span style="color:var(--mute)">('+p.e36.toFixed(1)+' blocks, steals and charges per 36 minutes; positive means more than his total defense would predict, and in testing that did not mean a worse defense the next season)</span></div>':'')
 }
 function realLife(p){
  if(p.tot==null)return '';

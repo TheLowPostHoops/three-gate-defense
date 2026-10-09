@@ -158,7 +158,7 @@ ul.l{margin:0 0 12px;padding-left:0;list-style:none;max-width:46em}ul.l li{margi
 const J=await (await fetch('data/players.json?'+Date.now())).json();
 const TEAMS=J.teams, ARCH=J.arch, M=J.meta;
 let PJ=null; try{PJ=await (await fetch('data/projection.json?'+Date.now())).json()}catch(e){}
-const D=J.rows.map(a=>({name:a[0],team:TEAMS[a[1]],mins:a[2],redirect:a[3],deter:a[4],contest:a[5],rse:a[6],dse:a[7],cse:a[8],rimse:a[9],lo:a[10],hi:a[11],ma:a[12],arch:ARCH[a[13]],tot:a[14],totse:a[15],reb:a[16],rebse:a[17],tov:a[18],ft:a[19]}));
+const D=J.rows.map(a=>({name:a[0],team:TEAMS[a[1]],mins:a[2],redirect:a[3],deter:a[4],contest:a[5],rse:a[6],dse:a[7],cse:a[8],rimse:a[9],lo:a[10],hi:a[11],ma:a[12],arch:ARCH[a[13]],tot:a[14],totse:a[15],reb:a[16],rebse:a[17],tov:a[18],ft:a[19],tr:a[20]}));
 D.forEach(d=>{d.rim=+(d.deter+d.contest).toFixed(3)});
 let TK=null; try{TK=await (await fetch('data/tracking.json?'+Date.now())).json()}catch(e){}
 const TKM={};let NBIG=0;
@@ -249,7 +249,7 @@ function ordn(n){return n+(n%10==1&&n!=11?'st':n%10==2&&n!=12?'nd':n%10==3&&n!=1
 function totLine(p){
  if(p.tot==null)return '';
  const rt=D.filter(d=>d.tot>p.tot).length+1,rr=D.filter(d=>d.reb>p.reb).length+1;
- return '<div class="mono">Total defense (exploratory): <b>'+f2(p.tot)+'</b> &plusmn;'+p.totse.toFixed(2)+', ranks '+rt+' of '+D.length+' <span style="color:var(--mute)">(points per 100 possessions, everything counted)</span></div><div class="mono">Rebounding: <b>'+f2(p.reb)+'</b> &plusmn;'+p.rebse.toFixed(2)+', ranks '+rr+' of '+D.length+' <span style="color:var(--mute)">(opponent offensive rebounds prevented)</span></div>'
+ return '<div class="mono">Total defense (exploratory): <b>'+f2(p.tot)+'</b> &plusmn;'+p.totse.toFixed(2)+', ranks '+rt+' of '+D.length+' <span style="color:var(--mute)">(points per 100 possessions, everything counted)</span></div><div class="mono">Rebounding: <b>'+f2(p.reb)+'</b> &plusmn;'+p.rebse.toFixed(2)+', ranks '+rr+' of '+D.length+' <span style="color:var(--mute)">(opponent offensive rebounds prevented)</span></div>'+(p.tr!=null?'<div class="mono">Transition defense (descriptive): <b>'+f2(p.tr)+'</b>, ranks '+(D.filter(d=>d.tr>p.tr).length+1)+' of '+D.length+' <span style="color:var(--mute)">(points per 100 possessions saved when the opponent breaks quickly after a miss or turnover; part of total defense, not on top of it, and it also reflects how often his own team gives up those chances)</span></div>':'')
 }
 function realLife(p){
  if(p.tot==null)return '';

@@ -8,6 +8,7 @@ on:
 permissions:
   contents: write
   pages: write
+  issues: write
 
 concurrency:
   group: refresh
@@ -46,3 +47,10 @@ jobs:
             git push
             gh api -X POST "repos/${GITHUB_REPOSITORY}/pages/builds" || true
           fi
+
+      - name: Open an issue if the refresh failed
+        if: failure()
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh issue create --assignee TheLowPostHoops --title "Weekly refresh failed $(date -u +%F)" --body "The weekly data refresh failed. The site is still showing the last good data. Details: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"

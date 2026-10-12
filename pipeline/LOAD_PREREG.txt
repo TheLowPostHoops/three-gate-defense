@@ -1,0 +1,95 @@
+LOAD & DURABILITY MODEL: tests written before any model was fit (2026-10-12)
+==========================================================================
+
+Question: can a player's workload, mileage, age and absence history forecast how many games he misses next season,
+and does the way his team (its coach) runs its starters add anything?
+
+DATA
+- NBA play-by-play (shufinskiy/nba_data), 2010-11 through 2025-26, regular season and playoffs. Rebuilt lineups give
+  each player's seconds and possessions on the floor in every game. Game dates from shot detail.
+- Age, position and career minutes before 2010-11 from a public Basketball-Reference season table
+  (gabriel1200/site_Data, tplayer_stats.csv, through 2023-24; later ages carried forward by one year per season).
+- Head coaches: pipeline/coaches.json (written by hand, checked against Wikipedia's current list).
+- NOT available: high-school and college injuries, injury type or body part, official injury reports, tracking
+  distance (miles run). The model cannot use them and the page must say so.
+
+OUTCOME (season t+1)
+- Missed games = regular-season games his team played while he was with it and he did not play, counted only in runs
+  of 3 or more straight games (shorter runs are mostly rest). "With it" = from his team's first game (first team of the
+  season) or his first game after a trade, through the season's end or his last game before a trade.
+- Scaled to an 82-game season. Players who never play in season t+1 are left out (cannot separate a season-long injury
+  from retirement, waivers or playing abroad); the count is reported.
+- This is games missed for any reason in runs of 3+: mostly injury and illness, but also suspensions, personal leave,
+  health-and-safety protocols (2020-22) and end-of-season shutdowns. Season averages are absorbed by a season term.
+- Binary version: missed 20+ games (scaled).
+
+SAMPLE
+- Player-season pairs with 1,000+ regular-season minutes in season t, t = 2012-13 ... 2024-25 (13 pairs; three prior
+  seasons of play-by-play history needed). Out-of-sample by leaving one target season out at a time.
+
+FEATURE BLOCKS (all known before season t+1 starts)
+- H history: missed-game share in t, t-1, t-2; number of 10+ game runs missed over t-2..t.
+- A age next season (and age squared).
+- M mileage: career regular-season minutes through t; playoff minutes in t.
+- W workload in t: minutes per game played, possessions per minute on the floor (pace of his minutes: the closest
+  thing to "running" in this data), share of games with 38+ minutes, back-to-back second nights with 30+ minutes
+  per game played, biggest 7-day minutes spike vs his 28-day average.
+- P position group (guard / wing / big from listed position).
+- T team load: minutes per game of the top-5 minutes players on his next team, measured in season t (the coach's
+  habit).
+  Amendment 2026-10-12, before any fit: the "coach changed (yes/no)" input is dropped, because a full historical coach
+  table for all 30 teams is not available; coaches.json covers only the 31 coaches named on the page.
+
+TESTS (bars fixed now)
+L1 Forecast: full model (H+A+M+W+P+T), leave-one-season-out.
+   (a) typical miss (mean absolute error, games per 82) beats "last season's missed games, pulled 50% toward average"
+       by at least 0.50 games.
+   (b) Brier score for missing 20+ games beats the same baseline turned into a probability (logistic on that single
+       input) by at least 2% (relative).
+L2 Workload and mileage: adding W+M to H+A+P improves the 20+ game Brier score by at least 1% (relative) AND the
+   typical miss by at least 0.20 games. If it fails, workload is shown as a description, not used in the risk number.
+L3 Coach / team load: adding T to everything else improves the Brier score by at least 0.5% (relative). If it fails,
+   coach load is shown as a description only and the page says it did not forecast injuries.
+L4 Range check: 80% ranges for games missed contain the actual result for 74-86% of player-seasons.
+L5 Calibration: in each fifth of predicted 20+ game risk, predicted and actual rates within 5 points.
+
+DESCRIPTIVE (no pass/fail): league pace and minute concentration by season; coach load table.
+
+Shipping rule: only blocks that pass their test enter the published risk number. Every result is published, pass or fail.
+
+AMENDMENT 2026-10-12 (after the first run; reported with both versions)
+- Found in a sanity check after the first run: a player hurt when traded had his absence dropped, because his new
+  team's window started at his first game there (Doncic 2024-25 counted 5 missed games, Durant 2022-23 10). Fix: the
+  new team's games between his last game for the old team and his first game for the new one count as missed, minus
+  2 games for the trade itself, when that leaves a run of 3+. First-run results stay in the record:
+  L1 MAE 12.46 baseline vs 12.94 full (FAIL), Brier 0.1981 vs 0.1956 (1.3%, FAIL); L2 FAIL; L3 FAIL.
+
+L6 (written before the miles data was joined): NBA.com tracking miles, 2013-14 on. Inputs: miles per 36 minutes on
+   the floor, average speed, miles per game, biggest 7-day miles spike vs 28-day average (from game-by-game miles).
+   Sample: pairs with tracking in season t (t = 2013-14 ... 2024-25). Adding the miles block to the full model improves
+   the 20+ game Brier score by at least 1% (relative). Otherwise miles are shown as a description only.
+
+TEAM TESTS (written 2026-10-12 before any team-level number was computed). No public data describes how teams train
+or rehab players, so these measure what the staff's work produces.
+TM1 Team health effect: per team-season, average (actual - model-expected) missed games of its 1,000+ minute players
+    (out-of-sample expectations). Repeats season to season (same team, consecutive seasons) at r >= 0.20 -> shown as
+    a team line; also tested as a model input: adding last season's team effect for his next team improves the 20+
+    game Brier score by >= 0.5% (relative). Otherwise description only.
+TM2 Rehab: re-absence = a new run of 3+ missed games starting within 15 games of returning from a 10+ game run.
+    Team re-absence rate repeats at r >= 0.20 -> shown as a team line. Player-level: a re-absence in the last two
+    seasons as a model input, Brier gain >= 0.5% (relative).
+TM3 Rest policy: 1-2 game absences of rotation players per player-season, by team. Descriptive only.
+C1 College (Bart Torvik player files, 2008 on, matched by name): college minutes, share of team games missed in
+    college, years in college, height. Sample: NBA pairs with a matched college record (and a no-college flag for the
+    rest). Adding the college block improves the 20+ game Brier score by >= 1% (relative). Otherwise description only.
+    Ages from Torvik birth dates replace estimated ages where available (data fix, not a test).
+
+DATA FIXES 2026-10-12 (after the tests above were first run; results reported both ways on the page)
+- NBA.com 2025-26 speed/distance has 44 player rows with impossible average speeds (13-22 mph). Rows over 5.5 mph are
+  dropped (11 more across 2013-25). First L6 run with them: Brier 0.2033 -> 0.2042 (worse, FAIL).
+- Position groups: a listed PF is a wing, only C / PF-C is a big (Butler and George were grouped as bigs).
+- Projections are published only for players with 1,000+ minutes last season, the same floor as the sample
+  (500 let in two-way players whose G League stints counted as missed games).
+- A season with no games between two seasons a player did play now counts as 82 missed games in his history
+  (Leonard 2021-22, Thompson 2019-21 had been treated as unknown). Results before this fix: L1 Brier 0.2043 -> 0.2011
+  (1.6%, FAIL), shipped model AUC 0.603.

@@ -1,0 +1,15 @@
+/* The Low Post: shared masthead and navigation (every page) */
+.mast{background:#121212;color:#fff;border-bottom:3px solid #fff;position:relative;z-index:20}
+.mast>div{max-width:1120px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:50px;flex-wrap:wrap}
+.mast .brand{font:700 1.05rem/1 Georgia,"Times New Roman",serif;letter-spacing:.14em;text-transform:uppercase;color:#fff;text-decoration:none;padding:14px 0}
+.mast nav{display:flex;align-items:stretch;gap:2px;font:600 .72rem/1 -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase}
+.mast nav>a,.mast .dd>a{color:#bdbdbd;text-decoration:none;padding:17px 12px;display:block;border-bottom:3px solid transparent;margin-bottom:-3px}
+.mast nav>a:hover,.mast .dd>a:hover,.mast nav a[aria-current=page],.mast .dd.on>a{color:#fff;border-bottom-color:#fff}
+.mast .dd{position:relative}
+.mast .dd>a::after{content:" \25BE";font-size:.65rem}
+.mast .menu{display:none;position:absolute;right:0;top:100%;background:#121212;border:1px solid #333;border-top:3px solid #fff;min-width:250px;padding:6px 0}
+.mast .dd:hover .menu,.mast .dd:focus-within .menu{display:block}
+.mast .menu a{display:block;padding:11px 16px;color:#e6e6e6;text-decoration:none;text-transform:none;letter-spacing:0;font-size:.86rem;font-weight:500}
+.mast .menu a small{display:block;color:#9a9a9a;font-size:.74rem;margin-top:3px;font-weight:400}
+.mast .menu a:hover{background:#222;color:#fff}
+@media(max-width:620px){.mast>div{padding:0 12px}.mast nav>a,.mast .dd>a{padding:15px 8px}.mast .x{display:none}.mast .menu{right:-60px}}

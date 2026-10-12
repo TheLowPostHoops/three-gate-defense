@@ -1,3 +1,4 @@
 pipeline/data/
 pipeline/out/
 __pycache__/
+pipeline/inputs/

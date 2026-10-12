@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Load &amp; Durability | The Low Post</title>
+<meta name="description" content="Who is likely to miss games next season, and what does and does not predict it: minutes, miles run, back-to-backs, coaches, college workload and absence history, each tested before it was used.">
+<style>
+:root{--bg:#ffffff;--ink:#121212;--mute:#6b6b6b;--line:#e3e3e3;--soft:#f5f5f4;--rule:#121212;--acc:#1f5fbf;--warm:#c25a00;--hot:#b3261e;--ok:#1a6d3a;--bar:#d9d9d6}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121212;--ink:#f2f2f2;--mute:#a0a0a0;--line:#2e2e2e;--soft:#1c1c1c;--rule:#f2f2f2;--acc:#6ea2f0;--warm:#f0a040;--hot:#ff8a80;--ok:#6fd08c;--bar:#3a3a3a}}
+:root[data-theme="dark"]{--bg:#121212;--ink:#f2f2f2;--mute:#a0a0a0;--line:#2e2e2e;--soft:#1c1c1c;--rule:#f2f2f2;--acc:#6ea2f0;--warm:#f0a040;--hot:#ff8a80;--ok:#6fd08c;--bar:#3a3a3a}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif}
+main{max-width:1120px;margin:0 auto;padding:22px 20px 64px}
+h1{font:700 1.75rem/1.15 Georgia,"Times New Roman",serif;margin:0 0 4px;letter-spacing:-.01em}
+.dek{font-size:.92rem;color:var(--mute);margin:0 0 16px;max-width:60em}
+h2{font:700 .8rem/1.2 -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;text-transform:uppercase;letter-spacing:.14em;margin:44px 0 14px;padding-top:12px;border-top:3px solid var(--rule)}
+h3{font:700 1.05rem/1.25 Georgia,"Times New Roman",serif;margin:0 0 6px}
+p{margin:0 0 14px;max-width:44em}
+@media(max-width:760px){h1{font-size:1.45rem}}
+.tldr{border-left:3px solid var(--rule);padding:4px 0 4px 16px;margin:18px 0 8px;max-width:50em}
+.tldr p{font-size:1rem}
+.tldr b{font-weight:700}
+.trend{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px}
+@media(max-width:900px){.trend{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:480px){.trend{grid-template-columns:minmax(0,1fr)}}
+.tc{border-top:3px solid var(--rule);padding-top:8px}
+.tc .t{font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em}
+.tc .v{font:700 1.4rem/1.1 Georgia,"Times New Roman",serif;margin:6px 0 2px;font-variant-numeric:tabular-nums}
+.tc .s{font-size:.78rem;color:var(--mute);min-height:2.4em}
+.tc svg{width:100%;height:70px;display:block;margin-top:6px;overflow:visible}
+.tc svg text{font-size:9.5px;fill:var(--mute)}
+.ctl{display:flex;flex-wrap:wrap;gap:12px 22px;align-items:flex-end;margin:16px 0 10px;padding:14px 16px;background:var(--soft);font-size:.82rem}
+.ctl label{display:flex;flex-direction:column;gap:4px;color:var(--mute);font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:.68rem}
+select,input[type=text]{font:inherit;font-size:.9rem;text-transform:none;letter-spacing:0;font-weight:400;padding:7px 9px;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:2px}
+.grid{display:grid;grid-template-columns:minmax(0,1.7fr) minmax(0,1fr);gap:28px;align-items:start}
+@media(max-width:880px){.grid{grid-template-columns:minmax(0,1fr)}}
+.tablewrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.82rem;font-variant-numeric:tabular-nums}
+th,td{padding:8px 9px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+td.l,th.l{text-align:left}
+th{cursor:pointer;color:var(--ink);font-weight:700;font-size:.66rem;text-transform:uppercase;letter-spacing:.09em;border-bottom:2px solid var(--rule);user-select:none;background:var(--bg)}
+th.ns{cursor:default}
+td:first-child{font-weight:600}
+tbody.click tr{cursor:pointer}tbody.click tr:hover,tbody tr.sel{background:var(--soft)}
+.muted{color:var(--mute)}
+.spark{display:inline-flex;gap:2px;align-items:flex-end;height:18px;vertical-align:middle}
+.spark i{display:block;width:7px;background:var(--bar)}
+.spark i.h{background:var(--warm)}.spark i.x{background:var(--hot)}.spark i.n{background:none;border-bottom:1px dotted var(--mute);height:1px!important}
+.rng{position:relative;display:inline-block;width:64px;height:10px;vertical-align:middle;margin-left:6px}
+.rng s{position:absolute;top:4px;height:2px;background:var(--bar);text-decoration:none}
+.rng b{position:absolute;top:0;width:3px;height:10px;background:var(--ink);margin-left:-1px}
+button{font:inherit;font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;border:1px solid var(--ink);background:var(--bg);color:var(--ink);padding:9px 16px;cursor:pointer;margin-top:14px;border-radius:2px}
+button:hover{background:var(--ink);color:var(--bg)}
+#card{border-top:3px solid var(--rule);padding:12px 2px 0;font-size:.9rem;position:sticky;top:12px}
+@media(max-width:880px){#card{position:static}}
+#card .nm{font:700 1.5rem/1.15 Georgia,"Times New Roman",serif;margin:0}
+.sub{color:var(--mute);font-size:.76rem;text-transform:uppercase;letter-spacing:.06em;margin:4px 0 12px}
+.big{display:flex;gap:22px;flex-wrap:wrap;margin:6px 0 10px}
+.big div{min-width:110px}
+.big b{display:block;font:700 1.6rem/1.1 Georgia,"Times New Roman",serif;font-variant-numeric:tabular-nums}
+.big span{font-size:.72rem;color:var(--mute);text-transform:uppercase;letter-spacing:.08em}
+.sec{border-top:1px solid var(--line);padding-top:9px;margin-top:11px}
+.sec .h{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:5px}
+.kv{display:grid;grid-template-columns:auto auto;gap:3px 14px;font-size:.85rem}
+.kv span:nth-child(odd){color:var(--mute)}
+.kv span:nth-child(even){text-align:right;font-variant-numeric:tabular-nums}
+.drv{font-size:.85rem}.drv div{display:grid;grid-template-columns:80px 1fr 52px;gap:8px;align-items:center;margin:4px 0}
+.drv .rail{position:relative;height:8px;background:var(--soft)}.drv .rail i{position:absolute;top:0;bottom:0}.drv .rail u{position:absolute;left:50%;top:-3px;bottom:-3px;width:1px;background:var(--mute)}
+.note{font-size:.8rem;color:var(--mute);margin-top:10px;line-height:1.45}
+.cbar{display:inline-block;height:9px;vertical-align:middle;background:var(--acc)}
+.cbar.neg{background:var(--warm)}
+.cwrap{display:inline-flex;width:150px;justify-content:center;position:relative}
+.cwrap::before{content:"";position:absolute;left:50%;top:-4px;bottom:-4px;width:1px;background:var(--mute)}
+.cwrap .lh,.cwrap .rh{width:75px;display:flex}.cwrap .lh{justify-content:flex-end}
+tr.ref td{font-style:italic}
+.tests td.v{font-weight:700}.pass{color:var(--ok)}.fail{color:var(--hot)}.desc{color:var(--mute)}
+.tests td{white-space:normal;vertical-align:top}.tests td:first-child{min-width:150px}
+.tests{min-width:720px}
+ul.l{margin:0 0 12px;padding-left:0;list-style:none;max-width:46em}ul.l li{margin:0;padding:12px 0;border-bottom:1px solid var(--line);font-size:.92rem}
+ul.l li:first-child{border-top:1px solid var(--line)}
+.key{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px 28px;font-size:.88rem;max-width:62em}
+@media(max-width:700px){.key{grid-template-columns:minmax(0,1fr)}}
+.key b{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.1em;margin-bottom:2px}
+.foot{margin-top:40px;padding-top:12px;border-top:1px solid var(--line);font-size:.78rem;color:var(--mute)}
+.foot a,.lnk{color:var(--ink)}
+</style>
+<link rel="stylesheet" href="/three-gate-defense/assets/site.css">
+</head>
+<body>
+<header class="mast"><div><a class="brand" href="/three-gate-defense/">The Low Post</a><nav><a href="/three-gate-defense/">Home</a><div class="dd on"><a href="/three-gate-defense/models/">Models</a><div class="menu"><a href="/three-gate-defense/defense/">Three Gates<small>Rim protection explorer</small></a><a href="/three-gate-defense/durability/" aria-current="page">Load &amp; Durability<small>Who misses games, and why</small></a></div></div><a class="x" href="https://x.com/LowPostHoops">@LowPostHoops</a></nav></div></header>
+<main>
+<h1>Load &amp; Durability</h1>
+<p class="dek" id="dek">Who is likely to miss games next season, and which of the usual suspects (heavy minutes, miles run, back-to-backs, a coach who rides his starters, college workload, past injuries) actually predict it. Every input had a pass/fail bar written down before it was tested.</p>
+
+<div class="tldr" id="tldr"></div>
+
+<h2>The game asks for more running</h2>
+<div class="trend" id="trend"></div>
+<p class="note" id="trendnote"></p>
+
+<h2>Projected games missed, <span id="pseason"></span></h2>
+<p style="max-width:62em;font-size:.92rem">Expected games missed out of 82, counting only absences of three or more games in a row, for every player with 1,000+ minutes last season. The range is where 80% of similar forecasts landed in the backtest. Click a player for his load, miles, college record and what moves his number.</p>
+<div class="ctl">
+ <label>Team<select id="team"><option value="">All teams</option></select></label>
+ <label>Position<select id="pos"><option value="">All</option><option value="guard">Guards</option><option value="wing">Wings and forwards</option><option value="big">Bigs</option></select></label>
+ <label>Find a player<input id="q" type="text" placeholder="Embiid"></label>
+</div>
+<div class="grid">
+ <div><div class="tablewrap"><table id="pt"><thead></thead><tbody class="click"></tbody></table></div><button id="more"></button></div>
+ <div id="card"></div>
+</div>
+
+<h2>Coaches: who rides his starters hardest</h2>
+<p style="max-width:62em;font-size:.92rem">Coach load is how many minutes a night his five most-used players averaged, compared with the league that season, over every season he was a head coach since 2010-11. Rest is how many one- and two-game breaks his rotation players took per season. <b>Coach load did not forecast injuries</b> (test L3 below), so this is a description of style, not a risk score.</p>
+<div class="tablewrap"><table id="ct"><thead></thead><tbody></tbody></table></div>
+
+<h2>Teams, <span class="tseason"></span></h2>
+<p style="max-width:62em;font-size:.92rem">Nobody publishes how teams train or rehab players, so these lines measure what the work produces. None of them repeats from one season to the next well enough to call it a lasting staff effect, except rest policy, which is a choice teams make on purpose.</p>
+<div class="tablewrap"><table id="tt"><thead></thead><tbody></tbody></table></div>
+
+<h2>The test record</h2>
+<p style="max-width:62em;font-size:.92rem">Each line is a question, the bar it had to clear (written before the test was run), and what happened. Only inputs that clear their bar go into the projected number. The full rules are in <a class="lnk" href="https://github.com/TheLowPostHoops/three-gate-defense/blob/main/pipeline/LOAD_PREREG.txt">LOAD_PREREG.txt</a>, including the fixes made after a first run and the results before them.</p>
+<div class="tablewrap"><table class="tests" id="tests"><thead><tr><th class="ns">Test</th><th class="ns l">Question</th><th class="ns l">Bar</th><th class="ns l">Result</th><th class="ns l">Verdict</th></tr></thead><tbody></tbody></table></div>
+
+<h2>Key</h2>
+<div class="key">
+<div><b>Games missed</b>Team games a player was with the team and did not play, counted only in runs of three or more straight games, scaled to 82. One- and two-game breaks are left out because they are mostly rest. It includes injuries, illness, suspensions and personal leave, because play-by-play cannot tell them apart.</div>
+<div><b>Chance of 20+</b>The model's probability that he misses 20 or more games next season. About <span class="r20"></span> of rotation players do in a typical season.</div>
+<div><b>Range</b>Where 80% of players with a similar forecast actually landed in the backtest. The ranges came out wider than needed (they held <span class="cov"></span> of results, test L4), which says how unpredictable missed games are.</div>
+<div><b>History</b>His games missed in each of the last five seasons. A full season with no games between two played seasons counts as 82, which is right for a torn ACL and wrong for a year spent overseas (Kevin Porter Jr., 2023-24).</div>
+<div><b>Miles per 36</b>Distance covered per 36 minutes on the floor, from NBA.com's camera tracking (2013-14 on). The league average last season was <span class="lgmi"></span>.</div>
+<div><b>Pace of his minutes</b>Trips down the floor by both teams per minute he was on the court. Faster games mean more running for the same minutes.</div>
+<div><b>38+ minute nights</b>Share of his games in which he played 38 minutes or more.</div>
+<div><b>Back-to-back load</b>Share of his games that were the second night of a back-to-back with 30+ minutes on both nights.</div>
+<div><b>Spike</b>His biggest seven-day minutes total compared with his average week over the 28 days before it. 1.0 is a normal week; 1.5 is half again as much.</div>
+<div><b>Coach load</b>Minutes per game of a team's five most-used players, minus the league average that season.</div>
+<div><b>Health effect</b>How many more games a team's players missed than the model expected for them. Positive is worse. It did not repeat from year to year (0.03).</div>
+<div><b>Returns cut short</b>Share of returns from a 10+ game absence that were followed by another run of three or more missed games within 15 games. The league rate is <span class="rab"></span>.</div>
+</div>
+
+<h2>What this does not do</h2>
+<ul class="l">
+<li><b>It does not know what the injury was.</b> No public data gives the body part or type for every absence, so an ankle sprain and a torn ACL are both just games missed.</li>
+<li><b>High school is not in it.</b> There is no public record of high-school injuries or minutes. College is in it as workload and games missed (Bart Torvik's player files, 2008 on, matched by name), not as injuries.</li>
+<li><b>It cannot see rest decisions.</b> One- and two-game breaks are left out, but a longer planned shutdown still counts as missed games.</li>
+<li><b>Heavy minutes look safe for a reason.</b> Players who are already hurting play fewer minutes, so the healthiest players are the ones who log big loads. That hides some of any real effect of workload, and no public data can fully undo it.</li>
+<li><b>Miles data has holes.</b> Camera tracking starts in 2013-14. NBA.com's 2025-26 file had 44 players with impossible speeds (13 to 22 mph); those rows are dropped.</li>
+<li><b>Teams are last season's.</b> The team column is where each player finished 2025-26. Offseason moves are not reflected.</li>
+<li><b>It is a forecast for groups, not a diagnosis.</b> A 50% chance of missing 20 games means half of players like him did. It says nothing about any one player's body.</li>
+</ul>
+<div class="foot" id="foot"></div>
+</main>
+<script type="module">
+const bust='?'+Date.now();
+const [P,T,M]=await Promise.all(['load','load_teams','load_meta'].map(f=>fetch('../data/'+f+'.json'+bust).then(r=>r.json())));
+const C=P.cols, D=P.rows.map(r=>Object.fromEntries(C.map((c,i)=>[c,r[i]])));
+const BT=M.backtest, TS=M.tests;
+const $=s=>document.querySelector(s), fmt=(v,n=1)=>v==null?'–':(+v).toFixed(n), pct=v=>v==null?'–':Math.round(v*100)+'%';
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+$('#pseason').textContent=M.projection_for; document.querySelectorAll('.tseason').forEach(e=>e.textContent=M.built_from);
+document.querySelectorAll('.r20').forEach(e=>e.textContent=pct(BT.rate20));
+document.querySelectorAll('.cov').forEach(e=>e.textContent=pct(BT.cover80));
+document.querySelectorAll('.lgmi').forEach(e=>e.textContent=fmt(M.league_mi36,2)+' miles');
+document.querySelectorAll('.rab').forEach(e=>e.textContent=pct(TS.team.TM2.reabsence_rate));
+
+// ---------- short version
+const tr=M.trend, f0=tr[0], fl=tr[tr.length-1], m0=tr.find(t=>t.miles36!=null);
+const up=(a,b)=>Math.round((b/a-1)*100);
+$('#tldr').innerHTML=`<p><b>Missing games is mostly unpredictable, and what can be predicted comes from a player's own history and age.</b> Those were the only inputs that helped. Out of any two players where one went on to miss 20+ games, the model picks him ${pct(BT.auc)} of the time. A coin flip gets 50%, and last season's absences alone get ${pct(BT.auc_base)}.</p>
+<p><b>Heavy minutes, 38-minute nights, back-to-backs, miles run, a coach who rides his starters, college workload and a team's medical record all failed their pre-set tests.</b> None of them improved the forecast once history and age were known. They are shown on each player as descriptions.</p>
+<p><b>The running is real.</b> Pace is up ${up(f0.pace,fl.pace)}% since ${f0.season}, and miles per 36 minutes are up ${up(m0.miles36,fl.miles36)}% since ${m0.season}. Teams answered with rest: rotation players now sit ${fmt(fl.rest)} games a season in one- and two-game breaks, up from ${fmt(f0.rest)}. A team's rest policy repeats from year to year (${fmt(TS.team.TM3.r_repeat,2)}), so that part is a choice, not luck.</p>`;
+
+// ---------- trend cards
+const cards=[['pace','Pace','Possessions per team per game',1,''],['miles36','Miles per 36','Miles covered per 36 minutes on the floor (NBA.com tracking, players with 500+ minutes)',2,''],['rest','Rest breaks','One- and two-game breaks per rotation player per season',1,''],['top5_mpg','Top-five minutes','Minutes per game of each team\'s five most-used players',1,'']];
+$('#trend').innerHTML=cards.map(([k,t,s,n])=>{const pts=tr.filter(x=>x[k]!=null),a=pts[0],b=pts[pts.length-1];
+ const vs=pts.map(p=>p[k]),lo=Math.min(...vs),hi=Math.max(...vs),W=240,H=58,pad=(hi-lo)*.15||1;
+ const X=i=>i*(W/(pts.length-1)),Y=v=>H-(v-lo+pad)/(hi-lo+2*pad)*H;
+ const path=pts.map((p,i)=>(i?'L':'M')+X(i).toFixed(1)+','+Y(p[k]).toFixed(1)).join('');
+ return `<div class="tc"><div class="t">${t}</div><div class="v">${fmt(b[k],n)} <span class="muted" style="font-size:.8rem;font-family:inherit;font-weight:400">from ${fmt(a[k],n)}</span></div><div class="s">${s}</div>
+ <svg viewBox="0 0 ${W} 70" preserveAspectRatio="none" role="img" aria-label="${t} by season, ${a.season} to ${b.season}"><path d="${path}" fill="none" stroke="var(--ink)" stroke-width="1.6" vector-effect="non-scaling-stroke"/><circle cx="${X(pts.length-1)}" cy="${Y(b[k])}" r="2.6" fill="var(--ink)"/><text x="0" y="69">${a.season}</text><text x="${W}" y="69" text-anchor="end">${b.season}</text></svg></div>`}).join('');
+$('#trendnote').textContent=`Seasons ${f0.season} to ${fl.season}, regular season. Miles start in 2013-14, when the league installed tracking cameras. 2011-12 and 2019-21 were shortened seasons. Missed games per rotation player went from ${fmt(f0.missed)} to ${fmt(fl.missed)} over the same years, but the model found that a player's own running load did not predict his own missed games.`;
+
+// ---------- projection table
+const teams=[...new Set(D.map(d=>d.team))].sort();
+$('#team').innerHTML+=teams.map(t=>`<option>${t}</option>`).join('');
+const cols=[['name','Player','l'],['team','Team','l'],['age','Age'],['exp','Expected missed'],['p20','Chance of 20+'],['hist','Last 5 seasons','l'],['mpg','Min/game'],['mi36','Miles/36']];
+let sortK='exp',sortD=-1,shown=40,sel=null;
+const maxH=82;
+const spark=h=>`<span class="spark" title="${h.map(v=>v==null?'–':v).join(', ')} games missed">${h.map(v=>v==null?'<i class="n"></i>':`<i class="${v>=40?'x':v>=20?'h':''}" style="height:${Math.max(2,v/maxH*18)}px"></i>`).join('')}</span>`;
+const rng=d=>{const s=x=>Math.min(100,x/82*100);return `<span class="rng" title="80% range ${fmt(d.lo,0)}–${fmt(d.hi,0)}"><s style="left:${s(d.lo)}%;width:${s(d.hi)-s(d.lo)}%"></s><b style="left:${s(d.exp)}%"></b></span>`};
+function rows(){const q=$('#q').value.trim().toLowerCase(),t=$('#team').value,p=$('#pos').value;
+ return D.filter(d=>(!t||d.team==t)&&(!p||d.pos==p)&&(!q||d.name.toLowerCase().normalize('NFD').replace(/[̀-ͯ]/g,'').includes(q.normalize('NFD').replace(/[̀-ͯ]/g,''))))
+  .sort((a,b)=>{const k=sortK=='hist'?'exp':sortK;const x=a[k],y=b[k];if(x==null)return 1;if(y==null)return -1;return (x>y?1:x<y?-1:0)*sortD})}
+function draw(){const R=rows();
+ $('#pt thead').innerHTML='<tr>'+cols.map(([k,n,c])=>`<th class="${c||''} ${k=='hist'?'ns':''}" data-k="${k}">${n}${sortK==k?(sortD<0?' ▾':' ▴'):''}</th>`).join('')+'</tr>';
+ $('#pt tbody').innerHTML=R.slice(0,shown).map(d=>`<tr data-n="${esc(d.name)}" class="${sel&&sel.name==d.name?'sel':''}"><td>${esc(d.name)}</td><td class="l">${d.team}</td><td>${fmt(d.age,0)}</td><td>${fmt(d.exp)}${rng(d)}</td><td>${fmt(d.p20,0)}%</td><td class="l">${spark(d.missed_hist)}</td><td>${fmt(d.mpg)}</td><td>${fmt(d.mi36,2)}</td></tr>`).join('');
+ const b=$('#more');b.hidden=R.length<=shown;b.textContent=`Show all ${R.length}`;
+ document.querySelectorAll('#pt th').forEach(th=>th.onclick=()=>{const k=th.dataset.k;if(k=='hist')return;if(sortK==k)sortD*=-1;else{sortK=k;sortD=(k=='name'||k=='team')?1:-1}draw()});
+ document.querySelectorAll('#pt tbody tr').forEach(tr=>tr.onclick=()=>{card(D.find(d=>d.name==tr.dataset.n));draw();if(innerWidth<880)$('#card').scrollIntoView({behavior:'smooth'})});
+}
+$('#more').onclick=()=>{shown=1e9;draw()};
+['#q','#team','#pos'].forEach(s=>$(s).addEventListener('input',()=>{shown=40;draw()}));
+const rank=(k,v,hi=true)=>{const vs=D.map(d=>d[k]).filter(x=>x!=null);if(v==null)return '';const below=vs.filter(x=>hi?x<v:x>v).length;return `<span class="muted"> · ${Math.round(below/vs.length*100)}th pct</span>`};
+function card(d){sel=d;const c=d.contrib||{};const S=M.built_from;
+ const yrs=[];const y0=+S.slice(0,4);for(let i=4;i>=0;i--){const y=y0-i;yrs.push(`${y}-${String(y+1).slice(2)}`)}
+ const drv=[['History',c.history],['Age',c.age],['Position',c.position]].map(([n,v])=>{const w=Math.min(50,Math.abs(v||0)/0.9*50);return `<div><span>${n}</span><span class="rail"><u></u><i style="${v>=0?`left:50%;width:${w}%;background:var(--warm)`:`right:50%;width:${w}%;background:var(--acc)`}"></i></span><span style="text-align:right">${v>=0?'+':''}${Math.round((Math.exp(v||0)-1)*100)}%</span></div>`}).join('');
+ const col=d.col_years!=null?`<span>College seasons</span><span>${d.col_years}</span><span>College minutes</span><span>${(d.col_min||0).toLocaleString()}</span><span>College games missed</span><span>${d.col_missed_pct}%</span>`:(d.no_college?`<span>College</span><span>none (international, G League or prep)</span>`:`<span>College</span><span>no record before 2008 or no match</span>`);
+ $('#card').innerHTML=`<p class="nm">${esc(d.name)}</p><div class="sub">${d.team} · ${d.pos} · age ${fmt(d.age,0)} in ${M.projection_for}${d.height?` · ${Math.floor(d.height/12)}-${d.height%12}`:''}</div>
+ <div class="big"><div><b>${fmt(d.exp)}</b><span>Expected games missed</span></div><div><b>${fmt(d.p20,0)}%</b><span>Chance of 20+</span></div><div><b>${fmt(d.lo,0)}–${fmt(d.hi,0)}</b><span>80% range</span></div></div>
+ <div class="sec"><div class="h">Games missed, last five seasons</div><div class="kv">${d.missed_hist.map((v,i)=>`<span>${yrs[i]}</span><span>${v==null?'not in the league':v>=82?'whole season':v}</span>`).join('')}</div></div>
+ <div class="sec"><div class="h">What moves his number (vs. an average player)</div><div class="drv">${drv}</div><div class="note" style="margin-top:4px">Only absence history, age and position are in the number; they passed. Everything below is description.</div></div>
+ <div class="sec"><div class="h">Load, ${S}</div><div class="kv"><span>Minutes per game</span><span>${fmt(d.mpg)}${rank('mpg',d.mpg)}</span><span>Games played</span><span>${d.gp}</span><span>38+ minute nights</span><span>${fmt(d.pct38,0)}%</span><span>Back-to-back load</span><span>${fmt(d.pct_b2b30,0)}%</span><span>Biggest 7-day spike</span><span>${fmt(d.spike,2)}</span><span>Pace of his minutes</span><span>${fmt(d.pace_min,2)} trips/min${rank('pace_min',d.pace_min)}</span><span>Miles per 36</span><span>${d.mi36==null?'–':fmt(d.mi36,2)+rank('mi36',d.mi36)}</span><span>Average speed</span><span>${d.speed==null?'–':fmt(d.speed,2)+' mph'}</span></div></div>
+ <div class="sec"><div class="h">Mileage</div><div class="kv"><span>Career regular-season minutes</span><span>${Math.round(d.career_k*1000).toLocaleString()}${rank('career_k',d.career_k)}</span><span>Playoff minutes, ${S}</span><span>${fmt(d.po_min,0)}</span>${col}</div></div>
+ <div class="sec"><div class="h">Rehab</div><div class="kv"><span>10+ game absences, last 3 seasons</span><span>${d.long_abs_3y}</span><span>Returns cut short</span><span>${d.reabs_3y}</span><span>His team's coach load</span><span>${fmt(d.team_load)} min</span></div></div>
+ <div class="note">Games missed counts runs of 3+ straight games, any reason. Description lines did not improve the forecast in pre-set tests and are not part of the number.</div>`}
+draw(); card(D.find(d=>d.name=='Joel Embiid')||D[0]); draw();
+
+// ---------- coaches
+const CO=T.coaches.filter(c=>c.load_rel!=null).sort((a,b)=>b.load_rel-a.load_rel);
+const mx=Math.max(...CO.map(c=>Math.abs(c.load_rel)));
+const cbar=v=>{const w=Math.abs(v)/mx*75;return `<span class="cwrap"><span class="lh">${v<0?`<span class="cbar neg" style="width:${w}px"></span>`:''}</span><span class="rh">${v>=0?`<span class="cbar" style="width:${w}px"></span>`:''}</span></span>`};
+$('#ct thead').innerHTML='<tr><th class="ns">Coach</th><th class="ns l">Team now</th><th class="ns">Seasons</th><th class="ns">Coach load</th><th class="ns">vs. league</th><th class="ns l"></th><th class="ns">Rest breaks</th></tr>';
+$('#ct tbody').innerHTML=CO.map(c=>`<tr class="${c.team?'':'ref'}"><td>${esc(c.coach)}</td><td class="l">${c.team||'not coaching (reference)'}</td><td>${c.seasons}</td><td>${fmt(c.load)}</td><td>${c.load_rel>=0?'+':''}${fmt(c.load_rel)}</td><td class="l">${cbar(c.load_rel)}</td><td>${fmt(c.rest)}</td></tr>`).join('')+
+ T.coaches.filter(c=>c.load_rel==null).map(c=>`<tr><td>${esc(c.coach)}</td><td class="l">${c.team}</td><td>0</td><td colspan="4" class="l muted">First NBA head-coaching season</td></tr>`).join('');
+
+// ---------- teams
+const TT=T.teams.sort((a,b)=>b.load-a.load);
+$('#tt thead').innerHTML='<tr><th class="ns">Team</th><th class="ns l">Coach (2026-27)</th><th class="ns">Coach load</th><th class="ns">vs. league</th><th class="ns">Rest breaks</th><th class="ns">Health effect</th><th class="ns">Returns cut short</th></tr>';
+$('#tt tbody').innerHTML=TT.map(t=>`<tr><td>${t.team}</td><td class="l">${esc(t.coach||'')}</td><td>${fmt(t.load)}</td><td>${t.load_rel>=0?'+':''}${fmt(t.load_rel)}</td><td>${fmt(t.rest)}</td><td>${t.eff==null?'–':(t.eff>=0?'+':'')+fmt(t.eff)}</td><td>${t.reabs==null?'–':t.reabs+'%'}</td></tr>`).join('');
+
+// ---------- tests
+const L=TS.L1_L3, X=TS.extra, TM=TS.team;
+const rel=(a,b)=>((a-b)/a*100).toFixed(1)+'%';
+const V=(ok,desc)=>desc?'<span class="desc">Description</span>':ok?'<span class="pass">Pass</span>':'<span class="fail">Fail</span>';
+const tests=[
+ ['L1 Does the model forecast?','Full model (history, age, position, workload, mileage, coach load) vs. last season\'s absences alone','Brier score 2% better and typical miss 0.5 games better',`Brier ${rel(L.L1.brier_base,L.L1.brier_full)} better; typical miss ${fmt(L.L1.mae_full)} vs ${fmt(L.L1.mae_base)} games`,V(L.L1.pass_a&&L.L1.pass_b)],
+ ['L2 Workload and mileage','Minutes per game, pace of his minutes, 38+ minute nights, back-to-back load, spikes, career and playoff minutes',`Brier 1% better and typical miss 0.2 games better`,`Brier ${rel(L.L2.brier_without,L.L2.brier_with)} better; typical miss ${fmt(L.L2.mae_without-L.L2.mae_with,2)} games better`,V(L.L2.pass)],
+ ['L3 Coach load','How hard his team ran its top five the season before',`Brier 0.5% better`,`${rel(L.L3.brier_without,L.L3.brier_with)}`,V(L.L3.pass)],
+ ['L6 Miles run','NBA.com miles per 36, miles per game, speed, playoff miles (2013-14 on)',`Brier 1% better`,`${rel(X.L6.brier_without,X.L6.brier_with)} (n=${X.L6.n.toLocaleString()})`,V(X.L6.pass_)],
+ ['C1 College','College minutes, college games missed, years in school, height, no-college flag',`Brier 1% better`,`${rel(X.C1.brier_without,X.C1.brier_with)} (n=${X.C1.n.toLocaleString()}, ${X.C1.with_college_record.toLocaleString()} matched)`,V(X.C1.pass_)],
+ ['TM1 Team medical staff','Do a team\'s players miss more or fewer games than expected, year after year?',`Repeats at 0.20+, and helps the forecast by 0.5%`,`Repeats at ${fmt(TM.TM1.r_repeat,2)}; forecast ${rel(TM.TM1.brier_without,TM.TM1.brier_with)}`,V(false)],
+ ['TM2 Rehab','Do a team\'s players come back and go out again within 15 games, year after year?',`Repeats at 0.20+; player history helps by 0.5%`,`Repeats at ${fmt(TM.TM2.r_repeat,2)}; player history ${rel(TM.TM2.brier_without,TM.TM2.brier_with)}`,V(false)],
+ ['TM3 Rest policy','How often teams sit healthy rotation players for one or two games','No bar (description)',`Repeats at ${fmt(TM.TM3.r_repeat,2)}`,V(0,1)],
+ ['L4 Ranges','Do the 80% ranges hold 80% of results?','74% to 86%',`${pct(BT.cover80)} (too wide)`,V(BT.L4_pass)],
+ ['L5 Calibration','In each fifth of predicted risk, do predicted and actual rates of 20+ missed games match?','Within 5 points',BT.calib.map(c=>`${pct(c.pred)}→${pct(c.actual)}`).join(', '),V(BT.L5_pass)]];
+$('#tests tbody').innerHTML=tests.map(t=>`<tr><td>${t[0]}</td><td class="l">${t[1]}</td><td class="l">${t[2]}</td><td class="l">${t[3]}</td><td class="l v">${t[4]}</td></tr>`).join('');
+
+$('#foot').innerHTML=`Backtest: ${BT.n.toLocaleString()} player-seasons (1,000+ minutes, outcomes 2013-14 to 2025-26), each season forecast without using it. Play-by-play from <a href="https://github.com/shufinskiy/nba_data">shufinskiy/nba_data</a>; speed and distance from NBA.com tracking; ages and positions from Basketball-Reference via <a href="https://github.com/gabriel1200/site_Data">gabriel1200/site_Data</a>; college from <a href="https://barttorvik.com">Bart Torvik</a>. Built ${M.updated} from the ${M.built_from} season. <a href="../models/">All models</a>.`;
+</script>
+</body>
+</html>

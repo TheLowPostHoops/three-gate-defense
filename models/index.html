@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Models | The Low Post</title>
+<meta name="description" content="Every Low Post model, what it measures, and which of its pre-set tests it passed and failed.">
+<style>
+:root{--bg:#ffffff;--ink:#121212;--mute:#6b6b6b;--line:#e3e3e3;--soft:#f5f5f4;--rule:#121212;--ok:#1a6d3a;--hot:#b3261e}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121212;--ink:#f2f2f2;--mute:#a0a0a0;--line:#2e2e2e;--soft:#1c1c1c;--rule:#f2f2f2;--ok:#6fd08c;--hot:#ff8a80}}
+:root[data-theme="dark"]{--bg:#121212;--ink:#f2f2f2;--mute:#a0a0a0;--line:#2e2e2e;--soft:#1c1c1c;--rule:#f2f2f2;--ok:#6fd08c;--hot:#ff8a80}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif}
+main{max-width:1120px;margin:0 auto;padding:22px 20px 64px}
+h1{font:700 1.75rem/1.15 Georgia,"Times New Roman",serif;margin:0 0 4px}
+.dek{font-size:.92rem;color:var(--mute);margin:0 0 26px;max-width:60em}
+.models{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+@media(max-width:760px){.models{grid-template-columns:minmax(0,1fr)}}
+.m{border-top:3px solid var(--rule);padding-top:12px;display:flex;flex-direction:column}
+.m .k{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.12em;color:var(--mute)}
+.m h2{font:700 1.45rem/1.15 Georgia,"Times New Roman",serif;margin:6px 0 8px}
+.m h2 a{color:var(--ink);text-decoration:none}.m h2 a:hover{text-decoration:underline}
+.m p{margin:0 0 12px;font-size:.95rem}
+.m ul{margin:0 0 14px;padding:0;list-style:none;font-size:.86rem}
+.m li{padding:7px 0;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:12px}
+.m li:first-child{border-top:1px solid var(--line)}
+.m li span:last-child{font-weight:700;white-space:nowrap}
+.pass{color:var(--ok)}.fail{color:var(--hot)}
+.go{margin-top:auto;display:inline-block;align-self:flex-start;font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;border:1px solid var(--ink);color:var(--ink);padding:9px 16px;text-decoration:none;border-radius:2px}
+.go:hover{background:var(--ink);color:var(--bg)}
+.rules{margin-top:44px;border-top:3px solid var(--rule);padding-top:12px;max-width:50em;font-size:.92rem}
+.rules b{font-size:.72rem;text-transform:uppercase;letter-spacing:.12em}
+.rules ol{padding-left:20px}.rules li{margin:6px 0}
+</style>
+<link rel="stylesheet" href="/three-gate-defense/assets/site.css">
+</head>
+<body>
+<header class="mast"><div><a class="brand" href="/three-gate-defense/">The Low Post</a><nav><a href="/three-gate-defense/">Home</a><div class="dd on"><a href="/three-gate-defense/models/" aria-current="page">Models</a><div class="menu"><a href="/three-gate-defense/defense/">Three Gates<small>Rim protection explorer</small></a><a href="/three-gate-defense/durability/">Load &amp; Durability<small>Who misses games, and why</small></a></div></div><a class="x" href="https://x.com/LowPostHoops">@LowPostHoops</a></nav></div></header>
+<main>
+<h1>Models</h1>
+<p class="dek">Every Low Post model is built from public data, tested against bars written down before the test was run, and published with the tests it failed. These are Low Post creations, not NBA stats.</p>
+<div class="models">
+ <div class="m">
+  <div class="k">Defense · updated weekly in season</div>
+  <h2><a href="../defense/">Three Gates: rim protection</a></h2>
+  <p>A shot at the rim has to get through three gates: Redirect (the shots teams settle for away from the rim), Deter (how rarely they even try at the rim) and Contest (how often rim shots miss). Every defender graded on each, with ranges, not ranks.</p>
+  <ul>
+   <li><span>Rim score: teammate independence</span><span class="pass">Pass</span></li>
+   <li><span>Rim score: next-season team forecast</span><span class="pass">Pass</span></li>
+   <li><span>Rim score: season-to-season repeatability</span><span class="fail">Fail</span></li>
+   <li><span>Total defense (exploratory): teammate independence</span><span class="fail">Fail</span></li>
+  </ul>
+  <a class="go" href="../defense/">Open the explorer</a>
+ </div>
+ <div class="m">
+  <div class="k">Health · new</div>
+  <h2><a href="../durability/">Load &amp; Durability</a></h2>
+  <p>Who is likely to miss games next season, and whether minutes, miles run, back-to-backs, a coach who rides his starters, college workload or a team's medical staff predict it. Most of them do not.</p>
+  <ul id="dur"><li><span>Loading test record…</span><span></span></li></ul>
+  <a class="go" href="../durability/">Open the model</a>
+ </div>
+</div>
+<div class="rules">
+ <b>How every model here works</b>
+ <ol>
+  <li>A pass/fail bar is written down before each test is run, so the result cannot be bent afterward.</li>
+  <li>Only what clears its bar goes into a ranking or a projection. The rest is shown as a description and labeled.</li>
+  <li>Every number comes with a range, and every result says what it passed or failed.</li>
+ </ol>
+</div>
+</main>
+<script>
+fetch('../data/load_meta.json?'+Date.now()).then(r=>r.json()).then(M=>{
+ const L=M.tests.L1_L3,X=M.tests.extra,TM=M.tests.team;
+ const v=ok=>`<span class="${ok?'pass':'fail'}">${ok?'Pass':'Fail'}</span>`;
+ document.getElementById('dur').innerHTML=[
+  ['Workload and mileage add to the forecast',L.L2.pass],['Coach load adds to the forecast',L.L3.pass],['Miles run add to the forecast',X.L6.pass_],
+  ['College workload adds to the forecast',X.C1.pass_],['Calibration of 20+ game risk',M.backtest.L5_pass]].map(([n,ok])=>`<li><span>${n}</span>${v(ok)}</li>`).join('');
+}).catch(()=>{});
+</script>
+</body>
+</html>

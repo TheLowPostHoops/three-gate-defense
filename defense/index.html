@@ -1,0 +1,357 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Three Gates: rim protection explorer</title>
+<meta name="description" content="Rim protection is three skills, not one. Explore redirect, deter and contest for NBA defenders, two seasons of play-by-play, updated weekly during the season.">
+<style>
+:root{--bg:#ffffff;--ink:#121212;--mute:#6b6b6b;--line:#e3e3e3;--soft:#f5f5f4;--rule:#121212;--red:#1f5fbf;--det:#c25a00;--con:#b3204a;--two:#6b46c1;--bal:#8c8c8c;--leak:#b3261e;--pos:#1a6d3a;--lk:#6b4226}
+@media (prefers-color-scheme:dark){:root{--bg:#121212;--ink:#f2f2f2;--mute:#a0a0a0;--line:#2e2e2e;--soft:#1c1c1c;--rule:#f2f2f2;--red:#6ea2f0;--det:#f0a040;--con:#f06f98;--two:#a58be8;--bal:#8c8c8c;--leak:#ff8a80;--pos:#6fd08c;--lk:#d2a679}}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif}
+main{max-width:1120px;margin:0 auto;padding:22px 20px 64px}
+h1{font:700 1.75rem/1.15 Georgia,"Times New Roman",serif;margin:0 0 4px;letter-spacing:-.01em}
+.dek{font-size:.92rem;color:var(--mute);margin:0 0 16px;max-width:60em}
+h2{font:700 .8rem/1.2 -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;text-transform:uppercase;letter-spacing:.14em;margin:44px 0 14px;padding-top:12px;border-top:3px solid var(--rule)}
+p{margin:0 0 14px;max-width:44em}
+.mono,.small{font-family:inherit}
+@media(max-width:760px){h1{font-size:1.45rem}}
+.r{color:var(--red)}.d{color:var(--det)}.c{color:var(--con)}
+.ctl{display:flex;flex-wrap:wrap;gap:12px 22px;align-items:flex-end;margin:16px 0;padding:14px 16px;background:var(--soft);font-size:.82rem}
+.ctl label{display:flex;flex-direction:column;gap:4px;color:var(--mute);font-weight:600;text-transform:uppercase;letter-spacing:.08em;font-size:.68rem}
+select,input[type=text]{font:inherit;font-size:.9rem;text-transform:none;letter-spacing:0;font-weight:400;padding:7px 9px;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:2px}
+input[type=range]{width:150px;accent-color:var(--ink)}
+details{border:1px solid var(--line);padding:10px 14px;margin:12px 0;font-size:.88rem}
+summary{cursor:pointer;font-weight:700;font-size:.78rem;text-transform:uppercase;letter-spacing:.1em}
+.sl{display:flex;flex-wrap:wrap;gap:12px 24px;margin-top:12px}
+.sl label{display:flex;flex-direction:column;gap:4px;font-size:.78rem;color:var(--mute)}
+.sl label b{color:var(--ink)}
+.types{display:flex;flex-wrap:wrap;gap:6px 18px;margin:8px 0 14px;font-size:.82rem}
+.types label{display:flex;gap:6px;align-items:center;color:var(--ink)}
+.sw{width:10px;height:10px;display:inline-block;border-radius:50%}
+.grid{display:grid;grid-template-columns:minmax(0,2.1fr) minmax(0,1fr);gap:28px;align-items:start}
+@media(max-width:820px){.grid{grid-template-columns:minmax(0,1fr)}}
+svg{width:100%;display:block;border:1px solid var(--line);border-top:3px solid var(--rule);background:var(--bg)}
+svg text{font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;font-size:10.5px;fill:var(--mute)}
+svg .lab{fill:var(--ink);font-weight:600}
+.grid-l{stroke:var(--soft)}.zero{stroke:var(--mute);stroke-dasharray:3 3}
+#card{border-top:3px solid var(--rule);padding:12px 2px 0;font-size:.92rem}
+.sim{cursor:pointer;color:var(--ink);text-decoration:underline;text-decoration-color:var(--rule)}.sim:hover{text-decoration-color:var(--ink)}.tp{font-size:.88rem;margin:12px 0 2px;line-height:1.45}.tp div{margin:5px 0}
+#card h3{margin:0;font:700 1.55rem/1.15 Georgia,"Times New Roman",serif}
+.sub{color:var(--mute);font-size:.78rem;text-transform:uppercase;letter-spacing:.06em;margin:4px 0 12px}
+.bar{margin:12px 0}.bar .t{display:flex;justify-content:space-between;font-size:.84rem}
+.bar .t b{text-transform:uppercase;letter-spacing:.08em;font-size:.74rem}
+.bar .t span{font-variant-numeric:tabular-nums}
+.rail{position:relative;height:8px;background:var(--soft);margin-top:5px}
+.rail i{position:absolute;top:0;bottom:0}.rail b{position:absolute;left:50%;top:-3px;bottom:-3px;width:1px;background:var(--mute)}
+.rail u{position:absolute;top:3px;height:2px;background:var(--ink);opacity:.6}
+.kv{font-size:.86rem;margin-top:14px;border-top:1px solid var(--line);padding-top:10px}
+.kv div{margin:5px 0}
+.tablewrap{overflow-x:auto;margin-top:8px}
+table{border-collapse:collapse;width:100%;font-size:.82rem;min-width:760px;font-variant-numeric:tabular-nums}
+th,td{padding:9px 10px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
+th:first-child,td:first-child,th:last-child,td:last-child{text-align:left}
+th{cursor:pointer;color:var(--ink);font-weight:700;font-size:.68rem;text-transform:uppercase;letter-spacing:.09em;border-bottom:2px solid var(--rule);user-select:none;position:sticky;top:0;background:var(--bg)}
+td:first-child{font-weight:600}
+tbody tr{cursor:pointer}tbody tr:hover{background:var(--soft)}
+.pos{color:var(--pos)}.neg{color:var(--leak)}
+button{font:inherit;font-size:.74rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;border:1px solid var(--ink);background:var(--bg);color:var(--ink);padding:9px 16px;cursor:pointer;margin-top:14px;border-radius:2px}
+button:hover{background:var(--ink);color:var(--bg)}
+#tip{position:fixed;display:none;pointer-events:none;background:#121212;color:#fff;padding:7px 10px;font-size:12px;line-height:1.4;z-index:5;border-radius:2px}
+ul.l{margin:0 0 12px;padding-left:0;list-style:none;max-width:46em}ul.l li{margin:0;padding:12px 0;border-bottom:1px solid var(--line);font-size:.95rem}
+.foot{color:var(--mute);font-size:.8rem;margin-top:44px;border-top:1px solid var(--line);padding-top:14px;max-width:60em}
+.key{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:18px;margin:6px 0 0}
+.key.k3{grid-template-columns:repeat(3,minmax(0,1fr));margin-top:22px}
+.key>div{min-width:0;border-top:3px solid var(--rule);padding-top:8px;font-size:.84rem;color:var(--ink)}
+.key b{display:block;font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;margin-bottom:4px}
+@media(max-width:900px){.key,.key.k3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:520px){.key,.key.k3{grid-template-columns:minmax(0,1fr)}}
+#pt td:nth-child(2),#pt th:nth-child(2),#pt td:nth-child(3),#pt th:nth-child(3){text-align:left}
+#pt td:nth-child(2){font-weight:600}#pt td:first-child{font-weight:400;color:var(--mute)}
+#pmore{margin-top:10px}
+.two{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;margin-top:30px}
+@media(max-width:820px){.two{grid-template-columns:minmax(0,1fr)}}
+.two h3{font:700 .72rem/1.2 -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;text-transform:uppercase;letter-spacing:.12em;margin:0 0 6px}
+.gt{min-width:0}.gt th{cursor:default;position:static}.gt tbody tr{cursor:default}
+.gt td:nth-child(2),.gt th:nth-child(2){text-align:left}.gt td:last-child,.gt th:last-child{text-align:right}.gt td:first-child{color:var(--mute);font-weight:400}.gt td:nth-child(2){font-weight:600}
+</style>
+<link rel="stylesheet" href="/three-gate-defense/assets/site.css">
+</head>
+<body>
+<header class="mast"><div><a class="brand" href="/three-gate-defense/">The Low Post</a><nav><a href="/three-gate-defense/">Home</a><div class="dd on"><a href="/three-gate-defense/models/">Models</a><div class="menu"><a href="/three-gate-defense/defense/">Three Gates<small>Rim protection explorer</small></a><a href="/three-gate-defense/durability/">Load &amp; Durability<small>Who misses games, and why</small></a></div></div><a class="x" href="https://x.com/LowPostHoops">@LowPostHoops</a></nav></div></header>
+<main>
+<h1>Rim protection explorer</h1>
+<p class="dek" id="dek"></p>
+<div class="ctl">
+ <label>X axis<select id="xs"></select></label>
+ <label>Y axis<select id="ys"></select></label>
+ <label>Minimum minutes <span id="mmv">1,350</span><input id="mm" type="range" min="1350" max="4500" step="50" value="1350"></label>
+ <label>Find a player<input id="q" type="text" placeholder="Wembanyama"></label>
+</div>
+<details id="bl"><summary>Blend the gates (your own weights)</summary>
+ <div class="sl">
+  <label class="mono"><span>Redirect weight <b id="wrv">0.0</b></span><input id="wr" type="range" min="0" max="2" step="0.1" value="0"></label>
+  <label class="mono"><span>Deter weight <b id="wdv">1.0</b></span><input id="wd" type="range" min="0" max="2" step="0.1" value="1"></label>
+  <label class="mono"><span>Contest weight <b id="wcv">1.0</b></span><input id="wc" type="range" min="0" max="2" step="0.1" value="1"></label>
+  <label class="mono"><span>Presets</span><select id="pre"><option value="0,1,1">Rim score (default)</option><option value="1,1,1">All three equal</option><option value="0,1,0">Deter only</option><option value="0,0,1">Contest only</option><option value="1,0,0">Redirect only</option></select></label>
+ </div>
+ <p class="small" style="margin:10px 0 0;color:var(--mute)">This makes a number called "Your blend" that you can put on either axis. It is whatever you weight it to be. Players are not ranked by an all-in-one total, and the reasons are at the bottom.</p>
+</details>
+<div class="types" id="types"></div>
+
+<div class="grid">
+ <div><svg id="plot" role="img" aria-label="Scatter plot of NBA defenders on the chosen gates"></svg></div>
+ <div id="card"></div>
+</div>
+
+<h2 id="proj">Projected best defenders, <span id="pseason"></span></h2>
+<div id="pwrap" hidden>
+<p class="dek" id="pdek"></p>
+<p class="small" style="margin:0 0 8px">Rank by <select id="pby"><option value="rim">Rim score</option><option value="tot">Total defense (exploratory)</option></select></p>
+<div class="tablewrap"><table id="pt"><thead></thead><tbody></tbody></table></div>
+<button id="pmore"></button>
+<div class="two" id="pgates"></div>
+<p class="small" id="pnote" style="margin:12px 0 0;color:var(--mute);max-width:72ch"></p>
+</div>
+
+<h2>Key</h2>
+<div class="key">
+<div><b class="r">Redirect</b>Quality of the shots opponents take away from the rim while he is on the floor. Points per 100 possessions, higher is better.</div>
+<div><b class="d">Deter</b>How rarely opponents take shots at the rim against him. Same units.</div>
+<div><b class="c">Contest</b>How much less often rim shots go in than that shot normally would. Same units.</div>
+<div><b>Rim score</b>Deter plus Contest. Blocks are not in it. Redirect is left out because it mostly mirrors Deter (correlation -0.69).</div>
+<div><b>Backstop</b>Context only, nothing is subtracted. Rates the best shot-blocker playing alongside him by block rate: strong, some or little.</div>
+<div><b>Carry</b>His rim score counting only the minutes when no other top-fifth rim protector is on the floor with him. It asks how much of the rim defense is his own. It tracks the rim score closely (0.93), does not forecast next season any better, and is not steadier for players who change teams, so treat it as a description. Shown for players with 400 or more of those minutes.</div>
+<div><b>Event gap</b>How many blocks, steals and charges drawn per 36 minutes he gets compared with what his total defense would predict. Zero means his defense accounts for them, positive means more than it explains, negative means fewer. It is a style description: players with a high gap did not defend worse the next season (they were slightly better), so it does not show that chasing blocks and steals costs a team anything.</div>
+</div>
+<div class="key k3">
+<div><b class="d">Deterrer</b>Strong at Deter only. He changes which shots the offense chooses to take (Valančiūnas, Green).</div>
+<div><b class="c">Contester</b>Strong at Contest only. The shots at the rim go in less often (Gafford, McDaniels).</div>
+<div><b class="r">Redirector</b>Strong at Redirect only. The offense is pushed into worse shots away from the rim (Suggs, Walter).</div>
+<div><b style="color:var(--two)">Two gates</b>Strong at two gates (or, for one player, all three), usually Contest and Deter (Wembanyama, Clingan) or Contest and Redirect (Gilgeous-Alexander).</div>
+<div><b>Balanced</b>Not strong or weak at any one gate. Most players land here.</div>
+<div><b style="color:var(--lk)">Leaky</b>No strong gate and a clearly below-average total (Missi, Portis).</div>
+</div>
+<p class="small" style="margin:12px 0 0;color:var(--mute)">"Strong" means roughly the top fifth of the players shown on that gate.</p>
+
+<h2>The table</h2>
+<p style="color:var(--mute);max-width:72ch;font-size:.92rem">Click a header to sort, click a row to see that player. "Rim rank range" is where the player landed in 90% of resamples of the data. A wide range means the number is noisy, and almost everyone's is wider than you would guess.</p>
+<div class="tablewrap"><table id="tb"><thead></thead><tbody></tbody></table></div>
+<button id="more"></button>
+
+<h2>What this does not do</h2>
+<ul class="l">
+<li><b>It does not pick the best defender.</b> It is about rim protection. Perimeter defense, off-ball work, communication and effort are mostly outside what these three gates capture.</li>
+<li><b>There is no all-in-one total.</b> Adding the three gates together did not hold up in pre-set tests. Guards who play next to elite shot-blockers made up too much of the top of the list, and players' totals were not stable when they changed teams. The three gates are shown separately and the only ranking is the rim score.</li>
+<li><b>Teammates matter.</b> A guard whose team has a great rim protector behind him can look better on Redirect than he would alone. An adjustment was tested and did not move the scores in a way that holds up, so it is shown as context instead. The "Backstop" line on each player says how good the best shot-blocker playing alongside him was.</li>
+<li><b>One season is noisy.</b> Rim score repeats from one season to the next at about 0.43 among rim protectors, and 0.28 for the ones who changed teams. That is why ranges are shown, not ranks. It does predict next season's team rim defense a little better than just using last year's team (0.60 against 0.57).</li>
+<li><b>Carry and Event gap are descriptions, not grades.</b> Carry did not forecast next season better than the rim score or hold up better for players who change teams. Event gap is steady from year to year (0.72), but players with a high gap did not defend worse the next season, so it does not show that chasing blocks and steals hurts. Neither is used in the projection.</li>
+<li><b>The top is a cluster.</b> The players at the top of the rim score list are separated by less than the uncertainty. The rank range column shows how much each player's rank moves when the data is resampled, so read that, not the rank.</li>
+</ul>
+
+<div class="foot" id="foot"></div>
+</main>
+<div id="tip"></div>
+<script type="module">
+const J=await (await fetch('../data/players.json?'+Date.now())).json();
+const TEAMS=J.teams, ARCH=J.arch, M=J.meta;
+let PJ=null; try{PJ=await (await fetch('../data/projection.json?'+Date.now())).json()}catch(e){}
+const D=J.rows.map(a=>({name:a[0],team:TEAMS[a[1]],mins:a[2],redirect:a[3],deter:a[4],contest:a[5],rse:a[6],dse:a[7],cse:a[8],rimse:a[9],lo:a[10],hi:a[11],ma:a[12],arch:ARCH[a[13]],tot:a[14],totse:a[15],reb:a[16],rebse:a[17],tov:a[18],ft:a[19],tr:a[20],ca:a[21],eg:a[22],e36:a[23]}));
+D.forEach(d=>{d.rim=+(d.deter+d.contest).toFixed(3)});
+let TK=null; try{TK=await (await fetch('../data/tracking.json?'+Date.now())).json()}catch(e){}
+const TKM={};let NBIG=0;
+if(TK){
+ const C=TK.meta.cols,ix=k=>C.indexOf(k),rows=TK.rows.map(r=>{const o={};C.forEach((c,i)=>o[c]=r[i]);o.dconv=o.dreb_chances>0?o.dreb/o.dreb_chances:null;return o});
+ const big=rows.filter(o=>o.rim6_fga>=400);NBIG=big.length;
+ const M2=[['rim6_diff',0,0,'makes shooters miss at the rim more than they normally would','lets shooters make more rim shots than they normally would'],
+  ['dconv',1,0,'turns a high share of defensive-rebound chances into rebounds','secures a low share of his defensive-rebound chances'],
+  ['post_ppp',0,40,'defends post-ups well','gives up a lot of points in post-ups'],
+  ['roll_ppp',0,40,'defends the rolling big man well','gives up a lot of points to the rolling big man in pick-and-roll'],
+  ['pnrbh_ppp',0,60,'holds up when switched onto the ball handler','struggles when switched onto the ball handler'],
+  ['spot_ppp',0,150,'guards spot-up shooters well','gives up a lot of points on spot-up shots (closeouts)'],
+  ['out15_diff',0,250,'contests shots from 15 feet and out well','lets shooters hit more than normal from 15 feet and out'],
+  ['def_mph',1,0,'moves faster than most big men on defense','is slower than most big men on defense'],
+  ['pf36',0,0,'rarely fouls for a big man','fouls a lot for a big man'],
+  ['blk36',1,0,'blocks more shots than most big men','blocks fewer shots than most big men']];
+ const posk={post_ppp:'post_poss',roll_ppp:'roll_poss',pnrbh_ppp:'pnrbh_poss',spot_ppp:'spot_poss',out15_diff:'out15_fga'};
+ big.forEach(o=>{o.good=[];o.bad=[];for(const [k,hi,minp,g,b] of M2){const v=o[k];if(v==null||(minp&&o[posk[k]]<minp))continue;const pool=big.filter(q=>q[k]!=null&&(!minp||q[posk[k]]>=minp));const worse=pool.filter(q=>hi?q[k]<v:q[k]>v).length/pool.length;if(worse>=.8)o.good.push([worse,g]);else if(worse<=.2)o.bad.push([worse,b])}o.good.sort((a,b)=>b[0]-a[0]);o.bad.sort((a,b)=>a[0]-b[0]);o.big=true});
+ const nn=z=>z.normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();rows.forEach(o=>TKM[nn(o.name)]=o);
+}
+const AX={redirect:{n:'Redirect',c:'--red'},deter:{n:'Deter',c:'--det'},contest:{n:'Contest',c:'--con'},rim:{n:'Rim score',c:'--ink'},blend:{n:'Your blend',c:'--ink'}};
+const GROUPS=[['Deterrer',['Deterrer'],'--det'],['Contester',['Contester'],'--con'],['Redirector',['Redirector'],'--red'],['Two gates',['Two-gate Contester+Deterrer','Two-gate Contester+Redirector','Three-gate'],'--two'],['Balanced',['Balanced'],'--bal'],['Leaky',['Leaky'],'--lk']];
+const NAMED=['Rudy Gobert','Victor Wembanyama','Chet Holmgren','Draymond Green','Daniel Gafford','Alex Caruso','Donovan Clingan','Isaiah Hartenstein','Cade Cunningham','Derrick White'];
+const st={x:'deter',y:'contest',min:1350,q:'',sel:'Victor Wembanyama',on:new Set(GROUPS.map(g=>g[0])),sort:'rim',dir:-1,all:false};
+const W={r:0,d:1,c:1};
+const $=id=>document.getElementById(id);
+const css=v=>getComputedStyle(document.documentElement).getPropertyValue(v).trim();
+const f2=v=>(v>0?'+':'')+v.toFixed(2);
+const nm=s=>s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase();
+function groupOf(a){return GROUPS.find(g=>g[1].includes(a))}
+function blend(){D.forEach(d=>{d.blend=W.r*d.redirect+W.d*d.deter+W.c*d.contest})}
+function vis(){const q=nm(st.q.trim());return D.filter(d=>d.mins>=st.min&&st.on.has(groupOf(d.arch)[0])&&(!q||nm(d.name).includes(q)))}
+function ticks(lo,hi){const raw=(hi-lo)/6,p=Math.pow(10,Math.floor(Math.log10(raw))),m=[1,2,5,10].find(m=>m*p>=raw)*p,o=[];for(let v=Math.ceil(lo/m)*m;v<=hi+1e-9;v+=m)o.push(+v.toFixed(6));return o}
+function backstop(ma){return ma>=0.9?'strong':ma>=0.3?'some':'little'}
+function plot(){
+ const svg=$('plot'),w0=svg.clientWidth||640,H=Math.max(360,Math.min(520,w0*.72));
+ svg.setAttribute('viewBox','0 0 '+w0+' '+H);svg.setAttribute('height',H);
+ const m={l:44,r:14,t:12,b:40},w=w0-m.l-m.r,h=H-m.t-m.b;
+ const pad=a=>{const lo=Math.min(...a),hi=Math.max(...a),p=(hi-lo)*.06;return[lo-p,hi+p]};
+ const [x0,x1]=pad(D.map(d=>d[st.x])),[y0,y1]=pad(D.map(d=>d[st.y]));
+ const X=v=>m.l+(v-x0)/(x1-x0)*w,Y=v=>m.t+h-(v-y0)/(y1-y0)*h;let s='';
+ ticks(x0,x1).forEach(t=>{s+='<line class="grid-l" x1="'+X(t)+'" x2="'+X(t)+'" y1="'+m.t+'" y2="'+(m.t+h)+'"/><text x="'+X(t)+'" y="'+(H-24)+'" text-anchor="middle">'+t+'</text>'});
+ ticks(y0,y1).forEach(t=>{s+='<line class="grid-l" y1="'+Y(t)+'" y2="'+Y(t)+'" x1="'+m.l+'" x2="'+(m.l+w)+'"/><text x="'+(m.l-6)+'" y="'+(Y(t)+3)+'" text-anchor="end">'+t+'</text>'});
+ if(x0<0&&x1>0)s+='<line class="zero" x1="'+X(0)+'" x2="'+X(0)+'" y1="'+m.t+'" y2="'+(m.t+h)+'"/>';
+ if(y0<0&&y1>0)s+='<line class="zero" y1="'+Y(0)+'" y2="'+Y(0)+'" x1="'+m.l+'" x2="'+(m.l+w)+'"/>';
+ s+='<text x="'+(m.l+w/2)+'" y="'+(H-7)+'" text-anchor="middle" class="lab">'+AX[st.x].n+' (points per 100 possessions, higher is better)</text>';
+ s+='<text transform="translate(11 '+(m.t+h/2)+') rotate(-90)" text-anchor="middle" class="lab">'+AX[st.y].n+'</text>';
+ const V=vis(),ids=new Set(V.map(d=>d.name));
+ D.filter(d=>!ids.has(d.name)).forEach(d=>{s+='<circle cx="'+X(d[st.x])+'" cy="'+Y(d[st.y])+'" r="2.5" fill="'+css('--line')+'"/>'});
+ const R=d=>2.5+Math.sqrt(Math.max(0,d.mins-1500))/24;
+ V.slice().sort((a,b)=>b.mins-a.mins).forEach(d=>{const sel=d.name===st.sel;s+='<circle class="dot" data-n="'+d.name.replace(/"/g,'&quot;')+'" cx="'+X(d[st.x])+'" cy="'+Y(d[st.y])+'" r="'+R(d).toFixed(1)+'" fill="'+css(groupOf(d.arch)[2])+'" fill-opacity="'+(sel?1:.7)+'" '+(sel?'stroke="'+css('--ink')+'" stroke-width="2"':'')+'/>'});
+ const lab=new Set(NAMED.map(nm));lab.add(nm(st.sel));
+ V.filter(d=>lab.has(nm(d.name))).forEach(d=>{const x=X(d[st.x]),y=Y(d[st.y]),right=x<w0-120;s+='<text class="lab" x="'+(x+(right?7:-7))+'" y="'+(y-6)+'" text-anchor="'+(right?'start':'end')+'">'+d.name+'</text>'});
+ svg.innerHTML=s;
+ svg.querySelectorAll('.dot').forEach(el=>{
+  el.addEventListener('click',()=>{st.sel=el.dataset.n;render()});
+  el.addEventListener('mousemove',e=>{const d=D.find(p=>p.name===el.dataset.n),t=$('tip');t.style.display='block';t.style.left=Math.min(e.clientX+12,innerWidth-240)+'px';t.style.top=(e.clientY+12)+'px';t.innerHTML=d.name+'<br>Redirect '+f2(d.redirect)+' &middot; Deter '+f2(d.deter)+'<br>Contest '+f2(d.contest)+' &middot; Rim '+f2(d.rim)});
+  el.addEventListener('mouseleave',()=>$('tip').style.display='none');
+ });
+}
+function bar(k,label,cls,v,se){
+ const mx=5,sc=x=>50+Math.max(-1,Math.min(1,x/mx))*50,a=sc(0),b=sc(v);
+ return '<div class="bar"><div class="t"><b class="'+cls+'">'+label+'</b><span>'+f2(v)+' <span style="color:var(--mute)">&plusmn;'+se.toFixed(2)+'</span></span></div><div class="rail"><b></b><i style="left:'+Math.min(a,b)+'%;width:'+Math.abs(b-a)+'%;background:var('+AX[k].c+')"></i><u style="left:'+sc(v-se)+'%;width:'+(sc(v+se)-sc(v-se))+'%"></u></div></div>';
+}
+
+const TYPEX={'Deterrer':'He changes which shots the offense takes: teams go to the rim less often with him on the floor, and the shots that do go up are about average.','Contester':'Shots at the rim go in less often with him there, while teams still take about as many as usual.','Redirector':'Away from the rim, the offense ends up with worse shots than normal while he is on the floor.','Two-gate Contester+Deterrer':'He ranks in the top fifth at both rim jobs: teams take fewer shots there, and the ones they take miss more often than normal.','Two-gate Contester+Redirector':'He makes shots at the rim miss and pushes the offense into worse shots away from it.','Three-gate':'Strong at all three gates, which is rare.','Balanced':'No gate stands out, good or bad. That means about average, not poor, and it is where most players land.','Leaky':'No strong gate and a clearly below-average total. Treat it as a flag to look closer, not a verdict.'};
+let ZC=null;
+function simList(p){
+ if(!ZC){const ks=['redirect','deter','contest'];const mu={},sd={};ks.forEach(k=>{const v=D.map(d=>d[k]);const m=v.reduce((a,b)=>a+b,0)/v.length;mu[k]=m;sd[k]=Math.sqrt(v.reduce((a,b)=>a+(b-m)*(b-m),0)/v.length)||1});ZC={ks,mu,sd}}
+ const z=d=>ZC.ks.map(k=>(d[k]-ZC.mu[k])/ZC.sd[k]),zp=z(p);
+ return D.filter(d=>d.name!==p.name).map(d=>{const q=z(d);return {d,dist:Math.sqrt(q.reduce((a,b,i)=>a+(b-zp[i])*(b-zp[i]),0))}}).sort((a,b)=>a.dist-b.dist).slice(0,5);
+}
+function typeBlock(p){
+ const n=D.filter(d=>d.arch===p.arch).length,sim=simList(p);
+ return '<div class="tp"><div><b style="color:var(--ink)">Type: '+p.arch.replace('Two-gate ','Two gates, ')+'.</b> '+(TYPEX[p.arch]||'')+' <span style="color:var(--mute)">'+n+' of '+D.length+' players are this type.</span></div>'+
+ '<div><b style="color:var(--ink)">Most like him</b> <span style="color:var(--mute)">(closest shape across Redirect, Deter and Contest, not the same rim score):</span> '+sim.map(x=>'<span class="sim" data-n="'+x.d.name.replace(/"/g,'&quot;')+'">'+x.d.name+'</span>').join(', ')+'.</div></div>'}
+function card(){
+ const p=D.find(d=>d.name===st.sel);if(!p){$('card').innerHTML='<p class="sub">Pick a player.</p>';return}
+ $('card').innerHTML='<h3>'+p.name+'</h3><div class="sub">'+p.team+' &middot; '+p.mins.toLocaleString()+' defensive minutes &middot; '+p.arch+'</div>'+
+ bar('redirect','Redirect','r',p.redirect,p.rse)+bar('deter','Deter','d',p.deter,p.dse)+bar('contest','Contest','c',p.contest,p.cse)+
+ typeBlock(p)+'<div class="kv"><div class="mono"><b>Rim score '+f2(p.rim)+'</b> &plusmn;'+p.rimse.toFixed(2)+'</div>'+
+ '<div class="mono">Rim rank range: '+p.lo+' to '+p.hi+' of '+D.length+'</div>'+
+ '<div class="mono">Backstop: <b>'+backstop(p.ma)+'</b> <span style="color:var(--mute)">(best shot-blocker playing with him; see key)</span></div>'+
+ projLine(p)+totLine(p)+'<div style="margin-top:8px;color:var(--mute)">'+explain(p)+realLife(p)+'</div></div>';
+ $('card').querySelectorAll('.sim').forEach(el=>el.addEventListener('click',()=>{st.sel=el.dataset.n;render()}));
+}
+function ordn(n){return n+(n%10==1&&n!=11?'st':n%10==2&&n!=12?'nd':n%10==3&&n!=13?'rd':'th')}
+function totLine(p){
+ if(p.tot==null)return '';
+ const rt=D.filter(d=>d.tot>p.tot).length+1,rr=D.filter(d=>d.reb>p.reb).length+1;
+ return '<div class="mono">Total defense (exploratory): <b>'+f2(p.tot)+'</b> &plusmn;'+p.totse.toFixed(2)+', ranks '+rt+' of '+D.length+' <span style="color:var(--mute)">(points per 100 possessions, everything counted)</span></div><div class="mono">Rebounding: <b>'+f2(p.reb)+'</b> &plusmn;'+p.rebse.toFixed(2)+', ranks '+rr+' of '+D.length+' <span style="color:var(--mute)">(opponent offensive rebounds prevented)</span></div>'+(p.tr!=null?'<div class="mono">Transition defense (descriptive): <b>'+f2(p.tr)+'</b>, ranks '+(D.filter(d=>d.tr>p.tr).length+1)+' of '+D.length+' <span style="color:var(--mute)">(points per 100 possessions saved when the opponent breaks quickly after a miss or turnover; part of total defense, not on top of it, and it also reflects how often his own team gives up those chances)</span></div>':'')+(p.ca!=null?'<div class="mono">Carry (description): <b>'+f2(p.ca)+'</b>, ranks '+(D.filter(d=>d.ca!=null&&d.ca>p.ca).length+1)+' of '+D.filter(d=>d.ca!=null).length+' <span style="color:var(--mute)">(his rim score in the minutes when no other top-fifth rim protector is on the floor; it mostly matches his rim score and did not forecast next season better, see key)</span></div>':'')+(p.eg!=null?'<div class="mono">Event gap (style, not a grade): <b>'+f2(p.eg)+'</b>, ranks '+(D.filter(d=>d.eg>p.eg).length+1)+' of '+D.length+' <span style="color:var(--mute)">('+p.e36.toFixed(1)+' blocks, steals and charges per 36 minutes; positive means more than his total defense would predict, and in testing that did not mean a worse defense the next season)</span></div>':'')
+}
+function realLife(p){
+ if(p.tot==null)return '';
+ const rkR=D.filter(d=>d.rim>p.rim).length+1,rkT=D.filter(d=>d.tot>p.tot).length+1;
+ const net=p.redirect+p.deter+p.contest,oth=p.tot-(net+p.reb+p.tov+p.ft);
+ const dr=[['his shot defense overall',net],['rebounding',p.reb],['forcing turnovers',p.tov],['free throws',p.ft],['everything else (fouls and shooting luck)',oth]];
+ const neg=dr.filter(x=>x[1]<=-.5).sort((a,b)=>a[1]-b[1]).slice(0,2),pos=dr.filter(x=>x[1]>=.5).sort((a,b)=>b[1]-a[1]).slice(0,2);
+ const fl=a=>a.map(x=>x[0]+' ('+f2(x[1])+')').join(' and ');
+ let o=' <b style="color:var(--ink)">Everything counted (exploratory).</b> His total defense is '+f2(p.tot)+' points per 100 possessions, which ranks '+rkT+' of '+D.length+', against '+rkR+' on rim score.';
+ if(rkT-rkR>=20)o+=' The rim numbers are '+(rkT-rkR>=50?'not':'only partly')+' turning into the same rank overall.'+(neg.length?' The biggest drags are '+fl(neg)+'.':'');
+ else if(rkR-rkT>=20)o+=' He is worth more overall than his rim score says.'+(pos.length?' The biggest boosts are '+fl(pos)+'.':'');
+ else o+=' That is in line with his rim rank.';
+ const t=TK&&TKM[nm(p.name)];
+ if(t&&t.big){o+=' <b style="color:var(--ink)">NBA.com tracking, compared with the '+NBIG+' big men who defended 400 or more rim shots over 2024-25 and 2025-26 (descriptive only, these numbers did not improve forecasts when tested):</b>';
+  if(t.good.length)o+=' he '+t.good.slice(0,4).map(x=>x[1]).join('; ')+'.';
+  if(t.bad.length)o+=' On the other side, he '+t.bad.slice(0,4).map(x=>x[1]).join('; ')+'.';
+  if(!t.good.length&&!t.bad.length)o+=' he is near average on everything tracked.'}
+ return o}
+function projLine(p){
+ if(!PJ)return '';
+ const ex=(PJ.meta.excluded||[]).some(n=>nm(n)===nm(p.name));
+ if(ex)return '<div class="mono">2026-27 projection: <b>left out</b> <span style="color:var(--mute)">(no longer in the league)</span></div>';
+ const r=PJ.rows.find(r=>r[1]===p.name);if(!r)return '';
+ return '<div class="mono">2026-27 projection: <b>'+f2(r[5])+'</b> rim score, ranks '+r[0]+' of '+PJ.rows.length+' <span style="color:var(--mute)">(80% range '+f2(r[6])+' to '+f2(r[7])+')</span></div>'+(r[17]!=null?'<div class="mono">2026-27 projected total defense (exploratory): <b>'+f2(r[17])+'</b>, ranks '+r[19]+' of '+PJ.rows.length+'</div>':'')
+}
+function pct(p,k){return D.filter(d=>d[k]<=p[k]).length/D.length}
+function topPct(p,k){const t=Math.round((1-pct(p,k))*100);return t<=0?1:t}
+function explain(p){
+ const o=[],pd=pct(p,'deter'),pc=pct(p,'contest'),pr=pct(p,'redirect'),prim=pct(p,'rim'),L=D.length;
+ const rk=D.filter(d=>d.rim>p.rim).length+1;
+ o.push('Rim score '+f2(p.rim)+', which ranks '+rk+(rk%10==1&&rk!=11?'st':rk%10==2&&rk!=12?'nd':rk%10==3&&rk!=13?'rd':'th')+' of '+L+'. Over repeated resamples of the data his rank ran from '+p.lo+' to '+p.hi+', so read the rank as a range.');
+ const parts=[];
+ if(pd>=.8)parts.push('Deter is a strength (top '+topPct(p,'deter')+'%): teams take fewer shots at the rim with him on the floor');
+ else if(pd<=.2)parts.push('Deter is a weakness (bottom '+Math.max(1,Math.round(pd*100))+'%): teams take more shots at the rim against him');
+ if(pc>=.8)parts.push('Contest is a strength (top '+topPct(p,'contest')+'%): shots at the rim go in less often than they normally would');
+ else if(pc<=.2)parts.push('Contest is a weakness (bottom '+Math.max(1,Math.round(pc*100))+'%): shots at the rim go in more often than they normally would');
+ if(pr>=.8)parts.push('Redirect is a strength (top '+topPct(p,'redirect')+'%): the shots opponents take away from the rim are worse than usual');
+ else if(pr<=.2&&pd>=.6)parts.push('Redirect is low because teams that can\'t reach the rim take more shots from farther out, so that is the flip side of his Deter, not a separate flaw');
+ else if(pr<=.2)parts.push('Redirect is a weakness (bottom '+Math.max(1,Math.round(pr*100))+'%): the shots opponents take away from the rim are better than usual');
+ o.push(parts.length?parts.join('. ')+'.':'No gate stands out. He sits near the middle on all three.');
+ if(pd>=.8&&p.contest<0.5){const c=p.contest;o.push('Almost all of his rim score is Deter ('+f2(p.deter)+' Deter, '+f2(c)+' Contest). Teams really do take fewer shots at the rim against him. '+(c>0.15?'The shots that do go up miss only slightly more often than average. Contest scores are small for everyone, so a top-fifth rank there is a small effect.':c>=-0.15?'The shots that do go up are made about as often as average.':'The shots that do go up go in a bit more often than average.')+' Deter is also the gate most affected by scheme and role, so treat it as the least certain part.')}
+ if(pc>=.8&&p.deter<1.5)o.push('His value is mostly in Contest: shots at the rim miss more often with him there, and he does less than the top Deterrers to keep teams from taking them.');
+ if(p.contest>0.8&&p.deter>1.5)o.push('He gets credit at both Deter and Contest, which is the strongest kind of rim score.');
+ if(p.ma>=0.9)o.push('Backstop is strong: he played next to a good shot-blocker, so part of his number may reflect that teammate.');
+ else if(p.ma<0.3)o.push('Backstop is little: he had almost no shot-blocking help next to him, so his number is more likely his own.');
+ if(p.mins<2000)o.push('With fewer than 2,000 minutes, the method pulls his numbers toward the middle, so his true numbers are probably a little further from zero than shown.');
+ if(p.hi-p.lo>=30)o.push('The data can\'t separate him from many players near him.');
+ return o.join(' ');
+}
+function table(){
+ const cols=[['name','Player'],['mins','Min'],['redirect','Redirect'],['deter','Deter'],['contest','Contest'],['rim','Rim score'],['hi','Rim rank range'],['ma','Backstop'],['arch','Type']];
+ $('tb').querySelector('thead').innerHTML='<tr>'+cols.map(c=>'<th data-k="'+c[0]+'">'+c[1]+(st.sort===c[0]?(st.dir>0?' ↑':' ↓'):'')+'</th>').join('')+'</tr>';
+ const key=st.sort;let V=vis().slice().sort((a,b)=>(typeof a[key]==='string'?a[key].localeCompare(b[key]):a[key]-b[key])*st.dir);
+ const tot=V.length;if(!st.all)V=V.slice(0,15);
+ const cl=v=>v>0.005?'pos':v<-0.005?'neg':'';
+ $('tb').querySelector('tbody').innerHTML=V.map(d=>'<tr data-n="'+d.name.replace(/"/g,'&quot;')+'"><td>'+d.name+'</td><td>'+d.mins.toLocaleString()+'</td>'+['redirect','deter','contest','rim'].map(k=>'<td class="'+cl(d[k])+'">'+f2(d[k])+'</td>').join('')+'<td>'+d.lo+' to '+d.hi+'</td><td>'+backstop(d.ma)+'</td><td>'+d.arch.replace('Two-gate ','')+'</td></tr>').join('');
+ $('more').textContent=st.all?'Show top 15':'Show all '+tot;
+ $('tb').querySelectorAll('th').forEach(th=>th.addEventListener('click',()=>{let k=th.dataset.k;if(k==='hi')k='rim';if(st.sort===k)st.dir*=-1;else{st.sort=k;st.dir=(k==='name'||k==='arch')?1:-1}table()}));
+ $('tb').querySelectorAll('tbody tr').forEach(tr=>tr.addEventListener('click',()=>{st.sel=tr.dataset.n;render();$('card').scrollIntoView({behavior:'smooth',block:'nearest'})}));
+}
+function types(){
+ $('types').innerHTML=GROUPS.map(g=>'<label><input type="checkbox" data-g="'+g[0]+'" '+(st.on.has(g[0])?'checked':'')+'><span class="sw" style="background:var('+g[2]+')"></span>'+g[0]+'</label>').join('');
+ $('types').querySelectorAll('input').forEach(b=>b.addEventListener('change',()=>{const g=b.dataset.g;b.checked?st.on.add(g):st.on.delete(g);render()}));
+}
+function render(){blend();types();plot();card();table();$('mmv').textContent=st.min.toLocaleString()}
+['xs','ys'].forEach(id=>{const s=$(id);Object.keys(AX).forEach(k=>s.add(new Option(AX[k].n,k)));s.value=id==='xs'?st.x:st.y;s.addEventListener('change',()=>{st[id==='xs'?'x':'y']=s.value;render()})});
+$('mm').addEventListener('input',e=>{st.min=+e.target.value;render()});
+$('q').addEventListener('input',e=>{st.q=e.target.value;const q=nm(e.target.value.trim());if(q){const hit=D.find(d=>nm(d.name).includes(q));if(hit)st.sel=hit.name}render()});
+$('more').addEventListener('click',()=>{st.all=!st.all;table()});
+function setW(){['wr','wd','wc'].forEach(i=>{$(i+'v').textContent=(+$(i).value).toFixed(1)})}
+['wr','wd','wc'].forEach(i=>$(i).addEventListener('input',()=>{W[i[1]]=+$(i).value;setW();render()}));
+$('pre').addEventListener('change',e=>{const v=e.target.value.split(',').map(Number);W.r=v[0];W.d=v[1];W.c=v[2];$('wr').value=v[0];$('wd').value=v[1];$('wc').value=v[2];setW();render()});
+let rt;addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(plot,120)});
+matchMedia('(prefers-color-scheme:dark)').addEventListener('change',()=>setTimeout(render,50));
+const fmtDate=s=>{if(!s)return '';const d=new Date(s+'T12:00:00');return d.toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'})};
+(function header(){
+ const ws=M.weights||{},ks=Object.keys(ws);const cur=M.current_season;
+ let win=ks.filter(k=>ws[k]>=0.995).join(' and ');
+ let extra='';
+ const part=ks.filter(k=>ws[k]>0&&ws[k]<0.995);
+ if(part.length){win=ks.filter(k=>ws[k]>0).join(', ');extra=' Seasons are weighted so the newest one fades in over its first 41 games: '+ks.filter(k=>ws[k]>0).map(k=>k+' at '+Math.round(ws[k]*100)+'%').join(', ')+'.'}
+ $('dek').innerHTML='Every NBA defender on three gates: Redirect, Deter and Contest. Based on '+win+' play-by-play.'+extra+' Updated '+fmtDate(M.updated)+(M.data_through?', games through '+fmtDate(M.data_through):'')+'. Click a dot or a row for a player.'+(PJ?' <a href="#proj">Preseason projections</a>.':'');
+ $('foot').innerHTML='Method in short: opponent shots are matched to the lineups on the floor and a ridge regression gives each player a value on each gate, adjusted for the offensive players he faced. Expected points come from shot type and location. Standard errors are '+M.resamples+' bootstrap resamples. "Strong" on a gate means roughly the top fifth of this group. Players with fewer than '+M.min_minutes.toLocaleString()+' defensive minutes in the window are left out. Scores are not adjusted for minutes, because the uncertainty in this model barely changes with them: the median rim-score error is about 0.65 for players with 1,350 to 1,700 minutes and for players with 3,500 or more. The method does pull players with fewer minutes toward the middle, so scores under about 2,000 minutes are probably a little understated. Data: NBA play-by-play and shot data from the open nba_data repository, refreshed every Monday morning during the season.';
+})();
+const PS={all:false,by:'rim'};
+function projection(){
+ if(!PJ){return}
+ const pm=PJ.meta;$('pwrap').hidden=false;$('pseason').textContent=pm.season;const T=PS.by==='tot'&&PJ.rows[0][17]!=null,sd=T?(pm.total_sd||1.25):(pm.resid_sd||0.95);
+ $('pdek').innerHTML='Built '+fmtDate(pm.built_on)+' from '+pm.built_from.join(' and ')+'. These are projections for '+pm.season+', not measurements, and they are not updated during the season. <b>Rim score</b> projects the rim number itself. <b>Total defense</b> projects points per 100 possessions saved with everything counted: the three shot gates, rebounding, turnovers forced and free throws. Both pull the two-season numbers most of the way back toward average, because that is how much has carried into the following season in the past. Players no longer in the league are left out.';
+ const cols=['#','Player','Team ('+pm.built_from[pm.built_from.length-1]+')','Last two seasons','Projected','80% range','Chance top 10',T?'Rebounding':'Type'];
+ $('pt').querySelector('thead').innerHTML='<tr>'+cols.map(c=>'<th style="cursor:default">'+c+'</th>').join('')+'</tr>';
+ let R=T?PJ.rows.slice().sort((a,b)=>a[19]-b[19]):PJ.rows;const tot=Math.min(60,R.length);R=R.slice(0,PS.all?60:15);
+ $('pt').querySelector('tbody').innerHTML=R.map((r,i)=>{const cur=T?r[20]:r[4],pr=T?r[17]:r[5],p10=T?r[18]:r[8];return '<tr><td>'+(T?r[19]:r[0])+'</td><td>'+r[1]+'</td><td>'+r[2]+'</td><td>'+f2(cur)+'</td><td><b>'+f2(pr)+'</b></td><td>'+f2(pr-1.28*sd)+' to '+f2(pr+1.28*sd)+'</td><td>'+Math.round(p10*100)+'%</td><td>'+(T?f2(r[21]):r[12].replace('Two-gate ',''))+'</td></tr>'}).join('');
+ $('pmore').textContent=PS.all?'Show top 15':'Show top '+tot;
+ const mk=(title,idx,cur)=>{const L=PJ.rows.slice().sort((a,b)=>b[idx]-a[idx]).slice(0,10);return '<div><h3>'+title+'</h3><table class="gt"><thead><tr><th>#</th><th>Player</th><th>Last two seasons</th><th>Projected</th></tr></thead><tbody>'+L.map((r,i)=>'<tr><td>'+(i+1)+'</td><td>'+r[1]+'</td><td>'+f2(r[cur])+'</td><td><b>'+f2(r[idx])+'</b></td></tr>').join('')+'</tbody></table></div>'};
+ $('pgates').innerHTML=mk('Best projected Deterrers',15,13)+mk('Best projected Contesters',16,14);
+ $('pnote').innerHTML='<b>How well this has worked.</b> Over the past 8 seasons, a point of Contest carried about 0.63 of a point into the next season\'s rim score and a point of Deter about 0.42, so the rim projection counts Contest more. It also uses blocks, steals, shooting fouls, other fouls, charges drawn and defensive rebounds per 36 minutes, which passed a pre-set test: the typical miss on next season\'s rim score fell from 0.94 to 0.92. Of the 10 players projected highest, about 3 on average finished in the next season\'s top 10 on the same measure; picking 10 at random would give fewer than 1. The total-defense projection is a little less accurate in absolute terms because total defense is noisier (typical miss about 1.25 points per 100 possessions against 0.92 for the rim score), and it also gets about 3 of 10. Age, height, extra seasons of data, hustle stats, NBA.com matchup data and the NBA.com tracking numbers were each tested as additions to the projection and none cleared its pre-set bar, so none is in it. Total defense passed three of four pre-set tests (repeatability 0.38, repeatability for players who changed teams 0.30, and next-season team forecast 0.57 against 0.53 for last year\'s team) and narrowly failed the fourth, independence from teammates (0.15 against a bar of under 0.15), which is why it is labeled exploratory. Treat the lists as who is most likely, not who is certain. They know nothing about injuries, trades, contract situations or role changes since last season, and the team shown is where the player last played. The two short lists are projected one gate at a time. Contest varies much less from player to player than Deter, so its numbers are smaller.';
+}
+$('pmore').addEventListener('click',()=>{PS.all=!PS.all;projection()});
+$('pby').addEventListener('change',e=>{PS.by=e.target.value;PS.all=false;projection()});
+projection();
+render();
+</script>
+</body>
+</html>

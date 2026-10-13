@@ -1,0 +1,2205 @@
+name,year,team,gp,team_games,mpg,cls,ht,pick,bday,role
+anthonybrown,2008,Pacific,30,30,26.3,Jr,6-8,,1986-10-15,
+anthonybrown,2008,Oklahoma St.,13,32,12.9,Jr,6-6,,1986-10-15,
+anthonybrown,2009,Pacific,33,33,22.9,Sr,6-8,,1986-10-15,
+anthonybrown,2009,Oklahoma St.,33,35,13.1,Sr,6-6,,1986-10-15,
+anthonybrown,2010,Washington St.,4,30,1.5,Fr,6-4,,1990-10-15,PF/C
+anthonybrown,2011,Stanford,30,31,23.9,Fr,6-6,34,1992-10-10,Wing F
+anthonybrown,2012,Stanford,37,37,23.9,So,6-6,34,1992-10-10,Wing G
+anthonybrown,2013,Stanford,4,34,17.5,Jr,6-6,34,1992-10-10,Wing F
+anthonybrown,2014,Stanford,36,36,33.5,Jr,6-6,34,1992-10-10,Wing G
+anthonybrown,2015,Stanford,37,37,35.7,Sr,6-6,34,1992-10-10,Wing G
+anthonybrown,2016,Green Bay,27,34,10.6,Fr,6-1,,1996-09-30,Wing G
+garretttemple,2008,LSU,30,30,34.4,Jr,6-6,,1986-10-15,
+garretttemple,2009,LSU,35,35,30.3,Sr,6-6,,1986-10-15,
+charlesjenkins,2008,Hofstra,29,30,34.6,Fr,6-3,44,1989-02-28,
+charlesjenkins,2009,Hofstra,31,31,35,So,6-3,44,1989-02-28,
+charlesjenkins,2010,Hofstra,33,33,37,Jr,6-3,44,1989-02-28,Scoring PG
+charlesjenkins,2011,Hofstra,32,32,37.4,Sr,6-3,44,1989-02-28,Scoring PG
+alonzogee,2008,Alabama,33,33,30.1,Jr,6-6,,1986-10-15,
+alonzogee,2009,Alabama,30,30,32.5,Sr,6-6,,1986-10-15,
+wesleymatthews,2008,Marquette,34,34,28.9,Jr,6-5,,1986-10-15,
+wesleymatthews,2009,Marquette,35,35,34,Sr,6-5,,1986-10-15,
+chrisdouglasroberts,2008,Memphis,40,40,28.7,Jr,6-7,40,1986-10-15,
+kylesingler,2008,Duke,34,34,28.6,Fr,6-8,33,1988-05-04,
+kylesingler,2009,Duke,37,37,32.3,So,6-8,33,1988-05-04,
+kylesingler,2010,Duke,40,40,36,Jr,6-8,33,1988-05-04,Wing F
+kylesingler,2011,Duke,37,37,34.8,Sr,6-8,33,1988-05-04,Wing F
+nolansmith,2008,Duke,34,34,14.7,Fr,6-2,21,1988-07-25,
+nolansmith,2009,Duke,34,37,21.6,So,6-2,21,1988-07-25,
+nolansmith,2010,Duke,38,40,35.6,Jr,6-2,21,1988-07-25,Combo G
+nolansmith,2011,Duke,37,37,34,Sr,6-2,21,1988-07-25,Scoring PG
+etwaunmoore,2008,Purdue,34,34,30.6,Fr,6-4,55,1989-02-25,
+etwaunmoore,2009,Purdue,37,37,33.1,So,6-4,55,1989-02-25,
+etwaunmoore,2010,Purdue,35,35,31.5,Jr,6-4,55,1989-02-25,Combo G
+etwaunmoore,2011,Purdue,34,34,33.9,Sr,6-4,55,1989-02-25,Combo G
+jordanhill,2008,Arizona,33,33,29.4,So,6-10,8,1987-10-15,
+jordanhill,2009,Arizona,34,35,35.7,Jr,6-10,8,1987-10-15,
+jordanhill,2014,Wisconsin,11,38,2.3,Fr,6-3,,1994-12-12,Wing G
+jordanhill,2016,Wisconsin,30,35,15.6,So,6-3,,1994-12-12,Wing G
+jordanhill,2017,Wisconsin,35,37,9.9,Jr,6-4,,1994-12-12,Wing G
+jordanhill,2018,Seattle,31,31,33.7,Sr,6-4,,1994-12-12,Scoring PG
+chasebudinger,2008,Arizona,33,33,35.3,So,6-7,44,1987-10-15,
+chasebudinger,2009,Arizona,35,35,37.6,Jr,6-7,44,1987-10-15,
+ericmaynor,2008,VCU,32,32,34.9,Jr,6-2,20,1986-10-15,
+ericmaynor,2009,VCU,34,34,35.5,Sr,6-2,20,1986-10-15,
+anthonyrandolph,2008,LSU,30,30,32.8,Fr,6-10,14,1988-10-15,
+jeremyevans,2008,Western Kentucky,33,34,21.1,So,6-9,55,1987-10-15,
+jeremyevans,2009,Western Kentucky,33,33,25.3,Jr,6-9,55,1987-10-15,
+jeremyevans,2010,Western Kentucky,34,34,26.5,Sr,6-9,55,1987-10-15,C
+earlclark,2008,Louisville,35,36,28.5,So,6-9,14,1987-10-15,
+earlclark,2009,Louisville,37,37,34.3,Jr,6-9,14,1987-10-15,
+malcolmdelaney,2008,Virginia Tech,35,35,27.3,Fr,6-3,,1989-03-11,
+malcolmdelaney,2009,Virginia Tech,34,34,36.8,So,6-3,,1989-03-11,
+malcolmdelaney,2010,Virginia Tech,33,34,35.8,Jr,6-2,,1989-03-11,Scoring PG
+malcolmdelaney,2011,Virginia Tech,34,34,38.2,Sr,6-3,,1989-03-11,Scoring PG
+dantecunningham,2008,Villanova,35,35,30,Jr,6-9,33,1986-10-15,
+dantecunningham,2009,Villanova,38,38,31.6,Sr,6-9,33,1986-10-15,
+greivisvasquez,2008,Maryland,34,34,37,So,6-6,28,1987-10-15,
+greivisvasquez,2009,Maryland,35,35,34.6,Jr,6-6,28,1987-10-15,
+greivisvasquez,2010,Maryland,32,32,34.3,Sr,6-6,28,1987-10-15,Pure PG
+ryananderson,2008,Nebraska,33,33,29.7,So,6-4,,1987-10-15,
+ryananderson,2008,California,33,33,32.8,So,6-9,21,1987-10-15,
+ryananderson,2009,Nebraska,30,31,24,Jr,6-4,,1987-10-15,
+ryananderson,2010,Nebraska,31,33,27.9,Sr,6-4,,1987-10-15,Wing G
+ryananderson,2012,Boston College,31,31,29.9,Fr,6-8,,1992-12-04,Stretch 4
+ryananderson,2013,Boston College,32,33,31.6,So,6-8,,1992-12-04,Wing F
+ryananderson,2014,Boston College,31,31,31.5,Jr,6-8,,1992-12-04,Wing F
+ryananderson,2016,Arizona,33,34,29.2,Sr,6-9,,1992-12-04,PF/C
+djaugustin,2008,Texas,37,37,37.3,So,6-0,9,1987-10-15,
+brandonwilliams,2008,Stetson,30,30,12.2,So,5-10,,1987-10-15,
+brandonwilliams,2009,Stetson,28,28,11.1,Jr,5-10,,1987-10-15,
+brandonwilliams,2009,Louisiana Monroe,27,29,15.3,Fr,6-1,,1989-10-15,
+brandonwilliams,2010,Stetson,27,27,26.1,Sr,5-10,,1987-10-15,Scoring PG
+brandonwilliams,2010,Louisiana Monroe,12,29,21.6,So,6-1,,1989-10-15,Scoring PG
+brandonwilliams,2011,Evansville,2,31,0.5,Jr,6-0,,1989-12-11,PF/C
+brandonwilliams,2012,Evansville,4,31,1.3,Sr,6-0,,1989-12-11,PF/C
+brandonwilliams,2013,Evansville,3,35,1,Sr,6-0,,1989-12-11,Combo G
+brandonwilliams,2013,Northwestern St.,5,28,1.6,Fr,6-8,,1992-12-18,C
+brandonwilliams,2014,UT Arlington,28,29,12,Fr,6-10,,1995-02-26,C
+brandonwilliams,2015,UT Arlington,30,30,12.4,So,6-10,,1995-02-26,C
+brandonwilliams,2019,Arizona,26,32,28.1,Fr,6-2,,1999-11-22,Scoring PG
+brandonwilliams,2024,UCLA,31,32,17.3,Fr,6-7,,2005-11-01,Wing F
+brandonwilliams,2026,UCLA,34,36,12.2,So,6-7,,2005-11-01,Wing F
+donaldsloan,2008,Texas A&M,35,35,30.4,So,6-3,,1987-10-15,
+donaldsloan,2009,Texas A&M,33,33,30.2,Jr,6-3,,1987-10-15,
+donaldsloan,2010,Texas A&M,33,33,33.4,Sr,6-3,,1987-10-15,Combo G
+derrickbrown,2008,Xavier,37,37,28.1,So,6-8,40,1987-10-15,
+derrickbrown,2009,Xavier,34,34,29.6,Jr,6-8,40,1987-10-15,
+derrickbrown,2024,Sam Houston St.,1,31,4.3,Jr,6-0,,2002-10-15,PF/C
+jeffadrien,2008,Connecticut,33,33,33.8,Jr,6-7,,1986-10-15,
+jeffadrien,2009,Connecticut,35,35,34.6,Sr,6-7,,1986-10-15,
+colealdrich,2008,Kansas,39,39,8.2,Fr,6-11,11,1988-10-15,
+colealdrich,2009,Kansas,35,35,29.6,So,6-11,11,1988-10-15,
+colealdrich,2010,Kansas,36,36,26.8,Jr,6-11,11,1988-10-15,C
+tylerhansbrough,2008,North Carolina,39,39,33,Jr,6-9,13,1986-10-15,
+tylerhansbrough,2009,North Carolina,34,37,30.3,Sr,6-9,13,1986-10-15,
+dannygreen,2008,North Carolina,39,39,22.3,Jr,6-5,46,1986-10-15,
+dannygreen,2009,North Carolina,37,37,27.5,Sr,6-5,46,1986-10-15,
+anthonymorrow,2008,Georgia Tech,32,32,29.7,Sr,6-5,,1985-10-15,
+reggiejackson,2008,Duquesne,29,30,21.4,Sr,5-11,,1985-10-15,
+reggiejackson,2009,Boston College,34,34,20.1,Fr,6-3,24,1990-04-16,
+reggiejackson,2010,Boston College,31,31,30.1,So,6-3,24,1990-04-16,Combo G
+reggiejackson,2011,Boston College,34,34,34.1,Jr,6-3,24,1990-04-16,Scoring PG
+dontegreene,2008,Syracuse,35,35,35.8,Fr,6-11,28,1988-10-15,
+diantegarrett,2008,Iowa St.,31,31,22.2,Fr,6-4,,1988-11-03,
+diantegarrett,2009,Iowa St.,31,31,32.9,So,6-4,,1988-11-03,
+diantegarrett,2010,Iowa St.,32,32,31.6,Jr,6-4,,1988-11-03,Scoring PG
+diantegarrett,2011,Iowa St.,32,32,36.7,Sr,6-4,,1988-11-03,Scoring PG
+lavoyallen,2008,Temple,34,34,29.2,Fr,6-9,50,1989-02-04,
+lavoyallen,2009,Temple,33,34,31.3,So,6-9,50,1989-02-04,
+lavoyallen,2010,Temple,35,35,34.5,Jr,6-9,50,1989-02-04,C
+lavoyallen,2011,Temple,33,34,33.9,Sr,6-9,50,1989-02-04,PF/C
+tajgibson,2008,USC,33,33,32.1,So,6-9,26,1987-10-15,
+tajgibson,2009,USC,35,35,33.7,Jr,6-9,26,1987-10-15,
+brianroberts,2008,Dayton,34,34,34.7,Sr,6-2,,1985-10-15,
+dejuanblair,2008,Pittsburgh,36,36,26.1,Fr,6-7,37,1988-10-15,
+dejuanblair,2009,Pittsburgh,33,34,27.4,So,6-7,37,1988-10-15,
+bradwanamaker,2008,Pittsburgh,29,36,11,Fr,6-4,,1989-07-25,
+bradwanamaker,2009,Pittsburgh,34,34,18.9,So,6-4,,1989-07-25,
+bradwanamaker,2010,Pittsburgh,34,34,32.6,Jr,6-4,,1989-07-25,Scoring PG
+bradwanamaker,2011,Pittsburgh,34,34,30.4,Sr,6-4,,1989-07-25,Scoring PG
+jordancrawford,2008,Indiana,30,33,25.3,Fr,6-4,27,1988-10-15,
+jordancrawford,2010,Xavier,35,35,32.8,So,6-4,27,1988-10-15,Combo G
+jordancrawford,2023,Louisiana Tech,30,30,23.3,Fr,6-3,,2004-02-11,Scoring PG
+jordancrawford,2024,Louisiana Tech,27,29,16.6,So,6-3,,2004-02-11,Wing G
+jordancrawford,2024,Charleston,31,34,11.7,Fr,6-2,,2003-10-15,Combo G
+jordancrawford,2025,Louisiana Tech,19,29,14.3,Jr,6-3,,2004-02-11,Wing G
+jordancrawford,2025,Eastern Kentucky,28,30,22.8,So,6-3,,2003-10-15,Combo G
+jordancrawford,2026,South Dakota,29,29,31,Jr,6-3,,2003-10-15,Combo G
+ericgordon,2008,Indiana,32,33,34.7,Fr,6-3,7,1988-10-15,
+landryfields,2008,Stanford,33,36,12.6,So,6-7,39,1987-10-15,
+landryfields,2009,Stanford,34,34,30.7,Jr,6-7,39,1987-10-15,
+landryfields,2010,Stanford,32,32,36.3,Sr,6-7,39,1987-10-15,Wing F
+brooklopez,2008,Stanford,27,36,30.7,So,7-0,10,1987-10-15,
+jeremypargo,2008,Gonzaga,33,33,33.9,Jr,6-2,,1986-10-15,
+jeremypargo,2009,Gonzaga,33,33,30,Sr,6-2,,1986-10-15,
+robinlopez,2008,Stanford,36,36,24.5,So,7-0,15,1987-10-15,
+darrellarthur,2008,Kansas,39,39,24.7,So,6-9,27,1987-10-15,
+mikescott,2008,Kent St.,34,34,32.8,Sr,6-7,,1985-10-15,
+mikescott,2008,TCU,28,29,12.3,Fr,6-0,,1986-08-12,
+mikescott,2008,Virginia,32,33,18.1,Fr,6-8,43,1988-07-16,
+mikescott,2009,Virginia,28,28,27.6,So,6-8,43,1988-07-16,
+mikescott,2010,Fairleigh Dickinson,32,32,35.8,Jr,6-0,,1986-08-12,Pure PG
+mikescott,2010,Virginia,28,31,27.4,Jr,6-8,43,1988-07-16,PF/C
+mikescott,2011,Fairleigh Dickinson,29,29,37.2,Sr,6-0,,1986-08-12,Scoring PG
+mikescott,2011,Virginia,10,31,33.7,Sr,6-8,43,1988-07-16,PF/C
+mikescott,2012,Virginia,32,32,31.2,Sr,6-8,43,1988-07-16,PF/C
+mikescott,2014,Idaho,33,33,22.5,Jr,6-1,,1993-08-10,Combo G
+mikescott,2015,Idaho,28,28,30,Sr,6-1,,1993-08-10,Pure PG
+aronbaynes,2008,Washington St.,35,35,24,Jr,6-10,,1986-10-15,
+aronbaynes,2009,Washington St.,33,33,28.8,Sr,6-10,,1986-10-15,
+marreesespeights,2008,Florida,36,36,24.3,So,6-10,16,1987-10-15,
+kennethfaried,2008,Morehead St.,28,28,20.2,Fr,6-8,22,1989-11-19,
+kennethfaried,2009,Morehead St.,33,33,30.5,So,6-8,22,1989-11-19,
+kennethfaried,2010,Morehead St.,33,33,30.8,Jr,6-8,22,1989-11-19,C
+kennethfaried,2011,Morehead St.,32,32,35.2,Sr,6-8,22,1989-11-19,C
+jeffteague,2008,Wake Forest,29,29,29.6,Fr,6-2,19,1988-10-15,
+jeffteague,2009,Wake Forest,31,31,32,So,6-2,19,1988-10-15,
+jamesjohnson,2008,Wake Forest,29,29,29.3,Fr,6-8,16,1988-10-15,
+jamesjohnson,2009,Wake Forest,31,31,30.5,So,6-8,16,1988-10-15,
+jamesjohnson,2009,Quinnipiac,31,31,32.5,Fr,6-0,,1990-02-01,
+jamesjohnson,2010,Quinnipiac,33,33,32.5,So,6-0,,1990-02-01,Scoring PG
+jamesjohnson,2011,Quinnipiac,32,32,33.9,Jr,6-0,,1990-02-01,Scoring PG
+jamesjohnson,2011,Louisiana Tech,28,31,7.2,Fr,6-7,,1991-03-09,PF/C
+jamesjohnson,2012,Quinnipiac,31,32,36.1,Sr,6-0,,1990-02-01,Scoring PG
+jamesjohnson,2012,Virginia,6,32,6.2,Fr,6-9,,1991-11-04,C
+jamesjohnson,2013,San Diego St.,12,32,2.5,So,6-10,,1991-11-04,C
+jamesjohnson,2014,Cal St. Fullerton,27,31,10.7,Sr,6-7,,1991-03-09,PF/C
+jamesjohnson,2014,San Diego St.,15,34,7.3,Jr,6-10,,1991-11-04,C
+jamesjohnson,2015,Liberty,28,28,17.8,Sr,6-10,,1991-11-04,C
+chrisjohnson,2008,LSU,24,30,29.8,Jr,6-11,,1986-10-15,
+chrisjohnson,2008,UC Riverside,12,28,8.3,Jr,6-0,,1986-10-15,
+chrisjohnson,2009,LSU,35,35,25.2,Sr,6-11,,1986-10-15,
+chrisjohnson,2009,Dayton,34,35,16.2,Fr,6-6,,1990-04-29,
+chrisjohnson,2010,Dayton,36,37,24.1,So,6-5,,1990-04-29,Stretch 4
+chrisjohnson,2010,Saint Francis,30,30,20.8,Fr,6-0,,1991-03-08,Pure PG
+chrisjohnson,2011,Dayton,36,36,29.7,Jr,6-5,,1990-04-29,Wing F
+chrisjohnson,2011,Saint Francis,30,30,29.6,So,5-10,,1991-03-08,Pure PG
+chrisjohnson,2012,Dayton,32,33,29.7,Sr,6-5,,1990-04-29,Stretch 4
+chrisjohnson,2012,Saint Francis,8,29,31,Jr,6-0,,1991-03-08,Pure PG
+chrisjohnson,2012,St. Bonaventure,30,32,15.7,Jr,6-5,,1988-07-13,Wing G
+chrisjohnson,2013,St. Bonaventure,29,29,28.9,Sr,6-5,,1988-07-13,Wing G
+chrisjohnson,2014,Arizona,4,38,1.5,Jr,6-6,,1992-10-15,Scoring PG
+chrisjohnson,2020,Northern Illinois,26,30,6,So,6-7,,1999-10-15,PF/C
+chrisjohnson,2021,Northern Illinois,3,19,9.3,Sr,6-7,,1999-10-15,PF/C
+chrisjohnson,2024,Texas,17,34,4.5,Fr,6-5,,2004-07-13,Scoring PG
+chrisjohnson,2025,Stephen F. Austin,1,28,17.1,So,6-5,,2004-07-13,Scoring PG
+chrisjohnson,2026,UCF,32,33,15.7,Jr,6-5,,2004-07-13,Scoring PG
+lancethomas,2008,Duke,32,34,18.6,So,6-9,,1987-10-15,
+lancethomas,2009,Duke,37,37,18.6,Jr,6-9,,1987-10-15,
+lancethomas,2010,Duke,40,40,25.3,Sr,6-8,,1987-10-15,C
+lancethomas,2018,Louisville,12,36,4.2,Fr,6-8,,1999-01-18,PF/C
+lancethomas,2020,Memphis,29,31,14.6,So,6-9,,1999-01-18,PF/C
+lancethomas,2021,Memphis,12,28,8,Jr,6-9,,1999-01-18,PF/C
+lancethomas,2022,South Alabama,25,29,10.9,Sr,6-9,,1999-01-18,PF/C
+jasonthompson,2008,Rider,33,33,34.5,Sr,6-11,12,1985-10-15,
+jasonthompson,2020,Houston Christian,4,29,20,Fr,6-7,,1999-12-10,PF/C
+jasonthompson,2021,Houston Christian,19,24,14.1,So,6-7,,1999-12-10,Wing F
+jasonthompson,2022,Houston Christian,9,25,10.9,Jr,6-7,,1999-12-10,Wing F
+jasonthompson,2023,Houston Christian,6,29,18,Sr,6-7,,1999-12-10,Wing G
+cameronjohnson,2008,Texas St.,26,26,10.7,Fr,6-7,,1988-10-16,
+cameronjohnson,2009,Texas St.,26,26,19.7,So,6-7,,1988-10-16,
+cameronjohnson,2010,Texas St.,26,27,26.1,Jr,6-7,,1988-10-16,PF/C
+cameronjohnson,2011,Texas St.,26,29,24.6,Sr,6-7,,1988-10-16,PF/C
+cameronjohnson,2015,Charleston,33,33,27.1,Fr,6-4,,1996-03-07,Wing G
+cameronjohnson,2015,Pittsburgh,7,33,14.4,Fr,6-7,11,1996-03-03,Stretch 4
+cameronjohnson,2016,Charleston,30,30,33.3,So,6-4,,1996-03-07,Combo G
+cameronjohnson,2016,Pittsburgh,31,32,11.5,Fr,6-7,11,1996-03-03,Wing F
+cameronjohnson,2017,Charleston,34,34,31.3,Jr,6-4,,1996-03-07,Wing G
+cameronjohnson,2017,Pittsburgh,33,33,33.3,So,6-8,11,1996-03-03,Wing F
+cameronjohnson,2018,Charleston,32,32,32.8,Sr,6-4,,1996-03-07,Wing G
+cameronjohnson,2018,North Carolina,26,37,29.3,Jr,6-8,11,1996-03-03,Wing F
+cameronjohnson,2019,North Carolina,36,36,29.9,Sr,6-9,11,1996-03-03,Wing F
+cameronjohnson,2020,Stephen F. Austin,28,28,20.8,Jr,6-4,,1998-10-15,Wing G
+cameronjohnson,2021,Stephen F. Austin,18,18,30.6,Sr,6-4,,1998-10-15,Wing G
+cameronjohnson,2026,Mercyhurst,31,32,12.3,Jr,6-5,,2004-10-15,Wing F
+stephencurry,2008,Davidson,35,35,33.1,So,6-3,7,1987-10-15,
+stephencurry,2009,Davidson,33,34,33.8,Jr,6-3,7,1987-10-15,
+georgehill,2008,IU Indy,28,29,36.8,Jr,6-2,26,1986-10-15,
+kostakoufos,2008,Ohio St.,37,37,27.1,Fr,7-0,23,1988-10-15,
+evanturner,2008,Ohio St.,37,37,27.1,Fr,6-7,2,1988-10-15,
+evanturner,2009,Ohio St.,33,33,36.4,So,6-7,2,1988-10-15,
+evanturner,2010,Ohio St.,31,37,35.7,Jr,6-7,2,1988-10-15,Wing F
+jonleuer,2008,Wisconsin,32,36,8.7,Fr,6-10,40,1989-05-14,
+jonleuer,2009,Wisconsin,33,33,21.3,So,6-10,40,1989-05-14,
+jonleuer,2010,Wisconsin,24,33,28.8,Jr,6-10,40,1989-05-14,PF/C
+jonleuer,2011,Wisconsin,34,34,33.5,Sr,6-10,40,1989-05-14,PF/C
+garyforbes,2008,Massachusetts,36,36,33.7,Sr,6-7,,1985-10-15,
+geraldhenderson,2008,Duke,34,34,26.2,So,6-5,12,1987-10-15,
+geraldhenderson,2009,Duke,37,37,29.7,Jr,6-5,12,1987-10-15,
+djwhite,2008,Indiana,33,33,33.5,Sr,6-9,29,1985-10-15,
+jonnyflynn,2008,Syracuse,35,35,35.5,Fr,6-0,6,1988-10-15,
+jonnyflynn,2009,Syracuse,37,37,37.5,So,6-0,6,1988-10-15,
+terrencewilliams,2008,Louisville,36,36,35.9,Jr,6-6,11,1986-10-15,
+terrencewilliams,2009,Louisville,37,37,34.2,Sr,6-6,11,1986-10-15,
+terrencewilliams,2012,Charlotte,29,30,13.7,Fr,6-4,,1992-10-18,Wing G
+terrencewilliams,2013,Charlotte,33,33,23.3,So,6-4,,1992-10-18,Wing G
+terrencewilliams,2014,Charlotte,31,31,30.2,Jr,6-4,,1992-10-18,Wing G
+terrencewilliams,2015,Charlotte,32,32,25.8,Sr,6-5,,1992-10-18,Wing G
+elijahmillsap,2008,Louisiana,29,29,22,So,6-6,,1987-10-15,
+elijahmillsap,2010,UAB,34,34,33.1,Jr,6-6,,1987-10-15,Wing F
+chandlerparsons,2008,Florida,36,36,20.6,Fr,6-9,38,1988-10-25,
+chandlerparsons,2009,Florida,36,36,26,So,6-9,38,1988-10-25,
+chandlerparsons,2010,Florida,34,34,31,Jr,6-9,38,1988-10-25,Wing F
+chandlerparsons,2011,Florida,36,37,34.1,Sr,6-10,38,1988-10-25,Stretch 4
+jonbrockman,2008,Washington,32,33,31.5,Jr,6-7,38,1986-10-15,
+jonbrockman,2009,Washington,33,34,30.8,Sr,6-7,38,1986-10-15,
+darrencollison,2008,UCLA,33,38,34.7,Jr,6-1,21,1986-10-15,
+darrencollison,2009,UCLA,35,35,31.5,Sr,6-1,21,1986-10-15,
+tylawson,2008,North Carolina,32,39,25.1,So,5-11,18,1987-10-15,
+tylawson,2009,North Carolina,34,37,30.3,Jr,5-11,18,1987-10-15,
+wayneellington,2008,North Carolina,39,39,31.1,So,6-4,28,1987-10-15,
+wayneellington,2009,North Carolina,37,37,30.6,Jr,6-4,28,1987-10-15,
+jeremylin,2008,Harvard,29,29,31.5,So,6-2,,1987-10-15,
+jeremylin,2009,Harvard,27,27,35.2,Jr,6-2,,1987-10-15,
+jeremylin,2010,Harvard,28,28,32.4,Sr,6-3,,1987-10-15,Scoring PG
+trevorbooker,2008,Clemson,33,33,26.6,So,6-7,23,1987-10-15,
+trevorbooker,2009,Clemson,32,32,30.7,Jr,6-7,23,1987-10-15,
+trevorbooker,2010,Clemson,32,32,30.8,Sr,6-7,23,1987-10-15,Wing F
+demarrecarroll,2008,Missouri,32,32,25.3,Sr,6-8,27,1985-10-15,
+demarrecarroll,2009,Missouri,38,38,28,Sr,6-8,27,1985-10-15,
+gregstiemsma,2008,Wisconsin,35,36,11.4,Sr,6-11,,1985-10-15,
+samyoung,2008,Pittsburgh,36,36,32.1,Jr,6-6,36,1986-10-15,
+samyoung,2009,Pittsburgh,34,34,31.9,Sr,6-6,36,1986-10-15,
+mariochalmers,2008,Kansas,38,39,30,Jr,6-1,34,1986-10-15,
+ekpeudoh,2008,Michigan,32,32,26,So,6-10,6,1987-10-15,
+ekpeudoh,2010,Baylor,35,35,35.5,Jr,6-10,6,1987-10-15,C
+jordanmiller,2008,Furman,30,30,18.8,Fr,6-2,,1988-12-11,
+jordanmiller,2009,Furman,28,28,31.4,So,6-2,,1988-12-11,
+jordanmiller,2010,Furman,26,28,31.5,Jr,6-2,,1988-12-11,Wing G
+jordanmiller,2011,Furman,28,31,27.3,Sr,6-2,,1988-12-11,Combo G
+jordanmiller,2019,George Mason,17,33,29.6,Fr,6-6,48,2000-01-23,Wing F
+jordanmiller,2020,George Mason,32,32,32.4,So,6-6,48,2000-01-23,Wing G
+jordanmiller,2021,George Mason,19,21,32.9,Jr,6-6,48,2000-01-23,Wing G
+jordanmiller,2022,Miami FL,36,37,30.8,Jr,6-7,48,2000-01-23,Wing G
+jordanmiller,2023,Miami FL,37,37,34.9,Sr,6-7,48,2000-01-23,Wing G
+hasheemthabeet,2008,Connecticut,33,33,31,So,7-3,2,1987-10-15,
+hasheemthabeet,2009,Connecticut,35,35,31.6,Jr,7-3,2,1987-10-15,
+austindaye,2008,Gonzaga,33,33,18.5,Fr,6-11,15,1988-10-15,
+austindaye,2009,Gonzaga,33,33,26.4,So,6-11,15,1988-10-15,
+sundiatagaines,2008,Georgia,33,33,33.6,Sr,6-1,,1985-10-15,
+robertsacre,2008,Gonzaga,29,33,9.3,Fr,7-0,60,1989-06-06,
+robertsacre,2009,Gonzaga,5,33,8.8,So,7-0,60,1989-06-06,
+robertsacre,2010,Gonzaga,33,33,25.5,So,7-0,60,1989-06-06,PF/C
+robertsacre,2011,Gonzaga,34,34,26.1,Jr,7-0,60,1989-06-06,C
+robertsacre,2012,Gonzaga,33,33,26.3,Sr,7-0,60,1989-06-06,C
+javalemcgee,2008,Nevada,32,32,27.3,So,7-0,18,1987-10-15,
+blakegriffin,2008,Oklahoma,33,35,28.4,Fr,6-10,1,1988-10-15,
+blakegriffin,2009,Oklahoma,35,36,33.3,So,6-10,1,1988-10-15,
+jamesanderson,2008,Oklahoma St.,32,32,30.9,Fr,6-6,20,1988-10-15,
+jamesanderson,2009,Oklahoma St.,35,35,33.5,So,6-6,20,1988-10-15,
+jamesanderson,2009,BYU,26,32,7.9,So,6-10,,1988-10-15,
+jamesanderson,2010,Oklahoma St.,33,33,34.1,Jr,6-6,20,1988-10-15,Wing G
+jamesanderson,2010,BYU,28,35,3.5,So,6-10,,1988-10-15,C
+jamesanderson,2011,BYU,30,36,7.7,Jr,6-10,,1988-10-15,C
+jamesanderson,2020,North Alabama,28,28,15.3,Fr,6-5,,1998-09-11,Wing G
+jamesanderson,2021,North Alabama,17,20,14.9,Sr,6-5,,1998-09-11,Wing G
+michaelbeasley,2008,Kansas St.,32,32,31.5,Fr,6-9,2,1988-10-15,
+jerrydbayless,2008,Arizona,29,33,35.7,Fr,6-3,11,1988-10-15,
+courtneylee,2008,Western Kentucky,34,34,30,Sr,6-5,22,1985-10-15,
+russellwestbrook,2008,UCLA,38,38,33.8,So,6-3,4,1987-10-15,
+brandonrush,2008,Kansas,37,39,29.7,Jr,6-6,13,1986-10-15,
+brandonrush,2020,Fairleigh Dickinson,27,29,17.2,Fr,6-3,,2001-06-16,Combo G
+brandonrush,2021,Fairleigh Dickinson,23,24,29.7,So,6-3,,2001-06-16,Wing G
+brandonrush,2022,Fairleigh Dickinson,25,26,27.6,Jr,6-3,,2001-06-16,Combo G
+brandonrush,2023,Youngstown St.,32,32,26.4,Sr,6-3,,2001-06-16,Wing G
+brandonrush,2024,Youngstown St.,28,28,26.5,Sr,6-3,,2001-06-16,Wing G
+royhibbert,2008,Georgetown,34,34,26.3,Sr,7-2,17,1985-10-15,
+kevinlove,2008,UCLA,38,38,29.6,Fr,6-10,5,1988-10-15,
+marvinwilliams,2008,Murray St.,29,29,18.2,So,6-6,,1987-10-15,
+marvinwilliams,2012,Lipscomb,23,30,12.5,Fr,6-8,,1993-08-28,C
+marvinwilliams,2014,Louisiana Monroe,24,26,24.3,Jr,6-8,,1993-08-28,C
+marvinwilliams,2015,Louisiana Monroe,18,34,22.6,Sr,6-8,,1993-08-28,PF/C
+gregbrown,2008,Navy,12,29,4.3,Fr,6-4,,1988-09-11,
+gregbrown,2009,Navy,5,30,4.6,So,6-4,,1988-09-11,
+gregbrown,2010,Navy,30,30,14,Jr,6-4,,1988-09-11,Wing G
+gregbrown,2011,Navy,30,30,22.7,Sr,6-4,,1988-09-11,Wing G
+gregbrown,2013,Saint Francis,29,29,22.4,Fr,6-2,,1994-07-09,Scoring PG
+gregbrown,2014,Saint Francis,31,31,23.5,So,6-2,,1994-07-09,Wing G
+gregbrown,2015,Saint Francis,31,31,27.6,Jr,6-2,,1994-07-09,Combo G
+gregbrown,2016,Saint Francis,28,29,34.3,Sr,6-2,,1994-07-09,Scoring PG
+gregbrown,2021,Texas,26,27,20.6,Fr,6-9,43,2001-09-01,PF/C
+deandrejordan,2008,Texas A&M,34,35,20.1,Fr,6-11,35,1988-10-15,
+jimmerfredette,2008,BYU,34,34,18.2,Fr,6-2,10,1989-02-25,
+jimmerfredette,2009,BYU,32,32,33.3,So,6-2,10,1989-02-25,
+jimmerfredette,2010,BYU,34,35,31.1,Jr,6-2,10,1989-02-25,Scoring PG
+jimmerfredette,2011,BYU,36,36,36.1,Sr,6-2,10,1989-02-25,Scoring PG
+joeydorsey,2008,Memphis,38,40,25.2,Sr,6-8,33,1985-10-15,
+lukeharangody,2008,Notre Dame,33,33,29,So,6-8,52,1987-10-15,
+lukeharangody,2009,Notre Dame,34,35,34.3,Jr,6-8,52,1987-10-15,
+lukeharangody,2010,Notre Dame,30,35,33,Sr,6-8,52,1987-10-15,PF/C
+larrysanders,2008,VCU,32,32,17,Fr,6-10,15,1988-10-15,
+larrysanders,2009,VCU,34,34,26.6,So,6-10,15,1988-10-15,
+larrysanders,2010,VCU,35,36,26.9,Jr,6-11,15,1988-10-15,C
+amirjohnson,2008,Radford,27,28,35.8,So,5-9,,1987-10-15,
+amirjohnson,2009,Radford,30,30,37.4,Jr,5-9,,1987-10-15,
+amirjohnson,2010,Radford,28,29,33.4,Sr,5-9,,1987-10-15,Pure PG
+tristanthompson,2008,North Texas,27,28,16.4,Fr,6-5,,1988-09-18,
+tristanthompson,2009,North Texas,31,31,22.3,So,6-5,,1988-09-18,
+tristanthompson,2010,North Texas,31,31,30.9,Jr,6-5,,1988-09-18,Wing G
+tristanthompson,2011,North Texas,31,31,32.3,Sr,6-5,,1988-09-18,Wing G
+tristanthompson,2011,Texas,36,36,30.9,Fr,6-8,4,1991-03-13,C
+tristanthompson,2026,Coastal Carolina,31,31,19.5,Fr,6-5,,2006-10-15,Wing F
+marcusthornton,2008,LSU,30,30,33.6,Jr,6-4,43,1986-10-15,
+marcusthornton,2009,LSU,35,35,31.9,Sr,6-4,43,1986-10-15,
+marcusthornton,2011,Georgia,32,33,9.4,Fr,6-7,,1992-08-12,PF/C
+marcusthornton,2012,Georgia,27,32,22.3,So,6-7,,1992-08-12,PF/C
+marcusthornton,2012,William & Mary,31,31,28,Fr,6-4,45,1993-02-09,Wing G
+marcusthornton,2013,Georgia,9,32,22,Jr,6-7,,1992-08-12,PF/C
+marcusthornton,2013,William & Mary,29,29,36.6,So,6-4,45,1993-02-09,Combo G
+marcusthornton,2014,Georgia,34,34,26,Jr,6-8,,1992-08-12,PF/C
+marcusthornton,2014,William & Mary,30,30,35.8,Jr,6-4,45,1993-02-09,Combo G
+marcusthornton,2015,Georgia,31,33,29.2,Sr,6-8,,1992-08-12,PF/C
+marcusthornton,2015,William & Mary,31,31,36.7,Sr,6-4,45,1993-02-09,Combo G
+mannyharris,2008,Michigan,32,32,33.1,Fr,6-5,,1988-10-15,
+mannyharris,2009,Michigan,34,34,33,So,6-5,,1988-10-15,
+mannyharris,2010,Michigan,30,31,36.4,Jr,6-5,,1988-10-15,Combo G
+nickcalathes,2008,Florida,36,36,32.6,Fr,6-6,45,1988-10-15,
+nickcalathes,2009,Florida,36,36,33.3,So,6-6,45,1988-10-15,
+justinholiday,2008,Washington,20,33,6.3,Fr,6-6,,1989-04-05,
+justinholiday,2009,Washington,34,34,15.7,So,6-6,,1989-04-05,
+justinholiday,2010,Washington,34,36,22.2,Jr,6-6,,1989-04-05,Wing F
+justinholiday,2011,Washington,35,35,28.3,Sr,6-6,,1989-04-05,Wing G
+derrickrose,2008,Memphis,40,40,29.2,Fr,6-3,1,1988-10-15,
+isaiahjackson,2008,Texas A&M Corpus Chris,23,29,13.4,Fr,6-7,,1988-10-15,
+isaiahjackson,2015,George Mason,30,30,26.2,Fr,6-6,,1995-02-27,Wing G
+isaiahjackson,2017,Providence,33,33,16.7,Jr,6-6,,1995-02-27,Wing G
+isaiahjackson,2018,Providence,35,35,20.3,Jr,6-6,,1995-02-27,Wing F
+isaiahjackson,2019,Providence,34,34,26.3,Sr,6-6,,1995-02-27,Wing G
+isaiahjackson,2021,Kentucky,25,25,20.6,Fr,6-10,22,2002-01-10,C
+isaiahjackson,2025,Drake,32,33,20.2,Sr,6-3,,2002-10-15,Wing G
+toneydouglas,2008,Florida St.,34,34,35.4,Jr,6-1,29,1986-10-15,
+toneydouglas,2009,Florida St.,35,35,36.5,Sr,6-1,29,1986-10-15,
+reggiewilliams,2008,VMI,21,25,34.4,Sr,6-6,,1985-10-15,
+reggiewilliams,2011,Morehead St.,18,32,4.4,Fr,6-2,,1991-10-15,Wing G
+reggiewilliams,2015,Ohio,7,30,1.7,Fr,5-9,,1996-09-13,Pure PG
+jamesharden,2008,Arizona St.,34,34,34.1,Fr,6-5,3,1988-10-15,
+jamesharden,2009,Arizona St.,35,35,35.8,So,6-5,3,1988-10-15,
+patrickbeverley,2008,Arkansas,35,35,33.8,So,6-1,42,1987-10-15,
+sonnyweems,2008,Arkansas,34,35,31.4,Sr,6-6,39,1985-10-15,
+patrickpatterson,2008,Kentucky,25,31,35.7,Fr,6-9,14,1988-10-15,
+patrickpatterson,2009,Kentucky,34,36,33.6,So,6-9,14,1988-10-15,
+patrickpatterson,2010,Kentucky,38,38,33,Jr,6-9,14,1988-10-15,PF/C
+jodiemeeks,2008,Kentucky,11,31,23.1,So,6-5,41,1987-10-15,
+jodiemeeks,2009,Kentucky,36,36,34.4,Jr,6-5,41,1987-10-15,
+michaelporter,2008,Kentucky,25,31,15.4,So,6-3,,1987-10-15,
+michaelporter,2009,Kentucky,36,36,23.5,Jr,6-3,,1987-10-15,
+michaelporter,2010,Missouri St.,6,36,11.3,Fr,6-6,,1991-03-12,Wing F
+michaelporter,2012,Southeast Missouri St.,29,29,16.1,So,6-6,,1991-03-12,Wing F
+michaelporter,2013,Southeast Missouri St.,1,31,16,Jr,6-6,,1991-03-12,PF/C
+michaelporter,2018,Missouri,3,32,17.7,Fr,6-10,14,1998-06-29,Stretch 4
+quincypondexter,2008,Washington,33,33,24.4,So,6-7,26,1987-10-15,
+quincypondexter,2009,Washington,34,34,28.4,Jr,6-7,26,1987-10-15,
+quincypondexter,2010,Washington,36,36,32.3,Sr,6-6,26,1987-10-15,Wing F
+mikemiller,2008,Coppin St.,30,35,19.8,Sr,6-2,,1985-10-15,
+garyclark,2008,Wake Forest,23,29,9.6,Fr,6-4,,1989-05-07,
+garyclark,2009,Wake Forest,29,31,7.2,So,6-4,,1989-05-07,
+garyclark,2010,Wake Forest,24,31,9.3,Jr,6-4,,1989-05-07,Combo G
+garyclark,2011,Wake Forest,32,32,26.7,Sr,6-4,,1989-05-07,Combo G
+garyclark,2015,Cincinnati,34,34,27.8,Fr,6-7,,1994-11-16,PF/C
+garyclark,2016,Cincinnati,33,33,30.4,So,6-8,,1994-11-16,PF/C
+garyclark,2017,Cincinnati,36,36,28.6,Jr,6-8,,1994-11-16,PF/C
+garyclark,2018,Cincinnati,36,36,28.5,Sr,6-8,,1994-11-16,PF/C
+ojmayo,2008,USC,33,33,36.8,Fr,6-4,3,1988-10-15,
+norriscole,2008,Cleveland St.,32,32,14.4,Fr,6-2,28,1988-10-13,
+norriscole,2009,Cleveland St.,34,34,33.7,So,6-2,28,1988-10-13,
+norriscole,2010,Cleveland St.,31,31,35.1,Jr,6-2,28,1988-10-13,Scoring PG
+norriscole,2011,Cleveland St.,34,34,36.1,Sr,6-2,28,1988-10-13,Scoring PG
+orlandojohnson,2008,Loyola Marymount,31,31,26,Fr,6-5,36,1989-03-11,
+orlandojohnson,2010,UC Santa Barbara,29,29,31.6,So,6-5,36,1989-03-11,Wing G
+orlandojohnson,2011,UC Santa Barbara,30,30,33.6,Jr,6-5,36,1989-03-11,Wing G
+orlandojohnson,2012,UC Santa Barbara,29,29,34.5,Sr,6-5,36,1989-03-11,Wing G
+ishsmith,2008,Wake Forest,29,29,32,So,6-0,,1987-10-15,
+ishsmith,2009,Wake Forest,29,31,22,Jr,6-0,,1987-10-15,
+marshonbrooks,2008,Providence,19,31,9.5,Fr,6-5,25,1989-01-26,
+marshonbrooks,2009,Providence,32,33,21.7,So,6-5,25,1989-01-26,
+marshonbrooks,2010,Providence,31,31,26.6,Jr,6-5,25,1989-01-26,Wing G
+marshonbrooks,2011,Providence,32,32,36.5,Sr,6-5,25,1989-01-26,Wing G
+ajprice,2008,Connecticut,33,33,32.1,Jr,6-2,52,1986-10-15,
+ajprice,2009,Connecticut,34,35,31.7,Sr,6-2,52,1986-10-15,
+ajprice,2013,UTSA,15,32,10.1,So,6-2,,1992-10-15,Scoring PG
+henrywalker,2008,Kansas St.,30,32,27.3,Fr,6-6,47,1988-10-15,
+jjhickson,2008,N.C. State,30,30,28.8,Fr,7-0,19,1988-10-15,
+wesleyjohnson,2008,Iowa St.,26,31,27,So,6-7,4,1987-10-15,
+wesleyjohnson,2015,Charleston Southern,21,28,6.6,Fr,6-8,,1995-10-15,C
+wesleyjohnson,2016,Charleston Southern,25,27,10.9,So,6-8,,1995-10-15,C
+wesleyjohnson,2025,Campbell,4,30,2.6,Jr,7-0,,2003-10-01,PF/C
+pattymills,2008,Saint Mary's,30,30,32.1,Fr,6-0,55,1988-10-15,
+pattymills,2009,Saint Mary's,24,32,34,So,6-0,55,1988-10-15,
+jeffayres,2008,Arizona St.,34,34,28.4,Jr,6-10,31,1986-10-15,
+jeffayres,2009,Arizona St.,35,35,32.5,Sr,6-10,31,1986-10-15,
+lucmbahamoute,2008,UCLA,32,38,29,Jr,6-7,37,1986-10-15,
+festusezeli,2009,Vanderbilt,29,31,12.4,So,6-11,30,1989-10-21,
+festusezeli,2010,Vanderbilt,31,32,12.7,So,6-11,30,1989-10-21,C
+festusezeli,2011,Vanderbilt,34,34,23.5,Jr,6-11,30,1989-10-21,C
+festusezeli,2012,Vanderbilt,26,36,23.2,Sr,6-11,30,1989-10-21,C
+markieffmorris,2009,Kansas,35,35,15.6,Fr,6-10,13,1989-09-02,
+markieffmorris,2010,Kansas,36,36,17.5,So,6-9,13,1989-09-02,PF/C
+markieffmorris,2011,Kansas,38,38,24.4,Jr,6-10,13,1989-09-02,PF/C
+damianlillard,2009,Weber St.,30,30,29.7,Fr,6-2,6,1990-07-15,
+damianlillard,2010,Weber St.,29,29,34.4,So,6-2,6,1990-07-15,Combo G
+damianlillard,2011,Weber St.,7,29,32.6,Jr,6-2,6,1990-07-15,Scoring PG
+damianlillard,2012,Weber St.,30,30,35.3,Jr,6-2,6,1990-07-15,Scoring PG
+jamychalgreen,2009,Alabama,30,30,24.4,Fr,6-8,,1990-06-21,
+jamychalgreen,2010,Alabama,31,32,27,So,6-9,,1990-06-21,C
+jamychalgreen,2011,Alabama,34,37,27.9,Jr,6-8,,1990-06-21,PF/C
+jamychalgreen,2012,Alabama,26,33,29.2,Sr,6-8,,1990-06-21,C
+justinhamilton,2009,Iowa St.,31,31,13.8,Fr,7-0,45,1990-04-01,
+justinhamilton,2010,Iowa St.,31,32,21.4,So,6-11,45,1990-04-01,C
+justinhamilton,2012,LSU,33,33,30,Jr,6-11,45,1990-04-01,C
+nikolavucevic,2009,USC,23,35,11.9,Fr,6-10,16,1990-10-24,
+nikolavucevic,2010,USC,30,30,32.3,So,6-10,16,1990-10-24,PF/C
+nikolavucevic,2011,USC,34,34,34.9,Jr,6-10,16,1990-10-24,PF/C
+jrueholiday,2009,UCLA,35,35,27.1,Fr,6-3,17,1989-10-15,
+demarderozan,2009,USC,35,35,33.4,Fr,6-7,9,1989-10-15,
+henrysims,2009,Georgetown,28,31,9.8,Fr,6-10,,1990-03-27,
+henrysims,2010,Georgetown,28,34,6.7,So,6-10,,1990-03-27,C
+henrysims,2011,Georgetown,32,32,14,Jr,6-10,,1990-03-27,C
+henrysims,2012,Georgetown,32,32,27.9,Sr,6-10,,1990-03-27,C
+gregmonroe,2009,Georgetown,31,31,30.9,Fr,6-11,7,1989-10-15,
+gregmonroe,2010,Georgetown,34,34,34.2,So,6-11,7,1989-10-15,PF/C
+alfarouqaminu,2009,Wake Forest,31,31,29,Fr,6-9,8,1989-10-15,
+alfarouqaminu,2010,Wake Forest,31,31,31.3,So,6-9,8,1989-10-15,PF/C
+samardosamuels,2009,Louisville,37,37,25.1,Fr,6-9,,1989-10-15,
+samardosamuels,2010,Louisville,33,33,29.3,So,6-9,,1989-10-15,C
+tylerjohnson,2009,Centenary,5,31,8.4,Fr,-,,1989-10-15,
+tylerjohnson,2011,Fresno St.,30,30,16.8,Fr,6-2,,1992-05-07,Combo G
+tylerjohnson,2012,Fresno St.,31,31,29.7,So,6-2,,1992-05-07,Combo G
+tylerjohnson,2013,Fresno St.,27,28,29.6,Jr,6-2,,1992-05-07,Wing G
+tylerjohnson,2014,Fresno St.,33,37,34.5,Sr,6-4,,1992-05-07,Wing G
+tylerjohnson,2015,William & Mary,3,31,3.4,Sr,6-6,,1992-10-15,PF/C
+tylerjohnson,2025,Mercer,31,31,33.2,Sr,6-2,,2001-10-15,Wing G
+tylerjohnson,2025,Virginia Tech,32,32,25.5,Fr,6-5,,2005-10-15,Wing G
+tylerjohnson,2026,Virginia Tech,17,32,26.2,So,6-5,,2005-10-15,Wing G
+joshsmith,2009,Savannah St.,4,25,7.5,Fr,6-5,,1989-10-15,
+joshsmith,2013,Clemson,17,31,5.6,Fr,6-8,,1994-01-06,C
+joshsmith,2014,Clemson,30,36,10,So,6-8,,1994-01-06,C
+joshsmith,2015,Clemson,31,31,9.5,Jr,6-8,,1994-01-06,C
+joshsmith,2016,Clemson,26,31,7.3,Sr,6-8,,1994-01-06,Stretch 4
+joshsmith,2021,Stetson,24,24,17.6,Fr,6-8,,2001-10-15,Stretch 4
+joshsmith,2022,Stetson,18,26,20.8,So,6-8,,2001-10-15,Stretch 4
+joshsmith,2023,Stetson,29,29,21.2,Jr,6-8,,2001-10-15,PF/C
+joshsmith,2024,Stetson,14,32,22.6,Sr,6-9,,2001-10-15,PF/C
+joshsmith,2024,North Carolina Central,24,27,10.5,So,6-4,,2003-10-15,Combo G
+joshsmith,2025,North Carolina Central,5,29,13.7,Jr,6-4,,2003-10-15,Scoring PG
+joshsmith,2026,Liberty,31,31,15.4,Sr,6-9,,2001-10-15,PF/C
+joshsmith,2026,West Georgia,29,30,27.1,Jr,6-4,,2003-10-15,Combo G
+paulgeorge,2009,Fresno St.,33,33,34.6,Fr,6-7,10,1989-10-15,
+paulgeorge,2010,Fresno St.,28,32,33.2,So,6-8,10,1989-10-15,Wing F
+lukebabbitt,2009,Nevada,32,32,32.9,Fr,6-9,16,1989-10-15,
+lukebabbitt,2010,Nevada,33,33,37.5,So,6-9,16,1989-10-15,Wing F
+gregsmith,2009,Delaware St.,18,30,6.9,Jr,6-7,,1987-10-15,
+gregsmith,2010,Delaware St.,26,26,14,Sr,6-7,,1987-10-15,PF/C
+gregsmith,2010,Colorado St.,27,31,18.2,Fr,6-6,,1991-01-15,Wing F
+gregsmith,2010,Fresno St.,32,32,27.6,Fr,6-10,,1991-01-08,C
+gregsmith,2011,Colorado St.,27,31,18.4,So,6-6,,1991-01-15,Wing F
+gregsmith,2011,Fresno St.,30,30,30.6,So,6-10,,1991-01-08,C
+gregsmith,2012,Colorado St.,30,32,22.6,Jr,6-6,,1991-01-15,PF/C
+gregsmith,2013,Colorado St.,33,33,25.2,Sr,6-6,,1991-01-15,Wing F
+gregsmith,2019,Saint Joseph's,1,33,1,Jr,6-0,,1997-10-15,PF/C
+gregsmith,2020,Saint Joseph's,22,32,6.5,Sr,6-0,,1997-10-15,Combo G
+gordonhayward,2009,Butler,31,31,33.2,Fr,6-8,9,1989-10-15,
+gordonhayward,2010,Butler,37,38,33.5,So,6-9,9,1989-10-15,Stretch 4
+shelvinmack,2009,Butler,31,31,31.1,Fr,6-3,34,1990-04-22,
+shelvinmack,2010,Butler,38,38,30.9,So,6-3,34,1990-04-22,Scoring PG
+shelvinmack,2011,Butler,37,37,32.2,Jr,6-3,34,1990-04-22,Combo G
+eddavis,2009,North Carolina,37,37,18.6,Fr,6-10,13,1989-10-15,
+eddavis,2010,North Carolina,23,37,27.9,So,6-10,13,1989-10-15,C
+tylerzeller,2009,North Carolina,15,37,7.8,Fr,7-0,17,1990-01-17,
+tylerzeller,2010,North Carolina,27,37,17.4,So,7-0,17,1990-01-17,C
+tylerzeller,2011,North Carolina,37,37,28.1,Jr,7-0,17,1990-01-17,C
+tylerzeller,2012,North Carolina,38,38,28.2,Sr,7-0,17,1990-01-17,C
+williereed,2009,Saint Louis,31,31,21.9,Fr,6-9,,1989-10-15,
+williereed,2010,Saint Louis,34,35,27.4,So,6-9,,1989-10-15,C
+imanshumpert,2009,Georgia Tech,31,31,31.6,Fr,6-5,17,1990-06-26,
+imanshumpert,2010,Georgia Tech,29,35,30.7,So,6-5,17,1990-06-26,Scoring PG
+imanshumpert,2011,Georgia Tech,31,31,32,Jr,6-5,17,1990-06-26,Combo G
+chrissingleton,2009,Florida St.,35,35,26.9,Fr,6-9,18,1989-11-21,
+chrissingleton,2010,Florida St.,32,32,31.4,So,6-9,18,1989-11-21,Wing F
+chrissingleton,2011,Florida St.,28,34,29.1,Jr,6-9,18,1989-11-21,Stretch 4
+dequanjones,2009,Miami FL,31,31,10.8,Fr,6-8,,1990-06-20,
+dequanjones,2010,Miami FL,27,32,16.6,So,6-6,,1990-06-20,Wing G
+dequanjones,2011,Miami FL,28,36,13.9,Jr,6-7,,1990-06-20,PF/C
+dequanjones,2012,Miami FL,23,33,17.3,Sr,6-7,,1990-06-20,Wing F
+cjwilliams,2009,N.C. State,25,30,14.6,Fr,6-5,,1990-02-06,
+cjwilliams,2010,N.C. State,35,36,19.6,So,6-6,,1990-02-06,Wing G
+cjwilliams,2011,N.C. State,31,31,17.6,Jr,6-6,,1990-02-06,Wing G
+cjwilliams,2012,N.C. State,37,37,31.1,Sr,6-6,,1990-02-06,Wing G
+cjwilliams,2016,Stephen F. Austin,27,30,9.5,Jr,6-7,,1994-05-10,PF/C
+cjwilliams,2021,Longwood,6,28,3.3,Jr,6-0,,1999-10-15,Combo G
+cjwilliams,2022,Longwood,7,29,3.5,Sr,6-0,,1999-10-15,PF/C
+cjwilliams,2023,Texas Tech,6,32,2.7,Fr,6-1,,2003-10-15,PF/C
+cjwilliams,2025,Auburn,8,38,1.2,Jr,6-2,,2003-10-15,Pure PG
+cjwilliams,2026,Auburn,5,38,1.1,Sr,6-2,,2003-10-15,Pure PG
+joshharrellson,2009,Kentucky,34,36,9.2,So,6-10,45,1989-02-12,
+joshharrellson,2010,Kentucky,22,38,4,Jr,6-10,45,1989-02-12,PF/C
+joshharrellson,2011,Kentucky,38,38,28.5,Sr,6-10,45,1989-02-12,C
+deandreliggins,2009,Kentucky,33,36,16.6,Fr,6-6,53,1988-03-31,
+deandreliggins,2010,Kentucky,29,38,15.3,So,6-6,53,1988-03-31,Wing G
+deandreliggins,2011,Kentucky,38,38,31.6,Jr,6-6,53,1988-03-31,Wing G
+dariusmiller,2009,Kentucky,36,36,21.3,Fr,6-8,46,1990-03-21,
+dariusmiller,2010,Kentucky,38,38,21.2,So,6-7,46,1990-03-21,Wing G
+dariusmiller,2011,Kentucky,38,38,31,Jr,6-7,46,1990-03-21,Wing F
+dariusmiller,2012,Kentucky,40,40,26.1,Sr,6-8,46,1990-03-21,Wing F
+jordanhamilton,2009,Lehigh,17,29,5.2,Fr,6-6,,1989-06-27,
+jordanhamilton,2010,Lehigh,15,33,5.4,So,6-6,,1989-06-27,Stretch 4
+jordanhamilton,2010,Texas,34,34,19.9,Fr,6-7,26,1990-10-06,Wing G
+jordanhamilton,2011,Lehigh,26,31,16.3,Jr,6-6,,1989-06-27,Stretch 4
+jordanhamilton,2011,Texas,36,36,32.2,So,6-7,26,1990-10-06,Stretch 4
+jordanhamilton,2012,Lehigh,34,34,22.6,Sr,6-6,,1989-06-27,Wing G
+jordanhamilton,2025,SIU Edwardsville,6,31,5,Jr,6-6,,2003-10-15,PF/C
+jordanhamilton,2026,Texas Southern,2,28,7.2,Sr,6-6,,2003-10-15,PF/C
+andrewnicholson,2009,St. Bonaventure,30,30,25.1,Fr,6-9,19,1989-12-08,
+andrewnicholson,2010,St. Bonaventure,29,30,30.3,So,6-9,19,1989-12-08,C
+andrewnicholson,2011,St. Bonaventure,31,31,33.8,Jr,6-9,19,1989-12-08,PF/C
+andrewnicholson,2012,St. Bonaventure,32,32,30.1,Sr,6-9,19,1989-12-08,PF/C
+jefferytaylor,2009,Vanderbilt,31,31,26,Fr,6-7,31,1989-05-23,
+jefferytaylor,2010,Vanderbilt,32,32,27,So,6-7,31,1989-05-23,PF/C
+jefferytaylor,2011,Vanderbilt,34,34,31.7,So,6-7,31,1989-05-23,Wing G
+jefferytaylor,2012,Vanderbilt,36,36,32.1,Sr,6-7,31,1989-05-23,Wing G
+milesplumlee,2009,Duke,24,37,6.8,Fr,6-10,26,1988-09-01,
+milesplumlee,2010,Duke,40,40,16.4,So,6-10,26,1988-09-01,PF/C
+milesplumlee,2011,Duke,37,37,17,Jr,6-10,26,1988-09-01,C
+milesplumlee,2012,Duke,34,34,20.5,Sr,6-10,26,1988-09-01,C
+isaiahthomas,2009,Washington,34,34,28.4,Fr,5-8,60,1989-02-07,
+isaiahthomas,2010,Washington,35,36,31.1,So,5-8,60,1989-02-07,Combo G
+isaiahthomas,2011,Washington,35,35,31.9,Jr,5-9,60,1989-02-07,Scoring PG
+isaiahthomas,2016,Northern Arizona,28,28,8.8,Fr,6-9,,1997-03-28,C
+isaiahthomas,2017,Northern Arizona,24,31,8.3,So,6-9,,1997-03-28,C
+isaiahthomas,2018,Northern Arizona,30,30,19.9,Jr,6-9,,1997-03-28,C
+isaiahthomas,2019,Northern Arizona,23,31,8.4,Sr,6-9,,1997-03-28,C
+klaythompson,2009,Washington St.,33,33,33.1,Fr,6-6,11,1990-02-08,
+klaythompson,2010,Washington St.,30,30,35.3,So,6-6,11,1990-02-08,Wing G
+klaythompson,2011,Washington St.,34,35,34.7,Jr,6-6,11,1990-02-08,Combo G
+kyleoquinn,2009,Norfolk St.,31,31,16.2,Fr,6-10,49,1990-03-26,
+kyleoquinn,2010,Norfolk St.,30,30,28.3,So,6-10,49,1990-03-26,PF/C
+kyleoquinn,2011,Norfolk St.,32,32,32.8,Jr,6-10,49,1990-03-26,C
+kyleoquinn,2012,Norfolk St.,34,34,31.2,Sr,6-10,49,1990-03-26,C
+marcusmorris,2009,Kansas,35,35,18.5,Fr,6-9,14,1989-09-02,
+marcusmorris,2010,Kansas,36,36,24.7,So,6-8,14,1989-09-02,Wing F
+marcusmorris,2011,Kansas,38,38,28.3,Jr,6-9,14,1989-09-02,PF/C
+draymondgreen,2009,Michigan St.,37,38,11.3,Fr,6-7,35,1990-03-04,
+draymondgreen,2010,Michigan St.,37,37,25.5,So,6-6,35,1990-03-04,PF/C
+draymondgreen,2011,Michigan St.,33,33,30,Jr,6-7,35,1990-03-04,Stretch 4
+draymondgreen,2012,Michigan St.,37,37,33.2,Sr,6-7,35,1990-03-04,Stretch 4
+justinjackson,2009,Tennessee,1,34,1,Sr,5-11,,1986-10-15,
+justinjackson,2011,Morgan St.,16,31,4.4,Fr,5-10,,1992-02-18,Wing G
+justinjackson,2011,Cincinnati,35,35,12.9,Fr,6-8,,1990-10-13,Wing F
+justinjackson,2012,Cincinnati,37,37,21.1,So,6-8,,1990-10-13,C
+justinjackson,2013,Cincinnati,30,34,18.8,Jr,6-8,,1990-10-13,C
+justinjackson,2014,Cincinnati,34,34,27.8,Sr,6-8,,1990-10-13,C
+justinjackson,2015,North Carolina,38,38,27.1,Fr,6-8,15,1995-03-28,Wing F
+justinjackson,2016,North Carolina,40,40,28.4,So,6-8,15,1995-03-28,Wing F
+justinjackson,2017,North Carolina,39,39,32,Jr,6-8,15,1995-03-28,Wing F
+justinjackson,2017,Maryland,32,32,27.8,Fr,6-7,43,1997-02-18,Stretch 4
+justinjackson,2018,Maryland,11,31,29.4,So,6-7,43,1997-02-18,Stretch 4
+quincyacy,2009,Baylor,33,38,16.3,Fr,6-7,37,1990-10-06,
+quincyacy,2010,Baylor,35,35,23.5,So,6-7,37,1990-10-06,PF/C
+quincyacy,2011,Baylor,30,30,31.2,Jr,6-7,37,1990-10-06,PF/C
+quincyacy,2012,Baylor,37,37,29.9,Sr,6-7,37,1990-10-06,PF/C
+kembawalker,2009,Connecticut,35,35,25,Fr,6-1,9,1990-05-08,
+kembawalker,2010,Connecticut,34,34,35.2,So,6-1,9,1990-05-08,Scoring PG
+kembawalker,2011,Connecticut,41,41,37.6,Jr,6-1,9,1990-05-08,Scoring PG
+jimmybutler,2009,Marquette,35,35,19.6,So,6-7,30,1989-09-14,
+jimmybutler,2010,Marquette,34,34,34.3,Jr,6-6,30,1989-09-14,Wing G
+jimmybutler,2011,Marquette,37,37,34.6,Sr,6-6,30,1989-09-14,Wing G
+tyrekeevans,2009,Memphis,37,37,29,Fr,6-6,4,1989-10-15,
+joshjackson,2009,South Carolina St.,26,27,18.3,Sr,6-8,,1986-10-15,
+joshjackson,2017,Kansas,35,36,30.8,Fr,6-8,4,1997-02-10,Wing F
+kentbazemore,2009,Old Dominion,35,35,16.3,Fr,6-5,,1989-07-01,
+kentbazemore,2010,Old Dominion,36,36,26.8,So,6-5,,1989-07-01,Combo G
+kentbazemore,2011,Old Dominion,34,34,30.7,Jr,6-5,,1989-07-01,Combo G
+kentbazemore,2012,Old Dominion,35,36,31.5,Sr,6-5,,1989-07-01,Wing G
+willbynum,2009,Montana St.,30,30,28.6,Jr,6-3,,1987-10-15,
+willbynum,2010,Montana St.,25,27,29.8,Sr,6-3,,1987-10-15,Combo G
+elliotwilliams,2009,Duke,34,37,16.6,Fr,6-4,22,1989-10-15,
+elliotwilliams,2010,Memphis,34,34,33.3,So,6-5,22,1989-10-15,Combo G
+emekaokafor,2009,Toledo,5,31,9.8,Fr,6-7,,1990-10-24,
+emekaokafor,2010,Western Illinois,19,27,12.9,So,6-7,,1990-10-24,PF/C
+emekaokafor,2011,Western Illinois,24,27,14.1,Jr,6-7,,1990-10-24,PF/C
+sethcurry,2009,Liberty,31,31,37.7,Fr,6-2,,1990-08-23,
+sethcurry,2011,Duke,37,37,25,So,6-2,,1990-08-23,Scoring PG
+sethcurry,2012,Duke,34,34,30.2,Jr,6-2,,1990-08-23,Combo G
+sethcurry,2013,Duke,35,36,32.3,Sr,6-2,,1990-08-23,Combo G
+arnettmoultrie,2009,UTEP,37,37,26.8,Fr,6-11,27,1990-11-18,
+arnettmoultrie,2010,UTEP,33,33,28.9,So,6-11,27,1990-11-18,Wing F
+arnettmoultrie,2012,Mississippi St.,30,33,35.8,Jr,6-11,27,1990-11-18,PF/C
+byronmullens,2009,Ohio St.,33,33,20.3,Fr,7-0,24,1989-10-15,
+johnhenson,2010,North Carolina,37,37,15.9,Fr,6-10,14,1990-12-28,C
+johnhenson,2011,North Carolina,37,37,26.7,So,6-10,14,1990-12-28,C
+johnhenson,2012,North Carolina,35,38,29.1,Jr,6-11,14,1990-12-28,C
+jeffwithey,2010,Kansas,15,36,3.1,Fr,7-0,39,1990-03-07,C
+jeffwithey,2011,Kansas,26,38,6.2,So,7-0,39,1990-03-07,C
+jeffwithey,2012,Kansas,39,39,24.8,Jr,7-0,39,1990-03-07,C
+jeffwithey,2013,Kansas,37,37,30.9,Sr,7-0,39,1990-03-07,PF/C
+xavierhenry,2010,Kansas,36,36,27.5,Fr,6-6,12,1990-10-15,Wing G
+rodneymcgruder,2010,Kansas St.,33,36,12.3,Fr,6-4,,1991-07-29,Wing G
+rodneymcgruder,2011,Kansas St.,33,33,30.7,So,6-4,,1991-07-29,Wing G
+rodneymcgruder,2012,Kansas St.,33,33,32.9,Jr,6-4,,1991-07-29,Wing G
+rodneymcgruder,2013,Kansas St.,34,34,33.9,Sr,6-4,,1991-07-29,Wing G
+timfrazier,2010,Penn St.,31,31,18.4,Fr,6-1,,1990-11-01,Scoring PG
+timfrazier,2011,Penn St.,34,34,30.8,So,6-1,,1990-11-01,Pure PG
+timfrazier,2012,Penn St.,32,32,37.1,Jr,6-1,,1990-11-01,Pure PG
+timfrazier,2013,Penn St.,4,31,32.5,Sr,6-1,,1990-11-01,Scoring PG
+timfrazier,2014,Penn St.,34,34,35.2,Sr,6-1,,1990-11-01,Scoring PG
+derrickfavors,2010,Georgia Tech,35,35,27.8,Fr,6-10,3,1990-10-15,C
+hassanwhiteside,2010,Marshall,31,31,26.5,Fr,7-0,33,1990-10-15,C
+brandonpaul,2010,Illinois,36,36,18.9,Fr,6-4,,1991-04-30,Wing G
+brandonpaul,2011,Illinois,34,34,22.4,So,6-4,,1991-04-30,Combo G
+brandonpaul,2012,Illinois,32,32,33.4,Jr,6-4,,1991-04-30,Wing G
+brandonpaul,2013,Illinois,34,34,32.1,Sr,6-4,,1991-04-30,Wing G
+solomonhill,2010,Arizona,31,31,25.3,Fr,6-6,23,1991-03-18,Wing G
+solomonhill,2011,Arizona,38,38,25.2,So,6-6,23,1991-03-18,Wing F
+solomonhill,2012,Arizona,35,35,32.4,Jr,6-6,23,1991-03-18,Wing F
+solomonhill,2013,Arizona,35,35,33,Sr,6-7,23,1991-03-18,Wing G
+johnjenkins,2010,Vanderbilt,30,32,23.1,Fr,6-3,23,1991-03-06,Combo G
+johnjenkins,2011,Vanderbilt,32,34,34.5,So,6-3,23,1991-03-06,Wing G
+johnjenkins,2012,Vanderbilt,35,36,33.6,Jr,6-3,23,1991-03-06,Combo G
+kellyolynyk,2010,Gonzaga,33,33,12.2,Fr,6-11,13,1991-04-19,Wing F
+kellyolynyk,2011,Gonzaga,34,34,13.4,So,7-0,13,1991-04-19,PF/C
+kellyolynyk,2013,Gonzaga,31,34,26.5,Jr,7-0,13,1991-04-19,PF/C
+natewolters,2010,South Dakota St.,28,28,24.8,Fr,6-3,38,1991-05-15,Scoring PG
+natewolters,2011,South Dakota St.,29,29,33.8,So,6-3,38,1991-05-15,Scoring PG
+natewolters,2012,South Dakota St.,33,33,36,Jr,6-3,38,1991-05-15,Scoring PG
+natewolters,2013,South Dakota St.,31,32,38.5,Sr,6-3,38,1991-05-15,Scoring PG
+brandondavies,2010,BYU,34,35,13.5,Fr,6-9,,1991-07-25,C
+brandondavies,2011,BYU,28,36,24.9,So,6-9,,1991-07-25,C
+brandondavies,2012,BYU,33,33,28.7,Jr,6-9,,1991-07-25,Wing F
+brandondavies,2013,BYU,35,35,29.5,Sr,6-9,,1991-07-25,Wing F
+masonplumlee,2010,Duke,34,40,14.1,Fr,6-10,22,1990-03-05,C
+masonplumlee,2011,Duke,37,37,25.6,So,6-10,22,1990-03-05,C
+masonplumlee,2012,Duke,34,34,28.4,Jr,6-10,22,1990-03-05,C
+masonplumlee,2013,Duke,36,36,34.7,Sr,6-10,22,1990-03-05,C
+jordanwilliams,2010,Maryland,32,32,24.9,Fr,6-10,36,1990-10-11,C
+jordanwilliams,2011,Maryland,33,33,32.5,So,6-10,36,1990-10-11,C
+jordanwilliams,2012,North Texas,16,29,26.1,Fr,6-6,,1992-12-13,Wing F
+jordanwilliams,2013,North Texas,30,30,31.8,So,6-6,,1992-12-13,Wing G
+jordanwilliams,2014,North Texas,29,30,25.8,Jr,6-6,,1992-12-13,Wing F
+jordanwilliams,2015,North Texas,29,29,34.3,Sr,6-6,,1992-12-13,Wing G
+jordanwilliams,2019,St. Francis NY,8,31,6.1,So,6-4,,1998-10-15,Wing G
+jordanwilliams,2020,St. Francis NY,20,30,8,Jr,6-4,,1998-10-15,Combo G
+jordanwilliams,2021,St. Francis NY,8,19,2.1,Sr,6-4,,1998-10-15,Wing G
+jordanwilliams,2023,Arizona St.,2,36,2.5,So,5-10,,2002-10-15,Pure PG
+jordanwilliams,2024,Arizona St.,6,32,0.7,Jr,5-10,,2002-10-15,PF/C
+jordanwilliams,2024,Vanderbilt,28,32,10.1,So,6-2,,2003-10-15,Wing G
+jordanwilliams,2025,Arizona St.,7,33,0.8,Sr,5-10,,2002-10-15,PF/C
+jordanwilliams,2025,Vanderbilt,10,33,3.7,Jr,6-3,,2003-10-15,Wing G
+jordanwilliams,2026,Rice,12,29,10.5,Jr,6-2,,2003-10-15,Wing G
+averybradley,2010,Texas,34,34,29.5,Fr,6-2,19,1990-10-15,Combo G
+ericbledsoe,2010,Kentucky,37,38,30.3,Fr,6-1,18,1990-10-15,Combo G
+khrismiddleton,2010,Texas A&M,33,33,20.9,Fr,6-7,39,1991-08-12,Wing F
+khrismiddleton,2011,Texas A&M,32,32,29.9,So,6-7,39,1991-08-12,Wing G
+khrismiddleton,2012,Texas A&M,19,31,29.1,Jr,6-7,39,1991-08-12,Wing F
+johnwall,2010,Kentucky,37,38,34.8,Fr,6-4,1,1990-10-15,Pure PG
+derrickwilliams,2010,Arizona,31,31,28.2,Fr,6-8,2,1991-05-25,PF/C
+derrickwilliams,2011,Arizona,38,38,30,So,6-8,2,1991-05-25,Wing F
+derrickwilliams,2011,Richmond,27,37,4.5,Fr,6-6,,1992-05-15,Wing F
+derrickwilliams,2012,Richmond,32,32,25.9,So,6-6,,1992-05-15,Wing F
+derrickwilliams,2013,Richmond,25,34,26.1,Jr,6-6,,1992-05-15,Wing F
+derrickwilliams,2014,Richmond,22,33,20.6,Sr,6-6,,1992-05-15,Wing F
+robertcovington,2010,Tennessee St.,32,32,27.3,Fr,6-8,,1990-12-14,Stretch 4
+robertcovington,2011,Tennessee St.,28,28,31.3,So,6-8,,1990-12-14,Stretch 4
+robertcovington,2012,Tennessee St.,31,31,31.6,Jr,6-9,,1990-12-14,Stretch 4
+robertcovington,2013,Tennessee St.,21,31,31.2,Sr,6-9,,1990-12-14,Stretch 4
+lancestephenson,2010,Cincinnati,34,35,28.2,Fr,6-5,40,1990-10-15,Wing G
+kawhileonard,2010,San Diego St.,32,32,31.4,Fr,6-6,15,1991-06-29,PF/C
+kawhileonard,2011,San Diego St.,34,35,33,So,6-6,15,1991-06-29,PF/C
+demarcuscousins,2010,Kentucky,38,38,23.5,Fr,6-11,5,1990-10-15,C
+ryankelly,2010,Duke,35,40,6.3,Fr,6-10,48,1991-04-09,PF/C
+ryankelly,2011,Duke,37,37,20.1,So,6-11,48,1991-04-09,Stretch 4
+ryankelly,2012,Duke,31,34,25.9,Jr,6-11,48,1991-04-09,Stretch 4
+ryankelly,2013,Duke,23,36,28.9,Sr,6-11,48,1991-04-09,Stretch 4
+thomasrobinson,2010,Kansas,33,36,7.1,Fr,6-9,5,1991-03-17,C
+thomasrobinson,2011,Kansas,33,38,14.6,So,6-9,5,1991-03-17,C
+thomasrobinson,2012,Kansas,39,39,31.8,Jr,6-9,5,1991-03-17,PF/C
+troydaniels,2010,VCU,26,36,6,Fr,6-4,,1991-07-15,Wing G
+troydaniels,2011,VCU,27,40,4.7,So,6-4,,1991-07-15,Wing G
+troydaniels,2012,VCU,36,36,24.4,Jr,6-4,,1991-07-15,Wing G
+troydaniels,2013,VCU,36,36,26.3,Sr,6-4,,1991-07-15,Wing G
+isaiahcanaan,2010,Murray St.,34,34,20.2,Fr,6-0,34,1991-05-21,Combo G
+isaiahcanaan,2011,Murray St.,30,30,28.2,So,6-0,34,1991-05-21,Scoring PG
+isaiahcanaan,2012,Murray St.,30,30,34.2,Jr,6-0,34,1991-05-21,Scoring PG
+isaiahcanaan,2013,Murray St.,29,29,37.1,Sr,6-1,34,1991-05-21,Scoring PG
+matthewdellavedova,2010,Saint Mary's,33,33,36.8,Fr,6-3,,1990-09-08,Scoring PG
+matthewdellavedova,2011,Saint Mary's,32,32,36,So,6-3,,1990-09-08,Scoring PG
+matthewdellavedova,2012,Saint Mary's,31,31,38,Jr,6-4,,1990-09-08,Pure PG
+matthewdellavedova,2013,Saint Mary's,34,34,36.7,Sr,6-4,,1990-09-08,Pure PG
+mikemuscala,2010,Bucknell,30,31,24.8,Fr,6-10,44,1991-07-01,C
+mikemuscala,2011,Bucknell,34,34,27.8,So,6-10,44,1991-07-01,PF/C
+mikemuscala,2012,Bucknell,34,34,30.3,Jr,6-10,44,1991-07-01,PF/C
+mikemuscala,2013,Bucknell,33,33,32.1,Sr,6-11,44,1991-07-01,C
+dariusmorris,2010,Michigan,31,31,24.2,Fr,6-4,41,1991-01-03,Scoring PG
+dariusmorris,2011,Michigan,34,34,34.8,So,6-4,41,1991-01-03,Pure PG
+alecburks,2010,Colorado,28,29,30.5,Fr,6-6,12,1991-07-20,Wing G
+alecburks,2011,Colorado,37,37,31.6,So,6-6,12,1991-07-20,Wing G
+cjmccollum,2010,Lehigh,33,33,31.9,Fr,6-3,10,1991-09-19,Wing G
+cjmccollum,2011,Lehigh,31,31,34.5,So,6-3,10,1991-09-19,Wing G
+cjmccollum,2012,Lehigh,34,34,33.7,Jr,6-3,10,1991-09-19,Combo G
+cjmccollum,2013,Lehigh,12,30,31,Sr,6-3,10,1991-09-19,Combo G
+hollisthompson,2010,Georgetown,34,34,19.5,Fr,6-7,,1991-04-03,Wing G
+hollisthompson,2011,Georgetown,32,32,23.3,So,6-7,,1991-04-03,Wing F
+hollisthompson,2012,Georgetown,32,32,31.2,Jr,6-8,,1991-04-03,Wing F
+robbiehummel,2010,Purdue,27,35,30.3,Jr,6-8,58,1989-03-08,Stretch 4
+robbiehummel,2012,Purdue,35,35,32.2,Sr,6-8,58,1989-03-08,Stretch 4
+coryjefferson,2010,Baylor,20,35,4.2,Fr,6-9,60,1990-12-26,C
+coryjefferson,2012,Baylor,33,37,10.4,So,6-9,60,1990-12-26,C
+coryjefferson,2013,Baylor,36,36,28.1,Jr,6-9,60,1990-12-26,C
+coryjefferson,2014,Baylor,36,36,29.3,Sr,6-9,60,1990-12-26,PF/C
+traviswear,2010,North Carolina,32,37,10.1,Fr,6-10,,1990-09-21,PF/C
+traviswear,2012,UCLA,29,32,26.3,So,6-10,,1990-09-21,PF/C
+traviswear,2013,UCLA,32,35,28.9,Jr,6-10,,1990-09-21,PF/C
+traviswear,2014,UCLA,34,37,23.9,Sr,6-10,,1990-09-21,Wing F
+ianclark,2010,Belmont,31,31,29.6,Fr,6-3,,1991-03-07,Combo G
+ianclark,2011,Belmont,35,35,24.6,So,6-3,,1991-03-07,Combo G
+ianclark,2012,Belmont,33,34,27.7,Jr,6-3,,1991-03-07,Combo G
+ianclark,2013,Belmont,31,31,33.5,Sr,6-3,,1991-03-07,Combo G
+ianclark,2013,Cal St. Northridge,12,29,3.3,Jr,5-8,,1991-07-22,Pure PG
+devinbooker,2010,Clemson,32,32,11.6,Fr,6-8,,1991-02-28,C
+devinbooker,2011,Clemson,34,34,24.3,So,6-8,,1991-02-28,Wing F
+devinbooker,2012,Clemson,31,31,29.2,Jr,6-8,,1991-02-28,PF/C
+devinbooker,2013,Clemson,31,31,31.9,Sr,6-8,,1991-02-28,C
+devinbooker,2015,Kentucky,38,39,21.5,Fr,6-6,13,1996-10-30,Wing G
+devinbooker,2026,George Mason,24,32,8.4,Fr,6-4,,2006-10-15,Wing G
+mikejames,2011,Lamar,21,26,18.1,Jr,6-1,,1990-08-18,Combo G
+mikejames,2012,Lamar,30,33,31.8,Sr,6-1,,1990-08-18,Combo G
+mikejames,2019,Monmouth,9,35,1.2,Fr,6-0,,1999-10-15,Wing G
+mikejames,2021,Monmouth,2,20,2,Jr,6-0,,1999-10-15,Wing G
+mikejames,2023,Louisville,32,32,30.9,Fr,6-5,,2002-10-15,Wing G
+mikejames,2024,Louisville,32,32,33.3,So,6-5,,2002-10-15,Wing G
+mikejames,2026,Vanderbilt,22,36,10.6,Jr,6-5,,2002-10-15,Wing G
+timhardaway,2011,Michigan,34,34,30.9,Fr,6-5,24,1992-03-16,Wing G
+timhardaway,2012,Michigan,33,33,34.3,So,6-5,24,1992-03-16,Wing G
+timhardaway,2013,Michigan,37,38,34.9,Jr,6-6,24,1992-03-16,Wing G
+dougmcdermott,2011,Creighton,39,39,29.1,Fr,6-7,11,1992-01-03,Stretch 4
+dougmcdermott,2012,Creighton,35,35,31.9,So,6-7,11,1992-01-03,PF/C
+dougmcdermott,2013,Creighton,36,36,31.6,Jr,6-7,11,1992-01-03,Stretch 4
+dougmcdermott,2014,Creighton,35,35,33.7,Sr,6-8,11,1992-01-03,Stretch 4
+dionwaiters,2011,Syracuse,33,34,16.3,Fr,6-4,4,1991-12-10,Scoring PG
+dionwaiters,2012,Syracuse,37,37,24.1,So,6-4,4,1991-12-10,Scoring PG
+dionwaiters,2012,Jacksonville St.,21,30,16,Jr,6-4,,1990-06-22,Combo G
+langstongalloway,2011,Saint Joseph's,33,33,34.3,Fr,6-2,,1991-12-09,Combo G
+langstongalloway,2012,Saint Joseph's,34,34,35.7,So,6-2,,1991-12-09,Wing G
+langstongalloway,2013,Saint Joseph's,32,32,35.7,Jr,6-2,,1991-12-09,Combo G
+langstongalloway,2014,Saint Joseph's,34,34,36.2,Sr,6-2,,1991-12-09,Wing G
+doronlamb,2011,Kentucky,38,38,28.4,Fr,6-4,42,1991-11-06,Combo G
+doronlamb,2012,Kentucky,40,40,31.2,So,6-4,42,1991-11-06,Wing G
+terrencejones,2011,Kentucky,38,38,31.5,Fr,6-8,18,1992-01-09,PF/C
+terrencejones,2012,Kentucky,38,40,29.3,So,6-9,18,1992-01-09,PF/C
+jaecrowder,2011,Marquette,37,37,27.6,Jr,6-6,34,1990-07-06,Wing F
+jaecrowder,2012,Marquette,35,35,32.9,Sr,6-6,34,1990-07-06,Wing G
+jordanclarkson,2011,Tulsa,27,32,24.9,Fr,6-4,46,1992-06-07,Combo G
+jordanclarkson,2012,Tulsa,31,31,33.9,So,6-4,46,1992-06-07,Combo G
+jordanclarkson,2014,Missouri,35,35,35.1,Jr,6-5,46,1992-06-07,Combo G
+ericmoreland,2011,Oregon St.,4,31,3,Fr,6-10,,1991-12-24,C
+ericmoreland,2012,Oregon St.,35,35,20.5,Fr,6-10,,1991-12-24,PF/C
+ericmoreland,2013,Oregon St.,29,32,30.7,So,6-10,,1991-12-24,PF/C
+ericmoreland,2014,Oregon St.,20,32,29.4,Jr,6-10,,1991-12-24,PF/C
+coryjoseph,2011,Texas,36,36,32.4,Fr,6-3,29,1991-08-20,Combo G
+kendallmarshall,2011,North Carolina,37,37,24.6,Fr,6-3,13,1991-08-19,Pure PG
+kendallmarshall,2012,North Carolina,36,38,33,So,6-4,13,1991-08-19,Pure PG
+reggiebullock,2011,North Carolina,27,37,14.5,Fr,6-7,25,1991-03-16,Wing G
+reggiebullock,2012,North Carolina,38,38,25.4,So,6-7,25,1991-03-16,Wing F
+reggiebullock,2013,North Carolina,34,35,31.6,Jr,6-7,25,1991-03-16,Wing G
+jordanmcrae,2011,Tennessee,10,34,5.3,Fr,6-6,58,1991-03-28,Stretch 4
+jordanmcrae,2012,Tennessee,33,33,21.6,So,6-5,58,1991-03-28,Wing G
+jordanmcrae,2013,Tennessee,33,33,33.6,Jr,6-5,58,1991-03-28,Wing G
+jordanmcrae,2014,Tennessee,36,36,32.4,Sr,6-6,58,1991-03-28,Wing G
+jordanmcrae,2016,Binghamton,6,30,1.7,So,6-6,,1996-10-01,PF/C
+jordanmcrae,2017,Binghamton,13,29,3.2,So,6-6,,1996-10-01,PF/C
+jordanmcrae,2018,Binghamton,5,29,4.3,Jr,6-6,,1996-10-01,Combo G
+tobiasharris,2011,Tennessee,34,34,29.2,Fr,6-8,19,1992-07-15,PF/C
+adreianpayne,2011,Michigan St.,33,33,9.1,Fr,6-10,15,1991-02-19,C
+adreianpayne,2012,Michigan St.,37,37,17.9,So,6-10,15,1991-02-19,PF/C
+adreianpayne,2013,Michigan St.,35,35,25.8,Jr,6-10,15,1991-02-19,PF/C
+adreianpayne,2014,Michigan St.,31,38,28.1,Sr,6-10,15,1991-02-19,Stretch 4
+meyersleonard,2011,Illinois,33,34,8.2,Fr,7-0,11,1992-02-27,C
+meyersleonard,2012,Illinois,32,32,31.8,So,7-0,11,1992-02-27,C
+joeharris,2011,Virginia,31,31,29.4,Fr,6-6,33,1991-09-06,Wing G
+joeharris,2012,Virginia,32,32,30.3,So,6-6,33,1991-09-06,Wing G
+joeharris,2012,Central Arkansas,15,26,10.1,Sr,6-4,,1989-10-15,Wing G
+joeharris,2013,Virginia,35,35,32.5,Jr,6-6,33,1991-09-06,Wing G
+joeharris,2014,Virginia,37,37,28.8,Sr,6-6,33,1991-09-06,Combo G
+andreroberson,2011,Colorado,37,37,22.2,Fr,6-7,26,1991-12-04,PF/C
+andreroberson,2012,Colorado,34,34,30.5,So,6-7,26,1991-12-04,PF/C
+andreroberson,2013,Colorado,31,33,33.4,Jr,6-7,26,1991-12-04,PF/C
+raymccallum,2011,Detroit Mercy,32,32,33.3,Fr,6-1,36,1991-06-12,Scoring PG
+raymccallum,2012,Detroit Mercy,34,34,34.1,So,6-1,36,1991-06-12,Combo G
+raymccallum,2013,Detroit Mercy,31,31,37.3,Jr,6-1,36,1991-06-12,Combo G
+lorenzobrown,2011,N.C. State,31,31,28.8,Fr,6-5,52,1990-08-26,Scoring PG
+lorenzobrown,2012,N.C. State,37,37,34.3,So,6-5,52,1990-08-26,Pure PG
+lorenzobrown,2013,N.C. State,33,35,34.2,Jr,6-5,52,1990-08-26,Pure PG
+ivanjohnson,2011,Alabama St.,23,33,11.9,Jr,6-4,,1992-12-22,Wing G
+dwightpowell,2011,Stanford,31,31,24.4,Fr,6-9,45,1991-07-20,PF/C
+dwightpowell,2012,Stanford,35,37,17.5,So,6-9,45,1991-07-20,PF/C
+dwightpowell,2013,Stanford,34,34,30.4,Jr,6-10,45,1991-07-20,PF/C
+dwightpowell,2014,Stanford,36,36,32.4,Sr,6-10,45,1991-07-20,Wing F
+jaredsullinger,2011,Ohio St.,37,37,31.7,Fr,6-9,21,1992-03-04,PF/C
+jaredsullinger,2012,Ohio St.,37,39,30.4,So,6-9,21,1992-03-04,PF/C
+jeremylamb,2011,Connecticut,41,41,27.8,Fr,6-5,12,1992-05-30,Wing G
+jeremylamb,2012,Connecticut,34,34,37.2,So,6-5,12,1992-05-30,Wing G
+juwanhoward,2011,Western Michigan,33,33,23.1,Fr,6-6,,1992-02-05,Stretch 4
+juwanhoward,2013,Detroit Mercy,30,31,25.1,So,6-6,,1992-02-05,Wing G
+juwanhoward,2014,Detroit Mercy,30,30,35.4,Jr,6-6,,1992-02-05,Wing G
+juwanhoward,2015,Detroit Mercy,31,31,31.6,Sr,6-6,,1992-02-05,Wing G
+brandonknight,2011,Kentucky,38,38,35.9,Fr,6-3,8,1991-12-02,Combo G
+seankilpatrick,2011,Cincinnati,35,35,20.6,So,6-4,,1990-01-06,Wing G
+seankilpatrick,2012,Cincinnati,37,37,34.5,So,6-4,,1990-01-06,Combo G
+seankilpatrick,2013,Cincinnati,34,34,34.4,Jr,6-4,,1990-01-06,Wing G
+seankilpatrick,2014,Cincinnati,34,34,33.8,Sr,6-4,,1990-01-06,Combo G
+perryjones,2011,Baylor,29,30,33.9,Fr,6-11,28,1991-09-24,C
+perryjones,2012,Baylor,32,37,30.9,So,6-11,28,1991-09-24,PF/C
+joshhuestis,2011,Stanford,28,31,9.9,Fr,6-7,29,1991-12-19,PF/C
+joshhuestis,2012,Stanford,37,37,20.1,So,6-7,29,1991-12-19,PF/C
+joshhuestis,2013,Stanford,34,34,32.1,Jr,6-7,29,1991-12-19,PF/C
+joshhuestis,2014,Stanford,36,36,35.2,Sr,6-7,29,1991-12-19,PF/C
+markelbrown,2011,Oklahoma St.,34,34,21.6,Fr,6-3,44,1992-01-29,Wing G
+markelbrown,2012,Oklahoma St.,32,32,31.2,So,6-3,44,1992-01-29,Wing G
+markelbrown,2013,Oklahoma St.,33,33,34.1,Jr,6-3,44,1992-01-29,Wing G
+markelbrown,2014,Oklahoma St.,34,34,35.3,Sr,6-3,44,1992-01-29,Wing G
+victoroladipo,2011,Indiana,32,32,18,Fr,6-4,2,1992-05-04,Wing G
+victoroladipo,2012,Indiana,36,36,26.7,So,6-5,2,1992-05-04,Wing G
+victoroladipo,2013,Indiana,36,36,28.4,Jr,6-5,2,1992-05-04,Wing G
+shabazznapier,2011,Connecticut,41,41,23.8,Fr,6-0,24,1991-07-14,Scoring PG
+shabazznapier,2012,Connecticut,34,34,35,So,6-0,24,1991-07-14,Pure PG
+shabazznapier,2013,Connecticut,28,30,37.3,Jr,6-0,24,1991-07-14,Scoring PG
+shabazznapier,2014,Connecticut,40,40,35.1,Sr,6-1,24,1991-07-14,Scoring PG
+kyrieirving,2011,Duke,11,37,27.5,Fr,6-2,1,1992-03-23,Scoring PG
+gorguidieng,2011,Louisville,29,35,15.6,Fr,6-10,21,1990-01-18,C
+gorguidieng,2012,Louisville,40,40,32.8,So,6-11,21,1990-01-18,C
+gorguidieng,2013,Louisville,33,40,31.1,Jr,6-11,21,1990-01-18,C
+allencrabbe,2011,California,31,33,33.8,Fr,6-6,31,1992-04-09,Wing G
+allencrabbe,2012,California,34,34,34.1,So,6-6,31,1992-04-09,Wing F
+allencrabbe,2013,California,33,33,36.2,Jr,6-6,31,1992-04-09,Wing G
+tjmcconnell,2011,Duquesne,31,31,30.8,Fr,6-0,,1992-03-25,Scoring PG
+tjmcconnell,2012,Duquesne,30,30,34.2,So,6-1,,1992-03-25,Pure PG
+tjmcconnell,2014,Arizona,38,38,32.2,Jr,6-1,,1992-03-25,Pure PG
+tjmcconnell,2015,Arizona,38,38,30.5,Sr,6-1,,1992-03-25,Pure PG
+terrenceross,2011,Washington,34,35,17.4,Fr,6-6,8,1991-02-05,Wing F
+terrenceross,2012,Washington,35,35,31.1,So,6-6,8,1991-02-05,Wing F
+harrisonbarnes,2011,North Carolina,37,37,29.4,Fr,6-8,7,1992-05-30,Wing F
+harrisonbarnes,2012,North Carolina,38,38,29.2,So,6-8,7,1992-05-30,Wing F
+robertwilliams,2011,UAB,28,31,11.8,Fr,6-4,,1991-02-28,Wing G
+robertwilliams,2012,UAB,31,31,23.1,So,6-4,,1991-02-28,Wing G
+robertwilliams,2013,UAB,32,32,27,Jr,6-4,,1991-02-28,Wing G
+robertwilliams,2014,UAB,29,29,25.9,Sr,6-4,,1991-02-28,Wing G
+robertwilliams,2017,Texas A&M,31,31,25.8,Fr,6-9,27,1997-10-17,C
+robertwilliams,2018,Texas A&M,30,35,25.6,So,6-10,27,1997-10-17,C
+willbarton,2011,Memphis,35,35,30.6,Fr,6-6,40,1991-01-06,Wing G
+willbarton,2012,Memphis,35,35,35.3,So,6-6,40,1991-01-06,Wing F
+tonysnell,2011,New Mexico,33,34,17.6,Fr,6-7,20,1991-11-10,Wing G
+tonysnell,2012,New Mexico,34,34,25.6,So,6-7,20,1991-11-10,Wing G
+tonysnell,2013,New Mexico,35,35,31.2,Jr,6-7,20,1991-11-10,Scoring PG
+torreycraig,2011,USC Upstate,30,30,30.5,Fr,6-5,,1990-12-19,Stretch 4
+torreycraig,2012,USC Upstate,32,32,30,So,6-6,,1990-12-19,Stretch 4
+torreycraig,2013,USC Upstate,31,31,31.4,Jr,6-6,,1990-12-19,Stretch 4
+torreycraig,2014,USC Upstate,32,32,33.2,Sr,6-6,,1990-12-19,Stretch 4
+alfonzomckinnie,2011,Eastern Illinois,23,27,11.9,Fr,6-7,,1992-09-17,PF/C
+alfonzomckinnie,2012,Eastern Illinois,27,27,24,So,6-7,,1992-09-17,PF/C
+alfonzomckinnie,2014,Green Bay,9,28,12.8,Sr,6-8,,1992-09-17,Stretch 4
+alfonzomckinnie,2015,Green Bay,31,31,21.6,Sr,6-8,,1992-09-17,PF/C
+tarikblack,2011,Memphis,35,35,22.6,Fr,6-8,,1991-11-22,C
+tarikblack,2012,Memphis,35,35,25.6,So,6-8,,1991-11-22,C
+tarikblack,2013,Memphis,32,36,20.7,Jr,6-9,,1991-11-22,C
+tarikblack,2014,Kansas,33,35,13.5,Sr,6-9,,1991-11-22,C
+chassonrandle,2012,Stanford,37,37,30.5,Fr,6-1,,1993-02-05,Combo G
+chassonrandle,2013,Stanford,34,34,31,So,6-1,,1993-02-05,Combo G
+chassonrandle,2014,Stanford,36,36,35.1,Jr,6-1,,1993-02-05,Combo G
+chassonrandle,2015,Stanford,37,37,36.4,Sr,6-1,,1993-02-05,Combo G
+justinedwards,2012,Maine,28,28,31.4,Fr,6-3,,1992-10-31,Combo G
+justinedwards,2013,Maine,28,29,33,So,6-3,,1992-10-31,Combo G
+justinedwards,2015,Kansas St.,32,32,21.1,Jr,6-4,,1992-10-31,Wing G
+justinedwards,2016,Kansas St.,33,33,31.6,Sr,6-4,,1992-10-31,Wing G
+justinedwards,2024,Kentucky,32,33,21.5,Fr,6-8,,2003-12-16,Wing F
+justinedwards,2026,North Carolina Central,15,28,5.7,Sr,5-9,,2003-10-15,Pure PG
+alexlen,2012,Maryland,22,32,21.2,Fr,7-1,5,1993-06-16,C
+alexlen,2013,Maryland,38,38,26.4,So,7-1,5,1993-06-16,C
+ottoporter,2012,Georgetown,32,32,29.9,Fr,6-8,3,1993-06-03,Wing F
+ottoporter,2013,Georgetown,31,32,35.4,So,6-8,3,1993-06-03,Wing F
+anthonygill,2012,South Carolina,31,31,25.3,Fr,6-8,,1992-10-17,Wing F
+anthonygill,2014,Virginia,37,37,19.8,So,6-8,,1992-10-17,C
+anthonygill,2015,Virginia,34,34,25.3,Jr,6-8,,1992-10-17,C
+anthonygill,2016,Virginia,37,37,28,Sr,6-8,,1992-10-17,PF/C
+rodneyhood,2012,Mississippi St.,32,33,32.8,Fr,6-8,23,1992-10-20,Wing F
+rodneyhood,2014,Duke,35,35,32.9,So,6-8,23,1992-10-20,Wing F
+jamesennis,2012,Long Beach St.,32,32,29.2,Jr,6-7,50,1990-07-01,Wing G
+jamesennis,2013,Long Beach St.,31,31,33.5,Sr,6-7,50,1990-07-01,Wing F
+patconnaughton,2012,Notre Dame,34,34,24.1,Fr,6-5,41,1993-01-06,Wing G
+patconnaughton,2013,Notre Dame,35,35,32.1,So,6-5,41,1993-01-06,Wing G
+patconnaughton,2014,Notre Dame,32,32,37.2,Jr,6-5,41,1993-01-06,Wing G
+patconnaughton,2015,Notre Dame,38,38,35.6,Sr,6-5,41,1993-01-06,Stretch 4
+spencerdinwiddie,2012,Colorado,34,34,27.7,Fr,6-5,38,1993-04-06,Wing G
+spencerdinwiddie,2013,Colorado,33,33,32.5,So,6-5,38,1993-04-06,Scoring PG
+spencerdinwiddie,2014,Colorado,17,35,31.1,Jr,6-6,38,1993-04-06,Scoring PG
+larrynance,2012,Wyoming,31,31,17.6,Fr,6-7,27,1993-01-01,PF/C
+larrynance,2013,Wyoming,31,32,32.3,So,6-8,27,1993-01-01,Wing F
+larrynance,2014,Wyoming,24,31,35.4,Jr,6-8,27,1993-01-01,PF/C
+larrynance,2015,Wyoming,29,33,34.9,Sr,6-8,27,1993-01-01,Wing F
+joshrichardson,2012,Tennessee,33,33,15.8,Fr,6-6,40,1993-09-15,Wing G
+joshrichardson,2013,Tennessee,33,33,30.7,So,6-6,40,1993-09-15,Wing G
+joshrichardson,2014,Tennessee,36,36,30.6,Jr,6-6,40,1993-09-15,Wing G
+joshrichardson,2015,Tennessee,32,32,36.3,Sr,6-6,40,1993-09-15,Combo G
+andredrummond,2012,Connecticut,34,34,28.4,Fr,6-10,9,1993-08-10,C
+jasonsmith,2012,Texas A&M Corpus Chris,28,30,9.8,Jr,6-3,,1990-10-17,Wing G
+jonathonsimmons,2012,Houston,29,29,30,Jr,6-6,,1989-09-14,Wing G
+shanelarkin,2012,Miami FL,32,33,25.6,Fr,5-11,18,1992-10-02,Scoring PG
+shanelarkin,2013,Miami FL,36,36,36.4,So,5-11,18,1992-10-02,Scoring PG
+quinncook,2012,Duke,33,34,11.7,Fr,6-0,,1993-03-23,Scoring PG
+quinncook,2013,Duke,36,36,33.6,So,6-0,,1993-03-23,Scoring PG
+quinncook,2014,Duke,35,35,29.8,Jr,6-2,,1993-03-23,Scoring PG
+quinncook,2015,Duke,39,39,35.8,Sr,6-2,,1993-03-23,Combo G
+williegreen,2012,Stetson,28,28,22.3,So,6-6,,1991-08-28,PF/C
+williegreen,2013,Stetson,30,30,27.1,Jr,6-7,,1991-08-28,PF/C
+williegreen,2014,Stetson,30,30,25.7,Sr,6-6,,1991-08-28,Wing F
+tonywroten,2012,Washington,35,35,30.3,Fr,6-5,25,1993-04-13,Scoring PG
+kentaviouscaldwellpope,2012,Georgia,32,32,32.1,Fr,6-5,8,1993-02-18,Wing G
+kentaviouscaldwellpope,2013,Georgia,32,32,33.9,So,6-5,8,1993-02-18,Wing G
+frankkaminsky,2012,Wisconsin,35,36,7.7,Fr,6-11,9,1993-04-04,PF/C
+frankkaminsky,2013,Wisconsin,32,35,10.3,So,6-11,9,1993-04-04,Stretch 4
+frankkaminsky,2014,Wisconsin,38,38,27.2,Jr,7-0,9,1993-04-04,PF/C
+frankkaminsky,2015,Wisconsin,39,40,33.6,Sr,7-0,9,1993-04-04,PF/C
+johnnyobryant,2012,LSU,28,33,21.4,Fr,6-9,36,1993-06-01,C
+johnnyobryant,2013,LSU,29,31,29.1,So,6-9,36,1993-06-01,PF/C
+johnnyobryant,2014,LSU,34,34,30,Jr,6-9,36,1993-06-01,PF/C
+treyburke,2012,Michigan,33,33,36.6,Fr,6-1,9,1992-11-12,Scoring PG
+treyburke,2013,Michigan,38,38,35.4,So,6-0,9,1992-11-12,Pure PG
+royceoneale,2012,Denver,31,31,27,Fr,6-5,,1993-06-05,Wing G
+royceoneale,2013,Denver,32,32,35.3,So,6-5,,1993-06-05,Wing G
+royceoneale,2014,Baylor,36,36,27.6,Jr,6-6,,1993-06-05,Wing G
+royceoneale,2015,Baylor,33,33,32.1,Sr,6-6,,1993-06-05,Wing G
+kyleanderson,2012,Delaware,31,32,30.6,Fr,6-2,,1993-05-05,Wing G
+kyleanderson,2013,Delaware,33,33,33.2,So,6-2,,1993-05-05,Wing G
+kyleanderson,2013,UCLA,35,35,29.9,Fr,6-9,30,1993-09-20,Wing F
+kyleanderson,2014,Delaware,35,35,34.7,Jr,6-2,,1993-05-05,Wing G
+kyleanderson,2014,UCLA,36,37,33.2,So,6-9,30,1993-09-20,Wing F
+kyleanderson,2015,Delaware,23,30,34.3,Sr,6-3,,1993-05-05,Wing G
+mowilliams,2012,Army,29,29,21.7,Fr,6-1,,1992-10-15,Combo G
+mowilliams,2013,Army,26,30,7.6,So,6-1,,1992-10-15,Combo G
+mowilliams,2014,Army,30,30,17.2,Jr,6-1,,1992-10-15,Combo G
+mowilliams,2015,Army,29,29,20.5,Sr,6-1,,1992-10-15,Combo G
+andrejackson,2012,Cal St. Bakersfield,14,30,8.3,Jr,6-10,,1989-11-05,C
+andrejackson,2019,North Carolina A&T,30,30,9.3,Jr,6-4,,1997-10-15,Wing G
+andrejackson,2020,North Carolina A&T,31,31,24.8,Sr,6-4,,1997-10-15,Wing G
+andrejackson,2021,Connecticut,16,23,16.1,Fr,6-6,36,2001-11-13,Wing F
+andrejackson,2022,Connecticut,33,33,29.2,So,6-6,36,2001-11-13,Wing F
+andrejackson,2023,Connecticut,36,39,29.1,Jr,6-6,36,2001-11-13,Wing G
+austinrivers,2012,Duke,34,34,33.2,Fr,6-4,10,1992-08-01,Combo G
+keifersykes,2012,Green Bay,28,28,29.5,Fr,5-10,,1993-12-30,Scoring PG
+keifersykes,2013,Green Bay,33,33,34.8,So,5-10,,1993-12-30,Scoring PG
+keifersykes,2014,Green Bay,27,28,35.3,Jr,5-11,,1993-12-30,Scoring PG
+keifersykes,2015,Green Bay,31,31,35,Sr,6-0,,1993-12-30,Combo G
+normanpowell,2012,UCLA,32,32,17.7,Fr,6-3,46,1993-05-25,Wing G
+normanpowell,2013,UCLA,35,35,22.1,So,6-4,46,1993-05-25,Wing G
+normanpowell,2014,UCLA,37,37,25.7,Jr,6-4,46,1993-05-25,Combo G
+normanpowell,2015,UCLA,36,36,34.5,Sr,6-4,46,1993-05-25,Wing G
+bradleybeal,2012,Florida,37,37,34.2,Fr,6-3,3,1993-06-28,Wing G
+kjmcdaniels,2012,Clemson,30,31,10.1,Fr,6-5,32,1993-02-09,Wing F
+kjmcdaniels,2013,Clemson,28,31,27.5,So,6-5,32,1993-02-09,Stretch 4
+kjmcdaniels,2014,Clemson,36,36,33.7,Jr,6-5,32,1993-02-09,Stretch 4
+dewaynededmon,2012,USC,20,32,23.3,So,7-0,,1989-08-12,C
+dewaynededmon,2013,USC,31,32,22.3,Jr,7-0,,1989-08-12,C
+michaelkiddgilchrist,2012,Kentucky,40,40,31.1,Fr,6-7,2,1993-09-26,Wing F
+anthonydavis,2012,Kentucky,40,40,32,Fr,6-10,1,1993-03-11,C
+anthonydavis,2019,Arkansas Pine Bluff,22,31,7.9,So,5-9,,1999-06-24,Combo G
+anthonydavis,2020,Arkansas Pine Bluff,2,28,2.7,So,5-9,,1999-06-24,Combo G
+anthonydavis,2024,Fairfield,15,36,3.8,Fr,6-5,,2003-10-15,PF/C
+javontegreen,2012,Radford,30,30,22.4,Fr,6-4,,1993-07-23,Wing G
+javontegreen,2013,Radford,29,29,28.1,So,6-4,,1993-07-23,Wing G
+javontegreen,2014,Radford,32,32,26.3,Jr,6-4,,1993-07-23,Wing G
+javontegreen,2015,Radford,31,31,26.2,Sr,6-4,,1993-07-23,Wing G
+quincymiller,2012,Baylor,36,37,24.4,Fr,6-9,38,1992-11-18,PF/C
+treveongraham,2012,VCU,36,36,16.8,Fr,6-5,,1993-10-28,Wing F
+treveongraham,2013,VCU,36,36,27.6,So,6-5,,1993-10-28,Wing F
+treveongraham,2014,VCU,35,35,28.3,Jr,6-5,,1993-10-28,Wing F
+treveongraham,2015,VCU,33,36,29.4,Sr,6-5,,1993-10-28,Wing F
+pjhairston,2012,North Carolina,37,38,13,Fr,6-6,26,1992-12-24,Stretch 4
+pjhairston,2013,North Carolina,33,35,23.9,So,6-6,26,1992-12-24,Wing G
+alanwilliams,2012,UC Santa Barbara,28,29,18,Fr,6-7,,1993-01-28,PF/C
+alanwilliams,2013,UC Santa Barbara,26,29,28.4,So,6-7,,1993-01-28,PF/C
+alanwilliams,2014,UC Santa Barbara,26,28,31.7,Jr,6-7,,1993-01-28,PF/C
+alanwilliams,2015,UC Santa Barbara,24,31,32.6,Sr,6-7,,1993-01-28,PF/C
+michaelcarterwilliams,2012,Syracuse,26,37,10.3,Fr,6-5,11,1991-10-10,Pure PG
+michaelcarterwilliams,2013,Syracuse,40,40,35.2,So,6-6,11,1991-10-10,Pure PG
+damionlee,2012,Drexel,36,36,28.9,Fr,6-6,,1992-10-21,Wing G
+damionlee,2013,Drexel,27,31,33,So,6-6,,1992-10-21,Wing G
+damionlee,2014,Drexel,5,30,26.8,Jr,6-6,,1992-10-21,Wing G
+damionlee,2015,Drexel,26,29,38.1,Jr,6-6,,1992-10-21,Wing G
+damionlee,2016,Louisville,30,31,33.5,Sr,6-6,,1992-10-21,Wing G
+elfridpayton,2012,Louisiana,31,31,22.8,Fr,6-3,10,1994-02-22,Scoring PG
+elfridpayton,2013,Louisiana,32,32,35.7,So,6-3,10,1994-02-22,Scoring PG
+elfridpayton,2014,Louisiana,32,32,36.9,Jr,6-3,10,1994-02-22,Scoring PG
+jeriangrant,2012,Notre Dame,34,34,36.2,So,6-5,19,1992-10-09,Pure PG
+jeriangrant,2013,Notre Dame,35,35,36.3,Jr,6-5,19,1992-10-09,Scoring PG
+jeriangrant,2014,Notre Dame,12,32,35.6,Jr,6-5,19,1992-10-09,Pure PG
+jeriangrant,2015,Notre Dame,38,38,37.1,Sr,6-5,19,1992-10-09,Pure PG
+codyzeller,2012,Indiana,36,36,28.5,Fr,6-11,4,1992-10-05,C
+codyzeller,2013,Indiana,36,36,29.5,So,7-0,4,1992-10-05,C
+khembirch,2012,Pittsburgh,10,39,15,Fr,6-9,,1992-09-28,C
+khembirch,2013,UNLV,26,34,21.8,So,6-9,,1992-09-28,C
+khembirch,2014,UNLV,33,33,31.4,Jr,6-9,,1992-09-28,C
+jabaribrown,2012,Oregon,2,34,25.5,Fr,6-5,,1992-12-18,Wing G
+jabaribrown,2013,Missouri,25,34,32.7,So,6-5,,1992-12-18,Wing G
+jabaribrown,2014,Missouri,35,35,37,Jr,6-5,,1992-12-18,Wing G
+dorianfinneysmith,2012,Virginia Tech,33,33,29,Fr,6-8,,1993-05-04,Stretch 4
+dorianfinneysmith,2014,Florida,37,39,25.8,So,6-8,,1993-05-04,PF/C
+dorianfinneysmith,2015,Florida,28,33,27.9,Jr,6-8,,1993-05-04,Stretch 4
+dorianfinneysmith,2016,Florida,36,36,31.8,Sr,6-8,,1993-05-04,Stretch 4
+malcolmbrogdon,2012,Virginia,28,32,22.4,Fr,6-5,36,1992-12-11,Wing G
+malcolmbrogdon,2014,Virginia,37,37,31.4,So,6-5,36,1992-12-11,Wing G
+malcolmbrogdon,2015,Virginia,34,34,32.5,Jr,6-5,36,1992-12-11,Wing G
+malcolmbrogdon,2016,Virginia,37,37,34.1,Sr,6-5,36,1992-12-11,Combo G
+abdelnader,2012,Northern Illinois,30,30,24.5,Fr,6-7,58,1993-09-25,Stretch 4
+abdelnader,2013,Northern Illinois,19,29,25.4,So,6-7,58,1993-09-25,Stretch 4
+abdelnader,2015,Iowa St.,32,34,16.4,Jr,6-6,58,1993-09-25,Wing F
+abdelnader,2016,Iowa St.,35,35,31.1,Sr,6-6,58,1993-09-25,Wing G
+tonyparker,2013,UCLA,33,35,6.3,Fr,6-9,,1993-09-18,C
+tonyparker,2014,UCLA,37,37,17.2,So,6-9,,1993-09-18,C
+tonyparker,2015,UCLA,34,36,24.6,Jr,6-9,,1993-09-18,C
+tonyparker,2016,UCLA,32,32,25.1,Sr,6-9,,1993-09-18,C
+taureanprince,2013,Baylor,23,36,5.6,Fr,6-7,12,1994-03-22,PF/C
+taureanprince,2014,Baylor,36,36,14,So,6-7,12,1994-03-22,Wing F
+taureanprince,2015,Baylor,32,33,26.3,Jr,6-7,12,1994-03-22,Wing F
+taureanprince,2016,Baylor,33,33,30.8,Sr,6-8,12,1994-03-22,Wing F
+williecauleystein,2013,Kentucky,29,33,23.6,Fr,7-0,6,1993-08-18,C
+williecauleystein,2014,Kentucky,37,40,23.8,So,7-0,6,1993-08-18,C
+williecauleystein,2015,Kentucky,39,39,25.9,Jr,7-0,6,1993-08-18,C
+alexcaruso,2013,Texas A&M,33,33,24.7,Fr,6-5,,1994-02-28,Scoring PG
+alexcaruso,2014,Texas A&M,34,34,29.8,So,6-5,,1994-02-28,Pure PG
+alexcaruso,2015,Texas A&M,33,33,31.5,Jr,6-5,,1994-02-28,Pure PG
+alexcaruso,2016,Texas A&M,37,37,28.8,Sr,6-5,,1994-02-28,Pure PG
+shaquilleharrison,2013,Tulsa,32,32,27,Fr,6-3,,1993-10-06,Combo G
+shaquilleharrison,2014,Tulsa,34,34,30.2,So,6-3,,1993-10-06,Scoring PG
+shaquilleharrison,2015,Tulsa,33,33,31.4,Jr,6-3,,1993-10-06,Scoring PG
+shaquilleharrison,2016,Tulsa,32,32,32.3,Sr,6-3,,1993-10-06,Combo G
+benmclemore,2013,Kansas,37,37,32.2,Fr,6-5,7,1993-02-11,Wing G
+marcussmart,2013,Oklahoma St.,33,33,33.5,Fr,6-4,6,1994-03-06,Scoring PG
+marcussmart,2014,Oklahoma St.,31,34,32.7,So,6-4,6,1994-03-06,Scoring PG
+anthonybennett,2013,UNLV,34,34,27.2,Fr,6-8,1,1993-03-14,Stretch 4
+krisdunn,2013,Providence,25,34,27.2,Fr,6-3,5,1994-03-18,Combo G
+krisdunn,2014,Providence,4,35,26.5,So,6-3,5,1994-03-18,Pure PG
+krisdunn,2015,Providence,33,34,34,So,6-3,5,1994-03-18,Pure PG
+krisdunn,2016,Providence,33,35,33,Jr,6-4,5,1994-03-18,Pure PG
+samdekker,2013,Wisconsin,35,35,22.3,Fr,6-7,18,1994-05-06,Wing G
+samdekker,2014,Wisconsin,38,38,29.8,So,6-7,18,1994-05-06,Wing F
+samdekker,2015,Wisconsin,40,40,31,Jr,6-9,18,1994-05-06,Wing F
+georgesniang,2013,Iowa St.,35,35,25.1,Fr,6-7,50,1993-06-17,Wing F
+georgesniang,2014,Iowa St.,34,36,30.1,So,6-7,50,1993-06-17,Wing G
+georgesniang,2015,Iowa St.,34,34,30.7,Jr,6-7,50,1993-06-17,Wing F
+georgesniang,2016,Iowa St.,35,35,33.2,Sr,6-8,50,1993-06-17,Wing F
+jeramigrant,2013,Syracuse,40,40,14.3,Fr,6-8,39,1994-03-12,Wing F
+jeramigrant,2014,Syracuse,32,34,31.4,So,6-8,39,1994-03-12,C
+jakarrsampson,2013,St. John's,33,33,31.5,Fr,6-8,,1993-03-20,C
+jakarrsampson,2014,St. John's,33,33,29,So,6-9,,1993-03-20,C
+fredvanvleet,2013,Wichita St.,39,39,16.2,Fr,5-11,,1994-02-25,Scoring PG
+fredvanvleet,2014,Wichita St.,35,35,31.9,So,5-11,,1994-02-25,Pure PG
+fredvanvleet,2015,Wichita St.,34,34,31.5,Jr,5-11,,1994-02-25,Pure PG
+fredvanvleet,2016,Wichita St.,31,34,29,Sr,6-0,,1994-02-25,Pure PG
+shabazzmuhammad,2013,UCLA,32,35,30.8,Fr,6-6,14,1992-11-13,Wing F
+montrezlharrell,2013,Louisville,40,40,16.2,Fr,6-8,32,1994-01-26,C
+montrezlharrell,2014,Louisville,37,37,29.3,So,6-8,32,1994-01-26,PF/C
+montrezlharrell,2015,Louisville,35,36,35.1,Jr,6-8,32,1994-01-26,PF/C
+carislevert,2013,Michigan,33,38,10.8,Fr,6-5,20,1994-08-25,Wing G
+carislevert,2014,Michigan,37,37,34,So,6-5,20,1994-08-25,Wing G
+carislevert,2015,Michigan,17,31,35.8,Jr,6-7,20,1994-08-25,Wing G
+carislevert,2016,Michigan,14,35,31.1,Sr,6-7,20,1994-08-25,Combo G
+ronbaker,2013,Wichita St.,18,39,26.1,Fr,6-3,,1993-03-30,Combo G
+ronbaker,2014,Wichita St.,35,35,30,So,6-3,,1993-03-30,Combo G
+ronbaker,2015,Wichita St.,34,34,32.7,Jr,6-3,,1993-03-30,Combo G
+ronbaker,2016,Wichita St.,34,34,31.6,Sr,6-4,,1993-03-30,Combo G
+jakelayman,2013,Maryland,38,38,19.9,Fr,6-8,47,1994-03-07,Stretch 4
+jakelayman,2014,Maryland,32,32,31.8,So,6-8,47,1994-03-07,Wing F
+jakelayman,2015,Maryland,35,35,30,Jr,6-8,47,1994-03-07,Wing F
+jakelayman,2016,Maryland,35,35,31.7,Sr,6-9,47,1994-03-07,Wing F
+tjwarren,2013,N.C. State,35,35,27,Fr,6-8,14,1993-09-05,Wing F
+tjwarren,2014,N.C. State,35,36,35.4,So,6-8,14,1993-09-05,Wing F
+cleanthonyearly,2013,Wichita St.,39,39,25.1,Jr,6-8,34,1991-04-17,Stretch 4
+cleanthonyearly,2014,Wichita St.,35,35,27.5,Sr,6-8,34,1991-04-17,Stretch 4
+stevenadams,2013,Pittsburgh,32,33,23.4,Fr,7-0,12,1993-07-20,C
+nerlensnoel,2013,Kentucky,24,33,31.9,Fr,6-10,6,1994-04-10,C
+denzelvalentine,2013,Michigan St.,35,35,20.8,Fr,6-5,14,1993-11-16,Wing G
+denzelvalentine,2014,Michigan St.,38,38,29.4,So,6-5,14,1993-11-16,Wing G
+denzelvalentine,2015,Michigan St.,39,39,33.2,Jr,6-5,14,1993-11-16,Wing G
+denzelvalentine,2016,Michigan St.,31,35,33,Sr,6-5,14,1993-11-16,Pure PG
+richaunholmes,2013,Bowling Green,30,30,18.7,So,6-8,37,1993-10-15,C
+richaunholmes,2014,Bowling Green,31,31,32.2,Jr,6-8,37,1993-10-15,PF/C
+richaunholmes,2015,Bowling Green,30,32,28.8,Sr,6-8,37,1993-10-15,PF/C
+garyharris,2013,Michigan St.,33,35,29.9,Fr,6-4,19,1994-09-14,Combo G
+garyharris,2014,Michigan St.,35,38,32.3,So,6-4,19,1994-09-14,Combo G
+garyharris,2020,Siena,30,30,19.3,Fr,6-6,,2000-10-15,Wing F
+garyharris,2022,Loyola Marymount,10,28,7.5,So,6-6,,2000-10-15,Wing F
+buddyhield,2013,Oklahoma,27,32,25.1,Fr,6-3,6,1992-12-17,Wing G
+buddyhield,2014,Oklahoma,33,33,32.1,So,6-4,6,1992-12-17,Wing G
+buddyhield,2015,Oklahoma,35,35,32.4,Jr,6-4,6,1992-12-17,Wing G
+buddyhield,2016,Oklahoma,37,37,35.4,Sr,6-4,6,1992-12-17,Wing G
+semajchriston,2013,Xavier,30,31,34.3,Fr,6-3,55,1992-11-01,Pure PG
+semajchriston,2014,Xavier,34,34,35.3,So,6-3,55,1992-11-01,Scoring PG
+brynforbes,2013,Cleveland St.,29,29,28.9,Fr,6-3,,1993-07-23,Wing G
+brynforbes,2014,Cleveland St.,30,31,34.6,So,6-3,,1993-07-23,Combo G
+brynforbes,2015,Michigan St.,39,39,26.2,Jr,6-3,,1993-07-23,Combo G
+brynforbes,2016,Michigan St.,35,35,28,Sr,6-3,,1993-07-23,Combo G
+ryanarcidiacono,2013,Villanova,33,33,34.2,Fr,6-3,,1994-03-26,Scoring PG
+ryanarcidiacono,2014,Villanova,34,34,31.1,So,6-3,,1994-03-26,Scoring PG
+ryanarcidiacono,2015,Villanova,36,36,30.4,Jr,6-3,,1994-03-26,Scoring PG
+ryanarcidiacono,2016,Villanova,40,40,32,Sr,6-3,,1994-03-26,Scoring PG
+archiegoodwin,2013,Kentucky,33,33,31.8,Fr,6-4,29,1994-08-17,Wing G
+tyronewallace,2013,California,33,33,28.2,Fr,6-4,60,1994-06-10,Wing G
+tyronewallace,2014,California,35,35,31.1,So,6-4,60,1994-06-10,Combo G
+tyronewallace,2015,California,33,33,34.8,Jr,6-5,60,1994-06-10,Wing G
+tyronewallace,2016,California,28,34,32.2,Sr,6-5,60,1994-06-10,Combo G
+danuelhouse,2013,Houston,32,32,28.7,Fr,6-7,,1993-06-07,Wing G
+danuelhouse,2014,Houston,24,33,28.5,So,6-7,,1993-06-07,Wing F
+danuelhouse,2015,Texas A&M,26,33,32.5,Jr,6-7,,1993-06-07,Wing G
+danuelhouse,2016,Texas A&M,36,37,30.9,Sr,6-7,,1993-06-07,Wing G
+nikstauskas,2013,Michigan,38,38,30.8,Fr,6-6,8,1993-10-07,Wing G
+nikstauskas,2014,Michigan,36,37,35.6,So,6-6,8,1993-10-07,Combo G
+glennrobinson,2013,Michigan,38,38,33.7,Fr,6-6,40,1994-01-08,Wing G
+glennrobinson,2014,Michigan,37,37,32.3,So,6-6,40,1994-01-08,Wing G
+glennrobinson,2021,Kennesaw St.,8,21,4.1,Jr,6-5,,1998-10-15,Wing G
+justinanderson,2013,Virginia,35,35,24,Fr,6-6,21,1993-11-19,Wing G
+justinanderson,2014,Virginia,37,37,21.5,So,6-6,21,1993-11-19,Stretch 4
+justinanderson,2015,Virginia,26,34,27.8,Jr,6-6,21,1993-11-19,Wing G
+justinanderson,2023,NJIT,24,29,11.8,Sr,6-3,,2000-10-15,Wing G
+justinanderson,2024,NJIT,20,27,7.8,Sr,6-3,,2000-10-15,Wing G
+tylercavanaugh,2013,Wake Forest,31,31,16.7,Fr,6-9,,1994-02-09,Stretch 4
+tylercavanaugh,2014,Wake Forest,33,33,21.2,So,6-9,,1994-02-09,Stretch 4
+tylercavanaugh,2016,George Washington,38,38,30.4,Jr,6-9,,1994-02-09,Stretch 4
+tylercavanaugh,2017,George Washington,35,35,32.2,Sr,6-9,,1994-02-09,Stretch 4
+damyeandotson,2013,Oregon,37,37,27.9,Fr,6-5,44,1994-05-06,Wing G
+damyeandotson,2014,Oregon,33,34,23.8,So,6-5,44,1994-05-06,Wing G
+damyeandotson,2016,Houston,32,32,31,Jr,6-5,44,1994-05-06,Wing F
+damyeandotson,2017,Houston,32,32,34.1,Sr,6-5,44,1994-05-06,Wing F
+damianjones,2014,Vanderbilt,31,31,25.9,Fr,6-10,30,1995-06-30,C
+damianjones,2015,Vanderbilt,34,34,29.1,So,6-10,30,1995-06-30,C
+damianjones,2016,Vanderbilt,33,33,26.2,Jr,7-0,30,1995-06-30,C
+lukekornet,2014,Vanderbilt,30,31,15.3,Fr,6-10,,1995-07-15,PF/C
+lukekornet,2015,Vanderbilt,34,34,21.6,So,6-10,,1995-07-15,PF/C
+lukekornet,2016,Vanderbilt,28,33,27.4,Jr,7-1,,1995-07-15,PF/C
+lukekornet,2017,Vanderbilt,35,35,31.5,Sr,7-1,,1995-07-15,PF/C
+andrewharrison,2014,Kentucky,40,40,31.7,Fr,6-6,44,1994-10-28,Scoring PG
+andrewharrison,2015,Kentucky,39,39,25.5,So,6-6,44,1994-10-28,Scoring PG
+jarellmartin,2014,LSU,32,34,26.2,Fr,6-9,25,1994-05-24,Wing F
+jarellmartin,2015,LSU,33,33,35.1,So,6-9,25,1994-05-24,Wing F
+semiojeleye,2014,Duke,17,35,4.7,Fr,6-7,37,1994-12-05,Wing F
+semiojeleye,2015,Duke,6,39,10.5,So,6-8,37,1994-12-05,PF/C
+semiojeleye,2017,SMU,35,35,34.1,Jr,6-7,37,1994-12-05,Wing F
+juliusrandle,2014,Kentucky,40,40,30.8,Fr,6-9,7,1994-11-29,C
+markwilliams,2014,Temple,30,31,18.8,Fr,6-8,,1995-01-25,Stretch 4
+markwilliams,2015,Temple,31,37,13.2,So,6-8,,1995-01-25,Stretch 4
+markwilliams,2016,Temple,31,33,9.4,Jr,6-8,,1995-01-25,Stretch 4
+markwilliams,2017,Temple,32,32,15.9,Sr,6-8,,1995-01-25,Stretch 4
+markwilliams,2021,Duke,23,24,15.3,Fr,7-0,15,2001-12-16,C
+markwilliams,2022,Duke,39,39,23.6,So,7-0,15,2001-12-16,C
+rondaehollisjefferson,2014,Arizona,38,38,25.3,Fr,6-7,23,1995-01-03,PF/C
+rondaehollisjefferson,2015,Arizona,38,38,28.7,So,6-7,23,1995-01-03,Wing F
+christianwood,2014,UNLV,30,33,13,Fr,6-10,,1995-09-27,PF/C
+christianwood,2015,UNLV,32,32,32.7,So,6-10,,1995-09-27,PF/C
+keonjohnson,2014,Winthrop,30,30,26.1,Fr,5-7,,1995-09-29,Combo G
+keonjohnson,2015,Winthrop,28,29,28.4,So,5-7,,1995-09-29,Combo G
+keonjohnson,2016,Winthrop,29,29,35.4,Jr,5-7,,1995-09-29,Combo G
+keonjohnson,2017,Winthrop,30,31,35.1,Sr,5-7,,1995-09-29,Combo G
+keonjohnson,2021,Tennessee,27,27,25,Fr,6-5,21,2002-03-10,Wing G
+cameronpayne,2014,Murray St.,32,32,33,Fr,6-2,14,1994-08-08,Pure PG
+cameronpayne,2015,Murray St.,33,33,32.2,So,6-2,14,1994-08-08,Pure PG
+devinharris,2014,East Tennessee St.,17,34,9.4,Fr,6-4,,1995-09-16,Wing G
+devinharris,2015,East Tennessee St.,25,28,21.7,So,6-4,,1995-09-16,Wing G
+devinharris,2017,Jacksonville,19,29,29.9,Jr,6-4,,1995-09-16,Wing G
+devinharris,2018,Jacksonville,25,29,33.6,Sr,6-4,,1995-09-16,Combo G
+bobbyportis,2014,Arkansas,34,34,27,Fr,6-10,22,1995-02-10,PF/C
+bobbyportis,2015,Arkansas,36,36,29.9,So,6-10,22,1995-02-10,PF/C
+terryrozier,2014,Louisville,37,37,18.9,Fr,6-1,16,1994-03-17,Combo G
+terryrozier,2015,Louisville,36,36,35,So,6-1,16,1994-03-17,Combo G
+aarongordon,2014,Arizona,38,38,31.2,Fr,6-8,4,1995-09-16,Wing F
+sindariusthornwell,2014,South Carolina,34,34,29.6,Fr,6-5,48,1994-11-15,Combo G
+sindariusthornwell,2015,South Carolina,32,32,30.6,So,6-5,48,1994-11-15,Wing G
+sindariusthornwell,2016,South Carolina,33,33,33.4,Jr,6-5,48,1994-11-15,Combo G
+sindariusthornwell,2017,South Carolina,32,36,32.9,Sr,6-5,48,1994-11-15,Wing G
+noahvonleh,2014,Indiana,30,32,26.5,Fr,6-10,9,1995-08-24,PF/C
+troywilliams,2014,Indiana,32,32,21.5,Fr,6-7,,1994-12-30,Wing F
+troywilliams,2015,Indiana,32,34,27.6,So,6-7,,1994-12-30,Wing F
+troywilliams,2016,Indiana,35,35,26.2,Jr,6-7,,1994-12-30,Wing F
+delonwright,2014,Utah,31,31,37.1,Jr,6-5,20,1992-04-26,Scoring PG
+delonwright,2015,Utah,34,34,33.3,Sr,6-5,20,1992-04-26,Scoring PG
+zachlavine,2014,UCLA,37,37,24.4,Fr,6-5,13,1995-03-10,Wing G
+isaiahtaylor,2014,Texas,35,35,30.1,Fr,6-1,,1994-07-11,Scoring PG
+isaiahtaylor,2015,Texas,24,34,31.5,So,6-1,,1994-07-11,Scoring PG
+isaiahtaylor,2016,Texas,33,33,30.9,Jr,6-3,,1994-07-11,Pure PG
+joelembiid,2014,Kansas,28,35,23.1,Fr,7-0,3,1994-03-16,C
+wayneselden,2014,Kansas,35,35,29.2,Fr,6-5,,1994-09-30,Wing G
+wayneselden,2015,Kansas,36,36,29.4,So,6-5,,1994-09-30,Combo G
+wayneselden,2016,Kansas,37,37,30.1,Jr,6-5,,1994-09-30,Wing G
+andrewwiggins,2014,Kansas,35,35,32.8,Fr,6-8,1,1995-02-23,Wing F
+davonreed,2014,Miami FL,33,33,20.7,Fr,6-6,32,1995-06-11,Combo G
+davonreed,2015,Miami FL,30,38,27.5,So,6-6,32,1995-06-11,Wing G
+davonreed,2016,Miami FL,35,35,28.8,Jr,6-6,32,1995-06-11,Wing G
+davonreed,2017,Miami FL,33,33,35.3,Sr,6-6,32,1995-06-11,Wing G
+deandrebembry,2014,Saint Joseph's,34,34,32.6,Fr,6-6,21,1994-07-04,Wing G
+deandrebembry,2015,Saint Joseph's,31,31,38.6,So,6-6,21,1994-07-04,Wing G
+deandrebembry,2016,Saint Joseph's,36,36,37.3,Jr,6-6,21,1994-07-04,Wing G
+jabariparker,2014,Duke,35,35,30.7,Fr,6-8,2,1995-03-15,PF/C
+tylerennis,2014,Syracuse,34,34,35.7,Fr,6-2,18,1994-08-24,Pure PG
+brandongoodwin,2014,UCF,26,29,14.7,Fr,6-0,,1995-10-02,Scoring PG
+brandongoodwin,2015,UCF,29,29,33.8,So,6-0,,1995-10-02,Scoring PG
+brandongoodwin,2017,Florida Gulf Coast,31,31,31.6,Jr,6-2,,1995-10-02,Combo G
+brandongoodwin,2018,Florida Gulf Coast,31,32,33.4,Sr,6-2,,1995-10-02,Combo G
+nicksmith,2014,Belmont,34,35,7.7,Fr,6-8,,1995-02-21,PF/C
+nicksmith,2015,Belmont,32,32,15.1,So,6-8,,1995-02-21,Stretch 4
+nicksmith,2016,Belmont,27,31,12.7,Jr,6-8,,1995-02-21,PF/C
+nicksmith,2017,Belmont,29,29,13.9,Sr,6-8,,1995-02-21,Stretch 4
+nicksmith,2023,Arkansas,17,36,25.8,Fr,6-5,27,2004-04-18,Combo G
+sterlingbrown,2014,SMU,37,37,19.4,Fr,6-6,46,1995-02-10,Wing F
+sterlingbrown,2015,SMU,33,33,23.9,So,6-6,46,1995-02-10,Wing G
+sterlingbrown,2016,SMU,30,30,27.5,Jr,6-6,46,1995-02-10,Wing G
+sterlingbrown,2017,SMU,35,35,32.7,Sr,6-6,46,1995-02-10,Wing G
+joshhart,2014,Villanova,34,34,21.4,Fr,6-5,30,1995-03-06,Wing F
+joshhart,2015,Villanova,36,36,25.5,So,6-5,30,1995-03-06,Wing G
+joshhart,2016,Villanova,40,40,31.4,Jr,6-5,30,1995-03-06,Wing F
+joshhart,2017,Villanova,36,36,33.2,Sr,6-5,30,1995-03-06,Wing G
+ishwainright,2014,Baylor,29,36,8.8,Fr,6-5,,1994-09-12,Wing G
+montemorris,2014,Iowa St.,36,36,28.1,Fr,6-2,51,1995-06-27,Scoring PG
+montemorris,2015,Iowa St.,34,34,33.9,So,6-2,51,1995-06-27,Scoring PG
+montemorris,2016,Iowa St.,35,35,38,Jr,6-3,51,1995-06-27,Pure PG
+montemorris,2017,Iowa St.,35,35,35.3,Sr,6-3,51,1995-06-27,Scoring PG
+devincarter,2014,Kent St.,12,31,6.5,So,6-4,,1993-12-08,Wing G
+devincarter,2016,Arkansas St.,29,29,36.5,Jr,6-5,,1993-12-08,Wing G
+devincarter,2017,Arkansas St.,31,31,33,Sr,6-4,,1993-12-08,Wing G
+devincarter,2022,South Carolina,29,30,18.7,Fr,6-3,13,2002-03-18,Wing G
+devincarter,2022,Alcorn St.,3,33,6,Fr,6-2,,2002-10-15,PF/C
+devincarter,2023,Providence,33,33,32,So,6-3,13,2002-03-18,Wing G
+devincarter,2023,Alcorn St.,19,31,8.3,Fr,6-2,,2002-10-15,Combo G
+devincarter,2024,Providence,33,35,35.3,Jr,6-3,13,2002-03-18,Wing G
+frankmason,2014,Kansas,35,35,16.2,Fr,5-11,34,1994-04-03,Scoring PG
+frankmason,2015,Kansas,36,36,33.5,So,5-11,34,1994-04-03,Scoring PG
+frankmason,2016,Kansas,37,37,33.7,Jr,5-11,34,1994-04-03,Scoring PG
+frankmason,2017,Kansas,36,36,36.1,Sr,5-11,34,1994-04-03,Scoring PG
+kendricknunn,2014,Illinois,35,35,19.5,Fr,6-3,,1995-08-03,Combo G
+kendricknunn,2015,Illinois,33,33,30.2,So,6-3,,1995-08-03,Wing G
+kendricknunn,2016,Illinois,28,34,35.1,Jr,6-3,,1995-08-03,Wing G
+kendricknunn,2018,Oakland,30,33,37.9,Sr,6-3,,1995-08-03,Combo G
+keitabatesdiop,2015,Ohio St.,33,35,9.9,Fr,6-7,48,1996-01-23,Stretch 4
+keitabatesdiop,2016,Ohio St.,33,35,31.5,So,6-7,48,1996-01-23,Stretch 4
+keitabatesdiop,2017,Ohio St.,9,32,23.3,Jr,6-7,48,1996-01-23,PF/C
+keitabatesdiop,2018,Ohio St.,34,34,33.1,Jr,6-7,48,1996-01-23,PF/C
+jevoncarter,2015,West Virginia,35,35,23.8,Fr,6-2,32,1995-09-14,Scoring PG
+jevoncarter,2016,West Virginia,35,35,27.7,So,6-2,32,1995-09-14,Scoring PG
+jevoncarter,2017,West Virginia,37,37,32,Jr,6-2,32,1995-09-14,Scoring PG
+jevoncarter,2018,West Virginia,37,37,35.4,Sr,6-2,32,1995-09-14,Pure PG
+domantassabonis,2015,Gonzaga,37,37,21.6,Fr,6-10,11,1996-05-03,C
+domantassabonis,2016,Gonzaga,35,35,32.1,So,6-11,11,1996-05-03,PF/C
+gabevincent,2015,UC Santa Barbara,27,31,26.2,Fr,6-3,,1996-06-14,Scoring PG
+gabevincent,2016,UC Santa Barbara,32,32,32.2,So,6-3,,1996-06-14,Combo G
+gabevincent,2017,UC Santa Barbara,19,27,31.9,Jr,6-3,,1996-06-14,Combo G
+gabevincent,2018,UC Santa Barbara,30,30,29.1,Sr,6-3,,1996-06-14,Scoring PG
+stanleyjohnson,2015,Arizona,38,38,28.4,Fr,6-6,8,1996-05-29,Wing F
+davidnwaba,2015,Cal Poly,23,27,26.8,Jr,6-4,,1993-01-14,Wing G
+davidnwaba,2016,Cal Poly,28,28,27.8,Sr,6-4,,1993-01-14,Wing G
+kellyoubre,2015,Kansas,36,36,21,Fr,6-7,15,1995-12-09,Wing F
+devontegraham,2015,Kansas,29,36,17.8,Fr,6-2,34,1995-02-22,Scoring PG
+devontegraham,2016,Kansas,37,37,32.7,So,6-2,34,1995-02-22,Scoring PG
+devontegraham,2017,Kansas,36,36,35.3,Jr,6-2,34,1995-02-22,Combo G
+devontegraham,2018,Kansas,39,39,37.8,Sr,6-2,34,1995-02-22,Pure PG
+kenrichwilliams,2015,TCU,33,33,27.8,So,6-7,,1994-12-02,Wing F
+kenrichwilliams,2017,TCU,37,38,32.7,Jr,6-7,,1994-12-02,Stretch 4
+kenrichwilliams,2018,TCU,32,33,36,Sr,6-7,,1994-12-02,Wing F
+kylekuzma,2015,Utah,30,34,8.1,Fr,6-9,27,1995-07-24,PF/C
+kylekuzma,2016,Utah,35,35,24.2,So,6-9,27,1995-07-24,PF/C
+kylekuzma,2017,Utah,27,30,30.8,Jr,6-9,27,1995-07-24,PF/C
+isaiahwhitehead,2015,Seton Hall,22,31,27.8,Fr,6-4,42,1995-03-08,Scoring PG
+isaiahwhitehead,2016,Seton Hall,34,34,32.3,So,6-4,42,1995-03-08,Scoring PG
+karlanthonytowns,2015,Kentucky,39,39,21.1,Fr,6-11,1,1995-11-15,C
+treylyles,2015,Kentucky,36,39,23,Fr,6-10,12,1995-11-05,PF/C
+tylerulis,2015,Kentucky,37,39,23.8,Fr,5-9,34,1996-01-05,Pure PG
+tylerulis,2016,Kentucky,35,36,36.8,So,5-9,34,1996-01-05,Pure PG
+edmondsumner,2015,Xavier,6,36,6.7,Fr,6-5,52,1995-12-31,Scoring PG
+edmondsumner,2016,Xavier,31,34,25.9,Fr,6-6,52,1995-12-31,Scoring PG
+edmondsumner,2017,Xavier,21,38,33.1,So,6-6,52,1995-12-31,Scoring PG
+yutawatanabe,2015,George Washington,35,35,22.5,Fr,6-8,,1994-10-13,Stretch 4
+yutawatanabe,2016,George Washington,38,38,27.7,So,6-8,,1994-10-13,Stretch 4
+yutawatanabe,2017,George Washington,28,35,35.1,Jr,6-9,,1994-10-13,Wing F
+yutawatanabe,2018,George Washington,33,33,36.6,Sr,6-9,,1994-10-13,Stretch 4
+chandlerhutchison,2015,Boise St.,27,32,12.3,Fr,6-7,22,1996-04-26,Wing G
+chandlerhutchison,2016,Boise St.,29,30,19.7,So,6-7,22,1996-04-26,Wing F
+chandlerhutchison,2017,Boise St.,31,31,31.7,Jr,6-7,22,1996-04-26,Wing F
+chandlerhutchison,2018,Boise St.,30,31,31,Sr,6-7,22,1996-04-26,Wing G
+earlwatson,2015,Rhode Island,30,32,9.9,Jr,6-7,,1990-09-14,PF/C
+earlwatson,2016,Rhode Island,32,32,19.2,Sr,6-7,,1990-09-14,PF/C
+djwilson,2015,Michigan,4,31,4.8,Fr,6-9,17,1996-02-19,C
+djwilson,2016,Michigan,25,35,5.4,Fr,6-10,17,1996-02-19,PF/C
+djwilson,2017,Michigan,38,38,30.4,So,6-10,17,1996-02-19,Stretch 4
+jocklandale,2015,Saint Mary's,20,30,5,Fr,6-11,,1995-10-25,C
+jocklandale,2016,Saint Mary's,34,34,14.6,So,6-11,,1995-10-25,PF/C
+jocklandale,2017,Saint Mary's,34,34,28.3,Jr,6-11,,1995-10-25,C
+jocklandale,2018,Saint Mary's,36,36,33.3,Sr,6-11,,1995-10-25,C
+kevonlooney,2015,UCLA,36,36,30.9,Fr,6-9,30,1996-02-06,PF/C
+mylesturner,2015,Texas,34,34,22.2,Fr,6-11,11,1996-03-24,PF/C
+pascalsiakam,2015,New Mexico St.,32,32,30.8,Fr,6-9,27,1994-04-02,C
+pascalsiakam,2016,New Mexico St.,32,32,35.3,So,6-9,27,1994-04-02,C
+rashadvaughn,2015,UNLV,23,32,32.3,Fr,6-6,17,1996-08-16,Wing G
+patrickmccaw,2015,UNLV,31,32,29.6,Fr,6-6,38,1995-10-25,Combo G
+patrickmccaw,2016,UNLV,31,31,34.2,So,6-7,38,1995-10-25,Combo G
+garypayton,2015,Oregon St.,30,30,36.3,Jr,6-3,,1992-12-01,Combo G
+garypayton,2016,Oregon St.,31,31,34.4,Sr,6-3,,1992-12-01,Scoring PG
+ericpaschall,2015,Fordham,26,30,31.2,Fr,6-6,41,1996-11-04,Wing F
+ericpaschall,2017,Villanova,36,36,21.7,So,6-7,41,1996-11-04,Wing F
+ericpaschall,2018,Villanova,38,40,29.8,Jr,6-7,41,1996-11-04,Wing F
+ericpaschall,2019,Villanova,36,36,36.1,Sr,6-8,41,1996-11-04,Wing F
+dillonbrooks,2015,Oregon,35,35,28.3,Fr,6-6,45,1996-01-22,Wing F
+dillonbrooks,2016,Oregon,37,37,33,So,6-7,45,1996-01-22,Wing G
+dillonbrooks,2017,Oregon,34,38,25.3,Jr,6-7,45,1996-01-22,Wing G
+tyusjones,2015,Duke,39,39,33.9,Fr,6-1,24,1996-05-10,Scoring PG
+graysonallen,2015,Duke,35,39,9.2,Fr,6-4,21,1995-10-08,Wing G
+graysonallen,2016,Duke,36,36,36.6,So,6-5,21,1995-10-08,Combo G
+graysonallen,2017,Duke,34,37,29.6,Jr,6-5,21,1995-10-08,Combo G
+graysonallen,2018,Duke,37,37,35.6,Sr,6-5,21,1995-10-08,Scoring PG
+jordanbell,2015,Oregon,34,35,23.7,Fr,6-9,38,1995-01-07,C
+jordanbell,2016,Oregon,29,37,21.2,So,6-9,38,1995-01-07,C
+jordanbell,2017,Oregon,38,38,28.8,Jr,6-9,38,1995-01-07,C
+jordanbell,2017,Northwestern St.,24,25,11.6,Fr,6-8,,1998-03-22,PF/C
+jordanbell,2019,Loyola Marymount,30,32,8.8,So,6-8,,1998-03-22,Stretch 4
+jordanbell,2020,Loyola Marymount,30,31,22.2,Jr,6-8,,1998-03-22,Stretch 4
+jordanbell,2021,Pacific,17,17,25.6,Sr,6-8,,1998-03-22,PF/C
+jordanbell,2022,Pacific,28,28,13.5,Sr,6-8,,1998-03-22,PF/C
+jaeseantate,2015,Ohio St.,35,35,22,Fr,6-4,,1995-10-28,Wing G
+jaeseantate,2016,Ohio St.,28,35,29,So,6-4,,1995-10-28,Wing G
+jaeseantate,2017,Ohio St.,32,32,31.9,Jr,6-4,,1995-10-28,Wing G
+jaeseantate,2018,Ohio St.,34,34,29.6,Sr,6-4,,1995-10-28,Wing G
+dangelorussell,2015,Ohio St.,35,35,33.9,Fr,6-5,2,1996-02-23,Scoring PG
+jordanmclaughlin,2015,USC,22,32,31.6,Fr,6-1,,1996-04-09,Scoring PG
+jordanmclaughlin,2016,USC,34,34,32.4,So,6-1,,1996-04-09,Scoring PG
+jordanmclaughlin,2017,USC,36,36,34.1,Jr,6-1,,1996-04-09,Scoring PG
+jordanmclaughlin,2018,USC,36,36,35.3,Sr,6-1,,1996-04-09,Pure PG
+jahlilokafor,2015,Duke,38,39,30.1,Fr,6-11,3,1995-12-15,C
+justisewinslow,2015,Duke,39,39,29.1,Fr,6-6,10,1996-03-26,Wing G
+calebmartin,2015,N.C. State,36,36,16.6,Fr,6-6,,1995-09-28,Wing F
+calebmartin,2016,N.C. State,33,33,30.5,So,6-7,,1995-09-28,Wing F
+calebmartin,2017,Pepperdine,5,30,0.8,Fr,6-2,,1997-10-15,PF/C
+calebmartin,2018,Nevada,36,37,33.3,Jr,6-7,,1995-09-28,Wing G
+calebmartin,2018,Pepperdine,1,31,1.5,So,6-2,,1997-10-15,PF/C
+calebmartin,2019,Nevada,34,34,34.1,Sr,6-7,,1995-09-28,Wing G
+codymartin,2015,N.C. State,19,36,11.4,Fr,6-6,36,1995-09-28,Wing F
+codymartin,2016,N.C. State,33,33,25.8,So,6-7,36,1995-09-28,Wing G
+codymartin,2018,Nevada,36,37,35.7,Jr,6-7,36,1995-09-28,Wing G
+codymartin,2019,Nevada,34,34,34.4,Sr,6-7,36,1995-09-28,Scoring PG
+brandonmiller,2016,Gardner Webb,30,30,13.9,Fr,6-6,,1995-12-08,PF/C
+brandonmiller,2016,Utah,3,35,2,Fr,6-2,,1994-07-26,PF/C
+brandonmiller,2017,Gardner Webb,28,30,17.4,So,6-6,,1995-12-08,PF/C
+brandonmiller,2018,Gardner Webb,8,29,16.7,Jr,6-6,,1995-12-08,PF/C
+brandonmiller,2019,Gardner Webb,26,32,7.8,Sr,6-6,,1995-12-08,PF/C
+brandonmiller,2019,Alabama A&M,32,32,34.6,So,6-0,,1999-06-26,Scoring PG
+brandonmiller,2020,Alabama A&M,30,30,23.4,Jr,6-0,,1999-06-26,Wing G
+brandonmiller,2021,Alabama A&M,1,15,20,Sr,6-0,,1999-06-26,Pure PG
+brandonmiller,2023,Alabama,37,37,32.6,Fr,6-9,2,2002-11-22,Stretch 4
+duncanrobinson,2016,Michigan,35,35,29.3,So,6-8,,1994-04-22,Wing F
+duncanrobinson,2017,Michigan,38,38,20.1,Jr,6-8,,1994-04-22,Wing F
+duncanrobinson,2018,Michigan,40,40,25.8,Sr,6-8,,1994-04-22,Wing F
+mikalbridges,2016,Villanova,40,40,20.3,Fr,6-7,10,1996-08-30,Wing G
+mikalbridges,2017,Villanova,36,36,29.8,So,6-7,10,1996-08-30,Wing G
+mikalbridges,2018,Villanova,40,40,32.2,Jr,6-7,10,1996-08-30,Wing G
+jonahbolden,2016,UCLA,31,32,21.7,So,6-10,,1996-01-02,Stretch 4
+johnkonchar,2016,Purdue Fort Wayne,32,32,36.1,Fr,6-5,,1996-03-22,Wing G
+johnkonchar,2017,Purdue Fort Wayne,30,30,34.9,So,6-5,,1996-03-22,Wing G
+johnkonchar,2018,Purdue Fort Wayne,29,29,35.7,Jr,6-5,,1996-03-22,Wing G
+johnkonchar,2019,Purdue Fort Wayne,30,30,34.3,Sr,6-5,,1996-03-22,Wing G
+garrisonmathews,2016,Lipscomb,31,31,20.9,Fr,6-5,,1996-10-24,Wing G
+garrisonmathews,2017,Lipscomb,30,30,31.2,So,6-5,,1996-10-24,Wing G
+garrisonmathews,2018,Lipscomb,30,30,30.4,Jr,6-5,,1996-10-24,Wing G
+garrisonmathews,2019,Lipscomb,35,35,29.2,Sr,6-5,,1996-10-24,Wing G
+jawunevans,2016,Oklahoma St.,22,32,28.9,Fr,6-0,39,1996-07-26,Pure PG
+jawunevans,2017,Oklahoma St.,31,32,29.2,So,6-1,39,1996-07-26,Pure PG
+deanwade,2016,Kansas St.,33,33,26.2,Fr,6-10,,1996-11-20,Stretch 4
+deanwade,2017,Kansas St.,35,35,28,So,6-10,,1996-11-20,Stretch 4
+deanwade,2018,Kansas St.,33,37,32.8,Jr,6-10,,1996-11-20,Wing F
+deanwade,2019,Kansas St.,25,34,30.4,Sr,6-10,,1996-11-20,PF/C
+jaylenbrown,2016,California,34,34,27.6,Fr,6-7,3,1996-10-24,Wing F
+shakemilton,2016,SMU,30,30,32.7,Fr,6-5,54,1996-09-26,Combo G
+shakemilton,2017,SMU,35,35,35.4,So,6-6,54,1996-09-26,Scoring PG
+shakemilton,2018,SMU,22,33,36.4,Jr,6-6,54,1996-09-26,Scoring PG
+dreweubanks,2016,Oregon St.,31,31,21.3,Fr,6-10,,1997-02-01,C
+dreweubanks,2017,Oregon St.,31,31,32.1,So,6-10,,1997-02-01,C
+dreweubanks,2018,Oregon St.,32,32,31.3,Jr,6-10,,1997-02-01,C
+tylerdorsey,2016,Oregon,35,37,30.1,Fr,6-4,41,1996-02-18,Wing G
+tylerdorsey,2017,Oregon,38,38,30,So,6-4,41,1996-02-18,Wing G
+jasonrichardson,2016,Cal St. Northridge,28,28,18.6,Fr,6-2,,1997-02-12,Scoring PG
+jasonrichardson,2017,Cal St. Northridge,4,28,7.4,So,6-2,,1997-02-12,Combo G
+jasonrichardson,2019,Southern Utah,8,32,18.6,Jr,6-2,,1997-02-12,Pure PG
+chimeziemetu,2016,USC,34,34,18.5,Fr,6-11,49,1997-03-22,C
+chimeziemetu,2017,USC,36,36,31.3,So,6-11,49,1997-03-22,PF/C
+chimeziemetu,2018,USC,34,36,31,Jr,6-11,49,1997-03-22,C
+aaronholiday,2016,UCLA,32,32,31.7,Fr,6-1,23,1996-09-30,Scoring PG
+aaronholiday,2017,UCLA,36,36,26.3,So,6-1,23,1996-09-30,Scoring PG
+aaronholiday,2018,UCLA,33,33,37.7,Jr,6-1,23,1996-09-30,Scoring PG
+marquesechriss,2016,Washington,34,34,24.9,Fr,6-9,8,1997-07-02,PF/C
+deyontadavis,2016,Michigan St.,35,35,18.6,Fr,6-10,31,1996-12-02,C
+landryshamet,2016,Wichita St.,2,34,18.5,Fr,6-4,26,1997-03-13,Wing G
+landryshamet,2017,Wichita St.,35,35,26.7,Fr,6-4,26,1997-03-13,Scoring PG
+landryshamet,2018,Wichita St.,32,33,31.7,So,6-4,26,1997-03-13,Scoring PG
+lukekennard,2016,Duke,36,36,26.7,Fr,6-5,12,1996-06-24,Wing G
+lukekennard,2017,Duke,37,37,35.5,So,6-6,12,1996-06-24,Wing G
+brandoningram,2016,Duke,36,36,34.6,Fr,6-9,2,1997-09-02,Stretch 4
+dejountemurray,2016,Washington,34,34,33.5,Fr,6-4,29,1996-09-19,Combo G
+moritzwagner,2016,Michigan,29,35,8.7,Fr,6-10,25,1997-04-26,PF/C
+moritzwagner,2017,Michigan,38,38,23.9,So,6-11,25,1997-04-26,Wing F
+moritzwagner,2018,Michigan,38,40,27.6,Jr,6-11,25,1997-04-26,Stretch 4
+thomasbryant,2016,Indiana,35,35,22.6,Fr,6-10,42,1997-07-31,C
+thomasbryant,2017,Indiana,34,34,28.1,So,6-10,42,1997-07-31,PF/C
+dylanwindler,2016,Belmont,31,31,18.5,Fr,6-7,26,1996-09-22,Stretch 4
+dylanwindler,2017,Belmont,29,29,30.1,So,6-7,26,1996-09-22,Stretch 4
+dylanwindler,2018,Belmont,33,33,35.4,Jr,6-7,26,1996-09-22,Stretch 4
+dylanwindler,2019,Belmont,32,32,33.2,Sr,6-8,26,1996-09-22,Stretch 4
+cheickdiallo,2016,Kansas,27,37,7.5,Fr,6-9,33,1996-09-13,C
+dontedivincenzo,2016,Villanova,9,40,8.2,Fr,6-5,17,1997-01-31,Stretch 4
+dontedivincenzo,2017,Villanova,36,36,25.5,So,6-5,17,1997-01-31,Wing G
+dontedivincenzo,2018,Villanova,40,40,29.3,So,6-5,17,1997-01-31,Wing G
+jalenbrunson,2016,Villanova,40,40,24,Fr,6-2,33,1996-08-31,Scoring PG
+jalenbrunson,2017,Villanova,36,36,31.1,So,6-2,33,1996-08-31,Scoring PG
+jalenbrunson,2018,Villanova,40,40,31.8,Jr,6-2,33,1996-08-31,Scoring PG
+daquanjeffries,2016,Oral Roberts,27,29,20.3,Fr,6-5,,1997-08-30,Wing F
+daquanjeffries,2018,Tulsa,25,31,22,Jr,6-5,,1997-08-30,Stretch 4
+daquanjeffries,2019,Tulsa,31,32,28.1,Sr,6-5,,1997-08-30,Wing F
+ivanrabb,2016,California,34,34,28.7,Fr,6-11,35,1997-02-04,PF/C
+ivanrabb,2017,California,31,34,32.6,So,6-11,35,1997-02-04,PF/C
+jamalmurray,2016,Kentucky,36,36,35.2,Fr,6-4,7,1997-02-23,Wing G
+antonioblakeney,2016,LSU,33,33,30.8,Fr,6-4,,1996-10-04,Wing G
+antonioblakeney,2017,LSU,31,31,32.9,So,6-4,,1996-10-04,Wing G
+bensimmons,2016,LSU,33,33,34.9,Fr,6-10,1,1996-07-20,Wing F
+terencedavis,2016,Mississippi,19,32,6.9,Fr,6-4,,1997-05-16,Wing G
+terencedavis,2017,Mississippi,36,36,25.3,So,6-4,,1997-05-16,Wing G
+terencedavis,2018,Mississippi,32,32,27.3,Jr,6-4,,1997-05-16,Wing G
+terencedavis,2019,Mississippi,33,33,31,Sr,6-4,,1997-05-16,Wing G
+oganunoby,2016,Indiana,34,35,13.7,Fr,6-8,23,1997-07-17,Wing F
+oganunoby,2017,Indiana,16,34,25.1,So,6-8,23,1997-07-17,Wing F
+johncollins,2016,Wake Forest,31,31,14.4,Fr,6-10,19,1997-09-23,C
+johncollins,2017,Wake Forest,33,33,26.6,So,6-10,19,1997-09-23,C
+allonzotrier,2016,Arizona,27,34,28,Fr,6-6,,1996-01-17,Wing G
+allonzotrier,2017,Arizona,18,37,31.9,So,6-5,,1996-01-17,Wing G
+allonzotrier,2018,Arizona,33,35,34.1,Jr,6-5,,1996-01-17,Combo G
+pjdozier,2016,South Carolina,33,33,18.9,Fr,6-6,,1996-10-25,Wing G
+pjdozier,2017,South Carolina,35,36,28.7,So,6-6,,1996-10-25,Wing G
+dwaynebacon,2016,Florida St.,34,34,28.8,Fr,6-7,40,1995-08-30,Wing F
+dwaynebacon,2017,Florida St.,35,35,28.8,So,6-7,40,1995-08-30,Wing G
+terancemann,2016,Florida St.,34,34,17,Fr,6-6,48,1996-10-18,Wing F
+terancemann,2017,Florida St.,35,35,25,So,6-6,48,1996-10-18,Wing G
+terancemann,2018,Florida St.,34,35,29.2,Jr,6-6,48,1996-10-18,Wing G
+terancemann,2019,Florida St.,37,37,31.7,Sr,6-7,48,1996-10-18,Wing F
+malikbeasley,2016,Florida St.,34,34,29.8,Fr,6-5,19,1996-11-26,Wing G
+donovanmitchell,2016,Louisville,31,31,19.1,Fr,6-3,13,1996-09-07,Wing G
+donovanmitchell,2017,Louisville,34,34,32.3,So,6-3,13,1996-09-07,Combo G
+donovanmitchell,2017,Wake Forest,4,33,1.8,Fr,6-8,,1997-03-12,PF/C
+donovanmitchell,2018,Wake Forest,30,31,11.2,So,6-8,,1997-03-12,Stretch 4
+isaiahbriscoe,2016,Kentucky,34,36,32.2,Fr,6-3,,1996-04-13,Wing G
+isaiahbriscoe,2017,Kentucky,36,38,30.4,So,6-3,,1996-04-13,Combo G
+mychalmulder,2016,Kentucky,24,36,3.8,Jr,6-4,,1994-06-12,PF/C
+mychalmulder,2017,Kentucky,32,38,10.6,Sr,6-4,,1994-06-12,Wing G
+skallabissiere,2016,Kentucky,36,36,15.8,Fr,6-11,28,1996-03-18,C
+matissethybulle,2016,Washington,34,34,24.1,Fr,6-5,20,1997-03-04,Wing G
+matissethybulle,2017,Washington,31,31,29.9,So,6-5,20,1997-03-04,Combo G
+matissethybulle,2018,Washington,34,34,32.2,Jr,6-5,20,1997-03-04,Combo G
+matissethybulle,2019,Washington,36,36,31,Sr,6-5,20,1997-03-04,Combo G
+yogiferrell,2016,Indiana,35,35,34.7,Sr,6-0,,1993-05-09,Scoring PG
+chrisboucher,2016,Oregon,37,37,26,Jr,6-10,,1993-01-11,PF/C
+chrisboucher,2017,Oregon,30,38,23.5,Sr,6-10,,1993-01-11,PF/C
+jeromerobinson,2016,Boston College,23,32,33.4,Fr,6-5,13,1997-02-22,Combo G
+jeromerobinson,2017,Boston College,32,32,34,So,6-5,13,1997-02-22,Combo G
+jeromerobinson,2018,Boston College,35,35,36,Jr,6-5,13,1997-02-22,Combo G
+derrickjones,2016,UNLV,28,31,21.4,Fr,6-7,,1997-02-15,PF/C
+derrickjones,2022,Radford,9,27,4.7,Fr,6-6,,2002-10-15,Wing F
+brandonclarke,2016,San Jose St.,28,28,23.8,Fr,6-8,21,1996-09-19,C
+brandonclarke,2017,San Jose St.,28,28,31.9,So,6-8,21,1996-09-19,PF/C
+brandonclarke,2019,Gonzaga,37,37,28.1,Jr,6-8,21,1996-09-19,C
+rickycouncil,2016,Providence,14,35,3.3,Fr,6-5,,1995-07-08,PF/C
+rickycouncil,2017,Providence,6,33,3.3,So,6-5,,1995-07-08,Wing G
+rickycouncil,2019,UMBC,31,31,15.1,Jr,6-5,,1995-07-08,Wing G
+rickycouncil,2020,UMBC,26,29,12.6,Sr,6-5,,1995-07-08,Wing G
+rickycouncil,2021,Wichita St.,19,20,15.6,Fr,6-6,,2001-08-03,Wing G
+rickycouncil,2022,Wichita St.,28,28,26.6,So,6-6,,2001-08-03,Wing G
+rickycouncil,2023,Arkansas,36,36,34.1,Jr,6-6,,2001-08-03,Wing G
+jalenwilliams,2017,Furman,28,33,8.7,So,6-8,,1996-02-02,C
+jalenwilliams,2017,High Point,28,28,14.4,Jr,6-2,,1994-09-21,Combo G
+jalenwilliams,2018,Furman,28,31,9.6,So,6-8,,1996-02-02,C
+jalenwilliams,2019,Furman,16,30,5,Jr,6-8,,1996-02-02,C
+jalenwilliams,2020,Cleveland St.,8,31,4.3,Jr,6-8,,1996-02-02,C
+jalenwilliams,2020,Santa Clara,31,31,25.6,Fr,6-6,12,2001-04-14,Wing G
+jalenwilliams,2021,Santa Clara,18,19,31.6,So,6-6,12,2001-04-14,Wing G
+jalenwilliams,2022,Santa Clara,33,33,34.8,Jr,6-6,12,2001-04-14,Combo G
+derrickwhite,2017,Colorado,33,33,32.8,Sr,6-5,29,1994-07-02,Scoring PG
+isaiahroby,2017,Nebraska,29,30,15.2,Fr,6-8,45,1998-02-03,PF/C
+isaiahroby,2018,Nebraska,32,33,24,So,6-8,45,1998-02-03,PF/C
+isaiahroby,2019,Nebraska,35,35,31.2,Jr,6-8,45,1998-02-03,Stretch 4
+amircoffey,2017,Minnesota,33,34,33.2,Fr,6-8,,1997-06-17,Wing F
+amircoffey,2018,Minnesota,18,32,31.6,So,6-8,,1997-06-17,Wing F
+amircoffey,2019,Minnesota,36,36,35.2,Jr,6-8,,1997-06-17,Wing F
+miyeoni,2017,Yale,28,28,31.2,Fr,6-6,58,1997-08-04,Stretch 4
+miyeoni,2018,Yale,29,30,32.8,So,6-6,58,1997-08-04,Wing F
+miyeoni,2019,Yale,28,29,30.9,Jr,6-6,58,1997-08-04,Wing F
+anthonylamb,2017,Vermont,34,34,22.5,Fr,6-6,,1998-01-20,PF/C
+anthonylamb,2018,Vermont,17,34,23.4,So,6-6,,1998-01-20,PF/C
+anthonylamb,2019,Vermont,31,33,31.6,Jr,6-6,,1998-01-20,PF/C
+anthonylamb,2020,Vermont,32,32,30.9,Sr,6-6,,1998-01-20,Stretch 4
+tjleaf,2017,UCLA,35,36,29.9,Fr,6-10,18,1997-04-30,PF/C
+lonzoball,2017,UCLA,36,36,35.1,Fr,6-6,2,1997-10-27,Scoring PG
+milesbridges,2017,Michigan St.,28,35,32,Fr,6-7,12,1998-03-21,Stretch 4
+milesbridges,2018,Michigan St.,34,35,31.4,So,6-7,12,1998-03-21,Wing F
+samhauser,2017,Marquette,32,32,26.5,Fr,6-6,,1997-12-08,Stretch 4
+samhauser,2018,Marquette,35,35,32.6,So,6-8,,1997-12-08,Wing F
+samhauser,2019,Marquette,34,34,33.4,Jr,6-8,,1997-12-08,Stretch 4
+samhauser,2021,Virginia,25,25,34.2,Sr,6-8,,1997-12-08,Stretch 4
+malachiflynn,2017,Washington St.,30,30,33.1,Fr,6-1,29,1998-05-09,Combo G
+malachiflynn,2018,Washington St.,31,31,33.4,So,6-1,29,1998-05-09,Scoring PG
+malachiflynn,2020,San Diego St.,31,31,33.5,Jr,6-1,29,1998-05-09,Scoring PG
+eugeneomoruyi,2017,Rutgers,32,32,12,Fr,6-6,,1997-02-14,Wing F
+eugeneomoruyi,2018,Rutgers,31,33,21.7,So,6-7,,1997-02-14,PF/C
+eugeneomoruyi,2019,Rutgers,28,31,29.1,Jr,6-7,,1997-02-14,Wing F
+eugeneomoruyi,2021,Oregon,28,28,30.6,Sr,6-6,,1997-02-14,Wing G
+laurimarkkanen,2017,Arizona,37,37,30.8,Fr,7-0,7,1997-05-22,Stretch 4
+kevinhuerter,2017,Maryland,32,32,29.4,Fr,6-7,19,1998-08-27,Wing G
+kevinhuerter,2018,Maryland,31,31,34.3,So,6-7,19,1998-08-27,Wing G
+tyjerome,2017,Virginia,34,34,13.9,Fr,6-5,24,1997-07-08,Combo G
+tyjerome,2018,Virginia,34,34,30.7,So,6-5,24,1997-07-08,Scoring PG
+tyjerome,2019,Virginia,37,38,33.9,Jr,6-5,24,1997-07-08,Scoring PG
+wenyengabriel,2017,Kentucky,38,38,17.7,Fr,6-9,,1997-03-26,PF/C
+wenyengabriel,2018,Kentucky,37,37,23.1,So,6-9,,1997-03-26,PF/C
+malikmonk,2017,Kentucky,38,38,32.1,Fr,6-3,11,1998-02-04,Combo G
+jalenjohnson,2017,Saint Louis,33,33,24,Fr,6-7,,1997-11-16,Stretch 4
+jalenjohnson,2018,Saint Louis,32,32,27.2,So,6-7,,1997-11-16,Wing F
+jalenjohnson,2018,Tennessee,13,35,5.1,Fr,6-7,,1997-11-09,Wing G
+jalenjohnson,2019,Tennessee,26,36,5.8,So,6-6,,1997-11-09,Wing F
+jalenjohnson,2019,Murray St.,17,31,2.9,Fr,6-1,,1999-12-30,PF/C
+jalenjohnson,2020,Louisiana,32,32,33.9,Jr,6-7,,1997-11-16,Stretch 4
+jalenjohnson,2020,Tennessee,31,31,16.2,Jr,6-6,,1997-11-09,Wing G
+jalenjohnson,2020,Alabama A&M,30,30,14.6,Fr,6-7,,2001-05-07,PF/C
+jalenjohnson,2021,Mississippi St.,24,33,16.4,Sr,6-6,,1997-11-16,Wing G
+jalenjohnson,2021,Wake Forest,20,21,16.3,Sr,6-6,,1997-11-09,Stretch 4
+jalenjohnson,2021,Alabama A&M,15,15,29.8,So,6-7,,2001-05-07,PF/C
+jalenjohnson,2021,Duke,13,24,21.4,Fr,6-9,20,2001-12-18,PF/C
+jalenjohnson,2022,Mercer,30,31,30.8,Sr,6-6,,1997-11-09,Stretch 4
+jalenjohnson,2022,Illinois Chicago,11,29,6.4,Jr,6-1,,1999-12-30,Combo G
+jalenjohnson,2022,Alabama A&M,30,30,32.2,Jr,6-7,,2001-05-07,Wing F
+jalenjohnson,2023,Milwaukee,30,31,13.2,Jr,6-7,,2001-05-07,PF/C
+jalenjohnson,2024,Grambling St.,33,33,21.1,Sr,6-8,,2001-05-07,Wing F
+dennissmith,2017,N.C. State,32,32,34.8,Fr,6-3,9,1997-11-25,Scoring PG
+ryangomes,2017,Mount St. Mary's,32,36,6.5,Fr,6-10,,1997-07-16,C
+ryangomes,2018,Mount St. Mary's,30,30,10.7,So,6-10,,1997-07-16,C
+ryangomes,2020,Houston Christian,29,29,15.3,Jr,6-10,,1997-07-16,C
+ryangomes,2021,Houston Christian,20,24,9.8,Sr,6-10,,1997-07-16,C
+jaysontatum,2017,Duke,29,37,33.3,Fr,6-8,3,1998-03-03,Wing F
+kobisimmons,2017,Arizona,37,37,23.5,Fr,6-5,,1997-07-04,Combo G
+joshokogie,2017,Georgia Tech,36,36,30.8,Fr,6-4,20,1998-09-01,Wing G
+joshokogie,2018,Georgia Tech,24,32,36.4,So,6-4,20,1998-09-01,Wing G
+brucebrown,2017,Miami FL,33,33,31.9,Fr,6-5,42,1996-08-15,Wing G
+brucebrown,2018,Miami FL,19,32,33.7,So,6-5,42,1996-08-15,Wing G
+kybowman,2017,Boston College,32,32,28.8,Fr,6-1,,1997-06-16,Combo G
+kybowman,2018,Boston College,35,35,38.2,So,6-1,,1997-06-16,Combo G
+kybowman,2019,Boston College,31,31,39.3,Jr,6-1,,1997-06-16,Combo G
+lindywaters,2017,Oklahoma St.,22,32,16,Fr,6-6,,1997-07-28,Wing G
+lindywaters,2018,Oklahoma St.,35,36,27.1,So,6-6,,1997-07-28,Wing G
+lindywaters,2019,Oklahoma St.,32,32,33.8,Jr,6-6,,1997-07-28,Combo G
+lindywaters,2020,Oklahoma St.,31,32,31.6,Sr,6-6,,1997-07-28,Wing G
+desmondbane,2017,TCU,38,38,20.7,Fr,6-5,30,1998-06-25,Wing G
+desmondbane,2018,TCU,33,33,30.5,So,6-5,30,1998-06-25,Wing G
+desmondbane,2019,TCU,37,37,35.5,Jr,6-5,30,1998-06-25,Wing G
+desmondbane,2020,TCU,31,31,36.1,Sr,6-6,30,1998-06-25,Wing G
+austinreaves,2017,Wichita St.,33,35,11.8,Fr,6-5,,1998-05-29,Combo G
+austinreaves,2018,Wichita St.,33,33,21.5,So,6-5,,1998-05-29,Wing G
+austinreaves,2020,Oklahoma,31,31,33.3,Jr,6-5,,1998-05-29,Wing G
+austinreaves,2021,Oklahoma,25,27,34.5,Sr,6-5,,1998-05-29,Combo G
+jarrettallen,2017,Texas,33,33,32.2,Fr,6-11,22,1998-04-21,C
+micahpotter,2017,Ohio St.,30,32,14,Fr,6-9,,1998-04-06,Stretch 4
+micahpotter,2018,Ohio St.,29,34,10.1,So,6-9,,1998-04-06,PF/C
+micahpotter,2020,Wisconsin,21,31,17.6,Jr,6-10,,1998-04-06,PF/C
+micahpotter,2021,Wisconsin,31,31,22.2,Sr,6-10,,1998-04-06,PF/C
+paytonpritchard,2017,Oregon,38,38,28.3,Fr,6-2,26,1998-01-28,Scoring PG
+paytonpritchard,2018,Oregon,36,36,35.1,So,6-2,26,1998-01-28,Scoring PG
+paytonpritchard,2019,Oregon,38,38,35.6,Jr,6-2,26,1998-01-28,Scoring PG
+paytonpritchard,2020,Oregon,31,31,36.5,Sr,6-2,26,1998-01-28,Scoring PG
+deaaronfox,2017,Kentucky,36,38,29.6,Fr,6-3,5,1997-12-20,Scoring PG
+drusmith,2017,Evansville,27,31,22.5,Fr,6-3,,1997-12-30,Scoring PG
+drusmith,2018,Evansville,21,30,30.2,So,6-3,,1997-12-30,Pure PG
+drusmith,2020,Missouri,31,31,32.8,Jr,6-3,,1997-12-30,Scoring PG
+drusmith,2021,Missouri,26,26,34.1,Sr,6-3,,1997-12-30,Scoring PG
+armonibrooks,2017,Houston,28,32,12.2,Fr,6-4,,1998-06-05,Wing G
+armonibrooks,2018,Houston,35,35,20.2,So,6-3,,1998-06-05,Wing G
+armonibrooks,2019,Houston,37,37,30.7,Jr,6-3,,1998-06-05,Wing G
+deanthonymelton,2017,USC,36,36,27,Fr,6-4,46,1998-05-28,Combo G
+markellefultz,2017,Washington,25,31,35.7,Fr,6-4,1,1998-05-29,Scoring PG
+jeffdowtin,2017,Rhode Island,32,35,22.2,Fr,6-3,,1997-05-10,Scoring PG
+jeffdowtin,2018,Rhode Island,34,34,32.9,So,6-3,,1997-05-10,Scoring PG
+jeffdowtin,2019,Rhode Island,33,33,36.5,Jr,6-3,,1997-05-10,Scoring PG
+jeffdowtin,2020,Rhode Island,29,30,35.6,Sr,6-3,,1997-05-10,Combo G
+sammerrill,2017,Utah St.,30,30,26.2,Fr,6-4,60,1996-05-15,Scoring PG
+sammerrill,2018,Utah St.,33,33,35.4,So,6-5,60,1996-05-15,Combo G
+sammerrill,2019,Utah St.,34,34,35.3,Jr,6-5,60,1996-05-15,Scoring PG
+sammerrill,2020,Utah St.,32,32,34.9,Sr,6-5,60,1996-05-15,Scoring PG
+jamesjones,2017,Buffalo,12,30,5.9,Fr,6-4,,1997-04-19,Combo G
+jamesjones,2025,Central Connecticut,21,30,11.5,Fr,6-6,,2005-10-15,Stretch 4
+jamesjones,2026,Central Connecticut,24,28,28.7,So,6-6,,2005-10-15,Wing F
+omeryurtseven,2017,N.C. State,22,32,18.9,Fr,7-0,,1998-06-19,PF/C
+omeryurtseven,2018,N.C. State,33,33,23.8,So,7-0,,1998-06-19,PF/C
+omeryurtseven,2020,Georgetown,26,32,27.2,Sr,7-0,,1998-06-19,C
+ruihachimura,2017,Gonzaga,28,39,4.6,Fr,6-8,9,1998-02-08,Stretch 4
+ruihachimura,2018,Gonzaga,37,37,20.7,So,6-8,9,1998-02-08,Wing F
+ruihachimura,2019,Gonzaga,37,37,30.2,Jr,6-8,9,1998-02-08,Wing F
+zachcollins,2017,Gonzaga,39,39,17.2,Fr,7-0,10,1997-11-19,C
+harrygiles,2017,Duke,26,37,11.5,Fr,6-10,20,1998-04-22,C
+frankjackson,2017,Duke,36,37,24.9,Fr,6-3,31,1998-05-04,Combo G
+jonathanisaac,2017,Florida St.,32,35,26.2,Fr,6-10,6,1997-10-03,Stretch 4
+trentforrest,2017,Florida St.,35,35,15.4,Fr,6-5,,1998-06-12,Combo G
+trentforrest,2018,Florida St.,34,35,25.6,So,6-5,,1998-06-12,Scoring PG
+trentforrest,2019,Florida St.,37,37,29.9,Jr,6-4,,1998-06-12,Combo G
+trentforrest,2020,Florida St.,31,31,30.8,Sr,6-4,,1998-06-12,Combo G
+duopreath,2017,LSU,31,31,27.7,So,6-10,,1996-06-26,PF/C
+duopreath,2018,LSU,33,33,24.2,Sr,6-11,,1996-06-26,PF/C
+grantwilliams,2017,Tennessee,31,31,25.4,Fr,6-5,22,1998-11-30,PF/C
+grantwilliams,2018,Tennessee,35,35,28.8,So,6-7,22,1998-11-30,PF/C
+grantwilliams,2019,Tennessee,36,36,31.9,Jr,6-7,22,1998-11-30,Wing F
+grantwilliams,2020,Louisville,4,31,1,Jr,5-11,,1998-10-15,PF/C
+tonybradley,2017,North Carolina,37,39,14.6,Fr,6-11,28,1998-01-08,C
+lamarstevens,2017,Penn St.,33,33,27.8,Fr,6-7,,1997-07-09,Wing F
+lamarstevens,2018,Penn St.,39,39,33.1,So,6-8,,1997-07-09,Wing F
+lamarstevens,2019,Penn St.,32,32,36.9,Jr,6-8,,1997-07-09,Wing F
+lamarstevens,2020,Penn St.,31,31,31,Sr,6-8,,1997-07-09,Wing F
+jayhuff,2018,Virginia,12,34,8.8,Fr,7-1,,1997-08-25,C
+jayhuff,2019,Virginia,34,38,9.4,So,7-1,,1997-08-25,C
+jayhuff,2020,Virginia,30,30,24.9,Jr,7-1,,1997-08-25,C
+jayhuff,2021,Virginia,25,25,27,Sr,7-1,,1997-08-25,PF/C
+deandrehunter,2018,Virginia,33,34,19.9,Fr,6-7,4,1997-12-02,Wing F
+deandrehunter,2019,Virginia,38,38,32.5,So,6-7,4,1997-12-02,Wing F
+maxstrus,2018,DePaul,31,31,35.6,Jr,6-6,,1996-03-28,Wing G
+maxstrus,2019,DePaul,35,36,37.4,Sr,6-6,,1996-03-28,Wing G
+omarispellman,2018,Villanova,40,40,28.1,Fr,6-8,30,1997-07-21,PF/C
+jalenmcdaniels,2018,San Diego St.,32,32,24.7,Fr,6-10,52,1998-01-31,PF/C
+jalenmcdaniels,2019,San Diego St.,33,33,31.1,So,6-10,52,1998-01-31,PF/C
+deandreayton,2018,Arizona,35,35,33.5,Fr,7-1,1,1998-07-23,C
+lonniewalker,2018,Miami FL,32,32,27.8,Fr,6-5,18,1998-12-14,Combo G
+isaiahlivers,2018,Michigan,39,40,15.1,Fr,6-7,42,1998-07-28,Wing F
+isaiahlivers,2019,Michigan,35,37,22.7,So,6-7,42,1998-07-28,Wing F
+isaiahlivers,2020,Michigan,21,31,31.5,Jr,6-7,42,1998-07-28,Wing F
+isaiahlivers,2021,Michigan,23,28,31.6,Sr,6-7,42,1998-07-28,Wing F
+jordanpoole,2018,Michigan,38,40,12.2,Fr,6-4,28,1999-06-19,Wing G
+jordanpoole,2019,Michigan,37,37,33,So,6-5,28,1999-06-19,Combo G
+josealvarado,2018,Georgia Tech,25,32,35,Fr,6-0,,1998-04-12,Combo G
+josealvarado,2019,Georgia Tech,31,32,34.2,So,6-0,,1998-04-12,Combo G
+josealvarado,2020,Georgia Tech,23,30,33.5,Jr,6-0,,1998-04-12,Scoring PG
+josealvarado,2021,Georgia Tech,26,26,37.1,Sr,6-0,,1998-04-12,Scoring PG
+jamareebouyea,2018,San Francisco,35,38,13.3,Fr,6-2,,1999-06-27,Combo G
+jamareebouyea,2019,San Francisco,30,30,23.2,So,6-2,,1999-06-27,Wing G
+jamareebouyea,2020,San Francisco,33,33,33.1,Jr,6-2,,1999-06-27,Combo G
+jamareebouyea,2021,San Francisco,25,25,33.7,Sr,6-2,,1999-06-27,Scoring PG
+jamareebouyea,2022,San Francisco,33,33,36.2,Sr,6-2,,1999-06-27,Combo G
+daeqwonplowden,2018,Bowling Green,30,30,15.3,Fr,6-6,,1998-08-29,Wing F
+daeqwonplowden,2019,Bowling Green,32,32,21.6,So,6-6,,1998-08-29,Stretch 4
+daeqwonplowden,2020,Bowling Green,29,29,31.4,Jr,6-6,,1998-08-29,Stretch 4
+daeqwonplowden,2021,Bowling Green,25,25,30,Sr,6-6,,1998-08-29,Stretch 4
+daeqwonplowden,2022,Bowling Green,29,29,30.6,Sr,6-6,,1998-08-29,Stretch 4
+nickeilalexanderwalker,2018,Virginia Tech,33,33,25.5,Fr,6-5,17,1998-09-02,Wing G
+nickeilalexanderwalker,2019,Virginia Tech,34,35,34.3,So,6-5,17,1998-09-02,Scoring PG
+sabenlee,2018,Vanderbilt,32,32,26.8,Fr,6-2,38,1999-06-23,Scoring PG
+sabenlee,2019,Vanderbilt,32,32,32.6,So,6-2,38,1999-06-23,Scoring PG
+sabenlee,2020,Vanderbilt,32,32,32.8,Jr,6-2,38,1999-06-23,Scoring PG
+sandromamukelashvili,2018,Seton Hall,34,34,9.6,Fr,6-10,54,1999-05-23,PF/C
+sandromamukelashvili,2019,Seton Hall,34,34,29.4,So,6-10,54,1999-05-23,PF/C
+sandromamukelashvili,2020,Seton Hall,20,30,26.2,Jr,6-11,54,1999-05-23,Stretch 4
+sandromamukelashvili,2021,Seton Hall,27,27,35.6,Sr,6-11,54,1999-05-23,Wing F
+jamalcain,2018,Marquette,34,35,17.2,Fr,6-7,,1999-03-20,Wing F
+jamalcain,2019,Marquette,29,34,8.6,So,6-7,,1999-03-20,Stretch 4
+jamalcain,2020,Marquette,30,30,18.3,Jr,6-7,,1999-03-20,Wing F
+jamalcain,2021,Marquette,27,27,29.8,Sr,6-7,,1999-03-20,Wing F
+jamalcain,2022,Oakland,30,30,35,Sr,6-7,,1999-03-20,Wing F
+jordannwora,2018,Louisville,28,36,12,Fr,6-7,45,1998-09-09,Wing G
+jordannwora,2019,Louisville,34,34,31.9,So,6-7,45,1998-09-09,Wing F
+jordannwora,2020,Louisville,31,31,33.2,Jr,6-7,45,1998-09-09,Wing F
+oshaebrissett,2018,Syracuse,37,37,38.1,Fr,6-8,,1998-06-20,Wing F
+oshaebrissett,2019,Syracuse,34,34,33,So,6-8,,1998-06-20,Stretch 4
+najimarshall,2018,Xavier,35,35,21.8,Fr,6-7,,1998-01-24,Wing F
+najimarshall,2019,Xavier,33,35,35.9,So,6-7,,1998-01-24,Wing F
+najimarshall,2020,Xavier,31,32,35.6,Jr,6-7,,1998-01-24,Wing G
+marvinbagley,2018,Duke,33,37,33.8,Fr,6-11,2,1999-03-14,PF/C
+jacobgilyard,2018,Richmond,32,32,36.4,Fr,5-9,,1998-07-14,Scoring PG
+jacobgilyard,2019,Richmond,31,33,37.3,So,5-9,,1998-07-14,Pure PG
+jacobgilyard,2020,Richmond,31,31,36.6,Jr,5-9,,1998-07-14,Pure PG
+jacobgilyard,2021,Richmond,22,22,37.6,Sr,5-9,,1998-07-14,Scoring PG
+jacobgilyard,2022,Richmond,37,37,38.5,Sr,5-9,,1998-07-14,Pure PG
+paulreed,2018,DePaul,28,31,9.9,Fr,6-9,58,1999-06-14,PF/C
+paulreed,2019,DePaul,36,36,27,So,6-9,58,1999-06-14,PF/C
+paulreed,2020,DePaul,28,31,31.7,Jr,6-9,58,1999-06-14,PF/C
+anthonyblack,2018,Little Rock,24,30,20.9,Jr,5-7,,1995-11-29,Combo G
+anthonyblack,2023,Arkansas,36,36,34.4,Fr,6-7,6,2004-01-20,Wing G
+coreykispert,2018,Gonzaga,35,37,19.4,Fr,6-6,15,1999-03-03,Wing F
+coreykispert,2019,Gonzaga,37,37,26.1,So,6-6,15,1999-03-03,Wing G
+coreykispert,2020,Gonzaga,33,33,33,Jr,6-7,15,1999-03-03,Wing G
+coreykispert,2021,Gonzaga,32,32,31.8,Sr,6-7,15,1999-03-03,Wing G
+jordangoodwin,2018,Saint Louis,25,32,33.4,Fr,6-3,,1998-10-23,Wing G
+jordangoodwin,2019,Saint Louis,36,36,34.1,So,6-3,,1998-10-23,Wing G
+jordangoodwin,2020,Saint Louis,30,30,35.9,Jr,6-3,,1998-10-23,Wing G
+jordangoodwin,2021,Saint Louis,21,21,33.1,Sr,6-3,,1998-10-23,Wing G
+keatonwallace,2018,UTSA,32,32,27.7,Fr,6-3,,1999-02-26,Combo G
+keatonwallace,2019,UTSA,28,28,34.9,So,6-3,,1999-02-26,Wing G
+keatonwallace,2020,UTSA,29,29,34.8,Jr,6-3,,1999-02-26,Combo G
+keatonwallace,2021,UTSA,22,22,33.6,Sr,6-3,,1999-02-26,Wing G
+jarrettculver,2018,Texas Tech,37,37,26.4,Fr,6-5,6,1999-02-20,Wing G
+jarrettculver,2019,Texas Tech,38,38,32.4,So,6-5,6,1999-02-20,Wing G
+jerichosims,2018,Texas,34,34,18.5,Fr,6-9,58,1998-10-20,C
+jerichosims,2019,Texas,35,37,14.9,So,6-9,58,1998-10-20,C
+jerichosims,2020,Texas,24,31,27,Jr,6-9,58,1998-10-20,C
+jerichosims,2021,Texas,26,27,24.5,Sr,6-10,58,1998-10-20,C
+danielgafford,2018,Arkansas,35,35,22.6,Fr,6-11,38,1998-10-01,C
+danielgafford,2019,Arkansas,32,34,28.7,So,6-11,38,1998-10-01,C
+collinsexton,2018,Alabama,33,36,29.9,Fr,6-3,8,1999-01-04,Scoring PG
+davionmitchell,2018,Auburn,34,34,17.1,Fr,6-1,9,1998-09-05,Scoring PG
+davionmitchell,2020,Baylor,30,30,32.4,So,6-2,9,1998-09-05,Scoring PG
+davionmitchell,2021,Baylor,30,30,32.5,Jr,6-2,9,1998-09-05,Pure PG
+garytrent,2018,Duke,37,37,33.8,Fr,6-6,37,1999-01-18,Wing G
+hamidoudiallo,2018,Kentucky,37,37,24.8,Fr,6-5,45,1998-07-31,Wing G
+traeyoung,2018,Oklahoma,32,32,35.4,Fr,6-2,5,1998-09-19,Pure PG
+terrytaylor,2018,Austin Peay,32,32,31.5,Fr,6-5,,1999-09-23,Stretch 4
+terrytaylor,2019,Austin Peay,31,31,33.1,So,6-5,,1999-09-23,Stretch 4
+terrytaylor,2020,Austin Peay,31,31,36.6,Jr,6-5,,1999-09-23,PF/C
+terrytaylor,2021,Austin Peay,25,25,37,Sr,6-5,,1999-09-23,PF/C
+lukagarza,2018,Iowa,33,33,21.7,Fr,6-11,52,1998-12-27,PF/C
+lukagarza,2019,Iowa,32,35,23.5,So,6-11,52,1998-12-27,PF/C
+lukagarza,2020,Iowa,31,31,32,Jr,6-11,52,1998-12-27,PF/C
+lukagarza,2021,Iowa,31,31,31.6,Sr,6-11,52,1998-12-27,PF/C
+troybrown,2018,Oregon,35,36,31.2,Fr,6-7,15,1999-07-28,Wing G
+chumaokeke,2018,Auburn,34,34,21.6,Fr,6-8,16,1998-08-18,Stretch 4
+chumaokeke,2019,Auburn,37,39,29.1,So,6-8,16,1998-08-18,Stretch 4
+nickrichards,2018,Kentucky,37,37,14.7,Fr,6-11,42,1997-11-29,C
+nickrichards,2019,Kentucky,37,37,12.1,So,6-11,42,1997-11-29,C
+nickrichards,2020,Kentucky,31,31,29.6,Jr,6-11,42,1997-11-29,C
+shaigilgeousalexander,2018,Kentucky,37,37,33.7,Fr,6-6,11,1998-07-12,Scoring PG
+pjwashington,2018,Kentucky,37,37,27.4,Fr,6-7,12,1998-08-23,Wing F
+pjwashington,2019,Kentucky,35,37,29.3,So,6-8,12,1998-08-23,PF/C
+xaviertillman,2018,Michigan St.,35,35,8.7,Fr,6-8,35,1999-01-12,C
+xaviertillman,2019,Michigan St.,39,39,24,So,6-8,35,1999-01-12,PF/C
+xaviertillman,2020,Michigan St.,31,31,32.1,Jr,6-8,35,1999-01-12,PF/C
+wendellcarter,2018,Duke,37,37,26.8,Fr,6-10,7,1999-04-16,PF/C
+jarenjackson,2018,Michigan St.,35,35,21.9,Fr,6-11,4,1999-09-15,PF/C
+collingillespie,2018,Villanova,32,40,14.4,Fr,6-2,,1999-06-25,Combo G
+collingillespie,2019,Villanova,35,36,29.5,So,6-3,,1999-06-25,Scoring PG
+collingillespie,2020,Villanova,31,31,34.1,Jr,6-3,,1999-06-25,Scoring PG
+collingillespie,2021,Villanova,20,25,33.4,Sr,6-3,,1999-06-25,Scoring PG
+collingillespie,2022,Villanova,38,38,34.3,Sr,6-3,,1999-06-25,Combo G
+brunofernando,2018,Maryland,30,31,22.4,Fr,6-10,34,1998-08-15,C
+brunofernando,2019,Maryland,34,34,30,So,6-10,34,1998-08-15,C
+herbertjones,2018,Alabama,35,36,21.2,Fr,6-7,35,1998-10-06,Wing G
+herbertjones,2019,Alabama,34,34,21.1,So,6-7,35,1998-10-06,Wing G
+herbertjones,2020,Alabama,27,31,26.4,Jr,6-7,35,1998-10-06,Wing F
+herbertjones,2021,Alabama,33,33,27.3,Sr,6-8,35,1998-10-06,Wing F
+jarredvanderbilt,2018,Kentucky,14,37,17,Fr,6-9,41,1999-04-03,C
+kevinknox,2018,Kentucky,37,37,32.4,Fr,6-9,9,1999-08-11,Wing F
+jaylennowell,2018,Washington,34,34,32.5,Fr,6-4,43,1999-07-09,Wing G
+jaylennowell,2019,Washington,36,36,34.4,So,6-4,43,1999-07-09,Wing G
+jamorant,2019,Murray St.,31,31,36.6,So,6-3,2,1999-08-10,Pure PG
+nassirlittle,2019,North Carolina,36,36,18.2,Fr,6-6,25,2000-02-11,Wing F
+obitoppin,2019,Dayton,33,33,26.5,Fr,6-9,8,1998-03-04,Wing F
+obitoppin,2020,Dayton,31,31,31.6,So,6-9,8,1998-03-04,Wing F
+ignasbrazdeikis,2019,Michigan,37,37,29.6,Fr,6-7,47,1999-01-08,Wing F
+jalensmith,2019,Maryland,33,34,26.7,Fr,6-10,10,2000-03-16,PF/C
+jalensmith,2020,Maryland,31,31,31.2,So,6-10,10,2000-03-16,PF/C
+jalensmith,2022,SMU,29,33,11.1,Fr,6-4,,2002-10-15,Combo G
+jalensmith,2023,SMU,32,32,26.5,So,6-4,,2002-10-15,Scoring PG
+jalensmith,2024,SMU,32,32,21.3,Jr,6-2,,2002-10-15,Combo G
+jalensmith,2026,Rice,29,29,32.7,Sr,6-2,,2002-10-15,Combo G
+cjelleby,2019,Washington St.,32,32,30.9,Fr,6-6,46,2000-06-16,Wing F
+cjelleby,2020,Washington St.,32,32,33.4,So,6-6,46,2000-06-16,Wing F
+immanuelquickley,2019,Kentucky,37,37,18.5,Fr,6-3,25,1999-06-17,Wing G
+immanuelquickley,2020,Kentucky,30,31,32.9,So,6-3,25,1999-06-17,Wing G
+quentingrimes,2019,Kansas,36,36,27.4,Fr,6-5,25,2000-05-08,Combo G
+quentingrimes,2020,Houston,30,31,27.8,So,6-5,25,2000-05-08,Wing G
+quentingrimes,2021,Houston,30,31,32.8,Jr,6-5,25,2000-05-08,Wing G
+cobywhite,2019,North Carolina,35,36,28.6,Fr,6-5,7,2000-02-16,Combo G
+talenhortontucker,2019,Iowa St.,35,35,27.2,Fr,6-4,46,2000-11-25,Wing G
+tyresehaliburton,2019,Iowa St.,35,35,33.2,Fr,6-5,12,2000-02-29,Combo G
+tyresehaliburton,2020,Iowa St.,22,32,36.7,So,6-5,12,2000-02-29,Scoring PG
+treymurphy,2019,Rice,30,30,20.7,Fr,6-7,17,2000-06-18,Stretch 4
+treymurphy,2020,Rice,27,30,30.2,So,6-8,17,2000-06-18,Wing F
+treymurphy,2021,Virginia,25,25,29.6,Jr,6-9,17,2000-06-18,Wing F
+charlesbassey,2019,Western Kentucky,34,34,31.4,Fr,6-11,53,2000-10-28,C
+charlesbassey,2020,Western Kentucky,9,29,28.1,So,6-11,53,2000-10-28,C
+charlesbassey,2021,Western Kentucky,28,29,30.4,Jr,6-11,53,2000-10-28,C
+dalanobanton,2019,Western Kentucky,31,34,15.1,Fr,6-8,46,1999-11-07,Stretch 4
+dalanobanton,2021,Nebraska,26,26,27.3,So,6-9,46,1999-11-07,Stretch 4
+camreddish,2019,Duke,36,38,29.7,Fr,6-8,10,1999-09-01,Wing F
+zionwilliamson,2019,Duke,33,38,30,Fr,6-7,1,2000-07-06,Wing F
+treyjemison,2019,Clemson,20,34,3.6,Fr,7-0,,1999-11-28,C
+treyjemison,2020,Clemson,30,31,8.4,So,7-0,,1999-11-28,C
+treyjemison,2021,UAB,27,27,26,Jr,7-0,,1999-11-28,C
+treyjemison,2022,UAB,33,33,24.5,Jr,7-0,,1999-11-28,C
+treyjemison,2023,UAB,38,38,25.2,Sr,6-11,,1999-11-28,C
+rjbarrett,2019,Duke,38,38,35.3,Fr,6-7,3,2000-06-14,Wing G
+trejones,2019,Duke,36,38,34.2,Fr,6-2,41,2000-01-08,Scoring PG
+trejones,2020,Duke,29,31,35.4,So,6-3,41,2000-01-08,Scoring PG
+trejones,2021,UT Arlington,20,23,9.7,Fr,6-5,,2000-11-30,PF/C
+bolbol,2019,Oregon,9,38,29.9,Fr,7-2,44,1999-11-16,PF/C
+jalenpickett,2019,Siena,33,33,37.2,Fr,6-4,32,1999-10-22,Pure PG
+jalenpickett,2020,Siena,29,30,36.9,So,6-4,32,1999-10-22,Scoring PG
+jalenpickett,2021,Siena,14,17,36.1,Jr,6-4,32,1999-10-22,Combo G
+jalenpickett,2022,Penn St.,31,31,37.2,Sr,6-4,32,1999-10-22,Scoring PG
+jalenpickett,2023,Penn St.,37,37,36.5,Sr,6-4,32,1999-10-22,Scoring PG
+saddiqbey,2019,Villanova,36,36,29.5,Fr,6-8,19,1999-04-09,Wing F
+saddiqbey,2020,Villanova,31,31,33.9,So,6-8,19,1999-04-09,Wing F
+romeolangford,2019,Indiana,32,35,34.1,Fr,6-6,14,1999-10-25,Wing G
+dariusgarland,2019,Vanderbilt,5,32,27.8,Fr,6-2,5,2000-01-26,Combo G
+ajgreen,2019,Northern Iowa,32,32,29.9,Fr,6-4,,1999-09-27,Combo G
+ajgreen,2020,Northern Iowa,29,29,34.9,So,6-4,,1999-09-27,Combo G
+ajgreen,2021,Northern Iowa,3,23,36.3,Jr,6-4,,1999-09-27,Combo G
+ajgreen,2022,Northern Iowa,30,31,36.4,Jr,6-4,,1999-09-27,Combo G
+ochaiagbaji,2019,Kansas,22,36,25.8,Fr,6-5,14,2000-04-20,Wing F
+ochaiagbaji,2020,Kansas,30,30,33.4,So,6-5,14,2000-04-20,Wing G
+ochaiagbaji,2021,Kansas,29,29,33.7,Jr,6-5,14,2000-04-20,Wing G
+ochaiagbaji,2022,Kansas,39,40,35.1,Sr,6-5,14,2000-04-20,Wing G
+keldonjohnson,2019,Kentucky,37,37,30.7,Fr,6-6,29,1999-10-11,Wing F
+andrewnembhard,2019,Florida,36,36,32.9,Fr,6-5,31,2000-01-16,Pure PG
+andrewnembhard,2020,Florida,31,31,33.3,So,6-5,31,2000-01-16,Scoring PG
+andrewnembhard,2021,Gonzaga,32,32,29.9,Jr,6-5,31,2000-01-16,Scoring PG
+andrewnembhard,2022,Gonzaga,32,32,32.2,Sr,6-5,31,2000-01-16,Scoring PG
+jaredbutler,2019,Baylor,34,34,26.8,Fr,6-3,40,2000-08-25,Combo G
+jaredbutler,2020,Baylor,30,30,30.4,So,6-3,40,2000-08-25,Scoring PG
+jaredbutler,2021,Baylor,30,30,30.4,Jr,6-3,40,2000-08-25,Scoring PG
+vincewilliams,2019,VCU,33,33,15.4,Fr,6-6,47,2000-08-30,Wing G
+vincewilliams,2020,VCU,21,31,16.4,So,6-6,47,2000-08-30,Wing G
+vincewilliams,2021,VCU,26,26,28.6,Jr,6-6,47,2000-08-30,Wing G
+vincewilliams,2022,VCU,30,32,32.4,Sr,6-6,47,2000-08-30,Wing G
+nazreid,2019,LSU,34,35,27.2,Fr,6-10,,1999-08-26,PF/C
+aaronnesmith,2019,Vanderbilt,32,32,29,Fr,6-6,14,1999-10-16,Stretch 4
+aaronnesmith,2020,Vanderbilt,14,32,35.7,So,6-6,14,1999-10-16,Wing G
+devinvassell,2019,Florida St.,33,37,10.7,Fr,6-6,11,2000-08-23,Wing G
+devinvassell,2020,Florida St.,30,31,28.7,So,6-7,11,2000-08-23,Wing G
+petenance,2019,Northwestern,23,32,12.8,Fr,6-10,,2000-02-19,Stretch 4
+petenance,2020,Northwestern,30,31,26.2,So,6-10,,2000-02-19,PF/C
+petenance,2021,Northwestern,23,23,27.7,Jr,6-10,,2000-02-19,Stretch 4
+petenance,2022,Northwestern,29,30,27.2,Sr,6-10,,2000-02-19,PF/C
+petenance,2023,North Carolina,30,33,30.2,Sr,6-11,,2000-02-19,Stretch 4
+duanewashington,2019,Ohio St.,35,35,17.2,Fr,6-3,,2000-03-24,Wing G
+duanewashington,2020,Ohio St.,28,31,24.8,So,6-3,,2000-03-24,Combo G
+duanewashington,2021,Ohio St.,31,31,32.2,Jr,6-3,,2000-03-24,Combo G
+mosesbrown,2019,UCLA,32,33,23.3,Fr,7-1,,1999-10-13,C
+elijahharkless,2019,Cal St. Northridge,18,33,13.5,Fr,6-5,,2000-02-03,Scoring PG
+elijahharkless,2020,Cal St. Northridge,30,30,29.6,So,6-4,,2000-02-03,Wing G
+elijahharkless,2021,Oklahoma,23,27,28.7,Jr,6-3,,2000-02-03,Wing G
+elijahharkless,2022,Oklahoma,26,35,29,Sr,6-3,,2000-02-03,Wing G
+tyresemartin,2019,Rhode Island,33,33,27,Fr,6-6,51,1999-03-07,Wing F
+tyresemartin,2020,Rhode Island,30,30,34.1,So,6-6,51,1999-03-07,Wing F
+tyresemartin,2021,Connecticut,22,23,30.1,Jr,6-6,51,1999-03-07,Wing F
+tyresemartin,2022,Connecticut,29,33,32.1,Sr,6-6,51,1999-03-07,Wing F
+kessleredwards,2019,Pepperdine,33,33,29.5,Fr,6-8,44,2000-08-09,Stretch 4
+kessleredwards,2020,Pepperdine,32,32,33.2,So,6-8,44,2000-08-09,Stretch 4
+kessleredwards,2021,Pepperdine,25,25,33.9,Jr,6-8,44,2000-08-09,Stretch 4
+ayodosunmu,2019,Illinois,32,33,31.2,Fr,6-5,38,2000-01-17,Combo G
+ayodosunmu,2020,Illinois,29,30,33.6,So,6-5,38,2000-01-17,Wing G
+ayodosunmu,2021,Illinois,28,31,35.1,Jr,6-5,38,2000-01-17,Combo G
+tylerherro,2019,Kentucky,37,37,32.6,Fr,6-5,13,2000-01-20,Wing G
+aaronwiggins,2019,Maryland,34,34,23.5,Fr,6-6,55,1999-01-02,Wing G
+aaronwiggins,2020,Maryland,31,31,28.6,So,6-6,55,1999-01-02,Wing G
+aaronwiggins,2021,Maryland,30,30,33.1,Jr,6-6,55,1999-01-02,Wing G
+jaxsonhayes,2019,Texas,32,37,23.3,Fr,6-11,8,2000-05-23,C
+kiralewis,2019,Alabama,34,34,31.6,Fr,6-3,13,2001-04-06,Combo G
+kiralewis,2020,Alabama,31,31,37.6,So,6-3,13,2001-04-06,Scoring PG
+isaiahjoe,2019,Arkansas,34,34,30.1,Fr,6-5,49,1999-07-02,Combo G
+isaiahjoe,2020,Arkansas,26,32,36,So,6-5,49,1999-07-02,Wing G
+luguentzdort,2019,Arizona St.,34,34,31.6,Fr,6-4,,1999-04-19,Combo G
+kevinporter,2019,USC,21,33,22.1,Fr,6-6,30,2000-05-04,Wing G
+neemiasqueta,2019,Utah St.,34,34,27.1,Fr,6-11,39,1999-07-13,C
+neemiasqueta,2020,Utah St.,22,32,26.7,So,7-0,39,1999-07-13,PF/C
+neemiasqueta,2021,Utah St.,28,28,30,Jr,7-0,39,1999-07-13,C
+jameernelson,2020,George Washington,31,32,31,Fr,6-1,,2001-08-07,Combo G
+jameernelson,2021,George Washington,7,17,26.3,So,6-1,,2001-08-07,Scoring PG
+jameernelson,2022,Delaware,34,34,32.7,Jr,6-1,,2001-08-07,Wing G
+jameernelson,2023,Delaware,28,32,35.2,Jr,6-1,,2001-08-07,Scoring PG
+jameernelson,2024,TCU,34,34,24.9,Sr,6-2,,2001-08-07,Scoring PG
+jamisonbattle,2020,George Washington,32,32,35.3,Fr,6-7,,2001-05-10,Stretch 4
+jamisonbattle,2021,George Washington,15,17,36.5,So,6-7,,2001-05-10,Wing G
+jamisonbattle,2022,Minnesota,29,30,36.7,So,6-7,,2001-05-10,Wing F
+jamisonbattle,2023,Minnesota,27,31,35.6,Jr,6-7,,2001-05-10,Wing G
+jamisonbattle,2024,Ohio St.,35,36,31.3,Sr,6-7,,2001-05-10,Wing F
+jamesbouknight,2020,Connecticut,28,31,25.9,Fr,6-4,11,2000-09-18,Wing G
+jamesbouknight,2021,Connecticut,15,23,31.7,So,6-5,11,2000-09-18,Wing G
+danissjenkins,2020,Pacific,30,31,22,Fr,6-3,,2001-08-17,Combo G
+danissjenkins,2021,Pacific,17,17,31.3,So,6-3,,2001-08-17,Wing G
+danissjenkins,2023,Iona,35,35,33.5,Jr,6-3,,2001-08-17,Scoring PG
+danissjenkins,2024,St. John's,33,33,30.7,Sr,6-4,,2001-08-17,Pure PG
+coleanthony,2020,North Carolina,22,33,34.9,Fr,6-3,15,2000-05-15,Combo G
+quentonjackson,2020,Texas A&M,29,30,23.6,Jr,6-5,,1998-09-15,Wing G
+quentonjackson,2021,Texas A&M,18,18,23.5,Sr,6-5,,1998-09-15,Combo G
+quentonjackson,2022,Texas A&M,39,39,26.4,Sr,6-5,,1998-09-15,Combo G
+toumanicamara,2020,Georgia,31,31,23.9,Fr,6-8,52,2000-05-08,Wing F
+toumanicamara,2021,Georgia,24,25,28.4,So,6-8,52,2000-05-08,PF/C
+toumanicamara,2022,Dayton,34,35,27.1,So,6-8,52,2000-05-08,PF/C
+toumanicamara,2023,Dayton,34,34,30,Jr,6-8,52,2000-05-08,PF/C
+franzwagner,2020,Michigan,27,31,30.7,Fr,6-9,8,2001-08-27,Wing F
+franzwagner,2021,Michigan,28,28,31.7,So,6-9,8,2001-08-27,Wing F
+zekennaji,2020,Arizona,32,32,30.6,Fr,6-11,22,2001-01-09,PF/C
+jaimejaquez,2020,UCLA,30,30,26.7,Fr,6-6,18,2001-02-18,Wing G
+jaimejaquez,2021,UCLA,32,32,34.9,So,6-6,18,2001-02-18,Wing F
+jaimejaquez,2022,UCLA,34,35,30.6,Jr,6-7,18,2001-02-18,Wing G
+jaimejaquez,2023,UCLA,37,37,33.2,Sr,6-7,18,2001-02-18,Wing F
+preciousachiuwa,2020,Memphis,31,31,30.4,Fr,6-9,20,1999-09-19,PF/C
+jakelaravia,2020,Indiana St.,29,29,24.7,Fr,6-8,19,2001-11-03,PF/C
+jakelaravia,2021,Indiana St.,24,24,29.2,So,6-9,19,2001-11-03,Wing F
+jakelaravia,2022,Wake Forest,33,35,34.2,Jr,6-8,19,2001-11-03,Wing F
+jameswiseman,2020,Memphis,3,31,23,Fr,7-1,2,2001-03-31,C
+jaylinwilliams,2020,Auburn,14,31,7.1,Fr,6-7,,2000-07-26,Wing F
+jaylinwilliams,2021,Auburn,27,27,26.4,So,6-8,,2000-07-26,Stretch 4
+jaylinwilliams,2021,Arkansas,26,32,15.9,Fr,6-10,34,2002-06-29,PF/C
+jaylinwilliams,2022,Auburn,33,34,13.8,Jr,6-8,,2000-07-26,Stretch 4
+jaylinwilliams,2022,Arkansas,37,37,31.6,So,6-10,34,2002-06-29,PF/C
+jaylinwilliams,2023,Auburn,33,34,27.8,Sr,6-8,,2000-07-26,Wing F
+jaylinwilliams,2024,Auburn,34,35,24.1,Sr,6-8,,2000-07-26,Wing F
+isaacokoro,2020,Auburn,28,31,31.4,Fr,6-6,5,2001-01-26,Wing G
+spencerjones,2020,Stanford,32,32,28.7,Fr,6-7,,2001-06-14,Wing G
+spencerjones,2021,Stanford,26,26,28.3,So,6-7,,2001-06-14,Wing G
+spencerjones,2022,Stanford,31,32,26.7,Jr,6-7,,2001-06-14,Stretch 4
+spencerjones,2023,Stanford,32,33,29,Sr,6-7,,2001-06-14,Stretch 4
+spencerjones,2024,Stanford,25,32,29,Sr,6-7,,2001-06-14,Wing G
+patspencer,2020,Northwestern,31,31,29.3,Sr,6-3,,1996-07-04,Scoring PG
+justinchampagnie,2020,Pittsburgh,33,33,32.5,Fr,6-6,,2001-06-29,Wing F
+justinchampagnie,2021,Pittsburgh,20,22,34.4,So,6-6,,2001-06-29,Stretch 4
+kobebrown,2020,Missouri,30,31,18.1,Fr,6-7,30,2000-01-01,Wing F
+kobebrown,2021,Missouri,26,26,21.3,So,6-7,30,2000-01-01,Stretch 4
+kobebrown,2022,Missouri,32,32,29.9,Jr,6-8,30,2000-01-01,PF/C
+kobebrown,2023,Missouri,34,35,29.5,Sr,6-8,30,2000-01-01,Wing F
+traycejacksondavis,2020,Indiana,32,32,29.4,Fr,6-9,57,2000-02-22,C
+traycejacksondavis,2021,Indiana,27,27,34.3,So,6-9,57,2000-02-22,C
+traycejacksondavis,2022,Indiana,35,35,32.3,So,6-9,57,2000-02-22,C
+traycejacksondavis,2023,Indiana,32,35,34.6,Jr,6-9,57,2000-02-22,C
+davidroddy,2020,Colorado St.,31,31,25.6,Fr,6-5,23,2001-03-27,Wing F
+davidroddy,2021,Colorado St.,27,27,31.5,So,6-5,23,2001-03-27,Wing F
+davidroddy,2022,Colorado St.,30,30,32.9,Jr,6-5,23,2001-03-27,Wing F
+chrisduarte,2020,Oregon,28,31,30.1,Jr,6-6,13,1997-06-13,Wing G
+chrisduarte,2021,Oregon,26,28,34.1,Sr,6-6,13,1997-06-13,Wing G
+bensheppard,2020,Belmont,31,32,10.8,Fr,6-6,26,2001-07-16,Wing F
+bensheppard,2021,Belmont,26,29,28.2,So,6-6,26,2001-07-16,Wing G
+bensheppard,2022,Belmont,32,32,31.4,Jr,6-6,26,2001-07-16,Wing G
+bensheppard,2023,Belmont,31,31,34.3,Sr,6-6,26,2001-07-16,Wing G
+tremann,2020,Florida,29,31,17.6,Fr,6-4,18,2001-02-03,Wing G
+tremann,2021,Florida,24,25,31.9,So,6-5,18,2001-02-03,Wing G
+santialdama,2020,Loyola MD,10,31,30.4,Fr,6-11,30,2001-01-10,PF/C
+santialdama,2021,Loyola MD,17,17,35,So,6-11,30,2001-01-10,PF/C
+scottypippen,2020,Vanderbilt,32,32,29.8,Fr,6-1,,2000-11-10,Scoring PG
+scottypippen,2021,Vanderbilt,22,25,31.9,So,6-1,,2000-11-10,Pure PG
+scottypippen,2022,Vanderbilt,36,36,33.1,Jr,6-3,,2000-11-10,Pure PG
+terrenceshannon,2020,Texas Tech,29,31,23.5,Fr,6-6,27,2000-07-30,Wing G
+terrenceshannon,2021,Texas Tech,28,29,26.8,So,6-6,27,2000-07-30,Wing G
+terrenceshannon,2022,Texas Tech,26,37,24.9,Jr,6-6,27,2000-07-30,Wing G
+terrenceshannon,2023,Illinois,31,33,32,Sr,6-6,27,2000-07-30,Wing G
+terrenceshannon,2024,Illinois,32,38,33.8,Sr,6-6,27,2000-07-30,Wing G
+julianchampagnie,2020,St. John's,32,32,25.5,Fr,6-8,,2001-06-29,Wing F
+julianchampagnie,2021,St. John's,25,27,32.9,So,6-8,,2001-06-29,Wing F
+julianchampagnie,2022,St. John's,31,32,34.2,Jr,6-8,,2001-06-29,Wing F
+marcussasser,2020,Houston,30,31,23.9,Fr,6-1,25,2000-09-21,Combo G
+marcussasser,2021,Houston,29,31,31.9,So,6-1,25,2000-09-21,Combo G
+marcussasser,2022,Houston,12,38,31.9,Jr,6-2,25,2000-09-21,Scoring PG
+marcussasser,2023,Houston,36,37,30.8,Sr,6-2,25,2000-09-21,Scoring PG
+onyekaokongwu,2020,USC,28,31,30.6,Fr,6-9,6,2000-12-11,C
+antonioreeves,2020,Illinois St.,30,30,22.4,Fr,6-4,47,2000-11-20,Wing G
+antonioreeves,2021,Illinois St.,24,24,29.9,So,6-5,47,2000-11-20,Wing G
+antonioreeves,2022,Illinois St.,31,31,34.9,Jr,6-5,47,2000-11-20,Wing G
+antonioreeves,2023,Kentucky,34,34,27.9,Sr,6-5,47,2000-11-20,Wing G
+antonioreeves,2024,Kentucky,33,33,31.5,Sr,6-6,47,2000-11-20,Wing G
+tosanevbuomwan,2020,Princeton,25,26,14.3,Fr,6-7,,2001-02-16,Wing G
+tosanevbuomwan,2022,Princeton,27,28,30,Jr,6-8,,2001-02-16,Wing F
+tosanevbuomwan,2023,Princeton,30,30,31.4,Sr,6-8,,2001-02-16,Wing F
+orlandorobinson,2020,Fresno St.,29,29,27.2,Fr,6-10,,2000-07-10,PF/C
+orlandorobinson,2021,Fresno St.,22,22,31.9,So,7-0,,2000-07-10,PF/C
+orlandorobinson,2022,Fresno St.,34,34,33.3,Jr,7-0,,2000-07-10,PF/C
+trendonwatford,2020,LSU,31,31,31.5,Fr,6-9,,2000-11-09,Wing F
+trendonwatford,2021,LSU,28,29,34.6,So,6-9,,2000-11-09,Wing F
+christiankoloko,2020,Arizona,28,32,8.4,Fr,7-0,33,2000-06-20,C
+christiankoloko,2021,Arizona,26,26,17.3,So,7-1,33,2000-06-20,C
+christiankoloko,2022,Arizona,37,37,25.4,So,7-1,33,2000-06-20,C
+joshgreen,2020,Arizona,30,32,30.8,Fr,6-6,18,2000-11-16,Wing G
+jadenmcdaniels,2020,Washington,31,32,31,Fr,6-9,28,2000-09-29,Stretch 4
+isaiahstewart,2020,Washington,32,32,32.3,Fr,6-9,16,2001-05-22,C
+isaiahstewart,2026,Northern Illinois,11,28,5.5,Fr,6-6,,2006-10-15,Wing G
+quintenpost,2020,Mississippi St.,8,31,2.6,Fr,7-0,52,2000-03-21,PF/C
+quintenpost,2021,Mississippi St.,31,33,8.7,So,7-0,52,2000-03-21,PF/C
+quintenpost,2022,Boston College,31,33,21.4,Jr,7-0,52,2000-03-21,PF/C
+quintenpost,2023,Boston College,19,33,25.7,Sr,7-0,52,2000-03-21,PF/C
+quintenpost,2024,Boston College,35,36,31.9,Sr,7-0,52,2000-03-21,PF/C
+milesmcbride,2020,West Virginia,31,31,22.1,Fr,6-2,36,2000-09-08,Combo G
+milesmcbride,2021,West Virginia,29,29,34.2,So,6-2,36,2000-09-08,Scoring PG
+camspencer,2020,Loyola MD,22,31,28,Fr,6-4,53,2000-04-06,Combo G
+camspencer,2021,Loyola MD,5,17,25.6,So,6-4,53,2000-04-06,Combo G
+camspencer,2022,Loyola MD,29,29,37,Jr,6-4,53,2000-04-06,Combo G
+camspencer,2023,Rutgers,34,34,31.5,Sr,6-4,53,2000-04-06,Combo G
+camspencer,2024,Connecticut,40,40,32.8,Sr,6-4,53,2000-04-06,Combo G
+jeremiahrobinsonearl,2020,Villanova,31,31,32.6,Fr,6-9,32,2000-11-03,Stretch 4
+jeremiahrobinsonearl,2021,Villanova,25,25,34.5,So,6-9,32,2000-11-03,Stretch 4
+anthonyedwards,2020,Georgia,31,31,33,Fr,6-5,1,2001-08-05,Wing G
+tyresemaxey,2020,Kentucky,31,31,34.5,Fr,6-3,21,2000-11-04,Combo G
+johnnyjuzang,2020,Kentucky,28,31,12.4,Fr,6-6,,2001-03-17,Stretch 4
+johnnyjuzang,2021,UCLA,27,32,32.3,So,6-6,,2001-03-17,Wing G
+johnnyjuzang,2022,UCLA,30,35,31.8,Jr,6-7,,2001-03-17,Wing G
+kaijones,2020,Texas,27,31,16.8,Fr,6-11,19,2001-01-19,PF/C
+kaijones,2021,Texas,26,27,22.8,So,6-11,19,2001-01-19,PF/C
+christianbraun,2020,Kansas,30,30,18.4,Fr,6-6,21,2001-04-17,Wing G
+christianbraun,2021,Kansas,29,29,31.1,So,6-6,21,2001-04-17,Wing G
+christianbraun,2022,Kansas,40,40,34.4,Jr,6-6,21,2001-04-17,Wing G
+jalenwilson,2020,Kansas,2,30,1,Fr,6-8,51,2000-11-04,C
+jalenwilson,2021,Kansas,28,29,28.3,Fr,6-8,51,2000-11-04,Stretch 4
+jalenwilson,2022,Kansas,37,40,29.4,So,6-8,51,2000-11-04,Stretch 4
+jalenwilson,2023,Kansas,36,36,35.4,Jr,6-8,51,2000-11-04,Stretch 4
+baylorscheierman,2020,South Dakota St.,30,30,20.2,Fr,6-6,30,2000-09-26,Stretch 4
+baylorscheierman,2021,South Dakota St.,22,22,35.2,So,6-6,30,2000-09-26,Wing F
+baylorscheierman,2022,South Dakota St.,33,33,33.3,So,6-6,30,2000-09-26,Wing G
+baylorscheierman,2023,Creighton,37,37,32.8,Sr,6-7,30,2000-09-26,Stretch 4
+baylorscheierman,2024,Creighton,35,35,36.8,Sr,6-7,30,2000-09-26,Wing F
+patrickwilliams,2020,Florida St.,29,31,22.4,Fr,6-8,4,2001-08-26,Wing F
+naterobinson,2021,Seattle,12,19,21.3,Jr,6-4,,2000-02-28,Wing G
+naterobinson,2022,Seattle,4,30,13,Jr,6-4,,2000-02-28,Wing G
+krismurray,2021,Iowa,13,31,3.2,Fr,6-8,23,2000-08-19,Wing F
+krismurray,2022,Iowa,35,36,17.9,So,6-8,23,2000-08-19,Stretch 4
+krismurray,2023,Iowa,29,33,34.8,Jr,6-8,23,2000-08-19,Stretch 4
+dillonjones,2021,Weber St.,20,20,20.5,Fr,6-6,26,2001-10-29,Wing G
+dillonjones,2022,Weber St.,31,31,33.9,So,6-6,26,2001-10-29,Wing F
+dillonjones,2023,Weber St.,30,31,36.3,So,6-6,26,2001-10-29,Wing F
+dillonjones,2024,Weber St.,29,29,37,Jr,6-6,26,2001-10-29,Wing G
+tristandasilva,2021,Colorado,24,32,9.3,Fr,6-8,18,2001-05-15,Wing F
+tristandasilva,2022,Colorado,31,33,28.4,So,6-10,18,2001-05-15,Wing F
+tristandasilva,2023,Colorado,35,35,30.9,Jr,6-9,18,2001-05-15,Wing F
+tristandasilva,2024,Colorado,34,37,34,Sr,6-9,18,2001-05-15,Wing F
+craigporter,2021,Wichita St.,17,20,12.9,Jr,6-2,,2000-02-26,Combo G
+craigporter,2022,Wichita St.,25,28,27,Jr,6-2,,2000-02-26,Scoring PG
+craigporter,2023,Wichita St.,31,31,33.7,Sr,6-2,,2000-02-26,Combo G
+tarieason,2021,Cincinnati,23,23,19.6,Fr,6-8,17,2001-05-10,PF/C
+tarieason,2022,LSU,33,34,24.4,So,6-8,17,2001-05-10,Wing F
+jaylenclark,2021,UCLA,31,32,9,Fr,6-5,53,2001-10-13,PF/C
+jaylenclark,2022,UCLA,29,35,18.1,So,6-5,53,2001-10-13,Wing G
+jaylenclark,2023,UCLA,30,37,30.5,Jr,6-5,53,2001-10-13,Wing G
+cadecunningham,2021,Oklahoma St.,27,30,35.4,Fr,6-8,1,2001-09-25,Wing F
+jabariwalker,2021,Colorado,26,32,14.2,Fr,6-8,57,2002-07-30,PF/C
+jabariwalker,2022,Colorado,33,33,28.1,So,6-9,57,2002-07-30,PF/C
+oliviermaxenceprosper,2021,Clemson,22,24,9.7,Fr,6-8,24,2002-07-03,Wing F
+oliviermaxenceprosper,2022,Marquette,32,32,20.8,Fr,6-8,24,2002-07-03,Wing F
+oliviermaxenceprosper,2023,Marquette,36,36,29,Jr,6-8,24,2002-07-03,Wing F
+scottiebarnes,2021,Florida St.,24,25,24.8,Fr,6-9,4,2001-08-01,Scoring PG
+walkerkessler,2021,North Carolina,29,29,8.8,Fr,7-1,22,2001-07-26,C
+walkerkessler,2022,Auburn,34,34,25.6,So,7-1,22,2001-07-26,C
+joshuaprimo,2021,Alabama,30,33,22.5,Fr,6-6,12,2002-12-24,Wing G
+keonellis,2021,Alabama,32,33,17.5,Jr,6-6,,2000-01-08,Wing G
+keonellis,2022,Alabama,33,33,30.9,Sr,6-6,,2000-01-08,Wing G
+ryanrollins,2021,Toledo,30,30,30.2,Fr,6-4,44,2002-07-03,Wing G
+ryanrollins,2022,Toledo,33,33,32.7,So,6-4,44,2002-07-03,Combo G
+jamalshead,2021,Houston,25,31,9.9,Fr,6-1,45,2002-07-24,Scoring PG
+jamalshead,2022,Houston,38,38,30.9,So,6-1,45,2002-07-24,Pure PG
+jamalshead,2023,Houston,37,37,32.5,Jr,6-1,45,2002-07-24,Pure PG
+jamalshead,2024,Houston,37,37,31.1,Sr,6-1,45,2002-07-24,Pure PG
+joshchristopher,2021,Arizona St.,15,25,29.7,Fr,6-5,24,2001-12-08,Wing G
+sharifecooper,2021,Auburn,12,27,33.1,Fr,6-1,48,2001-06-11,Pure PG
+ziairewilliams,2021,Stanford,20,26,27.9,Fr,6-8,10,2001-09-12,Wing F
+jalensuggs,2021,Gonzaga,30,32,28.9,Fr,6-4,5,2001-06-03,Combo G
+evanmobley,2021,USC,33,33,33.9,Fr,7-0,3,2001-06-18,C
+osoighodaro,2021,Marquette,5,27,7.6,Fr,6-9,40,2002-07-14,C
+osoighodaro,2022,Marquette,32,32,18.3,Fr,6-9,40,2002-07-14,C
+osoighodaro,2023,Marquette,36,36,31.1,Jr,6-9,40,2002-07-14,C
+osoighodaro,2024,Marquette,36,37,32.5,Sr,6-11,40,2002-07-14,C
+mosesmoody,2021,Arkansas,32,32,33.8,Fr,6-6,14,2002-05-31,Wing G
+colbyjones,2021,Xavier,15,21,27.8,Fr,6-5,34,2002-05-28,Wing G
+colbyjones,2022,Xavier,35,36,33.5,So,6-6,34,2002-05-28,Wing G
+colbyjones,2023,Xavier,36,37,34,Jr,6-6,34,2002-05-28,Wing G
+zachedey,2021,Purdue,28,28,14.7,Fr,7-4,9,2002-05-14,C
+zachedey,2022,Purdue,37,37,19,So,7-4,9,2002-05-14,C
+zachedey,2023,Purdue,34,35,31.7,Jr,7-4,9,2002-05-14,C
+zachedey,2024,Purdue,39,39,32,Sr,7-4,9,2002-05-14,C
+jtthor,2021,Auburn,27,27,23.3,Fr,6-10,37,2002-08-26,Stretch 4
+jadenspringer,2021,Tennessee,25,27,25.9,Fr,6-4,28,2002-09-25,Combo G
+jadenivey,2021,Purdue,23,28,24.2,Fr,6-4,5,2002-02-13,Wing G
+jadenivey,2022,Purdue,36,37,31.4,So,6-4,5,2002-02-13,Wing G
+pellelarsson,2021,Utah,25,25,26.6,Fr,6-5,44,2001-02-23,Combo G
+pellelarsson,2022,Arizona,37,37,20.8,So,6-5,44,2001-02-23,Wing G
+pellelarsson,2023,Arizona,35,35,27.4,Jr,6-5,44,2001-02-23,Wing G
+pellelarsson,2024,Arizona,36,36,30,Sr,6-6,44,2001-02-23,Combo G
+tylerkolek,2021,George Mason,21,21,30.7,Fr,6-3,34,2001-03-27,Combo G
+tylerkolek,2022,Marquette,32,32,29.3,So,6-3,34,2001-03-27,Pure PG
+tylerkolek,2023,Marquette,36,36,32.3,Jr,6-3,34,2001-03-27,Pure PG
+tylerkolek,2024,Marquette,31,37,33,Sr,6-3,34,2001-03-27,Pure PG
+keeganmurray,2021,Iowa,31,31,18,Fr,6-8,4,2000-08-19,PF/C
+keeganmurray,2022,Iowa,35,36,31.9,So,6-8,4,2000-08-19,Stretch 4
+dayronsharpe,2021,North Carolina,29,29,19.2,Fr,6-11,29,2001-11-06,C
+julianstrawther,2021,Gonzaga,25,32,7.4,Fr,6-7,29,2002-04-18,Wing F
+julianstrawther,2022,Gonzaga,32,32,26.8,So,6-7,29,2002-04-18,Wing F
+julianstrawther,2023,Gonzaga,36,36,31.2,Jr,6-7,29,2002-04-18,Wing F
+bennedictmathurin,2021,Arizona,26,26,25,Fr,6-7,6,2002-06-19,Wing F
+bennedictmathurin,2022,Arizona,37,37,32.5,So,6-6,6,2002-06-19,Wing G
+brandonboston,2021,Kentucky,25,25,30.7,Fr,6-7,51,2001-11-28,Wing G
+dalenterry,2021,Arizona,26,26,20.7,Fr,6-7,18,2002-07-12,Wing G
+dalenterry,2022,Arizona,37,37,27.8,So,6-7,18,2002-07-12,Wing G
+johnnydavis,2022,Wisconsin,31,33,34.2,So,6-5,10,2002-02-27,Wing F
+calebhoustan,2022,Michigan,34,34,32,Fr,6-8,32,2003-01-09,Wing F
+moussadiabate,2022,Michigan,32,34,24.9,Fr,6-11,43,2002-01-21,C
+brandinpodziemski,2022,Illinois,16,33,4.3,Fr,6-5,19,2003-02-25,Wing F
+brandinpodziemski,2023,Santa Clara,31,32,36,So,6-5,19,2003-02-25,Wing G
+jordanhawkins,2022,Connecticut,27,33,14.7,Fr,6-5,14,2002-04-29,Wing G
+jordanhawkins,2023,Connecticut,37,39,29.4,So,6-5,14,2002-04-29,Wing G
+ajaymitchell,2022,UC Santa Barbara,25,26,32.1,Fr,6-4,38,2002-06-25,Scoring PG
+ajaymitchell,2023,UC Santa Barbara,33,33,33.9,So,6-5,38,2002-06-25,Scoring PG
+ajaymitchell,2024,UC Santa Barbara,27,29,31.5,Jr,6-5,38,2002-06-25,Scoring PG
+maxchristie,2022,Michigan St.,35,36,30.8,Fr,6-6,35,2003-02-10,Wing G
+mouhamedgueye,2022,Washington St.,35,37,21.9,Fr,6-11,39,2002-11-09,PF/C
+mouhamedgueye,2023,Washington St.,33,34,32.1,So,6-11,39,2002-11-09,PF/C
+jalenduren,2022,Memphis,29,33,25.3,Fr,6-11,13,2003-11-18,C
+peytonwatson,2022,UCLA,32,35,12.7,Fr,6-8,30,2002-09-11,Stretch 4
+brycemcgowens,2022,Nebraska,31,32,33.3,Fr,6-7,40,2002-11-08,Wing G
+jabarismith,2022,Auburn,34,34,28.8,Fr,6-10,3,2003-05-13,Stretch 4
+joshminott,2022,Memphis,33,33,14.7,Fr,6-8,45,2002-11-25,PF/C
+jaylontyson,2022,Texas,8,34,6.9,Fr,6-7,20,2002-12-02,Wing G
+jaylontyson,2023,Texas Tech,31,32,28.9,So,6-6,20,2002-12-02,Wing F
+jaylontyson,2024,California,31,32,34.4,Jr,6-7,20,2002-12-02,Wing G
+malakibranham,2022,Ohio St.,32,32,29.7,Fr,6-5,20,2003-05-12,Wing G
+paolobanchero,2022,Duke,39,39,33,Fr,6-10,1,2002-11-12,Wing F
+ajgriffin,2022,Duke,39,39,24.3,Fr,6-6,16,2003-08-25,Wing G
+daltonknecht,2022,Northern Colorado,33,35,24.1,Jr,6-6,17,2001-04-19,Wing F
+daltonknecht,2023,Northern Colorado,31,31,35.3,Sr,6-6,17,2001-04-19,Wing F
+daltonknecht,2024,Tennessee,36,36,30.6,Sr,6-6,17,2001-04-19,Wing G
+blakewesley,2022,Notre Dame,34,34,29.3,Fr,6-5,25,2003-03-16,Combo G
+jeremysochan,2022,Baylor,30,34,25.1,Fr,6-9,9,2003-05-20,Stretch 4
+kjsimpson,2022,Colorado,32,33,21.3,Fr,6-2,42,2002-08-08,Scoring PG
+kjsimpson,2023,Colorado,29,35,31.8,So,6-2,42,2002-08-08,Scoring PG
+kjsimpson,2024,Colorado,37,37,35.1,Jr,6-2,42,2002-08-08,Scoring PG
+chetholmgren,2022,Gonzaga,32,32,26.9,Fr,7-0,2,2002-05-01,PF/C
+ryandunn,2023,Virginia,31,33,13,Fr,6-8,28,2003-01-07,PF/C
+ryandunn,2024,Virginia,34,34,27.4,So,6-8,28,2003-01-07,PF/C
+naeqwantomlin,2023,Kansas St.,36,36,27.2,Jr,6-10,,2000-12-19,Wing F
+naeqwantomlin,2024,Memphis,21,32,26.7,Sr,6-10,,2000-12-19,Stretch 4
+jaracewalker,2023,Houston,36,37,27.7,Fr,6-8,8,2003-09-04,Stretch 4
+aarongray,2023,Niagara,30,30,32.4,So,6-7,,2000-11-28,Wing F
+aarongray,2024,Indiana St.,15,38,5.1,Jr,6-7,,2000-11-28,Stretch 4
+aarongray,2025,Indiana St.,24,30,24,Sr,6-7,,2000-11-28,Wing F
+jordanwalsh,2023,Arkansas,36,36,24.4,Fr,6-7,38,2004-03-03,Wing F
+kylefilipowski,2023,Duke,36,36,29.2,Fr,6-11,32,2003-11-07,Stretch 4
+kylefilipowski,2024,Duke,36,36,30.4,So,7-0,32,2003-11-07,PF/C
+donovanclingan,2023,Connecticut,39,39,13.1,Fr,7-2,7,2004-02-23,C
+donovanclingan,2024,Connecticut,35,40,22.5,So,7-2,7,2004-02-23,C
+taylorhendricks,2023,UCF,34,34,34.6,Fr,6-9,9,2003-11-22,Stretch 4
+casonwallace,2023,Kentucky,32,34,32.1,Fr,6-4,10,2003-11-07,Scoring PG
+jetthoward,2023,Michigan,29,34,31.7,Fr,6-8,11,2003-09-14,Wing F
+camwhitmore,2023,Villanova,26,34,27.3,Fr,6-7,20,2004-07-08,Wing G
+kelelware,2023,Oregon,35,36,15.8,Fr,7-0,15,2004-04-20,PF/C
+kelelware,2024,Indiana,30,33,32.1,So,7-0,15,2004-04-20,PF/C
+derecklively,2023,Duke,34,36,20.6,Fr,7-1,12,2004-02-12,C
+bricesensabaugh,2023,Ohio St.,33,35,24.5,Fr,6-6,28,2003-10-30,Stretch 4
+noahclowney,2023,Alabama,36,37,25.4,Fr,6-10,21,2004-07-14,PF/C
+gradeydick,2023,Kansas,36,36,32.7,Fr,6-8,13,2003-11-20,Wing F
+keyontegeorge,2023,Baylor,33,34,28.7,Fr,6-4,16,2003-11-08,Combo G
+jonathanmogbo,2023,Missouri St.,29,30,24.5,Jr,6-8,31,2001-10-29,C
+jonathanmogbo,2024,San Francisco,33,33,28.9,Jr,6-9,31,2001-10-29,C
+julianphillips,2023,Tennessee,32,36,24,Fr,6-8,35,2003-11-05,Wing F
+adembona,2023,UCLA,33,37,23,Fr,6-10,41,2003-03-28,C
+adembona,2024,UCLA,32,32,26.5,So,6-10,41,2003-03-28,C
+yvesmissi,2024,Baylor,33,34,23,Fr,7-0,21,2004-05-14,C
+stephoncastle,2024,Connecticut,34,40,26.9,Fr,6-6,4,2004-11-01,Wing G
+kyshawngeorge,2024,Miami FL,31,32,23,Fr,6-8,24,2003-12-12,Wing F
+carltoncarrington,2024,Pittsburgh,33,33,33.2,Fr,6-5,14,2005-07-21,Wing G
+isaiahcollier,2024,USC,27,33,29.8,Fr,6-5,29,2004-10-08,Scoring PG
+codywilliams,2024,Colorado,24,37,28.1,Fr,6-8,10,2004-11-20,Wing F
+reedsheppard,2024,Kentucky,33,33,28.9,Fr,6-3,3,2004-06-24,Scoring PG
+jakobewalter,2024,Baylor,34,34,32.3,Fr,6-5,19,2004-09-04,Wing G
+johnnyfurphy,2024,Kansas,32,33,24.1,Fr,6-9,35,2004-12-07,Stretch 4
+jaylenwells,2024,Washington St.,34,35,29.2,Jr,6-8,39,2003-08-26,Wing F
+tjford,2024,Incarnate Word,20,29,10.2,Fr,5-11,,2004-10-15,Scoring PG
+tjford,2025,Incarnate Word,23,32,11.8,So,5-11,,2004-10-15,Scoring PG
+robdillingham,2024,Kentucky,32,33,23.3,Fr,6-3,8,2005-01-04,Scoring PG
+jaredmccain,2024,Duke,36,36,31.6,Fr,6-3,16,2004-02-20,Wing G
+brandonjennings,2025,VCU,34,34,13.1,Fr,6-4,,2005-10-15,Wing G
+brandonjennings,2026,VCU,36,36,24.9,So,6-4,,2005-10-15,Combo G
+camthomas,2026,Tarleton St.,11,28,7,Fr,6-3,,2006-10-15,Wing G
+jermaineoneal,2026,SMU,34,34,14.9,Fr,6-5,,2006-10-15,Wing G
+kjmartin,2026,Tulsa,36,36,8.7,Fr,6-8,,2006-10-15,Wing F
+brandonroy,2026,Washington,5,33,1.6,Fr,6-2,,2006-10-15,Wing G

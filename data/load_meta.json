@@ -1,52 +1,242 @@
 {
- "updated": "2026-10-12",
+ "version": 2,
+ "updated": "2026-10-13",
  "projection_for": "2026-27",
- "built_from": "2025-26",
  "backtest": {
-  "n": 3338,
-  "seasons": "2013-14 to 2025-26 outcomes",
-  "mae": 13.302798799484428,
-  "mae_base": 12.758263098016744,
-  "brier": 0.2021592172647403,
-  "brier_base": 0.20434532989277954,
-  "auc": 0.6032232268857118,
-  "auc_base": 0.5790276172175882,
-  "cover80": 0.8990413421210306,
-  "L4_pass": false,
+  "n": 1032,
+  "seasons": "outcomes 2022-23 to 2025-26 (2025-26 through Dec 21)",
+  "auc": 0.6129317418144878,
+  "brier": 0.18594116037601044,
+  "rate20": 0.2596899224806202,
+  "avg": 13.913339454869144,
+  "median": 8.0,
+  "cover80": 0.8817829457364341,
   "calib": [
    {
-    "pred": 0.20743847565589885,
-    "actual": 0.18862275449101795,
-    "n": 668
+    "pred": 0.19948723531354787,
+    "actual": 0.2009132420091324
    },
    {
-    "pred": 0.24101361829488943,
-    "actual": 0.2353823088455772,
-    "n": 667
+    "pred": 0.21844923310217954,
+    "actual": 0.19
    },
    {
-    "pred": 0.2743034840912638,
-    "actual": 0.3083832335329341,
-    "n": 668
+    "pred": 0.2405292379443958,
+    "actual": 0.195
    },
    {
-    "pred": 0.32064551676900593,
-    "actual": 0.3238380809595202,
-    "n": 667
+    "pred": 0.27703601680509027,
+    "actual": 0.30097087378640774
    },
    {
-    "pred": 0.42608718340483265,
-    "actual": 0.41317365269461076,
-    "n": 668
+    "pred": 0.3638865142121641,
+    "actual": 0.4106280193236715
    }
-  ],
-  "L5_pass": true,
-  "rate20": 0.2938885560215698,
-  "avg_missed": 15.76100958657879,
-  "median_missed": 10.0,
-  "auc_full": 0.6109993136457348
+  ]
  },
- "tests": {
+ "v2": {
+  "log": {
+   "report_rows": 56529,
+   "matched_share": 0.9729342461391498,
+   "report_dates": 907,
+   "last_date": "2025-12-21",
+   "unmatched_examples": {
+    "Topic, Nikola": 134,
+    "Holmes II, DaRon": 118,
+    "Poeltl, Jakob": 105,
+    "Smith, Chris": 77,
+    "Cazalon, Malcolm": 44,
+    "Lewis, Justin": 42,
+    "Steward, DJ": 30,
+    "Thompson, Ethan": 30
+   },
+   "matched_share_after_fallback": 0.973482637230448
+  },
+  "V0": {
+   "v1_missed_games": 74322,
+   "share_injury": 0.2760420871343613,
+   "v1_mix": {
+    "not listed": 0.525,
+    "injury": 0.278,
+    "gleague": 0.154,
+    "protocols": 0.017,
+    "illness": 0.008,
+    "personal": 0.007,
+    "managed": 0.006,
+    "other": 0.003,
+    "suspension": 0.002,
+    "ineligible": 0.001,
+    "rest": 0.0
+   },
+   "injury_games": 23618,
+   "injury_games_in_short_runs": 0.13134050300618172
+  },
+  "V1": {
+   "n": 1032,
+   "rate20": 0.2596899224806202,
+   "brier_base": 0.1856012210062981,
+   "brier_model": 0.18841470865956356,
+   "gain": -0.015158777717146448,
+   "auc_base": 0.6150513792295069,
+   "auc_model": 0.5993641087754943,
+   "pass_": false,
+   "workload_gain": -0.02624229630109871
+  },
+  "V2": {
+   "rows": 96118,
+   "events": 3061,
+   "rate": 0.03184627229030983,
+   "logloss_base": 0.13704624559880207,
+   "logloss_load": 0.1356911639946938,
+   "gain": 0.009887768892810268,
+   "pass_": true,
+   "auc_base": 0.6410074188580579,
+   "auc_load": 0.6649429108336459,
+   "rr_top_acwr": 0.9306929324507379,
+   "rr_next_b2b": 1.9979784594311887,
+   "by_acwr_tenth": [
+    0.0187,
+    0.027,
+    0.0312,
+    0.0358,
+    0.0341,
+    0.0355,
+    0.0375,
+    0.0355,
+    0.0302,
+    0.0298
+   ],
+   "strict": {
+    "events": 2750,
+    "gain_load": 0.010395000030612037,
+    "gain_travel": 0.004270898358330662,
+    "rr_next_b2b": 1.623596516283539,
+    "rr_top_acwr": 0.8737717487249759
+   },
+   "coef": {
+    "prior_rate": 0.234,
+    "age": 0.157,
+    "big": 0.018,
+    "guard": -0.004,
+    "games_since_inj": -0.382,
+    "min7": 0.289,
+    "min28": 0.051,
+    "acwr": 0.071,
+    "prev_mins": 0.073,
+    "b2b": -0.107,
+    "g7": -0.211,
+    "cum": 0.028
+   },
+   "by_prev_mins": [
+    0.0129,
+    0.0243,
+    0.0343,
+    0.0409,
+    0.0429
+   ],
+   "by_min7": [
+    0.0196,
+    0.0269,
+    0.0335,
+    0.0393,
+    0.0399
+   ],
+   "by_g7": {
+    "0": 0.0238,
+    "1": 0.0283,
+    "2": 0.0342,
+    "3": 0.0316,
+    "4": 0.0271
+   }
+  },
+  "V3": {
+   "pairs": 753,
+   "same_rate": 0.4807436918990704,
+   "expected": 0.19856329174780557,
+   "rr": 2.421110607441284,
+   "ci": [
+    2.240390185769828,
+    2.599084608722298
+   ],
+   "pass_": 1.0,
+   "by_part": [
+    {
+     "a": "ankle_foot",
+     "n": 239,
+     "same": 0.586,
+     "expected": 0.305
+    },
+    {
+     "a": "back",
+     "n": 65,
+     "same": 0.492,
+     "expected": 0.095
+    },
+    {
+     "a": "head",
+     "n": 35,
+     "same": 0.114,
+     "expected": 0.033
+    },
+    {
+     "a": "knee",
+     "n": 120,
+     "same": 0.542,
+     "expected": 0.173
+    },
+    {
+     "a": "muscle",
+     "n": 180,
+     "same": 0.467,
+     "expected": 0.208
+    },
+    {
+     "a": "other",
+     "n": 41,
+     "same": 0.317,
+     "expected": 0.075
+    },
+    {
+     "a": "upper",
+     "n": 73,
+     "same": 0.329,
+     "expected": 0.112
+    }
+   ],
+   "part_mix": {
+    "ankle_foot": 0.305,
+    "muscle": 0.208,
+    "knee": 0.173,
+    "upper": 0.112,
+    "back": 0.095,
+    "other": 0.075,
+    "head": 0.033
+   },
+   "v1_muscle_gain": -0.00010146504837379246,
+   "v1_muscle_pass": false
+  },
+  "V4": {
+   "brier_logistic": 0.18841470865956356,
+   "brier_trees": 0.20242150512145862,
+   "gain": -0.07434024955664792,
+   "pass_": false
+  },
+  "V5": {
+   "gain": 0.007982321469951993,
+   "pass_": true
+  },
+  "V6": {
+   "v1_gain": -0.011189609493128137,
+   "v2_gain": 0.0048272717891399775,
+   "pass_": false
+  },
+  "V7": {
+   "v1_gain": 4.819814581412447e-05,
+   "v2_gain": 2.2716612450216902e-05,
+   "pass_": false
+  }
+ },
+ "v1_tests": {
   "first_run": {
    "n": 3338,
    "left_out": 133,
@@ -54,67 +244,67 @@
     2012,
     2024
    ],
-   "share_20plus": 0.2938885560215698,
-   "avg_missed": 15.76100958657879,
+   "share_20plus": 0.2932893948472139,
+   "avg_missed": 15.747228879568604,
    "L1": {
-    "mae_base": 12.758263098016744,
-    "mae_full": 13.201860117490375,
-    "brier_base": 0.20434532989277954,
-    "brier_full": 0.20098182823027128,
+    "mae_base": 12.753385797606525,
+    "mae_full": 13.196240719887646,
+    "brier_base": 0.20405173860071352,
+    "brier_full": 0.20071913118354487,
     "pass_a": false,
     "pass_b": false
    },
    "L2": {
-    "brier_without": 0.20208955899696604,
-    "brier_with": 0.20080095691987368,
-    "mae_without": 13.297388851788439,
-    "mae_with": 13.19710878757936,
+    "brier_without": 0.20177449977091436,
+    "brier_with": 0.20053878535897435,
+    "mae_without": 13.290584055022379,
+    "mae_with": 13.191553014045304,
     "pass": false
    },
    "L3": {
-    "brier_without": 0.20080095691987368,
-    "brier_with": 0.20098182823027128,
-    "mae_without": 13.19710878757936,
-    "mae_with": 13.201860117490375,
+    "brier_without": 0.20053878535897435,
+    "brier_with": 0.20071913118354487,
+    "mae_without": 13.191553014045304,
+    "mae_with": 13.196240719887646,
     "pass": false
    },
    "single": {
     "career_min": {
-     "brier": 0.2016997074114098,
-     "mae": 13.236466592829842
+     "brier": 0.20140193238758142,
+     "mae": 13.22989165385073
     },
     "min_po": {
-     "brier": 0.20090638913287936,
-     "mae": 13.259060533231425
+     "brier": 0.2006178828059389,
+     "mae": 13.252530538533442
     },
     "mpg": {
-     "brier": 0.2010643470149511,
-     "mae": 13.19375561410277
+     "brier": 0.20078002937226336,
+     "mae": 13.188342044168861
     },
     "ppm": {
-     "brier": 0.20215649526101176,
-     "mae": 13.309124822756356
+     "brier": 0.201840079624279,
+     "mae": 13.302071479877261
     },
     "g38": {
-     "brier": 0.20154565754526027,
-     "mae": 13.248125575969938
+     "brier": 0.20124369279086596,
+     "mae": 13.241503129771154
     },
     "b2b30": {
-     "brier": 0.20128546712325238,
-     "mae": 13.22518305040994
+     "brier": 0.20100615384969386,
+     "mae": 13.219437865245718
     },
     "spike": {
-     "brier": 0.2022627117315784,
-     "mae": 13.303495397053908
+     "brier": 0.20194806257420986,
+     "mae": 13.296613799021284
     },
     "tload": {
-     "brier": 0.2021410235361898,
-     "mae": 13.303887407856228
+     "brier": 0.20182623723796,
+     "mae": 13.29716083035359
     }
    },
    "single_base": {
-    "brier": 0.20208955899696604,
-    "mae": 13.297388851788439
+    "brier": 0.20177449977091436,
+    "mae": 13.290584055022379
    }
   },
   "L1_L3": {
@@ -124,90 +314,90 @@
     2012,
     2024
    ],
-   "share_20plus": 0.2938885560215698,
-   "avg_missed": 15.76100958657879,
+   "share_20plus": 0.2932893948472139,
+   "avg_missed": 15.747228879568604,
    "L1": {
-    "mae_base": 12.758263098016744,
-    "mae_full": 13.201860117490375,
-    "brier_base": 0.20434532989277954,
-    "brier_full": 0.20098182823027128,
+    "mae_base": 12.753385797606525,
+    "mae_full": 13.196240719887646,
+    "brier_base": 0.20405173860071352,
+    "brier_full": 0.20071913118354487,
     "pass_a": false,
     "pass_b": false
    },
    "L2": {
-    "brier_without": 0.20208955899696604,
-    "brier_with": 0.20080095691987368,
-    "mae_without": 13.297388851788439,
-    "mae_with": 13.19710878757936,
+    "brier_without": 0.20177449977091436,
+    "brier_with": 0.20053878535897435,
+    "mae_without": 13.290584055022379,
+    "mae_with": 13.191553014045304,
     "pass": false
    },
    "L3": {
-    "brier_without": 0.20080095691987368,
-    "brier_with": 0.20098182823027128,
-    "mae_without": 13.19710878757936,
-    "mae_with": 13.201860117490375,
+    "brier_without": 0.20053878535897435,
+    "brier_with": 0.20071913118354487,
+    "mae_without": 13.191553014045304,
+    "mae_with": 13.196240719887646,
     "pass": false
    },
    "single": {
     "career_min": {
-     "brier": 0.2016997074114098,
-     "mae": 13.236466592829842
+     "brier": 0.20140193238758142,
+     "mae": 13.22989165385073
     },
     "min_po": {
-     "brier": 0.20090638913287936,
-     "mae": 13.259060533231425
+     "brier": 0.2006178828059389,
+     "mae": 13.252530538533442
     },
     "mpg": {
-     "brier": 0.2010643470149511,
-     "mae": 13.19375561410277
+     "brier": 0.20078002937226336,
+     "mae": 13.188342044168861
     },
     "ppm": {
-     "brier": 0.20215649526101176,
-     "mae": 13.309124822756356
+     "brier": 0.201840079624279,
+     "mae": 13.302071479877261
     },
     "g38": {
-     "brier": 0.20154565754526027,
-     "mae": 13.248125575969938
+     "brier": 0.20124369279086596,
+     "mae": 13.241503129771154
     },
     "b2b30": {
-     "brier": 0.20128546712325238,
-     "mae": 13.22518305040994
+     "brier": 0.20100615384969386,
+     "mae": 13.219437865245718
     },
     "spike": {
-     "brier": 0.2022627117315784,
-     "mae": 13.303495397053908
+     "brier": 0.20194806257420986,
+     "mae": 13.296613799021284
     },
     "tload": {
-     "brier": 0.2021410235361898,
-     "mae": 13.303887407856228
+     "brier": 0.20182623723796,
+     "mae": 13.29716083035359
     }
    },
    "single_base": {
-    "brier": 0.20208955899696604,
-    "mae": 13.297388851788439
+    "brier": 0.20177449977091436,
+    "mae": 13.290584055022379
    }
   },
   "team": {
    "TM1": {
-    "r_repeat": 0.0344377487824267,
+    "r_repeat": 0.03387833449461798,
     "pairs": 360,
     "pass_repeat": false,
-    "brier_without": 0.2009818282302713,
-    "brier_with": 0.20110233513147632,
+    "brier_without": 0.2007191311835448,
+    "brier_with": 0.2008393625695521,
     "pass_input": false
    },
    "TM2": {
-    "events": 2741,
-    "reabsence_rate": 0.4418095585552718,
-    "r_repeat": 0.06931563474130041,
+    "events": 2733,
+    "reabsence_rate": 0.44163922429564584,
+    "r_repeat": 0.06371495007982647,
     "pairs": 368,
     "pass_repeat": false,
-    "brier_without": 0.2009818282302713,
-    "brier_with": 0.2010373402302302,
+    "brier_without": 0.2007191311835448,
+    "brier_with": 0.20077490895013012,
     "pass_input": false
    },
    "TM3": {
-    "r_repeat": 0.49220383500053383,
+    "r_repeat": 0.49562266419923806,
     "league_by_season": {
      "2010": 1.65,
      "2011": 1.99,
@@ -224,18 +414,18 @@
      "2022": 4.01,
      "2023": 3.39,
      "2024": 4.61,
-     "2025": 4.85
+     "2025": 4.88
     }
    }
   },
   "extra": {
    "C1": {
     "n": 2572,
-    "with_college_record": 2141,
-    "no_college": 431,
-    "brier_without": 0.2019212777893424,
-    "brier_with": 0.20129090407257677,
-    "gain": 0.0031218786037164638,
+    "with_college_record": 1801,
+    "no_college": 771,
+    "brier_without": 0.2014265694772249,
+    "brier_with": 0.20075597346016166,
+    "gain": 0.003329233173179067,
     "pass_": false
    },
    "L6": {
@@ -246,15 +436,16 @@
      "spd",
      "mi_po"
     ],
-    "brier_without": 0.20314564434956853,
-    "brier_with": 0.20394289185169137,
-    "gain": -0.003924511916932653,
+    "brier_without": 0.20281051903451913,
+    "brier_with": 0.20358816221608914,
+    "gain": -0.0038343335704280985,
     "pass_": false
    },
    "log": {
-    "college_matched": 722,
-    "ages_from_birthdate": 4583,
-    "age_diff_mean": 0.6472632021175183,
+    "college_matched": 603,
+    "ages_from_nba_birthdate": 7234,
+    "ages_without_birthdate": 1144,
+    "age_diff_mean": 0.5816725603881738,
     "miles_rows_dropped_bad_speed": 54
    },
    "miles36_by_season": {
@@ -273,6 +464,50 @@
     "2025": 2.625
    }
   }
+ },
+ "v1_backtest": {
+  "n": 3338,
+  "seasons": "2013-14 to 2025-26 outcomes",
+  "mae": 13.290451798753795,
+  "mae_base": 12.753385797606525,
+  "brier": 0.20175993872498904,
+  "brier_base": 0.20405173860071352,
+  "auc": 0.604720105686998,
+  "auc_base": 0.5794717901709532,
+  "cover80": 0.8993409227082085,
+  "L4_pass": false,
+  "calib": [
+   {
+    "pred": 0.2059329048188438,
+    "actual": 0.18862275449101795,
+    "n": 668
+   },
+   {
+    "pred": 0.23976006184630078,
+    "actual": 0.23088455772113944,
+    "n": 667
+   },
+   {
+    "pred": 0.2737128538166193,
+    "actual": 0.3143712574850299,
+    "n": 668
+   },
+   {
+    "pred": 0.3203958806464288,
+    "actual": 0.32233883058470764,
+    "n": 667
+   },
+   {
+    "pred": 0.4267421406946424,
+    "actual": 0.4101796407185629,
+    "n": 668
+   }
+  ],
+  "L5_pass": true,
+  "rate20": 0.2932893948472139,
+  "avg_missed": 15.747228879568604,
+  "median_missed": 10.0,
+  "auc_full": 0.6118942904859619
  },
  "trend": [
   {
@@ -397,15 +632,784 @@
   },
   {
    "season": "2025-26",
-   "pace": 96.3,
+   "pace": 96.4,
    "top5_mpg": 29.0,
    "miles36": 2.62,
-   "rest": 4.8,
-   "missed": 11.4
+   "rest": 4.9,
+   "missed": 11.2
   }
  ],
  "league_mi36": 2.6250238871058627,
- "players": 279,
- "min_minutes": 1000,
- "sample_min": 1000
+ "region_games": {
+  "knee": 4827,
+  "ankle": 3965,
+  "foot": 2232,
+  "calf": 2111,
+  "hand": 1888,
+  "thigh": 1751,
+  "other": 1670,
+  "back": 1558,
+  "hip": 1321,
+  "shoulder": 1060,
+  "chest": 400,
+  "head": 397,
+  "arm": 304,
+  "neck": 113
+ },
+ "players": 617,
+ "report_last": "2025-12-21",
+ "b2b": {
+  "second_night": 0.0541486270090742,
+  "other": 0.02710170710473523,
+  "second_night_strict": 0.0418717751023071,
+  "other_strict": 0.025789520168565554
+ },
+ "playoffs": {
+  "sample_H": {
+   "n": 2105,
+   "seasons": "2010-11 to 2024-25 (outcomes 2011-12 to 2025-26)",
+   "players": 539
+  },
+  "P1": {
+   "label": "long history, missed games (runs of 3+), regulars",
+   "n": 2105,
+   "raw": [
+    {
+     "group": "none",
+     "n": 901,
+     "rate": 0.2641509433962264,
+     "lo": 0.2364078213819633,
+     "hi": 0.29389670926737904,
+     "avg_missed": 14.118496283590623
+    },
+    {
+     "group": "1-6",
+     "n": 487,
+     "rate": 0.2648870636550308,
+     "lo": 0.22764537361073883,
+     "hi": 0.30580900352436946,
+     "avg_missed": 14.299550950988321
+    },
+    {
+     "group": "7-13",
+     "n": 395,
+     "rate": 0.22531645569620254,
+     "lo": 0.18687401920385352,
+     "hi": 0.2690503377338381,
+     "avg_missed": 12.349820994757705
+    },
+    {
+     "group": "14+",
+     "n": 322,
+     "rate": 0.21428571428571427,
+     "lo": 0.1729735728666628,
+     "hi": 0.2623348714817567,
+     "avg_missed": 12.679292929292929
+    }
+   ],
+   "adjusted": {
+    "1-6": {
+     "odds_ratio": 1.073687937089252,
+     "lo": 0.8356589050542413,
+     "hi": 1.3795171442302128,
+     "p": 0.5782117787627946
+    },
+    "7-13": {
+     "odds_ratio": 0.8879619501709459,
+     "lo": 0.6653539452806594,
+     "hi": 1.1850480943925183,
+     "p": 0.4196916921994901
+    },
+    "14+": {
+     "odds_ratio": 0.8052479031645974,
+     "lo": 0.5725588400450493,
+     "hi": 1.132502269111699,
+     "p": 0.21318563465491835
+    }
+   },
+   "pass_": false
+  },
+  "P2": {
+   "exposure": "team_po",
+   "brier_without": 0.1862654260091172,
+   "brier_with": 0.18615738643880725,
+   "gain": 0.0005800301893098193,
+   "pass_": false
+  },
+  "P2_3y": {
+   "exposure": "team_po_3y",
+   "brier_without": 0.1862654260091172,
+   "brier_with": 0.18640622992244513,
+   "gain": -0.0007559315560851533,
+   "pass_": false
+  },
+  "P2_minutes": {
+   "exposure": "min_po",
+   "brier_without": 0.1862654260091172,
+   "brier_with": 0.18578729585466483,
+   "gain": 0.002566929164991455,
+   "pass_": false
+  },
+  "P3": {
+   "n": 1960,
+   "players": 394,
+   "games_missed_per_10_playoff_games": {
+    "coef": 0.24913690823907,
+    "lo": -0.9619368765929736,
+    "hi": 1.4602106930711134
+   },
+   "pass_": false
+  },
+  "P5": {
+   "added": 23,
+   "p1": {
+    "label": "including whole missed seasons as 82",
+    "n": 2128,
+    "raw": [
+     {
+      "group": "none",
+      "n": 913,
+      "rate": 0.2738225629791895,
+      "lo": 0.2458901437538658,
+      "hi": 0.3036503657518111,
+      "avg_missed": 15.010695675263037
+     },
+     {
+      "group": "1-6",
+      "n": 491,
+      "rate": 0.2708757637474542,
+      "lo": 0.2334571957465935,
+      "hi": 0.3118518486021437,
+      "avg_missed": 14.851082104137094
+     },
+     {
+      "group": "7-13",
+      "n": 399,
+      "rate": 0.23308270676691728,
+      "lo": 0.19426224622249935,
+      "hi": 0.2769939497612322,
+      "avg_missed": 13.048068403331563
+     },
+     {
+      "group": "14+",
+      "n": 325,
+      "rate": 0.22153846153846155,
+      "lo": 0.17978830672777998,
+      "hi": 0.26979471439850083,
+      "avg_missed": 13.31917637917638
+     }
+    ],
+    "adjusted": {
+     "1-6": {
+      "odds_ratio": 1.054037010227433,
+      "lo": 0.8233248006267115,
+      "hi": 1.3493994327433125,
+      "p": 0.6762764847782485
+     },
+     "7-13": {
+      "odds_ratio": 0.883504618125217,
+      "lo": 0.6682217493596851,
+      "hi": 1.1681457704670142,
+      "p": 0.384714979862538
+     },
+     "14+": {
+      "odds_ratio": 0.8030295311675745,
+      "lo": 0.5756554000537691,
+      "hi": 1.1202125922330992,
+      "p": 0.19650154815808174
+     }
+    },
+    "pass_": false
+   },
+   "p3": {
+    "n": 1985,
+    "players": 399,
+    "games_missed_per_10_playoff_games": {
+     "coef": 0.3395846845911344,
+     "lo": -0.9373924790145263,
+     "hi": 1.616561848196795
+    },
+    "pass_": false
+   },
+   "whole": [
+    {
+     "player": "Andrei Kirilenko",
+     "season": "2010-11",
+     "team_po": 0
+    },
+    {
+     "player": "Channing Frye",
+     "season": "2011-12",
+     "team_po": 0
+    },
+    {
+     "player": "Andrew Bynum",
+     "season": "2011-12",
+     "team_po": 12
+    },
+    {
+     "player": "Kevin Durant",
+     "season": "2018-19",
+     "team_po": 22
+    },
+    {
+     "player": "Jeff Green",
+     "season": "2010-11",
+     "team_po": 9
+    },
+    {
+     "player": "Wilson Chandler",
+     "season": "2014-15",
+     "team_po": 0
+    },
+    {
+     "player": "Danilo Gallinari",
+     "season": "2012-13",
+     "team_po": 6
+    },
+    {
+     "player": "Danilo Gallinari",
+     "season": "2021-22",
+     "team_po": 5
+    },
+    {
+     "player": "Darren Collison",
+     "season": "2018-19",
+     "team_po": 4
+    },
+    {
+     "player": "James Anderson",
+     "season": "2013-14",
+     "team_po": 0
+    },
+    {
+     "player": "Klay Thompson",
+     "season": "2018-19",
+     "team_po": 22
+    },
+    {
+     "player": "Kawhi Leonard",
+     "season": "2020-21",
+     "team_po": 19
+    },
+    {
+     "player": "Darius Miller",
+     "season": "2018-19",
+     "team_po": 0
+    },
+    {
+     "player": "Seth Curry",
+     "season": "2016-17",
+     "team_po": 0
+    },
+    {
+     "player": "Kristaps Porzi\u0146\u0123is",
+     "season": "2017-18",
+     "team_po": 0
+    },
+    {
+     "player": "Ben Simmons",
+     "season": "2020-21",
+     "team_po": 12
+    },
+    {
+     "player": "Jamal Murray",
+     "season": "2020-21",
+     "team_po": 10
+    },
+    {
+     "player": "Denzel Valentine",
+     "season": "2017-18",
+     "team_po": 0
+    },
+    {
+     "player": "Miles Bridges",
+     "season": "2021-22",
+     "team_po": 0
+    },
+    {
+     "player": "Kendrick Nunn",
+     "season": "2020-21",
+     "team_po": 4
+    },
+    {
+     "player": "Zion Williamson",
+     "season": "2020-21",
+     "team_po": 0
+    },
+    {
+     "player": "Kevin Porter Jr.",
+     "season": "2022-23",
+     "team_po": 0
+    },
+    {
+     "player": "Saddiq Bey",
+     "season": "2023-24",
+     "team_po": 0
+    }
+   ]
+  },
+  "three_year": [
+   {
+    "group": "none",
+    "n": 508,
+    "rate20": 0.24803149606299213,
+    "avg": 13.381755547602005
+   },
+   {
+    "group": "1-15",
+    "n": 646,
+    "rate20": 0.29566563467492263,
+    "avg": 15.32917018482034
+   },
+   {
+    "group": "16-35",
+    "n": 708,
+    "rate20": 0.2076271186440678,
+    "avg": 12.132743394395938
+   },
+   {
+    "group": "36+",
+    "n": 243,
+    "rate20": 0.25102880658436216,
+    "avg": 13.806584362139917
+   }
+  ],
+  "P4": {
+   "p1": {
+    "label": "official injury games, 2021-22 on",
+    "n": 1032,
+    "raw": [
+     {
+      "group": "none",
+      "n": 467,
+      "rate": 0.25267665952890794,
+      "lo": 0.21539130530493064,
+      "hi": 0.29399783957946374,
+      "avg_missed": 13.312906165385494
+     },
+     {
+      "group": "1-6",
+      "n": 248,
+      "rate": 0.2540322580645161,
+      "lo": 0.20388885271677484,
+      "hi": 0.3116796633663505,
+      "avg_missed": 13.859040927860894
+     },
+     {
+      "group": "7-13",
+      "n": 167,
+      "rate": 0.2994011976047904,
+      "lo": 0.23508547032043003,
+      "hi": 0.37273838522763314,
+      "avg_missed": 15.397569775234075
+     },
+     {
+      "group": "14+",
+      "n": 150,
+      "rate": 0.24666666666666667,
+      "lo": 0.18458062005199133,
+      "hi": 0.3214047571151728,
+      "avg_missed": 14.220018904108922
+     }
+    ],
+    "adjusted": {
+     "1-6": {
+      "odds_ratio": 1.1520146886412315,
+      "lo": 0.8070110677105613,
+      "hi": 1.6445100890749347,
+      "p": 0.4358317651091025
+     },
+     "7-13": {
+      "odds_ratio": 1.486807874061568,
+      "lo": 0.9848302862027601,
+      "hi": 2.244648327068563,
+      "p": 0.05912923990768131
+     },
+     "14+": {
+      "odds_ratio": 1.128353117221277,
+      "lo": 0.7252263666610841,
+      "hi": 1.755563249864523,
+      "p": 0.5923413734051708
+     }
+    },
+    "pass_": false
+   },
+   "p2": {
+    "exposure": "team_po",
+    "brier_without": 0.18817808699193625,
+    "brier_with": 0.18966309878042395,
+    "gain": -0.007891523461769145,
+    "pass_": false
+   }
+  },
+  "top5_bump": {
+   "avg": 1.0034970286495253,
+   "by_season": {
+    "2010": 0.5,
+    "2011": 1.17,
+    "2012": 2.24,
+    "2013": 0.84,
+    "2014": 2.08,
+    "2015": 0.35,
+    "2016": 0.84,
+    "2017": 0.18,
+    "2018": 1.04,
+    "2019": 1.6,
+    "2020": 0.69,
+    "2021": 0.41,
+    "2022": 1.05,
+    "2023": 2.0,
+    "2024": 0.41,
+    "2025": 0.65
+   }
+  },
+  "offseason": {
+   "1-6": 178.0,
+   "14+": 138.0,
+   "7-13": 163.0,
+   "none": 196.0
+  },
+  "warriors": [
+   {
+    "player": "Stephen Curry",
+    "season": "2014-15",
+    "team_po": 21,
+    "min_po": 825.8833333333333,
+    "three_year": 40,
+    "missed_next": 0.0,
+    "whole_season": false
+   },
+   {
+    "player": "Stephen Curry",
+    "season": "2015-16",
+    "team_po": 24,
+    "min_po": 614.2333333333333,
+    "three_year": 52,
+    "missed_next": 0.0,
+    "whole_season": false
+   },
+   {
+    "player": "Stephen Curry",
+    "season": "2016-17",
+    "team_po": 17,
+    "min_po": 600.85,
+    "three_year": 62,
+    "missed_next": 27.0,
+    "whole_season": false
+   },
+   {
+    "player": "Stephen Curry",
+    "season": "2017-18",
+    "team_po": 21,
+    "min_po": 554.85,
+    "three_year": 62,
+    "missed_next": 11.0,
+    "whole_season": false
+   },
+   {
+    "player": "Stephen Curry",
+    "season": "2018-19",
+    "team_po": 22,
+    "min_po": 845.5666666666666,
+    "three_year": 60,
+    "missed_next": 66.05555555555556,
+    "whole_season": false
+   },
+   {
+    "player": "Stephen Curry",
+    "season": "2019-20",
+    "team_po": 0,
+    "min_po": 0.0,
+    "three_year": 43,
+    "missed_next": 5.694444444444445,
+    "whole_season": false
+   },
+   {
+    "player": "Stephen Curry",
+    "season": "2020-21",
+    "team_po": 0,
+    "min_po": 0.0,
+    "three_year": 22,
+    "missed_next": 12.0,
+    "whole_season": false
+   },
+   {
+    "player": "Stephen Curry",
+    "season": "2021-22",
+    "team_po": 22,
+    "min_po": 763.75,
+    "three_year": 22,
+    "missed_next": 22.0,
+    "whole_season": false
+   },
+   {
+    "player": "Klay Thompson",
+    "season": "2014-15",
+    "team_po": 21,
+    "min_po": 760.9833333333333,
+    "three_year": 40,
+    "missed_next": 0.0,
+    "whole_season": false
+   },
+   {
+    "player": "Klay Thompson",
+    "season": "2015-16",
+    "team_po": 24,
+    "min_po": 848.8333333333334,
+    "three_year": 52,
+    "missed_next": 0.0,
+    "whole_season": false
+   },
+   {
+    "player": "Klay Thompson",
+    "season": "2016-17",
+    "team_po": 17,
+    "min_po": 595.5333333333333,
+    "three_year": 62,
+    "missed_next": 8.0,
+    "whole_season": false
+   },
+   {
+    "player": "Klay Thompson",
+    "season": "2017-18",
+    "team_po": 21,
+    "min_po": 793.8,
+    "three_year": 62,
+    "missed_next": 0.0,
+    "whole_season": false
+   },
+   {
+    "player": "Klay Thompson",
+    "season": "2018-19",
+    "team_po": 22,
+    "min_po": 817.95,
+    "three_year": 60,
+    "missed_next": 82.0,
+    "whole_season": true
+   },
+   {
+    "player": "Klay Thompson",
+    "season": "2021-22",
+    "team_po": 22,
+    "min_po": 791.8333333333334,
+    "three_year": 22,
+    "missed_next": 0.0,
+    "whole_season": false
+   },
+   {
+    "player": "Draymond Green",
+    "season": "2014-15",
+    "team_po": 21,
+    "min_po": 783.65,
+    "three_year": 40,
+    "missed_next": 0.0,
+    "whole_season": false
+   },
+   {
+    "player": "Draymond Green",
+    "season": "2015-16",
+    "team_po": 24,
+    "min_po": 879.3833333333333,
+    "three_year": 52,
+    "missed_next": 0.0,
+    "whole_season": false
+   },
+   {
+    "player": "Draymond Green",
+    "season": "2016-17",
+    "team_po": 17,
+    "min_po": 592.5666666666667,
+    "three_year": 62,
+    "missed_next": 7.0,
+    "whole_season": false
+   },
+   {
+    "player": "Draymond Green",
+    "season": "2017-18",
+    "team_po": 21,
+    "min_po": 818.4666666666667,
+    "three_year": 62,
+    "missed_next": 11.0,
+    "whole_season": false
+   },
+   {
+    "player": "Draymond Green",
+    "season": "2018-19",
+    "team_po": 22,
+    "min_po": 850.7333333333333,
+    "three_year": 60,
+    "missed_next": 15.944444444444445,
+    "whole_season": false
+   },
+   {
+    "player": "Draymond Green",
+    "season": "2019-20",
+    "team_po": 0,
+    "min_po": 0.0,
+    "three_year": 43,
+    "missed_next": 4.555555555555555,
+    "whole_season": false
+   },
+   {
+    "player": "Draymond Green",
+    "season": "2020-21",
+    "team_po": 0,
+    "min_po": 0.0,
+    "three_year": 22,
+    "missed_next": 29.0,
+    "whole_season": false
+   },
+   {
+    "player": "Draymond Green",
+    "season": "2021-22",
+    "team_po": 22,
+    "min_po": 703.2,
+    "three_year": 22,
+    "missed_next": 0.0,
+    "whole_season": false
+   },
+   {
+    "player": "Andre Iguodala",
+    "season": "2014-15",
+    "team_po": 21,
+    "min_po": 634.6333333333333,
+    "three_year": 34,
+    "missed_next": 13.0,
+    "whole_season": false
+   },
+   {
+    "player": "Andre Iguodala",
+    "season": "2015-16",
+    "team_po": 24,
+    "min_po": 767.5,
+    "three_year": 52,
+    "missed_next": 0.0,
+    "whole_season": false
+   },
+   {
+    "player": "Andre Iguodala",
+    "season": "2016-17",
+    "team_po": 17,
+    "min_po": 419.4166666666667,
+    "three_year": 62,
+    "missed_next": 7.0,
+    "whole_season": false
+   },
+   {
+    "player": "Andre Iguodala",
+    "season": "2017-18",
+    "team_po": 21,
+    "min_po": 401.3666666666667,
+    "three_year": 62,
+    "missed_next": 7.0,
+    "whole_season": false
+   },
+   {
+    "player": "Andre Iguodala",
+    "season": "2018-19",
+    "team_po": 22,
+    "min_po": 629.3166666666666,
+    "three_year": 60,
+    "missed_next": 58.083333333333336,
+    "whole_season": false
+   },
+   {
+    "player": "Andre Iguodala",
+    "season": "2019-20",
+    "team_po": 21,
+    "min_po": 409.8833333333333,
+    "three_year": 64,
+    "missed_next": 0.0,
+    "whole_season": false
+   },
+   {
+    "player": "Andre Iguodala",
+    "season": "2020-21",
+    "team_po": 4,
+    "min_po": 71.11666666666667,
+    "three_year": 47,
+    "missed_next": 40.0,
+    "whole_season": false
+   },
+   {
+    "player": "Andre Iguodala",
+    "season": "2021-22",
+    "team_po": 22,
+    "min_po": 61.6,
+    "three_year": 47,
+    "missed_next": 73.0,
+    "whole_season": false
+   },
+   {
+    "player": "Kevin Durant",
+    "season": "2014-15",
+    "team_po": 0,
+    "min_po": 0.0,
+    "three_year": 30,
+    "missed_next": 6.0,
+    "whole_season": false
+   },
+   {
+    "player": "Kevin Durant",
+    "season": "2015-16",
+    "team_po": 18,
+    "min_po": 720.0166666666667,
+    "three_year": 37,
+    "missed_next": 19.0,
+    "whole_season": false
+   },
+   {
+    "player": "Kevin Durant",
+    "season": "2016-17",
+    "team_po": 17,
+    "min_po": 533.0666666666666,
+    "three_year": 35,
+    "missed_next": 12.0,
+    "whole_season": false
+   },
+   {
+    "player": "Kevin Durant",
+    "season": "2017-18",
+    "team_po": 21,
+    "min_po": 807.4166666666666,
+    "three_year": 56,
+    "missed_next": 0.0,
+    "whole_season": false
+   },
+   {
+    "player": "Kevin Durant",
+    "season": "2018-19",
+    "team_po": 22,
+    "min_po": 441.6666666666667,
+    "three_year": 60,
+    "missed_next": 82.0,
+    "whole_season": true
+   },
+   {
+    "player": "Kevin Durant",
+    "season": "2020-21",
+    "team_po": 12,
+    "min_po": 484.95,
+    "three_year": 34,
+    "missed_next": 24.0,
+    "whole_season": false
+   },
+   {
+    "player": "Kevin Durant",
+    "season": "2021-22",
+    "team_po": 4,
+    "min_po": 176.01666666666665,
+    "three_year": 16,
+    "missed_next": 29.0,
+    "whole_season": false
+   }
+  ]
+ },
+ "basis_counts": {
+  "recent": 493,
+  "rookie": 115,
+  "absent": 6,
+  "no data": 3
+ }
 }

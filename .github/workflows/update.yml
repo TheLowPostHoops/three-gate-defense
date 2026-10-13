@@ -1,8 +1,8 @@
-name: Weekly data refresh
+name: Daily data refresh
 
 on:
   schedule:
-    - cron: "30 9 * * 1"        # Mondays, about 5:30am Eastern
+    - cron: "30 9 * * *"        # every day, about 5:30am Eastern (publishes only when the data changed)
   workflow_dispatch:            # lets you run it by hand from the Actions tab
 
 permissions:
@@ -30,8 +30,22 @@ jobs:
       - name: Install packages
         run: pip install -r pipeline/requirements.txt
 
-      - name: Refit the model on the latest data
+      - name: Restore built seasons
+        uses: actions/cache@v4
+        with:
+          path: |
+            pipeline/out/games_*.csv.gz
+            pipeline/out/teamgames_*.csv.gz
+            pipeline/out/names_*.csv
+          key: seasons-${{ github.run_id }}
+          restore-keys: seasons-
+
+      - name: Refit the rim protection model
         run: python pipeline/update.py --boot 200
+
+      - name: Rebuild the Load & Durability model
+        continue-on-error: true          # if it fails, the rim model still publishes and the injury page keeps its last good data
+        run: bash pipeline/load_update.sh
 
       - name: Publish if anything changed
         env:
@@ -43,7 +57,7 @@ jobs:
           if git diff --cached --quiet; then
             echo "No new data this week."
           else
-            git commit -m "Weekly data refresh $(date -u +%F)"
+            git commit -m "Data refresh $(date -u +%F)"
             git push
             gh api -X POST "repos/${GITHUB_REPOSITORY}/pages/builds" || true
           fi
@@ -53,4 +67,4 @@ jobs:
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh issue create --assignee TheLowPostHoops --title "Weekly refresh failed $(date -u +%F)" --body "The weekly data refresh failed. The site is still showing the last good data. Details: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+          gh issue create --assignee TheLowPostHoops --title "Data refresh failed $(date -u +%F)" --body "The daily data refresh failed. The site is still showing the last good data. Details: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"

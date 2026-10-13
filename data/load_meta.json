@@ -664,6 +664,7 @@
   "second_night_strict": 0.0418717751023071,
   "other_strict": 0.025789520168565554
  },
+ "live_season": null,
  "playoffs": {
   "sample_H": {
    "n": 2105,

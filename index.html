@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Low Post</title>
+<title>Ghost Screen Analytics</title>
 <meta name="description" content="Data-driven basketball analytics. Models built from public data, with the tests written before the results.">
 <style>
 :root{--bg:#ffffff;--ink:#121212;--mute:#6b6b6b;--line:#e3e3e3;--soft:#f5f5f4;--rule:#121212}
@@ -34,24 +34,24 @@ h2{font:700 .8rem/1.2 -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sa
 <link rel="stylesheet" href="/three-gate-defense/assets/site.css">
 </head>
 <body>
-<header class="mast"><div><a class="brand" href="/three-gate-defense/">The Low Post</a><nav><a href="/three-gate-defense/" aria-current="page">Home</a><div class="dd"><a href="/three-gate-defense/models/">Models</a><div class="menu"><a href="/three-gate-defense/defense/">Three Gates<small>Rim protection explorer</small></a><a href="/three-gate-defense/durability/">Load &amp; Durability<small>Who misses games, and why</small></a></div></div><a class="x" href="https://x.com/LowPostHoops">@LowPostHoops</a></nav></div></header>
+<header class="mast"><div><a class="brand" href="/three-gate-defense/">Ghost Screen Analytics</a><nav><a href="/three-gate-defense/" aria-current="page">Home</a><div class="dd"><a href="/three-gate-defense/models/">Models</a><div class="menu"><a href="/three-gate-defense/defense/">Three Gates<small>Rim protection explorer</small></a><a href="/three-gate-defense/durability/">Load &amp; Durability<small>Who misses games, and why</small></a></div></div><a class="x" href="https://x.com/LowPostHoops">@LowPostHoops</a></nav></div></header>
 <main>
 <div class="hero">
  <h1>Basketball questions, answered with tests written before the results.</h1>
- <p>The Low Post builds its own models from public NBA data. Every one comes with the bar it had to clear, what it passed, and what it failed.</p>
+ <p>Ghost Screen Analytics builds its own models from public NBA data. Every one comes with the bar it had to clear, what it passed, and what it failed.</p>
 </div>
 
 <h2>Models</h2>
 <div class="cards">
  <a class="c" href="defense/"><div class="k">Defense</div><h3>Three Gates: rim protection</h3><p>Blocks show one of three ways to protect the rim. This splits it into Redirect, Deter and Contest and grades every defender on each.</p><div class="f" id="f1">Open the explorer →</div></a>
- <a class="c" href="durability/"><div class="k">Health · new</div><h3>Load &amp; Durability</h3><p>Who is likely to miss games next season, and whether minutes, miles run, back-to-backs, coaches, college workload or team medical staffs predict it.</p><div class="f" id="f2">Open the model →</div></a>
+ <a class="c" href="durability/"><div class="k">Health · new</div><h3>Load &amp; Durability</h3><p>Who is likely to miss games to injury next season, a body map for every player from the NBA's official injury reports, and what kind of load raises the risk.</p><div class="f" id="f2">Open the model →</div></a>
 </div>
 
 <h2>Findings</h2>
 <div class="find" id="find">
  <div><b id="n1">–</b>more possessions per game than in 2010-11. The game asks for more running.</div>
  <div><b id="n2">–</b>one- and two-game rest breaks per rotation player last season, up from <span id="n2b">–</span>.</div>
- <div><b id="n3">–</b>of the time, the durability model picks the player who goes on to miss 20+ games. A coin flip gets 50%. Minutes, miles and coaches did not help.</div>
+ <div><b id="n3">–</b>of next injuries hit the same body area as the last one, more than twice what chance would give.</div>
 </div>
 
 <h2>About</h2>
@@ -63,7 +63,7 @@ h2{font:700 .8rem/1.2 -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sa
 fetch('data/load_meta.json?'+Date.now()).then(r=>r.json()).then(M=>{const t=M.trend,a=t[0],b=t[t.length-1];
  document.getElementById('n1').textContent='+'+Math.round((b.pace/a.pace-1)*100)+'%';
  document.getElementById('n2').textContent=b.rest.toFixed(1);document.getElementById('n2b').textContent=a.rest.toFixed(1)+' in '+a.season;
- document.getElementById('n3').textContent=Math.round(M.backtest.auc*100)+'%';}).catch(()=>{});
+ document.getElementById('n3').textContent=Math.round(M.v2.V3.same_rate*100)+'%';}).catch(()=>{});
 </script>
 </body>
 </html>

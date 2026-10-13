@@ -20,6 +20,20 @@ def norm(s):
     return s.replace(" ", "")
 
 
+def nba_birthdates():
+    out = {}
+    for pid, v in json.load(open(os.path.join(LM.HERE, "inputs", "bio_players.json"))).items():
+        t = pd.to_datetime(str(v[2])[:10], errors="coerce")
+        if pd.notna(t): out[int(pid)] = t
+    for r in json.load(open(os.path.join(LM.HERE, "inputs", "rosters_2026.json"))):
+        t = pd.to_datetime(r[7], format="%b %d, %Y", errors="coerce")
+        if pd.notna(t): out[int(r[1])] = t
+    return out
+
+
+NBA_BD = nba_birthdates()
+
+
 def inches(h):
     m = re.match(r"(\d+)-(\d+)", str(h))
     return int(m.group(1)) * 12 + int(m.group(2)) if m else np.nan
@@ -41,6 +55,9 @@ def college(names, first_season):
                 if best is None or len(x) > len(best[1]): best = (bd, x)
         if best is None: continue
         bd, x = best
+        nb = NBA_BD.get(pid)
+        if nb is not None and bd != "?" and pd.to_datetime(bd, errors="coerce") != nb:
+            continue                                    # same name, different person
         x = x.sort_values("year")
         rows[pid] = dict(col_years=x.year.nunique(), col_gp=x.gp.sum(), col_tg=x.groupby("year").team_games.max().sum(),
                          col_min=float((x.gp * x.mpg).sum()), col_mpg=float((x.gp * x.mpg).sum() / max(x.gp.sum(), 1)),
@@ -68,10 +85,12 @@ def main():
     for c in ("col_min", "col_missed", "col_years", "height"):
         D[c + "_f"] = D[c]
     # better ages from birth dates where we have them (age on Feb 1 of season t+1)
-    bd = pd.to_datetime(D.bday, errors="coerce")
+    # ages: NBA.com birthdates by player id (team rosters + player pages); Basketball-Reference carry-forward only
+    # when NBA.com has none. College birthdates are not used for ages (matched by name, so they can be the wrong person).
+    bd = D.pid.map(nba_birthdates())
     feb1 = pd.to_datetime((D.season + 2).astype(str) + "-02-01")
     exact = (feb1 - bd).dt.days / 365.25
-    log["ages_from_birthdate"] = int(exact.notna().sum())
+    log["ages_from_nba_birthdate"] = int(exact.notna().sum()); log["ages_without_birthdate"] = int(exact.isna().sum())
     log["age_diff_mean"] = float((exact - D.age_next).abs().mean())
     D.loc[exact.notna(), "age_next"] = np.floor(exact[exact.notna()])
 

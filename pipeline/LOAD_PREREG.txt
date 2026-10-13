@@ -93,3 +93,112 @@ DATA FIXES 2026-10-12 (after the tests above were first run; results reported bo
 - A season with no games between two seasons a player did play now counts as 82 missed games in his history
   (Leonard 2021-22, Thompson 2019-21 had been treated as unknown). Results before this fix: L1 Brier 0.2043 -> 0.2011
   (1.6%, FAIL), shipped model AUC 0.603.
+
+==========================================================================
+VERSION 2 (written 2026-10-12, before any v2 number was computed)
+==========================================================================
+New data: the NBA's official injury reports (ak-static.cms.nba.com, one per game day, 2021-22 through 2025-26).
+Each listed player has a status (Out, Doubtful, Questionable, Probable, Available) and a reason: Injury/Illness
+with body part and type, Rest, G League, Personal, Suspension, Health and Safety Protocols, Not with team, etc.
+
+Injury games missed = games he did not play while listed Out or Doubtful with an Injury/Illness reason.
+Body part = the part named in that reason; groups: ankle/foot, knee, hamstring/calf/thigh/groin/hip (lower-body
+muscle), back, shoulder/arm/hand/wrist/finger, head/concussion, illness, other.
+
+V0 (check of version 1, no bar): share of version 1's "missed games" (runs of 3+) that were injury games; share of
+injury games version 1 missed (runs of 1-2). Reported as is.
+
+V1 Season forecast on the true outcome: next-season injury games missed (scaled to 82), pairs t = 2021-22..2024-25,
+   1,000+ minutes. History (injury games in t, t-1, t-2; version-1 missed games before 2021-22), age, position.
+   Beats last season's injury games alone by >= 2% (relative) on the 20+ injury game Brier score. Leave one target
+   season out.
+V2 Game-level load: unit = a player-game he started healthy (played his team's previous game). Event = an injury
+   absence starts at his next team game (he misses it while listed Out/Doubtful with Injury/Illness, excluding
+   illness). Base inputs: his injury events per game over the prior two seasons, age, position, games since his last
+   injury return. Load inputs: minutes in the last 7 and 28 days and their ratio, minutes in his last game, second
+   night of a back-to-back, games in the last 7 days, season minutes so far. Pass if the load inputs improve
+   out-of-sample log loss by >= 0.5% (relative), leaving one season out. The relative risk for the top tenth of the
+   7-day/28-day ratio is reported either way.
+V3 Same body part: after a return from a 3+ game injury absence, the chance that his next injury within 30 team games
+   is the same body part group. Pass if the same-group rate is >= 2x what the league mix of body parts would give,
+   with a 95% interval above 1. Separately: adding "lower-body muscle injuries in the last two seasons" to V1
+   improves the Brier score by >= 1% (relative).
+V4 Model form: gradient-boosted trees vs. the logistic/Poisson model on V1's inputs. Switch only if Brier improves
+   >= 1% (relative).
+Teams: 2026-27 rosters replace 2025-26 teams where available (data fix, not a test).
+
+V2 addendum (written 2026-10-12 before these inputs were joined to any outcome)
+- Report coverage: NBA.com blocked its 2026 report files (Akamai "Access Denied"), so official labels run from
+  2021-22 through mid-December 2025. The 2025-26 outcome is scaled by the games covered.
+V5 Travel (game level, added to V2): miles flown and time zones crossed in the last 7 days, altitude game, days of
+   rest before the next game. Pass if log loss improves >= 0.5% (relative).
+V6 Contact exposure: prior-season shots at the rim, free throws, fouls drawn and charges taken, each per 36 minutes.
+   Pass if V1 Brier improves >= 1% or V2 log loss improves >= 0.5% (relative); report both.
+V7 Body size: height, weight, BMI (NBA.com bios; listed weight is the latest one, not the weight in that season).
+   Same bars as V6.
+Game-by-game miles were not completed (NBA.com stats throttling), so no game-level miles test is run.
+- Fixes after the first v2 run (2026-10-12; first-run numbers kept in the record): (a) the game-level load windows
+  had included minutes from the game the injury happened in (a player hurt mid-game plays fewer minutes), which leaks
+  the answer; windows now end before that game and "minutes in his last game" means the game before. First run:
+  log loss 0.13696 -> 0.13245 (3.3%), travel 0.8%. (b) "Injury management" listings (planned rest of a known injury,
+  mostly on back-to-backs) are kept in the event as pre-registered, and a stricter version without them is reported.
+  (c) Report names matched by last name within the team-season when the full name failed.
+
+==========================================================================
+PLAYOFF LOAD (written 2026-10-13, before any playoff-vs-next-season number was computed)
+==========================================================================
+Question (from the article draft): do playoff games, or several years of long runs, lead to more games missed the
+next season?
+
+Check done before writing this (not a playoff number): among 2021-22..2025-26 player-seasons, the share of version-1
+missed games (runs of 3+) that were official injury games is 9% for players under 15 min/game, 42% at 15-25, 69% at
+25-30 and 76% at 30+. So the long-history tests use rotation regulars only, where the version-1 count is mostly injury.
+
+SAMPLE
+- Long history (H): seasons t = 2010-11 .. 2024-25, players with 1,500+ regular-season minutes and 25+ min/game in
+  season t who play in season t+1. Outcome: version-1 missed games in t+1 (runs of 3+, scaled to 82).
+- Official labels (R): t = 2021-22 .. 2024-25, players with 1,000+ minutes; outcome: official injury games in t+1.
+- Binary outcome: 20+ games missed next season.
+
+EXPOSURES (season t unless noted)
+- Team playoff games: how many playoff games his team played while he was on it (0 = missed the playoffs). This is
+  the main exposure because it does not depend on whether he got hurt during the playoffs (a player hurt in the
+  playoffs logs few playoff minutes, which would hide any effect).
+- His playoff minutes (secondary).
+- Three-year load: team playoff games summed over t-2, t-1, t.
+- Short offseason: days from his team's last game to the next season's opener (descriptive only).
+
+CONTROLS: regular-season minutes and min/game in t, age next season, position, his missed games in t, t-1.
+
+TESTS
+P1 Thresholds (the binary version): rate of 20+ missed games next season by team playoff games in t: none, 1-6
+   (first-round exit), 7-13 (second round), 14+ (conference finals or further). Raw rates with 95% intervals, and
+   the same after adjusting for the controls (logistic regression). Pass if the adjusted odds ratio for 14+ vs none
+   is above 1 with its 95% interval above 1.
+P2 Does it forecast? Adding team playoff games (t) to the controls improves the out-of-sample (leave one season out)
+   Brier score for 20+ games by >= 0.5% (relative). Same bar, separately, for the three-year load.
+P3 Same player, different years: a player-fixed-effects regression (each player compared with himself) of next-season
+   missed games on team playoff games in t, with the controls. Pass if the coefficient is positive with a 95%
+   interval (clustered by player) above 0.
+P4 Official labels: P1's adjusted odds ratio and P2 on sample R. Reported; R is small (4 outcome seasons), so it is a
+   check on H, not its own pass/fail.
+Descriptive: playoff vs regular-season minutes per game for each team's top five; the Warriors' core 2014-15 ..
+2018-19 (playoff games by season and games missed the next season).
+- Data fix 2026-10-13 (before the playoff tests were run): ages now come from NBA.com birth dates for every player
+  who has one (age on Feb 1 of the season). The earlier estimate (Basketball-Reference season age carried forward,
+  Torvik birth dates by name) was off by a year for many players and badly wrong for a few name collisions
+  (Jalen Williams shown 29, is 25; Brandon Miller shown 27, is 24). Version 2 tests are rerun with the fixed ages.
+
+DATA FIX 2026-10-13 (ages): 93 of 332 published ages were wrong. Some came from college birthdates matched by name
+that belonged to a different player (Jalen Williams shown as 29, Brandon Miller as 27); the rest were one year off
+from carrying Basketball-Reference ages forward. Ages now come from NBA.com birthdates by player id (age on Feb 1 of
+the season), and a college record is dropped when its birthdate disagrees with NBA.com's. All tests that use age
+were rerun; results before the fix stay in this file and in the page's history.
+DATA FIX 2026-10-13 (games played): checked against NBA.com's official 2025-26 totals for all 582 players. Players
+with 1,000+ minutes: minutes within 0.03% on average, games played exact for 90% (the rest off by 1-3). Below 500
+minutes games played were often short, because the 2025-26 source (converted cdn play-by-play) has no team id for the
+player coming in on a substitution, so a player who checked in and recorded nothing was missed. Fixed by giving him
+the team of the player going out.
+P5 (added 2026-10-13 after P1-P4 were run, so it is a check, not a pre-set test): the P1-P4 sample leaves out players
+who played no games in season t+1, which drops the worst outcomes (Thompson 2019-20, Durant 2019-20). P5 reruns P1
+and P3 counting a season with no games as 82 missed when the player played again in a later season.

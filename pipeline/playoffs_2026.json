@@ -1,0 +1,8 @@
+{
+  "_note": "Playoff games played by each team in the 2026 playoffs (season 2025-26). The play-by-play source stops on May 9, 2026, so later rounds come from published series results: Wikipedia '2026 NBA playoffs' and, for Spurs-Timberwolves (Spurs in 6), KSAT and Philstar game reports. First-round counts are from the play-by-play. Checked 2026-10-13.",
+  "season": 2025,
+  "games": {"NYK": 19, "SAS": 23, "CLE": 18, "OKC": 15, "DET": 14, "MIN": 12, "PHI": 11, "LAL": 10,
+            "ATL": 6, "TOR": 7, "DEN": 6, "HOU": 6, "BOS": 7, "ORL": 7, "PHX": 4, "POR": 5},
+  "rounds": {"NYK": "Won title", "SAS": "Finals", "CLE": "Conference finals", "OKC": "Conference finals", "DET": "Second round", "MIN": "Second round", "PHI": "Second round", "LAL": "Second round",
+             "ATL": "First round", "TOR": "First round", "DEN": "First round", "HOU": "First round", "BOS": "First round", "ORL": "First round", "PHX": "First round", "POR": "First round"}
+}

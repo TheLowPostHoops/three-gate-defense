@@ -50,6 +50,10 @@ def appearances(d):
         x = d[[ "GAME_ID", t, p, tm]].dropna()
         x = x[x[t].astype(int).isin(PTYPES) & (x[p].astype(np.int64) > 0)]
         rows.append(pd.DataFrame(dict(gid=x.GAME_ID.astype(int).values, pid=x[p].astype(np.int64).values, team=x[tm].astype(np.int64).values)))
+    if "PLAYER2_TEAM_ID" not in d.columns:                 # converted cdn data: the player coming IN on a substitution has no team id;
+        x = d[(d.EVENTMSGTYPE == 8)][["GAME_ID", "PLAYER2_ID", "PLAYER1_TEAM_ID"]].dropna()   # he joins the team of the player going out
+        x = x[x.PLAYER2_ID.astype(np.int64) > 0]
+        rows.append(pd.DataFrame(dict(gid=x.GAME_ID.astype(int).values, pid=x.PLAYER2_ID.astype(np.int64).values, team=x.PLAYER1_TEAM_ID.astype(np.int64).values)))
     a = pd.concat(rows).drop_duplicates(["gid", "pid"])
     return a
 
@@ -108,6 +112,7 @@ if __name__ == "__main__":
     os.makedirs(OUT, exist_ok=True); os.makedirs(DATA, exist_ok=True)
     avail = get_list()
     for y in range(a, b + 1):
-        if os.path.exists(os.path.join(OUT, f"games_{y}.csv.gz")) and "--force" not in sys.argv:
+        live = "--force-current" in sys.argv and y == b
+        if os.path.exists(os.path.join(OUT, f"games_{y}.csv.gz")) and "--force" not in sys.argv and not live:
             log(y, "already built"); continue
         build(y, avail)

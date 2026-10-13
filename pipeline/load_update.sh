@@ -5,8 +5,9 @@
 # college) are read from pipeline/inputs/. Every step writes into pipeline/out/, the last ones into data/.
 set -euo pipefail
 cd "$(dirname "$0")"
-LIVE=$(python3 -c "import datetime as d; t=d.date.today(); print(t.year if t.month>=10 else t.year-1)")
-python3 load_games.py 2010 "$LIVE" --force-current     # completed seasons are cached between runs; the live one is always rebuilt
+LIVE=$(python3 -c "import datetime as d; t=d.date.today(); print(t.year if t.month>=9 else t.year-1)")
+python3 load_games.py 2010 "$((LIVE-1))"                # completed seasons are cached between runs
+python3 load_games.py "$LIVE" "$LIVE" --force-current   # the season being played is rebuilt every run (skipped until the source has games)
 python3 load_model.py
 python3 load_team.py
 python3 load_extra.py

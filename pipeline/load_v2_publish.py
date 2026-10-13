@@ -139,6 +139,23 @@ def main():
     # ---- descriptive lines from version 1 (load, miles, college, coach)
     v1 = keep_v1("load.json"); C1 = v1["cols"]; V1rows = {r[C1.index("pid")]: dict(zip(C1, r)) for r in v1["rows"]}
     hist = cov.inj82
+    # ---- the season being played now (rebuilt daily): games played and team games since his first game for that team
+    sofar, live_season = {}, None
+    lp = os.path.join(OUT, f"games_{CUR + 1}.csv.gz")
+    if os.path.exists(lp):
+        L = pd.read_csv(lp, parse_dates=["date"]); L = L[L.kind == "rs"]
+        if len(L):
+            live_season = f"{CUR + 1}-{str(CUR + 2)[2:]}"
+            ltg = pd.read_csv(os.path.join(OUT, f"teamgames_{CUR + 1}.csv.gz"), parse_dates=["date"]); ltg = ltg[ltg.kind == "rs"]
+            for pid, x in L.groupby("pid"):
+                t = x.sort_values("date").team.iloc[-1]; first = x[x.team == t].date.min()
+                n = int(ltg[(ltg.team == t) & (ltg.date >= first)].gid.nunique())
+                sofar[int(pid)] = dict(gp=int(len(x[x.team == t])), team_games=n)
+            team_n = ltg.groupby("team").gid.nunique().to_dict()
+            inv = {v: k for k, v in abbr.items()}
+            for p_ in team26:
+                if p_ not in sofar:
+                    sofar[p_] = dict(gp=0, team_games=int(team_n.get(inv.get(team26[p_]), 0)))
     rows = []
     for _, x in last.sort_values("exp", ascending=False).iterrows():
         p = int(x.pid); d1 = V1rows.get(p, {})
@@ -152,7 +169,7 @@ def main():
                          hist=h, body=body, last_injury=None if lt is None else dict(date=str(lt.date.date()), region=lt.region if isinstance(lt.region, str) else "other", reason=str(lt.reason) if isinstance(lt.reason, str) else "Injury (reason not matched)"),
                          mpg=d1.get("mpg"), gp=d1.get("gp"), pct38=d1.get("pct38"), b2b=d1.get("pct_b2b30"), mi36=d1.get("mi36"), speed=d1.get("speed"),
                          career_k=d1.get("career_k"), col_years=d1.get("col_years"), col_min=d1.get("col_min"), col_missed_pct=d1.get("col_missed_pct"),
-                         no_college=d1.get("no_college"), height=d1.get("height"), pid=p))
+                         no_college=d1.get("no_college"), height=d1.get("height"), sofar=sofar.get(p), pid=p))
     json.dump(dict(rows=rows), open(os.path.join(PUB, "load.json"), "w"), separators=(",", ":"), allow_nan=False)
 
     # ---- teams: 2026-27 coach, coach load (v1), injury games lost per player last season (labeled)
@@ -172,7 +189,7 @@ def main():
     meta = dict(version=2, updated=datetime.date.today().isoformat(), projection_for=f"{CUR + 1}-{str(CUR + 2)[2:]}",
                 backtest=BT, v2=T2, v1_tests=m1["tests"], v1_backtest=m1["backtest"], trend=m1["trend"], league_mi36=m1.get("league_mi36"),
                 region_games=allinj.region.value_counts().to_dict(), players=len(rows), report_last=T2["log"]["last_date"],
-                b2b=b2b, playoffs=json.load(open(os.path.join(OUT, "playoffs_tests.json"))) if os.path.exists(os.path.join(OUT, "playoffs_tests.json")) else None,
+                b2b=b2b, live_season=live_season, playoffs=json.load(open(os.path.join(OUT, "playoffs_tests.json"))) if os.path.exists(os.path.join(OUT, "playoffs_tests.json")) else None,
                 basis_counts=pd.Series([r["basis"] for r in rows]).value_counts().to_dict())
     json.dump(meta, open(os.path.join(PUB, "load_meta.json"), "w"), indent=1, default=float)
     print("players", len(rows), "backtest", {k: v for k, v in BT.items() if k != "calib"})

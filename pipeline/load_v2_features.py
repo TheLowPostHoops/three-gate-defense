@@ -31,19 +31,41 @@ def miles(a, b):
     return 3958.8 * 2 * math.asin(math.sqrt(h))
 
 
+_AVAIL = None
+
+
+def avail():
+    global _AVAIL
+    if _AVAIL is None:
+        from update import get_list
+        _AVAIL = get_list()
+    return _AVAIL
+
+
+def raw_shots(key):
+    """shot detail csv for a dataset key, downloaded if this run has not fetched it yet (a cached season skips the download)."""
+    p = os.path.join(RAW, f"shotdetail_{key}.csv")
+    if os.path.exists(p): return p
+    if f"shotdetail_{key}" not in avail(): return None
+    from update import fetch
+    return fetch(f"shotdetail_{key}")
+
+
 def raw_pbp(y, po=False):
     k = f"nbastats_{'po_' if po else ''}{y}"
     p = os.path.join(RAW, k + ".csv")
     if os.path.exists(p): return pd.read_csv(p, low_memory=False)
     p = os.path.join(DATA, f"conv_{'po_' if po else ''}{y}.csv")
-    return pd.read_csv(p, low_memory=False) if os.path.exists(p) else None
+    if os.path.exists(p): return pd.read_csv(p, low_memory=False)
+    from load_games import pbp_for
+    return pbp_for(f"{'po_' if po else ''}{y}", avail())
 
 
 def contact(seasons):
     """per player-season, regular season: shots at the rim, free throws, fouls drawn, charges taken (per 36 later)."""
     rows = []
     for y in seasons:
-        sd = pd.read_csv(os.path.join(RAW, f"shotdetail_{y}.csv"), usecols=["PLAYER_ID", "SHOT_ZONE_BASIC"], low_memory=False)
+        sd = pd.read_csv(raw_shots(str(y)), usecols=["PLAYER_ID", "SHOT_ZONE_BASIC"], low_memory=False)
         rim = sd[sd.SHOT_ZONE_BASIC == "Restricted Area"].groupby("PLAYER_ID").size().rename("rim_fga")
         d = raw_pbp(y)
         ft = d[(d.EVENTMSGTYPE == 3)].groupby("PLAYER1_ID").size().rename("fta")
@@ -63,8 +85,8 @@ def travel(seasons):
     out = []
     for y in seasons:
         for po in (False, True):
-            p = os.path.join(RAW, f"shotdetail_{'po_' if po else ''}{y}.csv")
-            if not os.path.exists(p): continue
+            p = raw_shots(f"{'po_' if po else ''}{y}")
+            if p is None: continue
             s = pd.read_csv(p, usecols=["GAME_ID", "GAME_DATE", "HTM", "VTM"], low_memory=False).drop_duplicates("GAME_ID")
             s["date"] = pd.to_datetime(s.GAME_DATE.astype(str), format="%Y%m%d")
             for side, other in (("HTM", "VTM"), ("VTM", "HTM")):

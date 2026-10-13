@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Models | The Low Post</title>
-<meta name="description" content="Every Low Post model, what it measures, and which of its pre-set tests it passed and failed.">
+<title>Models | Ghost Screen Analytics</title>
+<meta name="description" content="Every Ghost Screen model, what it measures, and which of its pre-set tests it passed and failed.">
 <style>
 :root{--bg:#ffffff;--ink:#121212;--mute:#6b6b6b;--line:#e3e3e3;--soft:#f5f5f4;--rule:#121212;--ok:#1a6d3a;--hot:#b3261e}
 @media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121212;--ink:#f2f2f2;--mute:#a0a0a0;--line:#2e2e2e;--soft:#1c1c1c;--rule:#f2f2f2;--ok:#6fd08c;--hot:#ff8a80}}
@@ -35,10 +35,10 @@ h1{font:700 1.75rem/1.15 Georgia,"Times New Roman",serif;margin:0 0 4px}
 <link rel="stylesheet" href="/three-gate-defense/assets/site.css">
 </head>
 <body>
-<header class="mast"><div><a class="brand" href="/three-gate-defense/">The Low Post</a><nav><a href="/three-gate-defense/">Home</a><div class="dd on"><a href="/three-gate-defense/models/" aria-current="page">Models</a><div class="menu"><a href="/three-gate-defense/defense/">Three Gates<small>Rim protection explorer</small></a><a href="/three-gate-defense/durability/">Load &amp; Durability<small>Who misses games, and why</small></a></div></div><a class="x" href="https://x.com/LowPostHoops">@LowPostHoops</a></nav></div></header>
+<header class="mast"><div><a class="brand" href="/three-gate-defense/">Ghost Screen Analytics</a><nav><a href="/three-gate-defense/">Home</a><div class="dd on"><a href="/three-gate-defense/models/" aria-current="page">Models</a><div class="menu"><a href="/three-gate-defense/defense/">Three Gates<small>Rim protection explorer</small></a><a href="/three-gate-defense/durability/">Load &amp; Durability<small>Who misses games, and why</small></a></div></div><a class="x" href="https://x.com/LowPostHoops">@LowPostHoops</a></nav></div></header>
 <main>
 <h1>Models</h1>
-<p class="dek">Every Low Post model is built from public data, tested against bars written down before the test was run, and published with the tests it failed. These are Low Post creations, not NBA stats.</p>
+<p class="dek">Every Ghost Screen model is built from public data, tested against bars written down before the test was run, and published with the tests it failed. These are Ghost Screen Analytics creations, not NBA stats.</p>
 <div class="models">
  <div class="m">
   <div class="k">Defense · updated weekly in season</div>
@@ -55,7 +55,7 @@ h1{font:700 1.75rem/1.15 Georgia,"Times New Roman",serif;margin:0 0 4px}
  <div class="m">
   <div class="k">Health · new</div>
   <h2><a href="../durability/">Load &amp; Durability</a></h2>
-  <p>Who is likely to miss games next season, and whether minutes, miles run, back-to-backs, a coach who rides his starters, college workload or a team's medical staff predict it. Most of them do not.</p>
+  <p>Who is likely to miss games to injury next season, a body map for every player from the NBA's official injury reports, and which kinds of load actually raise the risk.</p>
   <ul id="dur"><li><span>Loading test record…</span><span></span></li></ul>
   <a class="go" href="../durability/">Open the model</a>
  </div>
@@ -71,11 +71,10 @@ h1{font:700 1.75rem/1.15 Georgia,"Times New Roman",serif;margin:0 0 4px}
 </main>
 <script>
 fetch('../data/load_meta.json?'+Date.now()).then(r=>r.json()).then(M=>{
- const L=M.tests.L1_L3,X=M.tests.extra,TM=M.tests.team;
- const v=ok=>`<span class="${ok?'pass':'fail'}">${ok?'Pass':'Fail'}</span>`;
+ const V=M.v2;const v=ok=>`<span class="${ok?'pass':'fail'}">${ok?'Pass':'Fail'}</span>`;
  document.getElementById('dur').innerHTML=[
-  ['Workload and mileage add to the forecast',L.L2.pass],['Coach load adds to the forecast',L.L3.pass],['Miles run add to the forecast',X.L6.pass_],
-  ['College workload adds to the forecast',X.C1.pass_],['Calibration of 20+ game risk',M.backtest.L5_pass]].map(([n,ok])=>`<li><span>${n}</span>${v(ok)}</li>`).join('');
+  ['Recent minutes raise next-game injury risk',V.V2.pass_],['Injuries return to the same body area',V.V3.pass_],['Fuller model beats last season\'s injuries alone',V.V1.pass_],
+  ['Long playoff runs lead to more injuries next season',M.playoffs?M.playoffs.P1.pass_:false],['Contact exposure adds to the forecast',V.V6.pass_],['Body size adds to the forecast',V.V7.pass_]].map(([n,ok])=>`<li><span>${n}</span>${v(ok)}</li>`).join('');
 }).catch(()=>{});
 </script>
 </body>

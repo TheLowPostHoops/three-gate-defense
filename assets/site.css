@@ -1,4 +1,4 @@
-/* The Low Post: shared masthead and navigation (every page) */
+/* Ghost Screen Analytics: shared masthead and navigation (every page) */
 .mast{background:#121212;color:#fff;border-bottom:3px solid #fff;position:relative;z-index:20}
 .mast>div{max-width:1120px;margin:0 auto;padding:0 20px;display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:50px;flex-wrap:wrap}
 .mast .brand{font:700 1.05rem/1 Georgia,"Times New Roman",serif;letter-spacing:.14em;text-transform:uppercase;color:#fff;text-decoration:none;padding:14px 0}
@@ -12,4 +12,4 @@
 .mast .menu a{display:block;padding:11px 16px;color:#e6e6e6;text-decoration:none;text-transform:none;letter-spacing:0;font-size:.86rem;font-weight:500}
 .mast .menu a small{display:block;color:#9a9a9a;font-size:.74rem;margin-top:3px;font-weight:400}
 .mast .menu a:hover{background:#222;color:#fff}
-@media(max-width:620px){.mast>div{padding:0 12px}.mast nav>a,.mast .dd>a{padding:15px 8px}.mast .x{display:none}.mast .menu{right:-60px}}
+@media(max-width:620px){.mast .brand{font-size:.92rem;letter-spacing:.08em}.mast>div{padding:0 12px}.mast nav>a,.mast .dd>a{padding:15px 8px}.mast .x{display:none}.mast .menu{right:-60px}}

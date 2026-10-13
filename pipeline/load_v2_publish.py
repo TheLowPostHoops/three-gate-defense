@@ -50,6 +50,8 @@ def main():
     cj = json.load(open(os.path.join(LM.HERE, "coaches.json"))); abbr = {int(k): v for k, v in cj["teams"].items()}
     ros = json.load(open(os.path.join(INP, "rosters_2026.json")))
     team26 = {int(r[1]): abbr.get(int(r[0]), "?") for r in ros}; how26 = {int(r[1]): r[10] for r in ros}
+    for r in ros:                                      # rookies and others with no NBA games yet: name from the roster
+        if int(r[1]) not in names and r[2]: names[int(r[1])] = r[2]
 
     # ---- season number: last season's injury games only (what passed); backtest and ranges out of sample
     S = D[(D.min_rs >= LM.MIN_MIN) & D.season.between(2021, 2024) & D.y_inj.notna()].reset_index(drop=True)

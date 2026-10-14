@@ -1,0 +1,63 @@
+{
+ "mae_full": 0.817639885795694,
+ "mae_base": 0.8604696416824142,
+ "mae_gain_pct": 4.977485992763009,
+ "class_wins": 5,
+ "spearman_full": 0.5109290551463341,
+ "spearman_base": 0.4252668071093567,
+ "late_top_quarter_full": -0.967605994117042,
+ "late_top_quarter_base": -0.8513918206432045,
+ "coverage80": 0.853125,
+ "shuffle_pctile": 1.0,
+ "mae_college_only": 0.9141026932274581,
+ "mae_average": 1.0131121151665479,
+ "college_only_gain_pct": 9.772800113323433,
+ "n_test": 320,
+ "n_all": 689,
+ "classes_per_test": {
+  "2016": 40,
+  "2017": 49,
+  "2018": 46,
+  "2019": 50,
+  "2020": 47,
+  "2021": 47,
+  "2022": 41
+ },
+ "bars": [
+  {
+   "bar": "C1 Accuracy: error at least 5% below draft-slot-only",
+   "passed": false,
+   "result": "5.0% (full 0.818 vs slot-only 0.860)"
+  },
+  {
+   "bar": "C2 Consistency: beats baseline in 4+ of 7 classes",
+   "passed": true,
+   "result": "5 of 7"
+  },
+  {
+   "bar": "C3 Ranking: Spearman beats baseline by 0.03",
+   "passed": true,
+   "result": "0.511 vs 0.425"
+  },
+  {
+   "bar": "C4 Late-pick finds: picks 21-60 top quarter beats baseline",
+   "passed": false,
+   "result": "-0.97 vs -0.85"
+  },
+  {
+   "bar": "C5 Range honesty: 80% ranges cover 75-85%",
+   "passed": false,
+   "result": "85.3%"
+  },
+  {
+   "bar": "C6 Not luck: real gain beats 95% of 200 shuffles",
+   "passed": true,
+   "result": "100th percentile"
+  },
+  {
+   "bar": "C7 College stats alone: error 10% below the average guess",
+   "passed": false,
+   "result": "9.8%"
+  }
+ ]
+}

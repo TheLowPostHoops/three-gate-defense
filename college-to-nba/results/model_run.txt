@@ -1,0 +1,8 @@
+PASS C1 Accuracy: error at least 5% below draft-slot-only -> 5.3% (full 0.814 vs slot-only 0.860)
+PASS C2 Consistency: beats baseline in 4+ of 7 classes -> 5 of 7
+PASS C3 Ranking: Spearman beats baseline by 0.03 -> 0.517 vs 0.426
+FAIL C4 Late-pick finds: picks 21-60 top quarter beats baseline -> -0.88 vs -0.85
+FAIL C5 Range honesty: 80% ranges cover 75-85% -> 85.4%
+PASS C6 Not luck: real gain beats 95% of 200 shuffles -> 100th percentile
+PASS C7 College stats alone: error 10% below the average guess -> 10.1%
+final alpha 30 sd 1.095

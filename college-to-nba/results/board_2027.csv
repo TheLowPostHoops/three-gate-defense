@@ -1,0 +1,68 @@
+rank,player,school,college_data,slot_only,proj_final,lo80,hi80
+1,Tyran Stokes,Kansas,False,0.98,0.98,-0.49,2.44
+2,Caleb Holt,Arizona,False,0.53,0.53,-0.93,1.99
+3,Jordan Smith Jr.,Arkansas,False,0.27,0.27,-1.19,1.73
+4,Bruce Branch III,BYU,False,0.09,0.09,-1.38,1.55
+5,Stefan Joksimović,Baskonia,False,-0.06,-0.06,-1.52,1.41
+6,Anthony Thompson,Ohio State,False,-0.17,-0.17,-1.64,1.29
+7,Cameron Williams,Duke,False,-0.27,-0.27,-1.74,1.19
+8,Baba Oladotun,Maryland,False,-0.36,-0.36,-1.82,1.1
+9,Brandon McCoy Jr.,Michigan,False,-0.44,-0.44,-1.9,1.03
+10,Braylon Mullins,UConn,True,-0.5,-0.74,-2.14,0.67
+11,Hugo Yimga-Moukouri,Nanterre 92,False,-0.56,-0.56,-2.03,0.9
+12,Amari Allen,Alabama,True,-0.62,-0.33,-1.73,1.08
+13,Dylan Mingo,Baylor,False,-0.67,-0.67,-2.14,0.79
+14,Thomas Haugh,Florida,True,-0.72,-0.8,-2.2,0.6
+15,Patrick Ngongba II,Duke,True,-0.76,-0.22,-1.62,1.19
+16,Jason Crowe Jr.,Missouri,False,-0.8,-0.8,-2.27,0.66
+17,Sayon Keita,North Carolina,False,-0.84,-0.84,-2.31,0.62
+18,Ivan Kharchenkov,Arizona,True,-0.88,-0.89,-2.29,0.52
+19,Tounde Yessoufou,St. John's,True,-0.91,-0.89,-2.29,0.52
+20,Miikka Muurinen,Arkansas,False,-0.95,-0.95,-2.41,0.52
+21,Luigi Suigo,Villanova,False,-0.98,-0.98,-2.44,0.48
+22,Quentin Coleman,Illinois,False,-1.01,-1.01,-2.47,0.46
+23,Motiejus Krivas,Arizona,True,-1.04,-0.48,-1.88,0.92
+24,JJ Andrews,Arkansas,False,-1.07,-1.07,-2.53,0.4
+25,Christian Collins,USC,False,-1.09,-1.09,-2.56,0.37
+26,Davis Fogle,Gonzaga,True,-1.12,-1.02,-2.43,0.38
+27,Billy Richmond III,Arkansas,True,-1.14,-0.86,-2.26,0.55
+28,Milan Momcilovic,Kentucky,True,-1.16,-1.42,-2.83,-0.02
+29,Alijah Arenas,USC,True,-1.19,-1.78,-3.18,-0.38
+30,Malachi Moreno,Kentucky,True,-1.21,-0.59,-2.0,0.81
+31,David Mirkovic,Illinois,True,-1.23,-1.12,-2.52,0.29
+32,Tyler Tanner,Vanderbilt,True,-1.25,-0.59,-2.0,0.81
+33,Trey McKenney,Michigan,True,-1.27,-1.66,-3.06,-0.25
+34,Alex Condon,Florida,True,-1.29,-0.91,-2.32,0.49
+35,Cameron Houindo,Cedevita Olimpija,False,-1.31,-1.31,-2.77,0.16
+36,Matt Able,North Carolina,True,-1.33,-1.27,-2.68,0.13
+37,Andrej Stojakovic,Illinois,True,-1.34,-1.68,-3.08,-0.27
+38,Shelton Henderson,Miami,True,-1.36,-1.52,-2.92,-0.11
+39,Juke Harris,Tennessee,True,-1.38,-1.45,-2.85,-0.05
+40,Rueben Chinyelu,Florida,True,-1.39,-0.87,-2.28,0.53
+41,Klark Riethauser,Elan Chalon,False,-1.41,-1.41,-2.87,0.06
+42,JoJo Tugler,Houston,False,-1.42,-1.42,-2.89,0.04
+43,Dame Sarr,Duke,True,-1.44,-1.61,-3.02,-0.21
+44,Flory Bidunga,Louisville,True,-1.45,-0.91,-2.32,0.49
+45,Neoklis Avdalas,North Carolina,True,-1.47,-1.75,-3.15,-0.34
+46,Dash Daniels,SE Melbourne,False,-1.48,-1.48,-2.95,-0.02
+47,Paul McNeil Jr.,NC State,True,-1.5,-1.54,-2.95,-0.14
+48,Moustapha Thiam,Michigan,True,-1.51,-1.44,-2.84,-0.04
+49,Matas Vokietaitis,Texas,True,-1.52,-2.13,-3.53,-0.72
+50,Jeremy Fears Jr.,Michigan State,True,-1.54,-0.54,-1.94,0.87
+51,Nikolas Khamenia,UConn,True,-1.55,-1.57,-2.97,-0.16
+52,Cayden Boozer,Duke,True,-1.56,-1.3,-2.71,0.1
+53,Daniel Jacobsen,Purdue,True,-1.57,-1.26,-2.66,0.14
+54,Miles Byrd,Providence,True,-1.59,-0.95,-2.36,0.45
+55,Pryce Sandfort,Nebraska,True,-1.6,-1.53,-2.93,-0.13
+56,Tomislav Ivisic,Illinois,True,-1.61,-1.56,-2.96,-0.16
+57,JT Toppin,Texas Tech,True,-1.62,-1.21,-2.61,0.2
+58,Coen Carr,Michigan State,True,-1.63,-1.92,-3.32,-0.51
+59,Johann Grünloh,Virginia,True,-1.64,-1.1,-2.51,0.3
+60,Zvonimir Ivisic,Illinois,True,-1.65,-0.88,-2.29,0.52
+61,Karter Knox,Louisville,True,-1.66,-1.7,-3.11,-0.3
+62,Elliot Cadeau,Michigan,True,-1.67,-1.68,-3.08,-0.27
+63,Solo Ball,UConn,True,-1.68,-2.19,-3.6,-0.79
+64,Ian Jackson,St. John's,True,-1.69,-2.04,-3.44,-0.63
+65,Xavier Booker,UCLA,True,-1.7,-1.71,-3.12,-0.31
+66,Pavle Backo,Mega Basket,False,-1.71,-1.71,-3.18,-0.25
+67,Tahaad Pettiford,Auburn,True,-1.72,-1.66,-3.06,-0.26

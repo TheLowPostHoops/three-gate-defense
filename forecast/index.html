@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>2026-27 Season Forecast | Ghost Screen Analytics</title>
+<meta name="description" content="The 2026-27 NBA season simulated 1,000,000 times every day: projected records, playoff and play-in odds, title odds, award races and every game's win probability.">
+<style>
+:root{--bg:#ffffff;--ink:#121212;--mute:#6b6b6b;--line:#e3e3e3;--soft:#f5f5f4;--rule:#121212;--acc:#1f5fbf;--warm:#c25a00;--hot:#b3261e;--ok:#1a6d3a;--bar:#d9d9d6;--fill:#121212}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121212;--ink:#f2f2f2;--mute:#a0a0a0;--line:#2e2e2e;--soft:#1c1c1c;--rule:#f2f2f2;--acc:#6ea2f0;--warm:#f0a040;--hot:#ff8a80;--ok:#6fd08c;--bar:#3a3a3a;--fill:#f2f2f2}}
+:root[data-theme="dark"]{--bg:#121212;--ink:#f2f2f2;--mute:#a0a0a0;--line:#2e2e2e;--soft:#1c1c1c;--rule:#f2f2f2;--acc:#6ea2f0;--warm:#f0a040;--hot:#ff8a80;--ok:#6fd08c;--bar:#3a3a3a;--fill:#f2f2f2}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif}
+main{max-width:1120px;margin:0 auto;padding:22px 20px 64px}
+h1{font:700 1.75rem/1.15 Georgia,"Times New Roman",serif;margin:0 0 4px;letter-spacing:-.01em}
+.dek{font-size:.92rem;color:var(--mute);margin:0 0 16px;max-width:60em}
+h2{font:700 .8rem/1.2 -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;text-transform:uppercase;letter-spacing:.14em;margin:44px 0 14px;padding-top:12px;border-top:3px solid var(--rule)}
+h3{font:700 1.05rem/1.25 Georgia,"Times New Roman",serif;margin:0 0 6px}
+p{margin:0 0 14px;max-width:44em}
+@media(max-width:760px){h1{font-size:1.45rem}}
+.stamp{font-size:.74rem;color:var(--mute);text-transform:uppercase;letter-spacing:.08em;margin:0 0 18px}
+.stamp b{color:var(--ink)}
+.tldr{border-left:3px solid var(--rule);padding:4px 0 4px 16px;margin:18px 0 8px;max-width:50em}
+.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:18px;margin:8px 0 6px}
+@media(max-width:900px){.cards{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.cd{border-top:3px solid var(--rule);padding-top:8px}
+.cd .t{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em}
+.cd .v{font:700 1.35rem/1.15 Georgia,"Times New Roman",serif;margin:6px 0 2px}
+.cd .s{font-size:.8rem;color:var(--mute)}
+.tabs{display:flex;gap:0;border-bottom:1px solid var(--line);margin:0 0 10px;flex-wrap:wrap}
+.tabs button{font:600 .72rem/1 -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;text-transform:uppercase;letter-spacing:.1em;background:none;border:0;border-bottom:3px solid transparent;color:var(--mute);padding:10px 12px;cursor:pointer;margin-bottom:-1px}
+.tabs button.on{color:var(--ink);border-bottom-color:var(--ink)}
+.tablewrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;font-size:.82rem;font-variant-numeric:tabular-nums}
+th,td{padding:7px 8px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
+th:first-child,td:first-child{text-align:left}
+td.l,th.l{text-align:left}
+th{cursor:pointer;font-weight:700;font-size:.64rem;text-transform:uppercase;letter-spacing:.09em;border-bottom:2px solid var(--rule);user-select:none;background:var(--bg);vertical-align:bottom}
+th.ns{cursor:default}
+tbody.click tr{cursor:pointer}tbody.click tr:hover,tbody tr.sel{background:var(--soft)}
+td.tm{font-weight:700}
+#st td:first-child,#st th:first-child{position:sticky;left:0;background:var(--bg);z-index:1}
+#st tr.sel td:first-child{background:var(--soft)}
+@media(max-width:620px){#st td.tm .muted{display:none}}
+tr.cut td{border-bottom:2px solid var(--mute)}
+.pct{position:relative;display:inline-block;min-width:44px}
+.heat{display:inline-block;min-width:46px;padding:2px 5px;border-radius:2px}
+.rng{position:relative;display:inline-block;width:80px;height:10px;vertical-align:middle;margin-left:6px}
+.rng s{position:absolute;top:4px;height:2px;background:var(--bar);text-decoration:none}
+.rng b{position:absolute;top:0;width:3px;height:10px;background:var(--ink);margin-left:-1px}
+.muted{color:var(--mute)}
+.grid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px}
+@media(max-width:900px){.grid3{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:700px){.grid2,.grid3{grid-template-columns:minmax(0,1fr)}}
+.aw{border-top:3px solid var(--rule);padding-top:8px}
+.aw .t{font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.1em;margin-bottom:6px}
+.row{display:grid;grid-template-columns:minmax(0,1fr) 64px 46px;gap:8px;align-items:center;font-size:.84rem;padding:4px 0;border-bottom:1px solid var(--line)}
+.row .n{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row .n small{color:var(--mute);font-size:.72rem;margin-left:4px}
+.row .bar{height:8px;background:var(--soft);position:relative}
+.row .bar i{position:absolute;left:0;top:0;bottom:0;background:var(--fill)}
+.row .p{text-align:right;font-variant-numeric:tabular-nums;font-weight:600}
+#team{border-top:3px solid var(--rule);padding-top:12px;margin-top:22px}
+#team .nm{font:700 1.5rem/1.15 Georgia,"Times New Roman",serif;margin:0}
+.sub{color:var(--mute);font-size:.76rem;text-transform:uppercase;letter-spacing:.06em;margin:4px 0 12px}
+svg text{font-size:10px;fill:var(--mute)}
+.chart svg{width:100%;display:block;overflow:visible}
+.games{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px}
+.gm{border:1px solid var(--line);padding:9px 11px;font-size:.84rem}
+.gm .d{font-size:.68rem;color:var(--mute);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
+.gm .ln{display:flex;justify-content:space-between;gap:8px;font-variant-numeric:tabular-nums}
+.gm .ln b{font-weight:700}
+.gm .wp{height:6px;background:var(--soft);margin-top:6px;position:relative}
+.gm .wp i{position:absolute;top:0;bottom:0;left:0;background:var(--fill)}
+.key{font-size:.82rem;color:var(--mute);max-width:56em}
+.key b{color:var(--ink)}
+.key a,.note a{color:var(--ink)}
+.tests td{white-space:normal;vertical-align:top}
+.pass{color:var(--ok);font-weight:700}.fail{color:var(--hot);font-weight:700}.rep{color:var(--mute);font-weight:700}
+.note{font-size:.8rem;color:var(--mute);margin-top:8px;max-width:56em}
+.legend{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.74rem;color:var(--mute);margin:6px 0}
+.legend span{display:inline-flex;align-items:center;gap:5px}
+.legend i{display:inline-block;width:12px;height:3px}
+details{margin-top:10px}summary{cursor:pointer;font-weight:600;font-size:.86rem}
+</style>
+<link rel="stylesheet" href="/three-gate-defense/assets/site.css">
+</head>
+<body>
+<header class="mast"><div><a class="brand" href="/three-gate-defense/">Ghost Screen Analytics</a><nav><a href="/three-gate-defense/">Home</a><div class="dd on"><a href="/three-gate-defense/models/">Models</a><div class="menu"><a href="/three-gate-defense/forecast/" aria-current="page">Season Forecast<small>1,000,000 seasons, every day</small></a><a href="/three-gate-defense/defense/">Three Gates<small>Rim protection explorer</small></a><a href="/three-gate-defense/durability/">Load &amp; Durability<small>Who misses games, and why</small></a></div></div></nav></div></header>
+<main>
+<h1>2026-27 Season Forecast</h1>
+<p class="dek">We play out the rest of the season a million times every morning: every game, every injury, the play-in, the playoffs, the lottery and the awards. Every number here is the share of those seasons in which it happened.</p>
+<p class="stamp" id="stamp">Loading…</p>
+
+<div class="cards" id="cards"></div>
+
+<h2>Standings and odds</h2>
+<div class="tabs" id="conf"><button data-c="East" class="on">East</button><button data-c="West">West</button><button data-c="All">League</button></div>
+<div class="tablewrap"><table id="st"><thead></thead><tbody class="click"></tbody></table></div>
+<p class="note">Seeds 1-6 go straight to the playoffs; 7-10 play in. Click a team to see its full range of outcomes and rotation. Columns sort when clicked.</p>
+<div id="team"></div>
+
+<h2>Surprise factor</h2>
+<p class="key">Some teams are harder to call than others. Teams bringing back fewer of last season's minutes, and teams leaning on rookies, land further from their projections. Rookie-heavy teams also tend to fall short of them. The <b>schedule</b> column is how many wins each team's remaining schedule adds or costs, from rest, back-to-backs, travel and altitude. <b>Breakout</b> is the chance a team beats its projection by 8 or more wins. <b>Collapse</b> is the chance it falls 8 or more short.</p>
+<div class="tablewrap"><table id="sp"><thead></thead><tbody class="click"></tbody></table></div>
+
+<h2>Title odds</h2>
+<div class="grid2">
+ <div class="aw"><div class="t">Champion</div><div id="title"></div></div>
+ <div class="aw"><div class="t">Likeliest Finals</div><div id="finals"></div></div>
+</div>
+
+<h2>Awards</h2>
+<p class="key">Each simulated season produces a full stat line for every player, games played included. A voter model built from 2010-11 to 2025-26 ballots picks the winner. Players need <b>65 games</b> to qualify, so a missed month can cost an award. Award odds use 100,000 of the simulated seasons.</p>
+<div class="grid3" id="awards"></div>
+
+<h2>The 65-game watch</h2>
+<p class="key">Chance each of the league's best players reaches 65 games, the minimum for MVP, Defensive Player of the Year, All-NBA and the other major awards.</p>
+<div class="grid3" id="g65"></div>
+
+<h2>Upcoming games</h2>
+<div class="games" id="games"></div>
+
+<h2>How the odds have moved</h2>
+<div id="hist" class="chart"></div>
+
+<h2>Player ratings</h2>
+<p class="key">Points per 100 possessions a player adds to his team's margin, compared with an average player, split into offense and defense. It comes from every lineup since 2010-11 and is anchored by box score stats. These ratings drive the team strengths above.</p>
+<div class="tablewrap"><table id="pl"><thead></thead><tbody></tbody></table></div>
+
+<h2>How it works</h2>
+<div class="key">
+<p><b>Players.</b> Each player's rating comes from every lineup he has played in over the last three seasons, the most recent weighted most. It is anchored to his box score stats, then adjusted for age. A rookie starts from what players taken in his draft slot have done in their first year.</p>
+<p><b>Teams.</b> A team's strength is its players' ratings weighted by expected minutes. We tested whether lowering a team's strength for injury-prone players helped. It didn't (test S2), so it isn't used. Injury luck is simulated instead: in each season some players stay healthy and some don't, around each player's own track record.</p>
+<p><b>Schedule.</b> Every game is adjusted for rest (the second night of a back-to-back costs about 1.9 points), a third game in four nights, time zones crossed, and the altitude in Denver and Utah (test S1).</p>
+<p><b>Surprises.</b> Each simulated season gives every team a luck draw. The size of that draw depends on how many minutes are returning, roster age and rookie minutes (test S3).</p>
+<p><b>The last 15 games.</b> Teams already out of the race played about 3 points worse than their strength over their last 15 games, and teams with their seed locked about 2.4 points worse (test S4). The simulation applies both based on where each team stands when its last 15 begin.</p>
+<p><b>Seasons.</b> In each of the 1,000,000 simulations, every player gets an availability draw (some seasons he stays healthy, some he doesn't) and every team gets a luck draw. Then every remaining game is played: home court is worth about 2.2 points, and a typical game swings about 13 points either way. Ties in the standings are broken by point differential, a simplification of the league's tiebreakers. The play-in and every playoff round are played out game by game, home court included. The lottery uses the league's odds for the #1 pick.</p>
+<p><b>During the season.</b> Results move a team's strength. After 20 games a team is judged half on its preseason rating and half on how it has actually played (adjusted for opponents and home court). After 60 games, mostly on results. Box scores update minutes, team changes, games played and players listed out injured.</p>
+</div>
+
+<h2>Test record</h2>
+<p class="key">Every bar below was written down before the test was run and is in <a href="https://github.com/TheLowPostHoops/three-gate-defense/blob/main/pipeline/FORECAST_PREREG.txt">FORECAST_PREREG.txt</a>. Each season was predicted using only the seasons before it. Failed tests stay on the page.</p>
+<div class="tablewrap"><table class="tests" id="tests"><thead><tr><th class="ns l">Test</th><th class="ns l">Question</th><th class="ns l">Bar</th><th class="ns l">Result</th><th class="ns">Verdict</th></tr></thead><tbody></tbody></table></div>
+<div id="calib" class="chart" style="max-width:420px;margin-top:18px"></div>
+
+<h2>What it can't see</h2>
+<ul class="key">
+<li><b>Trades and signings</b> after preseason show up once a player appears in a box score for his new team.</li>
+<li><b>Injury news.</b> The model knows who sat with an injury in his team's last game, but not how long the team expects him to be out.</li>
+<li><b>Motivation.</b> Late-season tanking and resting are modeled as an average effect (S4), not team by team. Contract years are not modeled.</li>
+<li><b>Award voters</b> also weigh storylines. The voter model picked the actual MVP in 3 of 6 recent seasons (it needed 4 to pass its test), and the misses were close runners-up. Treat award odds as rough.</li>
+<li>These are Ghost Screen Analytics estimates built from public data, not NBA numbers.</li>
+</ul>
+</main>
+<script>
+const $=s=>document.querySelector(s);
+const NAMES={ATL:'Hawks',BOS:'Celtics',BKN:'Nets',CHA:'Hornets',CHI:'Bulls',CLE:'Cavaliers',DAL:'Mavericks',DEN:'Nuggets',DET:'Pistons',GSW:'Warriors',HOU:'Rockets',IND:'Pacers',LAC:'Clippers',LAL:'Lakers',MEM:'Grizzlies',MIA:'Heat',MIL:'Bucks',MIN:'Timberwolves',NOP:'Pelicans',NYK:'Knicks',OKC:'Thunder',ORL:'Magic',PHI:'76ers',PHX:'Suns',POR:'Trail Blazers',SAC:'Kings',SAS:'Spurs',TOR:'Raptors',UTA:'Jazz',WAS:'Wizards'};
+const CITY={ATL:'Atlanta',BOS:'Boston',BKN:'Brooklyn',CHA:'Charlotte',CHI:'Chicago',CLE:'Cleveland',DAL:'Dallas',DEN:'Denver',DET:'Detroit',GSW:'Golden State',HOU:'Houston',IND:'Indiana',LAC:'LA Clippers',LAL:'LA Lakers',MEM:'Memphis',MIA:'Miami',MIL:'Milwaukee',MIN:'Minnesota',NOP:'New Orleans',NYK:'New York',OKC:'Oklahoma City',ORL:'Orlando',PHI:'Philadelphia',PHX:'Phoenix',POR:'Portland',SAC:'Sacramento',SAS:'San Antonio',TOR:'Toronto',UTA:'Utah',WAS:'Washington'};
+const full=t=>t==='LAC'||t==='LAL'?CITY[t]:CITY[t]+' '+NAMES[t];
+const tname=t=>t==='LAC'||t==='LAL'?CITY[t]:`${CITY[t]} <span class="muted">${NAMES[t]}</span>`;
+const esc=s=>String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+function pct(p){if(p==null)return'–';if(p>=0.9995)return'>99.9%';if(p<0.0005)return p>0?'<0.1%':'–';if(p<0.01)return(100*p).toFixed(1)+'%';return Math.round(100*p)+'%'}
+function heat(p){const a=Math.min(1,Math.sqrt(p||0));const dark=matchMedia('(prefers-color-scheme: dark)').matches&&document.documentElement.dataset.theme!=='light'||document.documentElement.dataset.theme==='dark';
+ const c=dark?`rgba(110,162,240,${.08+a*.55})`:`rgba(31,95,191,${.05+a*.5})`;return `<span class="heat" style="background:${p>0.0005?c:'transparent'}">${pct(p)}</span>`}
+function fmtDate(s){const d=new Date(s+'T12:00:00');return d.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'})}
+let F,H,conf='East',sortKey='proj_w',sortDir=-1,selTeam=null;
+Promise.all([fetch('../data/forecast.json?'+Date.now()).then(r=>r.json()),fetch('../data/forecast_history.json?'+Date.now()).then(r=>r.json()).catch(()=>[])]).then(([f,h])=>{F=f;H=h;render()});
+function render(){
+ const M=F.meta;
+ $('#stamp').innerHTML=`Updated <b>${fmtDate(M.updated)}</b> · <b>${M.sims.toLocaleString()}</b> simulated seasons · ${M.games_played?`<b>${M.games_played}</b> games played, ${M.games_left} to go`:'Preseason: no games played yet'}`;
+ const T=F.teams;const fav=[...T].sort((a,b)=>b.title-a.title)[0];const best=[...T].sort((a,b)=>b.proj_w-a.proj_w)[0];const mvp=F.awards.mvp[0];const roy=F.awards.roy[0];
+ $('#cards').innerHTML=[['Title favorite',`${CITY[fav.team]}`,`${pct(fav.title)} to win it all`],['Best record',`${CITY[best.team]}`,`${best.proj_w.toFixed(1)} wins on average`],['MVP favorite',esc(mvp.name),`${pct(mvp.p)} · ${mvp.team}`],['Rookie of the Year',esc(roy.name),`${pct(roy.p)} · ${roy.team}`]].map(([t,v,s])=>`<div class="cd"><div class="t">${t}</div><div class="v">${v}</div><div class="s">${s}</div></div>`).join('');
+ table();surprise();titleOdds();awards();g65();games();hist();players();tests();calib();
+}
+const COLS=[['team','Team','l'],['rec','Record'],['proj_w','Proj. W-L'],['rng','80% range','ns'],['top6','Top 6'],['playin','Play-in'],['playoffs','Make playoffs'],['seed1','#1 seed'],['cf','Conf. finals'],['finals','Finals'],['title','Title'],['pick1','#1 pick']];
+function table(){
+ $('#st thead').innerHTML='<tr>'+COLS.map(([k,l,c])=>`<th class="${c||''}" data-k="${k}">${l}</th>`).join('')+'</tr>';
+ $('#st thead').onclick=e=>{const k=e.target.dataset.k;if(!k||k==='rng')return;if(sortKey===k)sortDir*=-1;else{sortKey=k;sortDir=k==='team'?1:-1}table()};
+ let R=F.teams.filter(t=>conf==='All'||t.conf===conf);
+ R=[...R].sort((a,b)=>{const va=sortKey==='rec'?a.w-a.l:sortKey==='team'?a.team:a[sortKey],vb=sortKey==='rec'?b.w-b.l:sortKey==='team'?b.team:b[sortKey];return(va>vb?1:va<vb?-1:0)*sortDir});
+ const lo=Math.min(...F.teams.map(t=>t.w10)),hi=Math.max(...F.teams.map(t=>t.w90));const X=v=>(80*(v-lo)/(hi-lo)).toFixed(1);
+ $('#st tbody').innerHTML=R.map((t,i)=>`<tr data-t="${t.team}" class="${t.team===selTeam?'sel':''}${conf!=='All'&&sortKey==='proj_w'&&sortDir===-1&&(i===5||i===9)?' cut':''}"><td class="tm">${tname(t.team)}</td><td>${t.w}-${t.l}</td><td><b>${t.proj_w.toFixed(0)}</b>-${t.proj_l.toFixed(0)}</td><td><span class="rng"><s style="left:${X(t.w10)}px;width:${X(t.w90)-X(t.w10)}px"></s><b style="left:${X(t.proj_w)}px"></b></span> <span class="muted">${t.w10}-${t.w90}</span></td>`+
+  ['top6','playin','playoffs','seed1','cf','finals','title','pick1'].map(k=>`<td>${heat(t[k])}</td>`).join('')+'</tr>').join('');
+ $('#st tbody').onclick=e=>{const tr=e.target.closest('tr');if(!tr)return;selTeam=tr.dataset.t;table();teamPanel()};
+ if(!selTeam){selTeam=R[0].team}teamPanel();
+}
+document.querySelectorAll('#conf button').forEach(b=>b.onclick=()=>{conf=b.dataset.c;document.querySelectorAll('#conf button').forEach(x=>x.classList.toggle('on',x===b));selTeam=null;table()});
+function surprise(){const R=[...F.teams].sort((a,b)=>(b.w90-b.w10)-(a.w90-a.w10)||b.spread-a.spread);const I=F.team_inputs||{};
+ $('#sp thead').innerHTML='<tr><th class="ns">Team</th><th class="ns">Proj. wins</th><th class="ns">Breakout (+8)</th><th class="ns">Collapse (−8)</th><th class="ns">80% range</th><th class="ns">Schedule</th><th class="ns">Returning min.</th><th class="ns">Age</th><th class="ns">Rookie min.</th></tr>';
+ const mx=Math.max(...R.map(t=>t.w90-t.w10));
+ $('#sp tbody').innerHTML=R.map(t=>{const i=I[t.team]||{};return `<tr data-t="${t.team}"><td class="tm">${tname(t.team)}</td><td>${t.proj_w.toFixed(1)}</td><td>${heat(t.boom)}</td><td>${heat(t.bust)}</td><td><span class="rng"><s style="left:0;width:${(80*(t.w90-t.w10)/mx).toFixed(0)}px;background:var(--fill);height:4px;top:3px"></s></span> ${t.w10}–${t.w90} W</td><td>${t.sched_wins>0?'+':''}${t.sched_wins.toFixed(1)}</td><td>${i.cont!=null?Math.round(100*i.cont)+'%':'–'}</td><td>${i.age!=null?i.age.toFixed(1):'–'}</td><td>${i.rook!=null?Math.round(100*i.rook)+'%':'–'}</td></tr>`}).join('');
+ $('#sp tbody').onclick=e=>{const tr=e.target.closest('tr');if(!tr)return;selTeam=tr.dataset.t;conf='All';document.querySelectorAll('#conf button').forEach(x=>x.classList.toggle('on',x.dataset.c==='All'));table();$('#team').scrollIntoView({behavior:'smooth'})}}
+function bars(vals,labels,w,h,hl){const mx=Math.max(...vals);const bw=w/vals.length;return `<svg viewBox="0 0 ${w} ${h+16}" height="${h+16}">`+vals.map((v,i)=>`<rect x="${(i*bw+.5).toFixed(1)}" y="${(h-h*v/mx).toFixed(1)}" width="${Math.max(bw-1,1).toFixed(1)}" height="${(h*v/mx).toFixed(1)}" fill="${hl&&hl(i)?'var(--fill)':'var(--bar)'}"/>`).join('')+labels.map(([i,l])=>`<text x="${(i*bw+bw/2).toFixed(1)}" y="${h+12}" text-anchor="middle">${l}</text>`).join('')+'</svg>'}
+function teamPanel(){
+ const t=F.teams.find(x=>x.team===selTeam);if(!t)return;const r=F.rosters[t.team]||[];
+ const wd=t.wins_dist;let a=0,b=82;for(let i=0;i<83;i++){if(wd[i]>0.0005){a=i;break}}for(let i=82;i>=0;i--){if(wd[i]>0.0005){b=i;break}}
+ const vals=wd.slice(a,b+1);const lab=[];for(let i=a;i<=b;i++)if(i%5===0)lab.push([i-a,i]);
+ const sd=t.seeds;
+ $('#team').innerHTML=`<p class="nm">${full(t.team)}</p><div class="sub">${t.conf} · projected ${t.proj_w.toFixed(1)} wins · strength ${t.strength>0?'+':''}${t.strength.toFixed(1)} points per game vs. an average team</div>
+ <div class="grid2"><div><h3>Wins</h3><div class="chart">${bars(vals,lab,460,110,i=>i+a===Math.round(t.proj_w))}</div><p class="note">${pct(t.w50)} chance of 50+ wins, ${pct(t.w60)} of 60+, ${pct(t.l50)} of 32 or fewer. Best record in the league: ${pct(t.best)}. Worst: ${pct(t.worst)}. Beats the projection by 8+: ${pct(t.boom)}. Falls 8+ short: ${pct(t.bust)}. Schedule: ${t.sched_wins>0?'+':''}${t.sched_wins.toFixed(1)} wins.</p></div>
+ <div><h3>Seed</h3><div class="chart">${bars(sd,sd.map((v,i)=>[i,i+1]),460,110,i=>i<6)}</div><p class="note">Black: seeds 1-6, straight into the playoffs. Gray: 7-10 is the play-in, 11-15 is out.</p></div></div>
+ <h3 style="margin-top:14px">Path</h3><div class="grid3" style="gap:10px 28px">${[['Make playoffs',t.playoffs],['Win a round',t.r2],['Conference finals',t.cf],['Reach the Finals',t.finals],['Win the title',t.title],['Lottery',t.lottery]].map(([l,p])=>`<div class="row" style="grid-template-columns:minmax(0,1fr) 80px 46px"><span class="n">${l}</span><span class="bar"><i style="width:${(100*p).toFixed(1)}%"></i></span><span class="p">${pct(p)}</span></div>`).join('')}</div>
+ <h3 style="margin-top:18px">Rotation</h3><div class="tablewrap"><table><thead><tr><th class="ns">Player</th><th class="ns">Min/game</th><th class="ns">Off.</th><th class="ns">Def.</th><th class="ns">Rating</th><th class="ns">Plays</th></tr></thead><tbody>${r.map(p=>`<tr><td>${esc(p.name)}${p.rookie?' <span class="muted">R</span>':''}</td><td>${p.mpg.toFixed(1)}</td><td>${sg(p.o)}</td><td>${sg(p.d)}</td><td><b>${sg(p.net)}</b></td><td>${Math.round(100*p.avail)}% of games</td></tr>`).join('')}</tbody></table></div>`;
+}
+const sg=v=>v==null?'–':(v>0?'+':'')+v.toFixed(1);
+function list(el,rows,lab){el.innerHTML=rows.map(x=>`<div class="row"><span class="n">${lab(x)}</span><span class="bar"><i style="width:${Math.min(100,100*x.p/rows[0].p).toFixed(1)}%"></i></span><span class="p">${pct(x.p)}</span></div>`).join('')}
+function titleOdds(){const T=[...F.teams].sort((a,b)=>b.title-a.title).slice(0,10);list($('#title'),T.map(t=>({p:t.title,t:t.team})),x=>x.t==='LAC'||x.t==='LAL'?CITY[x.t]:`${CITY[x.t]} <small>${NAMES[x.t]}</small>`);
+ list($('#finals'),F.meta.finals_matchups.slice(0,10).map(m=>({p:m.p,e:m.east,w:m.west})),x=>`${x.w} vs. ${x.e}`);
+ $('#finals').insertAdjacentHTML('beforeend','<p class="note">Share of simulated Finals, from a sample of the simulations.</p>')}
+const AW=[['mvp','Most Valuable Player'],['dpoy','Defensive Player of the Year'],['roy','Rookie of the Year'],['smoy','Sixth Man of the Year'],['mip','Most Improved Player'],['coy','Coach of the Year (team)']];
+function awards(){$('#awards').innerHTML=AW.map(([k,l])=>`<div class="aw"><div class="t">${l}</div><div id="aw_${k}"></div></div>`).join('');
+ for(const[k]of AW){const rows=F.awards[k].slice(0,8);list($('#aw_'+k),rows,x=>k==='coy'?(x.team==='LAC'||x.team==='LAL'?CITY[x.team]:`${CITY[x.team]} <small>${NAMES[x.team]}</small>`):`${esc(x.name)} <small>${x.team}</small>`)}}
+function g65(){const R=F.games65.slice(0,24);const cols=[R.slice(0,8),R.slice(8,16),R.slice(16,24)];$('#g65').innerHTML=cols.map(c=>`<div class="aw" style="border-top-width:1px">${c.map(x=>`<div class="row"><span class="n">${esc(x.name)} <small>${x.team}</small></span><span class="bar"><i style="width:${(100*x.p).toFixed(1)}%"></i></span><span class="p">${pct(x.p)}</span></div>`).join('')}</div>`).join('')}
+function games(){const G=F.games.slice(0,16);if(!G.length){$('#games').innerHTML='<p class="muted">No games in the next ten days.</p>';return}
+ $('#games').innerHTML=G.map(g=>{const fav=g.p_home>=.5?g.home:g.away;const sp=Math.abs(g.spread).toFixed(1);return `<div class="gm"><div class="d">${fmtDate(g.date)}</div><div class="ln"><span>${CITY[g.away]} <span class="muted">at</span></span><b>${pct(1-g.p_home)}</b></div><div class="ln"><span>${CITY[g.home]}</span><b>${pct(g.p_home)}</b></div><div class="wp"><i style="width:${(100*(1-g.p_home)).toFixed(1)}%"></i></div><div class="d" style="margin:6px 0 0">${fav} by ${sp}${g.sched!=null&&Math.abs(g.sched)>=0.5?` · schedule ${g.sched>0?CITY[g.home]:CITY[g.away]} +${Math.abs(g.sched).toFixed(1)}`:''}</div></div>`}).join('')}
+function hist(){if(!H||H.length<2){$('#hist').innerHTML='<p class="key">A chart of title odds over time starts once there are two days of forecasts. The first forecast was made '+fmtDate(F.meta.updated)+'.</p>';return}
+ const top=[...F.teams].sort((a,b)=>b.title-a.title).slice(0,6).map(t=>t.team);const w=900,h=220,n=H.length;const mx=Math.max(...H.flatMap(d=>top.map(t=>d.t[t]?d.t[t][2]:0)))*1.1;
+ const X=i=>40+(w-60)*i/(n-1),Y=v=>h-(h-10)*v/mx;const pal=['var(--fill)','var(--acc)','var(--warm)','var(--hot)','var(--ok)','var(--mute)'];
+ let s=`<svg viewBox="0 0 ${w} ${h+20}" height="${h+20}">`;for(let k=0;k<=4;k++){const v=mx*k/4;s+=`<line x1="40" x2="${w-20}" y1="${Y(v)}" y2="${Y(v)}" stroke="var(--line)"/><text x="34" y="${Y(v)+3}" text-anchor="end">${Math.round(100*v)}%</text>`}
+ top.forEach((t,j)=>{s+=`<polyline fill="none" stroke="${pal[j]}" stroke-width="2" points="${H.map((d,i)=>X(i)+','+Y(d.t[t]?d.t[t][2]:0)).join(' ')}"/><text x="${X(n-1)+4}" y="${Y(H[n-1].t[t][2])+3}" style="fill:var(--ink)">${t}</text>`});
+ s+=`<text x="40" y="${h+16}">${fmtDate(H[0].date)}</text><text x="${w-20}" y="${h+16}" text-anchor="end">${fmtDate(H[n-1].date)}</text></svg>`;$('#hist').innerHTML='<div class="legend">Title odds, the six current favorites</div>'+s}
+function players(){const P=F.players;$('#pl thead').innerHTML='<tr><th class="ns">#</th><th class="ns l">Player</th><th class="ns l">Team</th><th class="ns">Off.</th><th class="ns">Def.</th><th class="ns">Rating</th><th class="ns">Min/game</th></tr>';
+ $('#pl tbody').innerHTML=P.slice(0,30).map((p,i)=>`<tr><td>${i+1}</td><td class="l"><b>${esc(p.name)}</b></td><td class="l">${p.team}</td><td>${sg(p.o)}</td><td>${sg(p.d)}</td><td><b>${sg(p.net)}</b></td><td>${p.mpg.toFixed(1)}</td></tr>`).join('')}
+function tests(){$('#tests tbody').innerHTML=F.tests.map(t=>`<tr><td>${t.id}</td><td class="l">${esc(t.q)}</td><td class="l muted">${esc(t.bar)}</td><td class="l">${esc(t.result)}</td><td>${t.pass_===true?'<span class="pass">Pass</span>':t.pass_===false?'<span class="fail">Fail</span>':'<span class="rep">Reported</span>'}</td></tr>`).join('')}
+function calib(){const C=F.backtest.calib.filter(c=>c.n>=100);const w=400,h=220,X=v=>40+(w-60)*v,Y=v=>h-(h-10)*v;
+ let s=`<svg viewBox="0 0 ${w} ${h+30}" height="${h+30}"><line x1="${X(0)}" y1="${Y(0)}" x2="${X(1)}" y2="${Y(1)}" stroke="var(--line)" stroke-dasharray="3 3"/>`;
+ for(const v of [0,.25,.5,.75,1])s+=`<text x="${X(v)}" y="${h+14}" text-anchor="middle">${Math.round(v*100)}%</text><text x="34" y="${Y(v)+3}" text-anchor="end">${Math.round(v*100)}%</text>`;
+ C.forEach(c=>{s+=`<circle cx="${X(c.pred)}" cy="${Y(c.act)}" r="${Math.max(3,Math.sqrt(c.n)/6)}" fill="var(--fill)" opacity=".85"/>`});
+ s+=`<text x="${X(.5)}" y="${h+28}" text-anchor="middle">Predicted home win chance (preseason)</text></svg>`;
+ $('#calib').innerHTML='<h3>Does 70% mean 70%?</h3>'+s+`<p class="note">Every regular-season game from ${F.backtest.seasons}, grouped by the home team's predicted chance before the season. The closer the dots sit to the diagonal, the more the odds mean what they say.</p>`}
+</script>
+</body>
+</html>

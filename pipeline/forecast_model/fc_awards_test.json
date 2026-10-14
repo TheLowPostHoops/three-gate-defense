@@ -1,0 +1,357 @@
+{
+ "mvp": {
+  "coef": {
+   "value": 0.804584700565857,
+   "ppg": 1.0220097626130313,
+   "winpct": 0.7362580902164934,
+   "gp82": 0.11547708774451829
+  },
+  "seasons": [
+   {
+    "season": "2020-21",
+    "actual": "Nikola Joki\u0107",
+    "model_top": "Stephen Curry",
+    "hit": false,
+    "p_actual": 0.10520844348950155
+   },
+   {
+    "season": "2021-22",
+    "actual": "Nikola Joki\u0107",
+    "model_top": "Joel Embiid",
+    "hit": false,
+    "p_actual": 0.1611309342098384
+   },
+   {
+    "season": "2022-23",
+    "actual": "Joel Embiid",
+    "model_top": "Joel Embiid",
+    "hit": true,
+    "p_actual": 0.2866074395984976
+   },
+   {
+    "season": "2023-24",
+    "actual": "Nikola Joki\u0107",
+    "model_top": "Luka Don\u010di\u0107",
+    "hit": false,
+    "p_actual": 0.1591292765463675
+   },
+   {
+    "season": "2024-25",
+    "actual": "Shai Gilgeous-Alexander",
+    "model_top": "Shai Gilgeous-Alexander",
+    "hit": true,
+    "p_actual": 0.6175791171402774
+   },
+   {
+    "season": "2025-26",
+    "actual": "Shai Gilgeous-Alexander",
+    "model_top": "Shai Gilgeous-Alexander",
+    "hit": true,
+    "p_actual": 0.38707626475172474
+   }
+  ],
+  "hits": 3,
+  "of": 6,
+  "pass_": false
+ },
+ "dpoy": {
+  "coef": {
+   "dvalue": 1.3334711858816275,
+   "stocks": 0.6339935454115506,
+   "dreb": 0.277466007131075,
+   "winpct": 1.3510599703392292,
+   "gp82": -0.4395259314170795
+  },
+  "seasons": [
+   {
+    "season": "2020-21",
+    "actual": "Rudy Gobert",
+    "model_top": "Rudy Gobert",
+    "hit": true,
+    "p_actual": 0.9232600889061345
+   },
+   {
+    "season": "2021-22",
+    "actual": "Marcus Smart",
+    "model_top": "Nikola Joki\u0107",
+    "hit": false,
+    "p_actual": 0.001758894182687818
+   },
+   {
+    "season": "2022-23",
+    "actual": "Jaren Jackson Jr.",
+    "model_top": "Brook Lopez",
+    "hit": false,
+    "p_actual": 0.1338337996607689
+   },
+   {
+    "season": "2023-24",
+    "actual": "Rudy Gobert",
+    "model_top": "Rudy Gobert",
+    "hit": true,
+    "p_actual": 0.2997084283385567
+   },
+   {
+    "season": "2024-25",
+    "actual": "Evan Mobley",
+    "model_top": "Victor Wembanyama",
+    "hit": false,
+    "p_actual": 0.057968212585413265
+   },
+   {
+    "season": "2025-26",
+    "actual": "Victor Wembanyama",
+    "model_top": "Victor Wembanyama",
+    "hit": true,
+    "p_actual": 0.8913288856023677
+   }
+  ],
+  "hits": 3,
+  "of": 6,
+  "pass_": false
+ },
+ "roy": {
+  "coef": {
+   "value": 0.3989946233725569,
+   "ppg": 1.3114932620610813,
+   "gp82": 1.3070182356498343
+  },
+  "seasons": [
+   {
+    "season": "2020-21",
+    "actual": "LaMelo Ball",
+    "model_top": "Anthony Edwards",
+    "hit": false,
+    "p_actual": 0.04412223123861559
+   },
+   {
+    "season": "2021-22",
+    "actual": "Scottie Barnes",
+    "model_top": "Franz Wagner",
+    "hit": false,
+    "p_actual": 0.13121971274609426
+   },
+   {
+    "season": "2022-23",
+    "actual": "Paolo Banchero",
+    "model_top": "Paolo Banchero",
+    "hit": true,
+    "p_actual": 0.34975058960066197
+   },
+   {
+    "season": "2023-24",
+    "actual": "Victor Wembanyama",
+    "model_top": "Victor Wembanyama",
+    "hit": true,
+    "p_actual": 0.5480418313085015
+   },
+   {
+    "season": "2024-25",
+    "actual": "Stephon Castle",
+    "model_top": "Stephon Castle",
+    "hit": true,
+    "p_actual": 0.5482149065593344
+   },
+   {
+    "season": "2025-26",
+    "actual": "Cooper Flagg",
+    "model_top": "Kon Knueppel",
+    "hit": false,
+    "p_actual": 0.22742174333703338
+   }
+  ],
+  "hits": 3,
+  "of": 6,
+  "pass_": false
+ },
+ "smoy": {
+  "coef": {
+   "value": 0.5382370054356634,
+   "ppg": 1.3834816665970466,
+   "gp82": 0.6770512190459459
+  },
+  "seasons": [
+   {
+    "season": "2020-21",
+    "actual": "Jordan Clarkson",
+    "model_top": "Jordan Clarkson",
+    "hit": true,
+    "p_actual": 0.18753895482649996
+   },
+   {
+    "season": "2021-22",
+    "actual": "Tyler Herro",
+    "model_top": "Tyler Herro",
+    "hit": true,
+    "p_actual": 0.45734442701634115
+   },
+   {
+    "season": "2022-23",
+    "actual": "Malcolm Brogdon",
+    "model_top": "Immanuel Quickley",
+    "hit": false,
+    "p_actual": 0.0709625572184272
+   },
+   {
+    "season": "2023-24",
+    "actual": "Naz Reid",
+    "model_top": "Bogdan Bogdanovi\u0107",
+    "hit": false,
+    "p_actual": 0.03616078237207641
+   },
+   {
+    "season": "2024-25",
+    "actual": "Payton Pritchard",
+    "model_top": "Malik Beasley",
+    "hit": false,
+    "p_actual": 0.1174438071389013
+   },
+   {
+    "season": "2025-26",
+    "actual": "Keldon Johnson",
+    "model_top": "Jaime Jaquez Jr.",
+    "hit": false,
+    "p_actual": 0.08195317187625346
+   }
+  ],
+  "hits": 2,
+  "of": 6,
+  "pass_": false
+ },
+ "mip": {
+  "coef": {
+   "d_ppg": 1.3923015140268884,
+   "d_value": 0.5170564417975337,
+   "ppg": 0.39610275158616454,
+   "gp82": 0.7694762324219102
+  },
+  "seasons": [
+   {
+    "season": "2020-21",
+    "actual": "Julius Randle",
+    "model_top": "Michael Porter Jr.",
+    "hit": false,
+    "p_actual": 0.05713533156758467
+   },
+   {
+    "season": "2021-22",
+    "actual": "Ja Morant",
+    "model_top": "Desmond Bane",
+    "hit": false,
+    "p_actual": 0.029799441954863434
+   },
+   {
+    "season": "2022-23",
+    "actual": "Lauri Markkanen",
+    "model_top": "Lauri Markkanen",
+    "hit": true,
+    "p_actual": 0.25655821921616023
+   },
+   {
+    "season": "2023-24",
+    "actual": "Tyrese Maxey",
+    "model_top": "Coby White",
+    "hit": false,
+    "p_actual": 0.02750182679019757
+   },
+   {
+    "season": "2024-25",
+    "actual": "Dyson Daniels",
+    "model_top": "Christian Braun",
+    "hit": false,
+    "p_actual": 0.06924733231054943
+   },
+   {
+    "season": "2025-26",
+    "actual": "Nickeil Alexander-Walker",
+    "model_top": "Nickeil Alexander-Walker",
+    "hit": true,
+    "p_actual": 0.2449835932194476
+   }
+  ],
+  "hits": 2,
+  "of": 6,
+  "pass_": false
+ },
+ "final": {
+  "mvp": {
+   "value": 1.0514854093829904,
+   "ppg": 0.9724223186817602,
+   "winpct": 0.7582228571905163,
+   "gp82": 0.06918376814343778
+  },
+  "dpoy": {
+   "dvalue": 1.0958204874795474,
+   "stocks": 0.7291359798289769,
+   "dreb": 0.07072426538738101,
+   "winpct": 1.2184900529469969,
+   "gp82": -0.08061435136905629
+  },
+  "roy": {
+   "value": 0.3769200856235876,
+   "ppg": 1.4189591055198552,
+   "gp82": 1.0533717303620178
+  },
+  "smoy": {
+   "value": 0.4973113906650824,
+   "ppg": 1.4840945066294136,
+   "gp82": 0.8552343346673037
+  },
+  "mip": {
+   "d_ppg": 1.504083903508145,
+   "d_value": 0.5514969495176681,
+   "ppg": 0.5708679272477276,
+   "gp82": 0.707833860711241
+  }
+ },
+ "coy": {
+  "coef": {
+   "winpct": 1.2961288491785277,
+   "over": 0.976667390160898
+  },
+  "seasons": [
+   {
+    "season": "2020-21",
+    "actual": "NYK",
+    "model_top": "PHX",
+    "hit": false
+   },
+   {
+    "season": "2021-22",
+    "actual": "PHX",
+    "model_top": "PHX",
+    "hit": true
+   },
+   {
+    "season": "2022-23",
+    "actual": "SAC",
+    "model_top": "MIL",
+    "hit": false
+   },
+   {
+    "season": "2023-24",
+    "actual": "OKC",
+    "model_top": "OKC",
+    "hit": true
+   },
+   {
+    "season": "2024-25",
+    "actual": "CLE",
+    "model_top": "CLE",
+    "hit": true
+   },
+   {
+    "season": "2025-26",
+    "actual": "BOS",
+    "model_top": "SAS",
+    "hit": false
+   }
+  ],
+  "hits": 3,
+  "of": 6,
+  "final": {
+   "winpct": 1.0427426943383709,
+   "over": 1.400764544100856
+  }
+ }
+}

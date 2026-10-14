@@ -35,11 +35,18 @@ h1{font:700 1.75rem/1.15 Georgia,"Times New Roman",serif;margin:0 0 4px}
 <link rel="stylesheet" href="/three-gate-defense/assets/site.css">
 </head>
 <body>
-<header class="mast"><div><a class="brand" href="/three-gate-defense/">Ghost Screen Analytics</a><nav><a href="/three-gate-defense/">Home</a><div class="dd on"><a href="/three-gate-defense/models/" aria-current="page">Models</a><div class="menu"><a href="/three-gate-defense/defense/">Three Gates<small>Rim protection explorer</small></a><a href="/three-gate-defense/durability/">Load &amp; Durability<small>Who misses games, and why</small></a></div></div></nav></div></header>
+<header class="mast"><div><a class="brand" href="/three-gate-defense/">Ghost Screen Analytics</a><nav><a href="/three-gate-defense/">Home</a><div class="dd on"><a href="/three-gate-defense/models/" aria-current="page">Models</a><div class="menu"><a href="/three-gate-defense/forecast/">Season Forecast<small>1,000,000 seasons, every day</small></a><a href="/three-gate-defense/defense/">Three Gates<small>Rim protection explorer</small></a><a href="/three-gate-defense/durability/">Load &amp; Durability<small>Who misses games, and why</small></a></div></div></nav></div></header>
 <main>
 <h1>Models</h1>
 <p class="dek">Every Ghost Screen model is built from public data, tested against bars written down before the test was run, and published with the tests it failed. These are Ghost Screen Analytics creations, not NBA stats.</p>
 <div class="models">
+ <div class="m">
+  <div class="k">Season · new · updated every morning</div>
+  <h2><a href="../forecast/">2026-27 Season Forecast</a></h2>
+  <p>Player ratings from every lineup since 2010-11 become team strengths, and the season is simulated 1,000,000 times a day: records, play-in, playoffs, the lottery and the awards, with the 65-game rule built in.</p>
+  <ul id="fc"><li><span>Loading test record…</span><span></span></li></ul>
+  <a class="go" href="../forecast/">Open the forecast</a>
+ </div>
  <div class="m">
   <div class="k">Defense · updated weekly in season</div>
   <h2><a href="../defense/">Three Gates: rim protection</a></h2>
@@ -53,7 +60,7 @@ h1{font:700 1.75rem/1.15 Georgia,"Times New Roman",serif;margin:0 0 4px}
   <a class="go" href="../defense/">Open the explorer</a>
  </div>
  <div class="m">
-  <div class="k">Health · new</div>
+  <div class="k">Health</div>
   <h2><a href="../durability/">Load &amp; Durability</a></h2>
   <p>Who is likely to miss games to injury next season, a body map for every player from the NBA's official injury reports, and which kinds of load actually raise the risk.</p>
   <ul id="dur"><li><span>Loading test record…</span><span></span></li></ul>
@@ -75,6 +82,10 @@ fetch('../data/load_meta.json?'+Date.now()).then(r=>r.json()).then(M=>{
  document.getElementById('dur').innerHTML=[
   ['Recent minutes raise next-game injury risk',V.V2.pass_],['Injuries return to the same body area',V.V3.pass_],['Fuller model beats last season\'s injuries alone',V.V1.pass_],
   ['Long playoff runs lead to more injuries next season',M.playoffs?M.playoffs.P1.pass_:false],['Contact exposure adds to the forecast',V.V6.pass_],['Body size adds to the forecast',V.V7.pass_]].map(([n,ok])=>`<li><span>${n}</span>${v(ok)}</li>`).join('');
+}).catch(()=>{});
+fetch('../data/forecast.json?'+Date.now()).then(r=>r.json()).then(F=>{
+ const v=ok=>`<span class="${ok?'pass':'fail'}">${ok?'Pass':'Fail'}</span>`;
+ document.getElementById('fc').innerHTML=F.tests.filter(t=>t.pass_!==null).map(t=>`<li><span>${t.q}</span>${v(t.pass_)}</li>`).join('');
 }).catch(()=>{});
 </script>
 </body>

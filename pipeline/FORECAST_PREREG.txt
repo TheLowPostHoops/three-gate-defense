@@ -1,0 +1,93 @@
+GHOST SCREEN SEASON FORECAST: rules written before any backtest was run (2026-10-14)
+
+What it does
+- Rates every player (points per 100 possessions above average, offense and defense separately).
+- Turns ratings + projected minutes + expected availability into a team strength.
+- Simulates the 2026-27 season 1,000,000 times every day: every remaining game, the play-in, the playoffs, the awards.
+
+Player rating (fixed before testing)
+- Regularized adjusted plus-minus from every lineup stint since 2010-11, offense and defense separately, three-season window
+  with the older seasons down-weighted, shrunk toward a box-score prior (points, shooting, free throws, assists, turnovers,
+  rebounds, steals, blocks per 100 possessions) instead of toward zero.
+- The box-score prior's weights are fit on earlier seasons only when testing a later season (no peeking).
+- Next-season rating = this rating plus an aging adjustment fit on earlier seasons.
+- Rookies: rating from draft slot, fit on earlier rookie classes.
+
+Tests (season held out = predicted using only seasons before it; seasons 2014-15 to 2025-26)
+F1 Team strength. Predict each team's point differential per game for the coming season from the player projections and
+   minutes from the previous season's rotation (minutes known before the season). Pass if the mean absolute error beats
+   the simple baseline "last season's point differential x 0.6" by at least 5%.
+F2 Game picks. Pick the winner of every regular-season game with the preseason team strengths + home court.
+   Pass if the share picked correctly beats the same baseline's share and the log loss is better.
+F3 Calibration. Group predicted game win probabilities into tenths; in every group with 300+ games, actual win rate within
+   5 points of predicted. Fail if any group misses by more than 5 points.
+F4 In-season blend. Strength after N games = preseason x K/(K+N) + results x N/(K+N). K chosen on 2014-15 to 2019-20
+   only, then tested on 2020-21 to 2025-26: pass if blended beats both "preseason only" and "results only" in log loss
+   on games after the 20th.
+Awards (A1) Voter models fit on 2010-11 to 2019-20 award voting; tested on 2020-21 to 2025-26. Pass if the actual
+   winner had the highest model probability in at least 4 of 6 seasons for MVP. Reported for each award, pass or fail.
+
+Rules for publishing
+- Anything that fails is still published with the forecast, labeled, and the forecast says so.
+- 1,000,000 simulated seasons per day. Odds are shown to the nearest 0.1%; "<0.1%" and ">99.9%" at the edges.
+
+RESULTS (2026-10-14, first run; nothing below changed the bars above)
+F1 PASS  mean error 2.68 vs baseline 3.14 points per game (14.7% better), 2015-16 to 2025-26.
+F2 PASS  63.4% of games picked right vs 61.3%; log loss 0.6375 vs 0.6531.
+F3 PASS  largest calibration gap 2.7 points.
+F4 PASS  K=20 (chosen on 2014-15..2019-20); 2020-21..2025-26 log loss blend 0.6212, preseason only 0.6516, results only 0.6239.
+A1 FAIL  MVP winner had the top probability in 3 of 6 seasons (bar 4). Misses: 2020-21, 2021-22, 2023-24 (model's pick finished 2nd or 3rd).
+   Reported: DPOY 3/6, ROY 3/6, Sixth Man 2/6, Most Improved 2/6, Coach of the Year 3/6.
+
+Data fix (before the A1 numbers above): 2025-26 player names were missing from the converted play-by-play, so the
+2025-26 voting could not be matched to players; names now come from every season's names, the rosters and the injury page.
+First A1 run with the bug: MVP 2 of 6.
+
+Choices made after the tests, for the award odds only (no test result depends on them):
+- "Rookie" means a player who has never played an NBA game (a returning veteran from overseas is not a rookie).
+- A player with no starts history: top-10 picks are assumed to start 60% of games, everyone else 25%.
+- Scoring in each simulated season varies more for younger players (1.2 points + 0.35 per year under 27) and moves with
+  the projected change in offensive rating; without this the Most Improved odds went to stars by construction.
+- Award odds use 100,000 of the 1,000,000 seasons.
+Simplifications: ties in the standings are broken by point differential; the two NBA Cup knockout/makeup games each team
+has without a fixed opponent are played against a league-average team on a neutral floor.
+
+======================================================================================================
+ADDITIONS (written 2026-10-14, before any of these tests were run)
+Training seasons for every fit below: 2014-15 to 2019-20. Test seasons: 2020-21 to 2025-26. Game-level tests are
+scored on log loss of the home team winning, starting from the preseason strengths (F2) plus home court.
+
+S1 Schedule factor. Each game gets an adjustment from: rest days for each team (0 = second night of a back-to-back,
+   1, 2, 3+), the third game in four nights, miles traveled since the last game, time zones crossed, and playing at
+   altitude (Denver, Utah). Pass if test-season log loss improves by at least 0.2% (relative).
+S2 Projected health. Team strength with each player's minutes weighted by his projected share of games played
+   (last three seasons, shrunk to the league norm) vs. not weighted. Scored on F1 (team point differential error).
+   Pass if the error drops by at least 2% on test seasons.
+S3 Surprise factor. How far a team can land from its projection: the spread of (actual - projected) point
+   differential is modeled from roster continuity (share of last season's minutes returning), average age weighted by
+   minutes, and minutes going to players with no NBA history. Fit on training seasons; pass if, on test seasons,
+   the per-team spread gives a better log score for actual differentials than one spread for every team (any gain).
+   Also reported: whether young or high-turnover teams beat their projections on average (a mean shift), used only
+   if it improves the same score.
+S4 Late season. In each team's last 15 games, teams already out of the race (bottom 6 in the league by record at
+   that point) and teams with their seed nearly locked (top 2 in their conference with a 5+ game cushion): do they
+   play worse than their current strength says? Pass (and used in the simulation) if the shift is at least
+   1.5 points per game with a 95% range that excludes 0, measured on all seasons 2014-15 to 2025-26.
+Tried after S3 (and dropped): giving players with no NBA history only the minutes the veterans leave, because deep
+teams (OKC) were credited with many rookie minutes. It made F1 worse (error 2.73 vs 2.68) and F2 worse (62.7% vs 63.4%),
+so the original minutes stay.
+
+RESULTS FOR S1-S4 (2026-10-14, first run)
+S1 PASS  log loss 0.6436 vs 0.6465 (0.46% better; bar 0.2%), 7171 test games.
+   Fitted on all seasons (points for the home team): second night of a back-to-back -1.88 (difference between teams),
+   3rd game in 4 nights -0.66, each time zone crossed -0.27, altitude (Denver/Utah home) +1.87;
+   home court with these in the model 1.86.
+S2 FAIL  weighting minutes by projected games played: error 3.035 vs 3.028 (-0.2%).
+   So projected health does not move expected strength; each simulated season still draws who is healthy (injury luck),
+   relative to each player's own projection. Games actually missed this season, and players out right now, do count.
+S3 PASS  log score 510.8 (per-team spread) and 510.1 (spread + shift) vs 514.8
+   (one spread for all; lower is better). Shift used: per standard deviation, continuity +0.29, age
+   +0.07, rookie minutes -0.52 points per game. Spread grows with rookie minutes.
+S4 PASS  out of the race: -3.02 points per game in the last 15 (95% -3.99 to -2.06,
+   81 team-seasons); seed locked: -2.45 (-4.10 to -0.80, 29).
+   In the simulation the standings that decide this are taken when each team's last 15 games begin.

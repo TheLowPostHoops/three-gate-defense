@@ -40,6 +40,10 @@ jobs:
           key: seasons-${{ github.run_id }}
           restore-keys: seasons-
 
+      - name: Run the season forecast (1,000,000 seasons)
+        continue-on-error: true          # if it fails, the forecast page keeps yesterday's numbers
+        run: bash pipeline/forecast_update.sh
+
       - name: Refit the rim protection model
         run: python pipeline/update.py --boot 200
 
@@ -54,8 +58,9 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data
+          if [ -d pipeline/live ]; then git add pipeline/live; fi
           if git diff --cached --quiet; then
-            echo "No new data this week."
+            echo "No new data today."
           else
             git commit -m "Data refresh $(date -u +%F)"
             git push

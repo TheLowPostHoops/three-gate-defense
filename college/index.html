@@ -57,19 +57,9 @@ a{color:var(--ink)}
 <main>
 <h1>College to NBA</h1>
 <p class="dek">Every 2026 draft pick and the 2027 draft board, scored from college numbers and draft slot, each with an 80% range. A Ghost Screen Analytics model, not an NBA stat. The tests were written before the model was run.</p>
+<p class="dek" id="scale"><b>The scale.</b> Every projection is a LEBRON rating (BBall Index, points per 100 possessions better or worse than an average player), averaged over NBA seasons 2 to 4. <b>0</b> is an average NBA player, <b>+2 or more</b> is a clear starter, and <b>about -2</b> is replacement level. A player who barely plays or never reaches the NBA counts as -2, so most late picks project below zero.</p>
 
-<div class="verdict" id="verdict">Loading results…</div>
-<ul class="bars" id="bars"></ul>
-
-<h2>The projections</h2>
-<div class="tabs" role="group" aria-label="Class">
- <button id="t26" aria-pressed="true">2026 rookies</button><button id="t27" aria-pressed="false">2027 draft board</button>
-</div>
-<div class="tools"><input id="q" type="search" placeholder="Find a player or school" aria-label="Find a player or school"><span id="cap"></span></div>
-<div class="wrap"><table id="tb"><thead></thead><tbody></tbody></table></div>
-<p class="note" id="legend"></p>
-
-<h2>How to read it</h2>
+<h2 style="margin-top:6px">How to read it</h2>
 <div class="cols">
  <div>
   <dl>
@@ -84,6 +74,17 @@ a{color:var(--ink)}
   <p><b>2027 caveat.</b> The 2027 board uses the public Tankathon big board rank as the draft slot and last season's college numbers (the 2026-27 season has not been played). Freshmen, players coming from outside college basketball and anyone without a 2025-26 college season are scored from slot alone and tagged <em>slot only</em>. Treat that class as a rough first look.</p>
  </div>
 </div>
+
+<div class="verdict" id="verdict">Loading results…</div>
+<ul class="bars" id="bars"></ul>
+
+<h2>The projections</h2>
+<div class="tabs" role="group" aria-label="Class">
+ <button id="t26" aria-pressed="true">2026 rookies</button><button id="t27" aria-pressed="false">2027 draft board</button>
+</div>
+<div class="tools"><input id="q" type="search" placeholder="Find a player or school" aria-label="Find a player or school"><span id="cap"></span></div>
+<div class="wrap"><table id="tb"><thead></thead><tbody></tbody></table></div>
+<p class="note" id="legend"></p>
 
 <h2>What it is built on</h2>
 <div class="txt">

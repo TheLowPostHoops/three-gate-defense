@@ -1,0 +1,5 @@
+{
+ "_how": "Our own win totals where we disagree with the model. Edit on GitHub: one line per team, wins and a short note. Delete a team to remove it.",
+ "MIA": {"wins": 47, "note": "Giannis doesn't let a team he's on fall into the play-in. We have Miami as a top-six seed and ahead of Charlotte."},
+ "WAS": {"wins": 30, "note": "Trae Young and Anthony Davis on a team that won 17 is still a big jump. We think 30 is the floor if both play."}
+}

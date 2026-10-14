@@ -57,7 +57,6 @@ a{color:var(--ink)}
 <main>
 <h1>College to NBA</h1>
 <p class="dek">Every 2026 draft pick and the 2027 draft board, scored from college numbers and draft slot, each with an 80% range. A Ghost Screen Analytics model, not an NBA stat. The tests were written before the model was run.</p>
-<p class="dek" id="scale"><b>The scale.</b> Every projection is a LEBRON rating (BBall Index, points per 100 possessions better or worse than an average player), averaged over NBA seasons 2 to 4. <b>0</b> is an average NBA player, <b>+2 or more</b> is a clear starter, and <b>about -2</b> is replacement level. A player who barely plays or never reaches the NBA counts as -2, so most late picks project below zero.</p>
 
 <div class="verdict" id="verdict">Loading results…</div>
 <ul class="bars" id="bars"></ul>
@@ -96,7 +95,7 @@ a{color:var(--ink)}
 const $=id=>document.getElementById(id),LO=-3.7,HI=2.6,W=200,x=v=>Math.max(0,Math.min(W,(v-LO)/(HI-LO)*W));
 let D,mode='r26',sortK=null,sortDir=1;
 const f2=v=>(v>0?'+':'')+v.toFixed(2).replace('-','−');
-const cols={r26:[['pick','Pick',1],['player','Player',0],['school','School',0],['proj_final','Projection',1],['slot_only','Slot only',1],['d','Model vs slot',1],['rng','80% range',0]],
+const cols={r26:[['pick','Pick',1],['player','Player',0],['school','School',0],['team','NBA team',0],['proj_final','Projection',1],['slot_only','Slot only',1],['d','Model vs slot',1],['rng','80% range',0]],
             r27:[['rank','Rank',1],['player','Player',0],['school','School',0],['proj_final','Projection',1],['slot_only','Slot only',1],['d','Model vs slot',1],['rng','80% range',0]]};
 function rows(){const a=mode==='r26'?D.rookies:D.board;return a.map(r=>({...r,d:r.proj_final-r.slot_only}))}
 function render(){
@@ -104,9 +103,9 @@ function render(){
  let a=rows().filter(r=>!q||(r.player+' '+r.school).toLowerCase().includes(q));
  const sk=sortK||kk;a.sort((p,q2)=>{const u=p[sk],v=q2[sk];return (typeof u==='string'?u.localeCompare(v):u-v)*sortDir*(sk===kk||sk==='player'||sk==='school'?1:1)});
  $('tb').tHead.innerHTML='<tr>'+c.map(([k,l,n])=>`<th class="${n?'n':''}" data-k="${k}">${l}${sortK===k?(sortDir>0?' ▲':' ▼'):''}</th>`).join('')+'</tr>';
- $('tb').tBodies[0].innerHTML=a.map(r=>`<tr><td class="n">${r[kk]}</td><td class="p">${r.player}${r.college_data?'':'<span class="tag">slot only</span>'}</td><td>${r.school}</td><td class="n p">${f2(r.proj_final)}</td><td class="n">${f2(r.slot_only)}</td><td class="n ${r.d>0.005?'up':r.d<-0.005?'dn':''}">${r.college_data?f2(r.d):'–'}</td><td><div class="rng" title="80% range ${f2(r.lo80)} to ${f2(r.hi80)}"><s style="left:${x(0)}px"></s><i style="left:${x(r.lo80)}px;width:${x(r.hi80)-x(r.lo80)}px"></i><u style="left:${x(r.slot_only)}px"></u><b style="left:${x(r.proj_final)}px"></b></div></td></tr>`).join('');
+ $('tb').tBodies[0].innerHTML=a.map(r=>`<tr><td class="n">${r[kk]}</td><td class="p">${r.player}${r.college_data?'':'<span class="tag">slot only</span>'}</td><td>${r.school}</td>${mode==='r26'?`<td>${r.team}</td>`:''}<td class="n p">${f2(r.proj_final)}</td><td class="n">${f2(r.slot_only)}</td><td class="n ${r.d>0.005?'up':r.d<-0.005?'dn':''}">${r.college_data?f2(r.d):'–'}</td><td><div class="rng" title="80% range ${f2(r.lo80)} to ${f2(r.hi80)}"><s style="left:${x(0)}px"></s><i style="left:${x(r.lo80)}px;width:${x(r.hi80)-x(r.lo80)}px"></i><u style="left:${x(r.slot_only)}px"></u><b style="left:${x(r.proj_final)}px"></b></div></td></tr>`).join('');
  $('cap').textContent=a.length+' players · click a column to sort';
- $('legend').innerHTML='Dark tick = model projection. Hollow circle = draft slot alone. Light line = 80% range. Thin vertical line = average NBA player (0). "Model vs slot" is how much the college numbers move a player up (green) or down (red) from where the draft position alone puts him.'+(mode==='r27'?' Slot = rank on the public big board.':'');
+ $('legend').innerHTML='NBA team = the team holding the pick after draft-night and July trades; overseas picks may not be on an NBA roster yet. Dark tick = model projection. Hollow circle = draft slot alone. Light line = 80% range. Thin vertical line = average NBA player (0). "Model vs slot" is how much the college numbers move a player up (green) or down (red) from where the draft position alone puts him.'+(mode==='r27'?' Slot = rank on the public big board.':'');
  document.querySelectorAll('th').forEach(t=>t.onclick=()=>{const k=t.dataset.k;if(k==='rng')return;if(sortK===k)sortDir=-sortDir;else{sortK=k;sortDir=(k==='player'||k==='school'||k==='pick'||k==='rank')?1:-1}render()});
 }
 fetch('data.json?'+Date.now()).then(r=>r.json()).then(d=>{D=d;

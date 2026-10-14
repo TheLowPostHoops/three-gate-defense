@@ -1,0 +1,617 @@
+{
+ "ATL": {
+  "text": "Last season: 46-36, +2.4 points per game (12th in the league). New faces: Luguentz Dort from Oklahoma City (+0.3), Aaron Wiggins from Oklahoma City (+0.8), Dorian Finney-Smith from Charlotte (+1.3), Jalen Wilson (+0.3). Gone: Luke Kennard (to Phoenix), Zaccharie Risacher (to Dallas), V\u00edt Krej\u010d\u00ed (to Portland). Best players by our rating: Dyson Daniels (+5.6), Nickeil Alexander-Walker (+3.4), Jalen Johnson (+3.1). The moves are worth about +1.1 points a game on paper, and the model sees about the same team as last year's 46 wins.",
+  "projection": "Projection: 42 wins (80% range 31-52), 58% to make the playoffs, 1.0% to win the title. Chance of beating the projection by 8+ wins: 17%.",
+  "last": {
+   "w": 46,
+   "l": 36,
+   "mov": 2.4
+  },
+  "arrivals": [
+   "Luguentz Dort",
+   "Aaron Wiggins",
+   "Dorian Finney-Smith",
+   "Jalen Wilson"
+  ],
+  "departures": [
+   "Luke Kennard",
+   "Zaccharie Risacher",
+   "V\u00edt Krej\u010d\u00ed"
+  ],
+  "moves": 1.1
+ },
+ "BKN": {
+  "text": "Last season: 20-62, -10.0 points per game (28th in the league). New faces: Julius Randle from Minnesota (+2.3), Keon Ellis (+2.1), Mikel Brown Jr. (rookie, -0.4). Gone: Nic Claxton (to Chicago), Ziaire Williams (to the Lakers), Cam Thomas (unsigned or retired), Jalen Wilson (to Atlanta). Best players by our rating: Day'Ron Sharpe (+4.0), Julius Randle (+2.3), Michael Porter Jr. (+2.2). The moves are worth about +3.0 points a game on paper, and the model expects a big jump from 20 wins.",
+  "projection": "Projection: 30 wins (80% range 19-41), 13% to make the playoffs, 0.1% to win the title. Chance of beating the projection by 8+ wins: 20%.",
+  "last": {
+   "w": 20,
+   "l": 62,
+   "mov": -10.0
+  },
+  "arrivals": [
+   "Julius Randle",
+   "Keon Ellis",
+   "Mikel Brown Jr."
+  ],
+  "departures": [
+   "Nic Claxton",
+   "Ziaire Williams",
+   "Cam Thomas",
+   "Jalen Wilson"
+  ],
+  "moves": 3.0
+ },
+ "BOS": {
+  "text": "Last season: 56-26, +7.7 points per game (4th in the league). New faces: Paul George from Philadelphia (+1.9), Mike Conley (+0.1), Mitchell Robinson (+3.4). Gone: Jaylen Brown (to Philadelphia), Anfernee Simons (to Philadelphia), Josh Minott (to Brooklyn). Best players by our rating: Derrick White (+4.9), Neemias Queta (+4.6), Jayson Tatum (+3.8). The roster changes roughly wash out, and the model sees about the same team as last year's 56 wins.",
+  "projection": "Projection: 53 wins (80% range 44-61), 96% to make the playoffs, 9.7% to win the title. Chance of beating the projection by 8+ wins: 12%.",
+  "last": {
+   "w": 56,
+   "l": 26,
+   "mov": 7.7
+  },
+  "arrivals": [
+   "Paul George",
+   "Mike Conley",
+   "Mitchell Robinson"
+  ],
+  "departures": [
+   "Jaylen Brown",
+   "Anfernee Simons",
+   "Josh Minott"
+  ],
+  "moves": 0.7
+ },
+ "CHA": {
+  "text": "Last season: 44-38, +4.8 points per game (8th in the league). New faces: Naz Reid from Minnesota (+2.3), Coby White from Chicago (+2.4), Royce O'Neale from Phoenix (-0.4), Dennis Schr\u00f6der from Cleveland (+0.0). Gone: Miles Bridges (to Phoenix), LaMelo Ball (to Minnesota), Collin Sexton (to the Lakers), Josh Green (to Utah). Best players by our rating: Moussa Diabat\u00e9 (+5.2), Kon Knueppel (+4.2), Brandon Miller (+3.3). The roster changes roughly wash out, and the model sees about the same team as last year's 44 wins.",
+  "projection": "Projection: 45 wins (80% range 35-55), 73% to make the playoffs, 2.0% to win the title. Chance of beating the projection by 8+ wins: 17%.",
+  "last": {
+   "w": 44,
+   "l": 38,
+   "mov": 4.8
+  },
+  "arrivals": [
+   "Naz Reid",
+   "Coby White",
+   "Royce O'Neale",
+   "Dennis Schr\u00f6der"
+  ],
+  "departures": [
+   "Miles Bridges",
+   "LaMelo Ball",
+   "Collin Sexton",
+   "Josh Green"
+  ],
+  "moves": -0.3
+ },
+ "CHI": {
+  "text": "Last season: 31-51, -5.2 points per game (22nd in the league). New faces: Norman Powell (+2.7), Nic Claxton from Brooklyn (+0.1), Buddy Hield from Charlotte (-0.4), Caleb Wilson (rookie, -0.3). Gone: Ayo Dosunmu (to Minnesota), Nikola Vu\u010devi\u0107 (to Orlando), Kevin Huerter (to Detroit), Coby White (to Charlotte). Best players by our rating: Jalen Smith (+3.7), Josh Giddey (+2.8), Norman Powell (+2.7). The moves are worth about -1.2 points a game on paper, and the model sees about the same team as last year's 31 wins.",
+  "projection": "Projection: 30 wins (80% range 20-41), 12% to make the playoffs, <0.1% to win the title. Chance of beating the projection by 8+ wins: 16%.",
+  "last": {
+   "w": 31,
+   "l": 51,
+   "mov": -5.2
+  },
+  "arrivals": [
+   "Norman Powell",
+   "Nic Claxton",
+   "Buddy Hield",
+   "Caleb Wilson"
+  ],
+  "departures": [
+   "Ayo Dosunmu",
+   "Nikola Vu\u010devi\u0107",
+   "Kevin Huerter",
+   "Coby White"
+  ],
+  "moves": -1.2
+ },
+ "CLE": {
+  "text": "Last season: 52-30, +4.1 points per game (9th in the league). New faces: James Harden from the Clippers (+1.5), Peyton Watson from Denver (+2.5). Gone: Darius Garland (to the Clippers), Dean Wade (to Philadelphia), De'Andre Hunter (to Sacramento). Best players by our rating: Donovan Mitchell (+4.9), Jarrett Allen (+4.8), Evan Mobley (+4.0). The roster changes roughly wash out, and the model sees about the same team as last year's 52 wins.",
+  "projection": "Projection: 50 wins (80% range 41-59), 91% to make the playoffs, 6.5% to win the title. Chance of beating the projection by 8+ wins: 12%.",
+  "last": {
+   "w": 52,
+   "l": 30,
+   "mov": 4.1
+  },
+  "arrivals": [
+   "James Harden",
+   "Peyton Watson"
+  ],
+  "departures": [
+   "Darius Garland",
+   "Dean Wade",
+   "De'Andre Hunter"
+  ],
+  "moves": 0.0
+ },
+ "DAL": {
+  "text": "Last season: 26-56, -5.5 points per game (23rd in the league). New faces: Santi Aldama from Memphis (+1.4), Zaccharie Risacher from Atlanta (-0.3), Kyrie Irving (back after missing last season, +2.2), Morez Johnson Jr. (rookie, -0.4). Gone: Klay Thompson (to Miami), Brandon Williams (to Golden State), Ryan Nembhard (to Denver). Best players by our rating: Daniel Gafford (+2.6), Kyrie Irving (+2.2), Cooper Flagg (+2.0). The roster changes roughly wash out, and the model expects a big jump from 26 wins.",
+  "projection": "Projection: 35 wins (80% range 24-46), 26% to make the playoffs, 0.2% to win the title. Chance of beating the projection by 8+ wins: 18%.",
+  "last": {
+   "w": 26,
+   "l": 56,
+   "mov": -5.5
+  },
+  "arrivals": [
+   "Santi Aldama",
+   "Zaccharie Risacher",
+   "Kyrie Irving",
+   "Morez Johnson Jr."
+  ],
+  "departures": [
+   "Klay Thompson",
+   "Brandon Williams",
+   "Ryan Nembhard"
+  ],
+  "moves": 0.5
+ },
+ "DEN": {
+  "text": "Last season: 54-28, +5.1 points per game (7th in the league). New faces: DeMar DeRozan (+0.4), Ryan Nembhard (+1.5), Tyus Jones (-0.4), Marvin Bagley III (+1.5). Gone: Tim Hardaway Jr. (to Miami), Bruce Brown (to New York), Peyton Watson (to Cleveland), Jonas Valan\u010di\u016bnas (unsigned or retired). Best players by our rating: Nikola Joki\u0107 (+9.3), Jamal Murray (+3.5), Aaron Gordon (+3.0). The roster changes roughly wash out, and the model sees about the same team as last year's 54 wins; the schedule is worth +1.8 wins, mostly altitude at home.",
+  "projection": "Projection: 50 wins (80% range 42-59), 92% to make the playoffs, 4.8% to win the title. Chance of beating the projection by 8+ wins: 12%.",
+  "last": {
+   "w": 54,
+   "l": 28,
+   "mov": 5.1
+  },
+  "arrivals": [
+   "DeMar DeRozan",
+   "Ryan Nembhard",
+   "Tyus Jones",
+   "Marvin Bagley III"
+  ],
+  "departures": [
+   "Tim Hardaway Jr.",
+   "Bruce Brown",
+   "Peyton Watson",
+   "Jonas Valan\u010di\u016bnas"
+  ],
+  "moves": 0.8
+ },
+ "DET": {
+  "text": "Last season: 60-22, +8.2 points per game (3rd in the league). New faces: Kevin Huerter from Chicago (+2.4), John Collins from the Clippers (+0.7), Isaiah Joe from Oklahoma City (+2.5), Taurean Prince from Milwaukee (+0.3). Gone: Tobias Harris (to San Antonio), Isaiah Stewart (to Memphis), Caris LeVert (to Milwaukee). Best players by our rating: Ausar Thompson (+5.0), Cade Cunningham (+4.5), Jalen Duren (+4.0). The roster changes roughly wash out, and the model expects a step back from 60 wins.",
+  "projection": "Projection: 50 wins (80% range 41-59), 91% to make the playoffs, 6.0% to win the title. Chance of beating the projection by 8+ wins: 12%.",
+  "last": {
+   "w": 60,
+   "l": 22,
+   "mov": 8.2
+  },
+  "arrivals": [
+   "Kevin Huerter",
+   "John Collins",
+   "Isaiah Joe",
+   "Taurean Prince"
+  ],
+  "departures": [
+   "Tobias Harris",
+   "Isaiah Stewart",
+   "Caris LeVert"
+  ],
+  "moves": 0.8
+ },
+ "GSW": {
+  "text": "Last season: 37-45, -0.6 points per game (20th in the league). New faces: Kristaps Porzi\u0146\u0123is from Atlanta (+2.3), Brandon Williams (+1.2), Yaxel Lendeborg (rookie, -0.4), Georges Niang (-0.1). Gone: Pat Spencer (to Phoenix), Quinten Post (to Memphis), Jonathan Kuminga (to Minnesota), Buddy Hield (to Chicago). Best players by our rating: Jimmy Butler III (+4.6), Stephen Curry (+3.2), Brandin Podziemski (+3.1). The roster changes roughly wash out, and the model sees about the same team as last year's 37 wins.",
+  "projection": "Projection: 39 wins (80% range 30-48), 44% to make the playoffs, 0.2% to win the title. Chance of beating the projection by 8+ wins: 12%.",
+  "last": {
+   "w": 37,
+   "l": 45,
+   "mov": -0.6
+  },
+  "arrivals": [
+   "Kristaps Porzi\u0146\u0123is",
+   "Brandon Williams",
+   "Yaxel Lendeborg",
+   "Georges Niang"
+  ],
+  "departures": [
+   "Pat Spencer",
+   "Quinten Post",
+   "Jonathan Kuminga",
+   "Buddy Hield"
+  ],
+  "moves": 0.3
+ },
+ "HOU": {
+  "text": "Last season: 52-30, +5.2 points per game (6th in the league). New faces: Marcus Smart (+3.2), Fred VanVleet (back after missing last season, +3.2), Bogdan Bogdanovi\u0107 (+0.8). Gone: Josh Okogie (to Utah). Best players by our rating: Amen Thompson (+5.5), Tari Eason (+3.5), Fred VanVleet (+3.2). The moves are worth about +1.0 points a game on paper, and the model sees about the same team as last year's 52 wins.",
+  "projection": "Projection: 52 wins (80% range 44-60), 96% to make the playoffs, 7.3% to win the title. Chance of beating the projection by 8+ wins: 10%.",
+  "last": {
+   "w": 52,
+   "l": 30,
+   "mov": 5.2
+  },
+  "arrivals": [
+   "Marcus Smart",
+   "Fred VanVleet",
+   "Bogdan Bogdanovi\u0107"
+  ],
+  "departures": [
+   "Josh Okogie"
+  ],
+  "moves": 1.0
+ },
+ "IND": {
+  "text": "Last season: 19-63, -8.0 points per game (26th in the league). New faces: Ivica Zubac from the Clippers (+2.0), Kelly Oubre Jr. (+0.1), Tyrese Haliburton (back after missing last season, +4.6). Gone: Bennedict Mathurin (to New Orleans), Micah Potter (to Portland), Isaiah Jackson (to the Clippers). Best players by our rating: Tyrese Haliburton (+4.6), Pascal Siakam (+3.4), Aaron Nesmith (+2.4). The moves are worth about +1.7 points a game on paper, and the model expects a big jump from 19 wins.",
+  "projection": "Projection: 36 wins (80% range 27-45), 29% to make the playoffs, 0.1% to win the title. Chance of beating the projection by 8+ wins: 12%.",
+  "last": {
+   "w": 19,
+   "l": 63,
+   "mov": -8.0
+  },
+  "arrivals": [
+   "Ivica Zubac",
+   "Kelly Oubre Jr.",
+   "Tyrese Haliburton"
+  ],
+  "departures": [
+   "Bennedict Mathurin",
+   "Micah Potter",
+   "Isaiah Jackson"
+  ],
+  "moves": 1.7
+ },
+ "LAC": {
+  "text": "Last season: 42-40, +1.1 points per game (16th in the league). New faces: Rui Hachimura (+1.9), Brandon Ingram from Toronto (+0.8), Darius Garland from Cleveland (+1.8), Gradey Dick from Toronto (+0.2). Gone: James Harden (to Cleveland), Kawhi Leonard (to Toronto), John Collins (to Detroit), Ivica Zubac (to Indiana). Best players by our rating: Kris Dunn (+2.0), Rui Hachimura (+1.9), Derrick Jones Jr. (+1.9). The moves are worth about -6.3 points a game on paper, and the model expects a step back from 42 wins.",
+  "projection": "Projection: 30 wins (80% range 20-40), 10% to make the playoffs, <0.1% to win the title. Chance of beating the projection by 8+ wins: 14%.",
+  "last": {
+   "w": 42,
+   "l": 40,
+   "mov": 1.1
+  },
+  "arrivals": [
+   "Rui Hachimura",
+   "Brandon Ingram",
+   "Darius Garland",
+   "Gradey Dick"
+  ],
+  "departures": [
+   "James Harden",
+   "Kawhi Leonard",
+   "John Collins",
+   "Ivica Zubac"
+  ],
+  "moves": -6.3
+ },
+ "LAL": {
+  "text": "Last season: 53-29, +1.8 points per game (14th in the league). New faces: Quentin Grimes (+1.1), Collin Sexton (+1.0), Sandro Mamukelashvili (+3.4), Ziaire Williams (+0.4). Gone: LeBron James (to Philadelphia), Deandre Ayton (to Washington), Rui Hachimura (to the Clippers), Marcus Smart (to Houston). Best players by our rating: Luka Don\u010di\u0107 (+6.5), Austin Reaves (+3.8), Sandro Mamukelashvili (+3.4). The moves are worth about -1.4 points a game on paper, and the model sees about the same team as last year's 53 wins.",
+  "projection": "Projection: 48 wins (80% range 38-57), 85% to make the playoffs, 3.1% to win the title. Chance of beating the projection by 8+ wins: 15%.",
+  "last": {
+   "w": 53,
+   "l": 29,
+   "mov": 1.8
+  },
+  "arrivals": [
+   "Quentin Grimes",
+   "Collin Sexton",
+   "Sandro Mamukelashvili",
+   "Ziaire Williams"
+  ],
+  "departures": [
+   "LeBron James",
+   "Deandre Ayton",
+   "Rui Hachimura",
+   "Marcus Smart"
+  ],
+  "moves": -1.4
+ },
+ "MEM": {
+  "text": "Last season: 25-57, -6.0 points per game (24th in the league). New faces: Jerami Grant from Portland (-0.1), Walter Clayton Jr. from Utah (-0.2), Kris Murray from Portland (+1.6), Isaiah Stewart from Detroit (+0.1). Gone: Jock Landale (to Atlanta), Jaren Jackson Jr. (to Utah), Santi Aldama (to Dallas), Kentavious Caldwell-Pope (to Philadelphia). Best players by our rating: Cedric Coward (+2.7), Cam Spencer (+2.2), Kris Murray (+1.6). The moves are worth about -1.5 points a game on paper, and the model expects a big jump from 25 wins.",
+  "projection": "Projection: 33 wins (80% range 22-44), 19% to make the playoffs, 0.1% to win the title. Chance of beating the projection by 8+ wins: 18%.",
+  "last": {
+   "w": 25,
+   "l": 57,
+   "mov": -6.0
+  },
+  "arrivals": [
+   "Jerami Grant",
+   "Walter Clayton Jr.",
+   "Kris Murray",
+   "Isaiah Stewart"
+  ],
+  "departures": [
+   "Jock Landale",
+   "Jaren Jackson Jr.",
+   "Santi Aldama",
+   "Kentavious Caldwell-Pope"
+  ],
+  "moves": -1.5
+ },
+ "MIA": {
+  "text": "Last season: 43-39, +2.3 points per game (13th in the league). New faces: Giannis Antetokounmpo from Milwaukee (+7.2), Tim Hardaway Jr. (-0.3), Bobby Portis Jr. from Milwaukee (+0.7), Klay Thompson (-1.1). Gone: Jaime Jaquez Jr. (to Milwaukee), Norman Powell (to Chicago), Kel'el Ware (to Milwaukee), Tyler Herro (to Milwaukee). Best players by our rating: Giannis Antetokounmpo (+7.2), Bam Adebayo (+4.8), Davion Mitchell (+2.7). The roster changes roughly wash out, and the model sees about the same team as last year's 43 wins.",
+  "projection": "Projection: 42 wins (80% range 33-50), 59% to make the playoffs, 0.5% to win the title. Chance of beating the projection by 8+ wins: 13%.",
+  "last": {
+   "w": 43,
+   "l": 39,
+   "mov": 2.3
+  },
+  "arrivals": [
+   "Giannis Antetokounmpo",
+   "Tim Hardaway Jr.",
+   "Bobby Portis Jr.",
+   "Klay Thompson"
+  ],
+  "departures": [
+   "Jaime Jaquez Jr.",
+   "Norman Powell",
+   "Kel'el Ware",
+   "Tyler Herro"
+  ],
+  "moves": 0.1
+ },
+ "MIL": {
+  "text": "Last season: 32-50, -6.2 points per game (25th in the league). New faces: Jaime Jaquez Jr. from Miami (+1.4), Tyler Herro from Miami (+1.6), Kel'el Ware from Miami (+1.7), Caris LeVert from Detroit (+0.2). Gone: Bobby Portis Jr. (to Miami), Giannis Antetokounmpo (to Miami). Best players by our rating: Ryan Rollins (+3.3), Kevin Porter Jr. (+2.1), AJ Green (+1.8). The moves are worth about -1.1 points a game on paper, and the model sees about the same team as last year's 32 wins.",
+  "projection": "Projection: 28 wins (80% range 18-39), 7.1% to make the playoffs, <0.1% to win the title. Chance of beating the projection by 8+ wins: 18%.",
+  "last": {
+   "w": 32,
+   "l": 50,
+   "mov": -6.2
+  },
+  "arrivals": [
+   "Jaime Jaquez Jr.",
+   "Tyler Herro",
+   "Kel'el Ware",
+   "Caris LeVert"
+  ],
+  "departures": [
+   "Bobby Portis Jr.",
+   "Giannis Antetokounmpo"
+  ],
+  "moves": -1.1
+ },
+ "MIN": {
+  "text": "Last season: 49-33, +3.4 points per game (10th in the league). New faces: LaMelo Ball from Charlotte (+3.7), Ayo Dosunmu from Chicago (+0.7), Jonathan Kuminga (+3.1), Cody Williams from Utah (-1.5). Gone: Julius Randle (to Brooklyn), Naz Reid (to Charlotte), Mike Conley (to Boston). Best players by our rating: Rudy Gobert (+4.0), Anthony Edwards (+3.8), LaMelo Ball (+3.7). The moves are worth about -1.3 points a game on paper, and the model expects a step back from 49 wins.",
+  "projection": "Projection: 42 wins (80% range 33-51), 60% to make the playoffs, 0.7% to win the title. Chance of beating the projection by 8+ wins: 15%.",
+  "last": {
+   "w": 49,
+   "l": 33,
+   "mov": 3.4
+  },
+  "arrivals": [
+   "LaMelo Ball",
+   "Ayo Dosunmu",
+   "Jonathan Kuminga",
+   "Cody Williams"
+  ],
+  "departures": [
+   "Julius Randle",
+   "Naz Reid",
+   "Mike Conley"
+  ],
+  "moves": -1.3
+ },
+ "NOP": {
+  "text": "Last season: 26-56, -4.5 points per game (21st in the league). New faces: Bennedict Mathurin (+0.8), Julian Reese (+0.5), Trendon Watford (-0.2). Gone: Jose Alvarado (to New York), Micah Peavy (to Memphis). Best players by our rating: Zion Williamson (+3.5), Herbert Jones (+2.9), Trey Murphy III (+2.0). The roster changes roughly wash out, and the model sees about the same team as last year's 26 wins.",
+  "projection": "Projection: 32 wins (80% range 22-42), 14% to make the playoffs, <0.1% to win the title. Chance of beating the projection by 8+ wins: 16%.",
+  "last": {
+   "w": 26,
+   "l": 56,
+   "mov": -4.5
+  },
+  "arrivals": [
+   "Bennedict Mathurin",
+   "Julian Reese",
+   "Trendon Watford"
+  ],
+  "departures": [
+   "Jose Alvarado",
+   "Micah Peavy"
+  ],
+  "moves": -0.7
+ },
+ "NYK": {
+  "text": "Last season: 53-29, +6.3 points per game (5th in the league). New faces: Jose Alvarado from New Orleans (+2.5), Bruce Brown (-1.2), Ochai Agbaji (+0.1), Andre Drummond (+0.7). Gone: Mitchell Robinson (to Boston). Best players by our rating: OG Anunoby (+4.4), Karl-Anthony Towns (+3.4), Miles McBride (+3.3). The moves are worth about -1.1 points a game on paper, and the model expects a step back from 53 wins.",
+  "projection": "Projection: 42 wins (80% range 34-51), 62% to make the playoffs, 0.6% to win the title. Chance of beating the projection by 8+ wins: 10%.",
+  "last": {
+   "w": 53,
+   "l": 29,
+   "mov": 6.3
+  },
+  "arrivals": [
+   "Jose Alvarado",
+   "Bruce Brown",
+   "Ochai Agbaji",
+   "Andre Drummond"
+  ],
+  "departures": [
+   "Mitchell Robinson"
+  ],
+  "moves": -1.1
+ },
+ "OKC": {
+  "text": "Last season: 64-18, +11.1 points per game (1st in the league). New faces: Jared McCain from Philadelphia (+1.0), Aday Mara (rookie, -0.4), Thomas Sorber (rookie, -0.4), Bennett Stirtz (rookie, -0.4). Gone: Luguentz Dort (to Atlanta), Isaiah Joe (to Detroit), Aaron Wiggins (to Atlanta). Best players by our rating: Shai Gilgeous-Alexander (+9.2), Chet Holmgren (+5.6), Isaiah Hartenstein (+4.0). The roster changes roughly wash out, and the model sees about the same team as last year's 64 wins.",
+  "projection": "Projection: 59 wins (80% range 48-70), 98% to make the playoffs, 32% to win the title. Chance of beating the projection by 8+ wins: 17%.",
+  "last": {
+   "w": 64,
+   "l": 18,
+   "mov": 11.1
+  },
+  "arrivals": [
+   "Jared McCain",
+   "Aday Mara",
+   "Thomas Sorber",
+   "Bennett Stirtz"
+  ],
+  "departures": [
+   "Luguentz Dort",
+   "Isaiah Joe",
+   "Aaron Wiggins"
+  ],
+  "moves": -1.0
+ },
+ "ORL": {
+  "text": "Last season: 45-37, +0.6 points per game (17th in the league). New faces: Nikola Vu\u010devi\u0107 (+1.6). Gone: Tyus Jones (to Denver). Best players by our rating: Franz Wagner (+4.3), Desmond Bane (+3.3), Jalen Suggs (+3.2). The roster changes roughly wash out, and the model sees about the same team as last year's 45 wins.",
+  "projection": "Projection: 46 wins (80% range 37-55), 80% to make the playoffs, 2.0% to win the title. Chance of beating the projection by 8+ wins: 11%.",
+  "last": {
+   "w": 45,
+   "l": 37,
+   "mov": 0.6
+  },
+  "arrivals": [
+   "Nikola Vu\u010devi\u0107"
+  ],
+  "departures": [
+   "Tyus Jones"
+  ],
+  "moves": 1.0
+ },
+ "PHI": {
+  "text": "Last season: 45-37, -0.2 points per game (18th in the league). New faces: Jaylen Brown from Boston (+1.5), LeBron James (+0.6), Anfernee Simons (-0.3), Kentavious Caldwell-Pope (+0.1). Gone: Quentin Grimes (to the Lakers), Kelly Oubre Jr. (to Indiana), Andre Drummond (to New York), Jared McCain (to Oklahoma City). Best players by our rating: Tyrese Maxey (+3.7), Joel Embiid (+3.2), Dean Wade (+3.0). The roster changes roughly wash out, and the model expects a step back from 45 wins.",
+  "projection": "Projection: 37 wins (80% range 27-47), 35% to make the playoffs, 0.2% to win the title. Chance of beating the projection by 8+ wins: 14%.",
+  "last": {
+   "w": 45,
+   "l": 37,
+   "mov": -0.2
+  },
+  "arrivals": [
+   "Jaylen Brown",
+   "LeBron James",
+   "Anfernee Simons",
+   "Kentavious Caldwell-Pope"
+  ],
+  "departures": [
+   "Quentin Grimes",
+   "Kelly Oubre Jr.",
+   "Andre Drummond",
+   "Jared McCain"
+  ],
+  "moves": 0.4
+ },
+ "PHX": {
+  "text": "Last season: 45-37, +1.5 points per game (15th in the league). New faces: Miles Bridges from Charlotte (+1.0), Luke Kennard (+1.2), Kennedy Chandler (+0.6). Gone: Royce O'Neale (to Charlotte), Grayson Allen (to Charlotte). Best players by our rating: Devin Booker (+3.9), Collin Gillespie (+3.7), Oso Ighodaro (+3.1). The roster changes roughly wash out, and the model sees about the same team as last year's 45 wins.",
+  "projection": "Projection: 40 wins (80% range 30-49), 47% to make the playoffs, 0.3% to win the title. Chance of beating the projection by 8+ wins: 14%.",
+  "last": {
+   "w": 45,
+   "l": 37,
+   "mov": 1.5
+  },
+  "arrivals": [
+   "Miles Bridges",
+   "Luke Kennard",
+   "Kennedy Chandler"
+  ],
+  "departures": [
+   "Royce O'Neale",
+   "Grayson Allen"
+  ],
+  "moves": 0.3
+ },
+ "POR": {
+  "text": "Last season: 42-40, -0.3 points per game (19th in the league). New faces: Damian Lillard (+2.4), V\u00edt Krej\u010d\u00ed from Atlanta (+0.5), Ja Morant from Memphis (+2.0), Micah Potter (+1.2). Gone: Jerami Grant (to Memphis), Kris Murray (to Memphis), Rayan Rupert (to Philadelphia), Caleb Love (to Philadelphia). Best players by our rating: Deni Avdija (+3.8), Donovan Clingan (+3.6), Toumani Camara (+3.0). The moves are worth about +3.2 points a game on paper, and the model sees about the same team as last year's 42 wins.",
+  "projection": "Projection: 44 wins (80% range 35-52), 70% to make the playoffs, 0.9% to win the title. Chance of beating the projection by 8+ wins: 12%.",
+  "last": {
+   "w": 42,
+   "l": 40,
+   "mov": -0.3
+  },
+  "arrivals": [
+   "Damian Lillard",
+   "V\u00edt Krej\u010d\u00ed",
+   "Ja Morant",
+   "Micah Potter"
+  ],
+  "departures": [
+   "Jerami Grant",
+   "Kris Murray",
+   "Rayan Rupert",
+   "Caleb Love"
+  ],
+  "moves": 3.2
+ },
+ "SAC": {
+  "text": "Last season: 22-60, -10.0 points per game (29th in the league). New faces: De'Andre Hunter from Cleveland (+0.4), Darius Acuff Jr. (rookie, -0.4), Leaky Black (+0.0). Gone: DeMar DeRozan (to Denver), Russell Westbrook (unsigned or retired), Dennis Schr\u00f6der (to Charlotte), Keon Ellis (to Brooklyn). Best players by our rating: Domantas Sabonis (+2.2), Keegan Murray (+1.8), Nique Clifford (+1.7). The roster changes roughly wash out, and the model sees about the same team as last year's 22 wins.",
+  "projection": "Projection: 26 wins (80% range 16-36), 4.3% to make the playoffs, <0.1% to win the title. Chance of beating the projection by 8+ wins: 17%.",
+  "last": {
+   "w": 22,
+   "l": 60,
+   "mov": -10.0
+  },
+  "arrivals": [
+   "De'Andre Hunter",
+   "Darius Acuff Jr.",
+   "Leaky Black"
+  ],
+  "departures": [
+   "DeMar DeRozan",
+   "Russell Westbrook",
+   "Dennis Schr\u00f6der",
+   "Keon Ellis"
+  ],
+  "moves": -0.5
+ },
+ "SAS": {
+  "text": "Last season: 62-20, +8.3 points per game (2nd in the league). New faces: Tobias Harris (+2.4). Best players by our rating: Victor Wembanyama (+8.2), De'Aaron Fox (+4.1), Dylan Harper (+3.7). The roster changes roughly wash out, and the model expects a step back from 62 wins.",
+  "projection": "Projection: 55 wins (80% range 45-64), 96% to make the playoffs, 13% to win the title. Chance of beating the projection by 8+ wins: 15%.",
+  "last": {
+   "w": 62,
+   "l": 20,
+   "mov": 8.3
+  },
+  "arrivals": [
+   "Tobias Harris"
+  ],
+  "departures": [],
+  "moves": 1.0
+ },
+ "TOR": {
+  "text": "Last season: 46-36, +2.8 points per game (11th in the league). New faces: Kawhi Leonard from the Clippers (+6.7), Kyle Anderson (+0.8), Malachi Smith (+0.5), Allen Graves (rookie, -0.4). Gone: Brandon Ingram (to the Clippers), Sandro Mamukelashvili (to the Lakers), Gradey Dick (to the Clippers), Ochai Agbaji (to New York). Best players by our rating: Kawhi Leonard (+6.7), Scottie Barnes (+3.5), RJ Barrett (+3.0). The moves are worth about +2.5 points a game on paper, and the model sees about the same team as last year's 46 wins.",
+  "projection": "Projection: 51 wins (80% range 41-60), 92% to make the playoffs, 7.9% to win the title. Chance of beating the projection by 8+ wins: 12%.",
+  "last": {
+   "w": 46,
+   "l": 36,
+   "mov": 2.8
+  },
+  "arrivals": [
+   "Kawhi Leonard",
+   "Kyle Anderson",
+   "Malachi Smith",
+   "Allen Graves"
+  ],
+  "departures": [
+   "Brandon Ingram",
+   "Sandro Mamukelashvili",
+   "Gradey Dick",
+   "Ochai Agbaji"
+  ],
+  "moves": 2.5
+ },
+ "UTA": {
+  "text": "Last season: 22-60, -8.4 points per game (27th in the league). New faces: Jaren Jackson Jr. from Memphis (+2.8), Darryn Peterson (rookie, -0.3), Josh Green from Minnesota (+1.4), Jaxson Hayes (+1.7). Gone: Cody Williams (to Minnesota), Walter Clayton Jr. (to Memphis), John Konchar (unsigned or retired), Kyle Anderson (to Toronto). Best players by our rating: Lauri Markkanen (+4.3), Kyle Filipowski (+3.0), Jaren Jackson Jr. (+2.8). The moves are worth about +4.3 points a game on paper, and the model expects a big jump from 22 wins; the schedule is worth +1.9 wins, mostly altitude at home.",
+  "projection": "Projection: 38 wins (80% range 27-48), 39% to make the playoffs, 0.3% to win the title. Chance of beating the projection by 8+ wins: 18%.",
+  "last": {
+   "w": 22,
+   "l": 60,
+   "mov": -8.4
+  },
+  "arrivals": [
+   "Jaren Jackson Jr.",
+   "Darryn Peterson",
+   "Josh Green",
+   "Jaxson Hayes"
+  ],
+  "departures": [
+   "Cody Williams",
+   "Walter Clayton Jr.",
+   "John Konchar",
+   "Kyle Anderson"
+  ],
+  "moves": 4.3
+ },
+ "WAS": {
+  "text": "Last season: 17-65, -12.0 points per game (30th in the league). New faces: Anthony Davis from Dallas (+2.9), Deandre Ayton from the Lakers (-0.2), Trae Young from Atlanta (+1.4), AJ Dybantsa (rookie, -0.2). Gone: Marvin Bagley III (to Denver), Jaden Hardy (to the Lakers). Best players by our rating: Anthony Davis (+2.9), Kyshawn George (+1.7), Trae Young (+1.4). The moves are worth about +1.1 points a game on paper, and the model expects a big jump from 17 wins.",
+  "projection": "Projection: 25 wins (80% range 16-36), 3.8% to make the playoffs, <0.1% to win the title. Chance of beating the projection by 8+ wins: 15%.",
+  "last": {
+   "w": 17,
+   "l": 65,
+   "mov": -12.0
+  },
+  "arrivals": [
+   "Anthony Davis",
+   "Deandre Ayton",
+   "Trae Young",
+   "AJ Dybantsa"
+  ],
+  "departures": [
+   "Marvin Bagley III",
+   "Jaden Hardy"
+  ],
+  "moves": 1.1
+ }
+}

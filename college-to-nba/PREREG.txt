@@ -1,0 +1,40 @@
+GHOST SCREEN COLLEGE-TO-NBA MODEL: rules written before any model was run (2026-10-14)
+
+What it does
+- Takes a prospect's college numbers and draft slot and predicts how good he will be in NBA seasons 2 to 4, with an 80% range.
+- Scores the 2026 rookie class and the 2027 draft board.
+
+Outcome (what "good" means)
+- NBA rating = LEBRON (BBall Index), minutes-weighted over the three seasons ending in the draft year + 2, +3 and +4.
+- Players with fewer than 1,500 minutes in that window are padded with replacement-level minutes (rating -2.0) up to 1,500.
+  A player who never reached the NBA therefore scores -2.0. Nobody is dropped for failing.
+- Only drafted players (picks 1 to 60) with at least one Division I college season are in the sample. International and
+  non-college picks are left out and the count is reported.
+
+Features (fixed now)
+- Draft slot (log of pick number).
+- Final college season: age at draft, height, class year, share of team minutes, usage, true shooting, offensive rating,
+  rebound, assist, turnover, steal and block rates, three-point attempts per shot, free-throw rate, 2P%, 3P%, FT%.
+- Model: ridge regression with the penalty chosen by cross-validation inside the training years only.
+- Baseline to beat: the same ridge using draft slot only.
+
+Testing (walk-forward, no peeking)
+- Test classes 2016 to 2022. A class is predicted using only classes whose three-season window had ended before that draft
+  (class D uses classes up to D - 4).
+- 80% range = prediction plus or minus 1.28 times the spread of training-year errors.
+
+Pre-set bars (each pass or fail, all reported)
+C1 Accuracy. Mean absolute error of the full model is at least 5% lower than the draft-slot-only baseline on pooled held-out players.
+C2 Consistency. The full model beats the baseline in at least 4 of the 7 test classes.
+C3 Ranking. Spearman correlation of prediction with outcome beats the baseline by at least 0.03.
+C4 Late-pick finds. Among picks 21 to 60, the top quarter by full-model prediction has a higher average outcome than the top
+   quarter by baseline prediction.
+C5 Range honesty. 80% ranges cover between 75% and 85% of held-out players.
+C6 Not luck. Shuffling college numbers among players in the same class 200 times, the real accuracy gain must be better than
+   95% of the shuffles.
+C7 College stats carry signal alone. The model without draft slot has a mean absolute error at least 10% below "predict the average".
+
+Rules
+- No feature, penalty, or sample change after seeing test results. A bar that fails is reported as failed.
+- Passing is not proof of future accuracy: 7 classes, a few hundred players.
+- Data: Barttorvik college statistics, LEBRON ratings, draft results. Playoffs not used.

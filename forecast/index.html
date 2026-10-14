@@ -72,6 +72,12 @@ svg text{font-size:10px;fill:var(--mute)}
 .gm .d{font-size:.68rem;color:var(--mute);text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px}
 .gm .ln{display:flex;justify-content:space-between;gap:8px;font-variant-numeric:tabular-nums}
 .gm .ln b{font-weight:700}
+.gm{cursor:pointer}.gm:hover,.gm.on{border-color:var(--ink)}
+.gd{grid-column:1/-1;border:1px solid var(--ink);padding:14px 16px;font-size:.88rem;background:var(--soft)}
+.gd h3{margin-bottom:8px}.gd ul{margin:6px 0 0;padding-left:18px}.gd li{margin:4px 0}.gd .cols{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:10px}
+@media(max-width:620px){.gd .cols{grid-template-columns:1fr}}
+.gd table{font-size:.8rem}.gd td,.gd th{padding:4px 6px}
+.read{border-left:3px solid var(--rule);padding:2px 0 2px 14px;margin:6px 0 14px;max-width:56em;font-size:.9rem}
 .gm .wp{height:6px;background:var(--soft);margin-top:6px;position:relative}
 .gm .wp i{position:absolute;top:0;bottom:0;left:0;background:var(--fill)}
 .key{font-size:.82rem;color:var(--mute);max-width:56em}
@@ -102,8 +108,12 @@ details{margin-top:10px}summary{cursor:pointer;font-weight:600;font-size:.86rem}
 <p class="note">Seeds 1-6 go straight to the playoffs; 7-10 play in. Click a team to see its full range of outcomes and rotation. Columns sort when clicked.</p>
 <div id="team"></div>
 
+<h2>Where we disagree with the model</h2>
+<p class="key">The model only goes where its tests point. These are our own calls, set by hand, next to what the model says.</p>
+<div id="take"></div>
+
 <h2>Surprise factor</h2>
-<p class="key">Some teams are harder to call than others. Teams bringing back fewer of last season's minutes, and teams leaning on rookies, land further from their projections. Rookie-heavy teams also tend to fall short of them. The <b>schedule</b> column is how many wins each team's remaining schedule adds or costs, from rest, back-to-backs, travel and altitude. <b>Breakout</b> is the chance a team beats its projection by 8 or more wins. <b>Collapse</b> is the chance it falls 8 or more short.</p>
+<p class="key">Some teams are harder to call than others. Teams bringing back fewer of last season's minutes, and teams leaning on rookies, land further from their projections. The <b>schedule</b> column is how many wins each team's remaining schedule adds or costs, from rest, back-to-backs, travel and altitude. <b>Breakout</b> is the chance a team beats its projection by 8 or more wins. <b>Collapse</b> is the chance it falls 8 or more short.</p>
 <div class="tablewrap"><table id="sp"><thead></thead><tbody class="click"></tbody></table></div>
 
 <h2>Title odds</h2>
@@ -121,7 +131,13 @@ details{margin-top:10px}summary{cursor:pointer;font-weight:600;font-size:.86rem}
 <div class="grid3" id="g65"></div>
 
 <h2>Upcoming games</h2>
+<p class="key">Click a game to see why the model leans the way it does.</p>
 <div class="games" id="games"></div>
+
+<h2>Team by team</h2>
+<p class="key">Our read on every team before the season: last year's results, who came and went, and what the model sees. Ratings are points per 100 possessions above an average player.</p>
+<div class="tabs" id="nconf"><button data-c="East" class="on">East</button><button data-c="West">West</button></div>
+<div id="notes" class="grid2"></div>
 
 <h2>How the odds have moved</h2>
 <div id="hist" class="chart"></div>
@@ -166,28 +182,35 @@ function pct(p){if(p==null)return'–';if(p>=0.9995)return'>99.9%';if(p<0.0005)r
 function heat(p){const a=Math.min(1,Math.sqrt(p||0));const dark=matchMedia('(prefers-color-scheme: dark)').matches&&document.documentElement.dataset.theme!=='light'||document.documentElement.dataset.theme==='dark';
  const c=dark?`rgba(110,162,240,${.08+a*.55})`:`rgba(31,95,191,${.05+a*.5})`;return `<span class="heat" style="background:${p>0.0005?c:'transparent'}">${pct(p)}</span>`}
 function fmtDate(s){const d=new Date(s+'T12:00:00');return d.toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'})}
-let F,H,conf='East',sortKey='proj_w',sortDir=-1,selTeam=null;
-Promise.all([fetch('../data/forecast.json?'+Date.now()).then(r=>r.json()),fetch('../data/forecast_history.json?'+Date.now()).then(r=>r.json()).catch(()=>[])]).then(([f,h])=>{F=f;H=h;render()});
+let OT={};let F,H,conf='East',sortKey='proj_w',sortDir=-1,selTeam=null;
+Promise.all([fetch('../data/forecast.json?'+Date.now()).then(r=>r.json()),fetch('../data/forecast_history.json?'+Date.now()).then(r=>r.json()).catch(()=>[]),fetch('../data/our_take.json?'+Date.now()).then(r=>r.json()).catch(()=>({}))]).then(([f,h,o])=>{F=f;H=h;OT={};for(const k in o)if(o[k]&&o[k].wins!=null)OT[k]=o[k];render()});
 function render(){
  const M=F.meta;
  $('#stamp').innerHTML=`Updated <b>${fmtDate(M.updated)}</b> · <b>${M.sims.toLocaleString()}</b> simulated seasons · ${M.games_played?`<b>${M.games_played}</b> games played, ${M.games_left} to go`:'Preseason: no games played yet'}`;
  const T=F.teams;const fav=[...T].sort((a,b)=>b.title-a.title)[0];const best=[...T].sort((a,b)=>b.proj_w-a.proj_w)[0];const mvp=F.awards.mvp[0];const roy=F.awards.roy[0];
  $('#cards').innerHTML=[['Title favorite',`${CITY[fav.team]}`,`${pct(fav.title)} to win it all`],['Best record',`${CITY[best.team]}`,`${best.proj_w.toFixed(1)} wins on average`],['MVP favorite',esc(mvp.name),`${pct(mvp.p)} · ${mvp.team}`],['Rookie of the Year',esc(roy.name),`${pct(roy.p)} · ${roy.team}`]].map(([t,v,s])=>`<div class="cd"><div class="t">${t}</div><div class="v">${v}</div><div class="s">${s}</div></div>`).join('');
- table();surprise();titleOdds();awards();g65();games();hist();players();tests();calib();
+ table();take();surprise();notes();titleOdds();awards();g65();games();hist();players();tests();calib();
 }
-const COLS=[['team','Team','l'],['rec','Record'],['proj_w','Proj. W-L'],['rng','80% range','ns'],['top6','Top 6'],['playin','Play-in'],['playoffs','Make playoffs'],['seed1','#1 seed'],['cf','Conf. finals'],['finals','Finals'],['title','Title'],['pick1','#1 pick']];
+const COLS=[['team','Team','l'],['rec','Record'],['proj_w','Proj. W-L'],['ot','Our take','ns'],['rng','80% range','ns'],['top6','Top 6'],['playin','Play-in'],['playoffs','Make playoffs'],['seed1','#1 seed'],['cf','Conf. finals'],['finals','Finals'],['title','Title'],['pick1','#1 pick']];
 function table(){
  $('#st thead').innerHTML='<tr>'+COLS.map(([k,l,c])=>`<th class="${c||''}" data-k="${k}">${l}</th>`).join('')+'</tr>';
  $('#st thead').onclick=e=>{const k=e.target.dataset.k;if(!k||k==='rng')return;if(sortKey===k)sortDir*=-1;else{sortKey=k;sortDir=k==='team'?1:-1}table()};
  let R=F.teams.filter(t=>conf==='All'||t.conf===conf);
  R=[...R].sort((a,b)=>{const va=sortKey==='rec'?a.w-a.l:sortKey==='team'?a.team:a[sortKey],vb=sortKey==='rec'?b.w-b.l:sortKey==='team'?b.team:b[sortKey];return(va>vb?1:va<vb?-1:0)*sortDir});
  const lo=Math.min(...F.teams.map(t=>t.w10)),hi=Math.max(...F.teams.map(t=>t.w90));const X=v=>(80*(v-lo)/(hi-lo)).toFixed(1);
- $('#st tbody').innerHTML=R.map((t,i)=>`<tr data-t="${t.team}" class="${t.team===selTeam?'sel':''}${conf!=='All'&&sortKey==='proj_w'&&sortDir===-1&&(i===5||i===9)?' cut':''}"><td class="tm">${tname(t.team)}</td><td>${t.w}-${t.l}</td><td><b>${t.proj_w.toFixed(0)}</b>-${t.proj_l.toFixed(0)}</td><td><span class="rng"><s style="left:${X(t.w10)}px;width:${X(t.w90)-X(t.w10)}px"></s><b style="left:${X(t.proj_w)}px"></b></span> <span class="muted">${t.w10}-${t.w90}</span></td>`+
+ $('#st tbody').innerHTML=R.map((t,i)=>`<tr data-t="${t.team}" class="${t.team===selTeam?'sel':''}${conf!=='All'&&sortKey==='proj_w'&&sortDir===-1&&(i===5||i===9)?' cut':''}"><td class="tm">${tname(t.team)}</td><td>${t.w}-${t.l}</td><td><b>${t.proj_w.toFixed(0)}</b>-${t.proj_l.toFixed(0)}</td><td>${OT[t.team]?`<b>${OT[t.team].wins}</b>-${82-OT[t.team].wins}`:'<span class="muted">–</span>'}</td><td><span class="rng"><s style="left:${X(t.w10)}px;width:${X(t.w90)-X(t.w10)}px"></s><b style="left:${X(t.proj_w)}px"></b></span> <span class="muted">${t.w10}-${t.w90}</span></td>`+
   ['top6','playin','playoffs','seed1','cf','finals','title','pick1'].map(k=>`<td>${heat(t[k])}</td>`).join('')+'</tr>').join('');
  $('#st tbody').onclick=e=>{const tr=e.target.closest('tr');if(!tr)return;selTeam=tr.dataset.t;table();teamPanel()};
  if(!selTeam){selTeam=R[0].team}teamPanel();
 }
 document.querySelectorAll('#conf button').forEach(b=>b.onclick=()=>{conf=b.dataset.c;document.querySelectorAll('#conf button').forEach(x=>x.classList.toggle('on',x===b));selTeam=null;table()});
+let nconf='East';
+function notes(){const N=F.notes||{};const R=F.teams.filter(t=>t.conf===nconf).sort((a,b)=>b.proj_w-a.proj_w);
+ $('#notes').innerHTML=R.map(t=>`<div class="aw"><div class="t">${full(t.team)} · ${t.proj_w.toFixed(0)}-${(82-t.proj_w).toFixed(0)} projected</div><p style="font-size:.86rem;margin:4px 0 0">${esc(N[t.team]||'')} <span class="muted">Now: ${pct(t.playoffs)} to make the playoffs, ${pct(t.title)} to win the title.</span></p></div>`).join('');
+ document.querySelectorAll('#nconf button').forEach(b=>b.onclick=()=>{nconf=b.dataset.c;document.querySelectorAll('#nconf button').forEach(x=>x.classList.toggle('on',x===b));notes()})}
+function take(){const K=Object.keys(OT).filter(k=>F.teams.find(t=>t.team===k));if(!K.length){$('#take').innerHTML='<p class="muted">No calls yet.</p>';return}
+ $('#take').innerHTML='<div class="grid2">'+K.map(k=>{const t=F.teams.find(x=>x.team===k);const w=OT[k].wins;const d=t.wins_dist;let p=0;for(let i=w;i<83;i++)p+=d[i]||0;
+  return `<div class="aw"><div class="t">${full(k)}</div><div class="row" style="grid-template-columns:1fr auto"><span class="n">Model</span><span class="p">${t.proj_w.toFixed(0)}-${(82-t.proj_w).toFixed(0)}</span></div><div class="row" style="grid-template-columns:1fr auto"><span class="n">Our take</span><span class="p">${w}-${82-w}</span></div><p style="font-size:.86rem;margin:8px 0 0">${esc(OT[k].note||'')}</p><p class="note" style="margin-top:4px">The model gives ${CITY[k]} a ${pct(w>t.proj_w?p:1-p+(d[w]||0))} chance of ${w>t.proj_w?w+' or more':w+' or fewer'} wins.</p></div>`}).join('')+'</div>'}
 function surprise(){const R=[...F.teams].sort((a,b)=>(b.w90-b.w10)-(a.w90-a.w10)||b.spread-a.spread);const I=F.team_inputs||{};
  $('#sp thead').innerHTML='<tr><th class="ns">Team</th><th class="ns">Proj. wins</th><th class="ns">Breakout (+8)</th><th class="ns">Collapse (−8)</th><th class="ns">80% range</th><th class="ns">Schedule</th><th class="ns">Returning min.</th><th class="ns">Age</th><th class="ns">Rookie min.</th></tr>';
  const mx=Math.max(...R.map(t=>t.w90-t.w10));
@@ -200,6 +223,7 @@ function teamPanel(){
  const vals=wd.slice(a,b+1);const lab=[];for(let i=a;i<=b;i++)if(i%5===0)lab.push([i-a,i]);
  const sd=t.seeds;
  $('#team').innerHTML=`<p class="nm">${full(t.team)}</p><div class="sub">${t.conf} · projected ${t.proj_w.toFixed(1)} wins · strength ${t.strength>0?'+':''}${t.strength.toFixed(1)} points per game vs. an average team</div>
+ ${F.notes&&F.notes[t.team]?`<p class="read"><b>Preseason read.</b> ${esc(F.notes[t.team])}</p>`:''}${OT[t.team]?`<p class="read"><b>Our take: ${OT[t.team].wins} wins.</b> ${esc(OT[t.team].note||'')}</p>`:''}
  <div class="grid2"><div><h3>Wins</h3><div class="chart">${bars(vals,lab,460,110,i=>i+a===Math.round(t.proj_w))}</div><p class="note">${pct(t.w50)} chance of 50+ wins, ${pct(t.w60)} of 60+, ${pct(t.l50)} of 32 or fewer. Best record in the league: ${pct(t.best)}. Worst: ${pct(t.worst)}. Beats the projection by 8+: ${pct(t.boom)}. Falls 8+ short: ${pct(t.bust)}. Schedule: ${t.sched_wins>0?'+':''}${t.sched_wins.toFixed(1)} wins.</p></div>
  <div><h3>Seed</h3><div class="chart">${bars(sd,sd.map((v,i)=>[i,i+1]),460,110,i=>i<6)}</div><p class="note">Black: seeds 1-6, straight into the playoffs. Gray: 7-10 is the play-in, 11-15 is out.</p></div></div>
  <h3 style="margin-top:14px">Path</h3><div class="grid3" style="gap:10px 28px">${[['Make playoffs',t.playoffs],['Win a round',t.r2],['Conference finals',t.cf],['Reach the Finals',t.finals],['Win the title',t.title],['Lottery',t.lottery]].map(([l,p])=>`<div class="row" style="grid-template-columns:minmax(0,1fr) 80px 46px"><span class="n">${l}</span><span class="bar"><i style="width:${(100*p).toFixed(1)}%"></i></span><span class="p">${pct(p)}</span></div>`).join('')}</div>
@@ -214,8 +238,26 @@ const AW=[['mvp','Most Valuable Player'],['dpoy','Defensive Player of the Year']
 function awards(){$('#awards').innerHTML=AW.map(([k,l])=>`<div class="aw"><div class="t">${l}</div><div id="aw_${k}"></div></div>`).join('');
  for(const[k]of AW){const rows=F.awards[k].slice(0,8);list($('#aw_'+k),rows,x=>k==='coy'?(x.team==='LAC'||x.team==='LAL'?CITY[x.team]:`${CITY[x.team]} <small>${NAMES[x.team]}</small>`):`${esc(x.name)} <small>${x.team}</small>`)}}
 function g65(){const R=F.games65.slice(0,24);const cols=[R.slice(0,8),R.slice(8,16),R.slice(16,24)];$('#g65').innerHTML=cols.map(c=>`<div class="aw" style="border-top-width:1px">${c.map(x=>`<div class="row"><span class="n">${esc(x.name)} <small>${x.team}</small></span><span class="bar"><i style="width:${(100*x.p).toFixed(1)}%"></i></span><span class="p">${pct(x.p)}</span></div>`).join('')}</div>`).join('')}
+let selGame=null;
+function why(g){const W=g.why||{};const h=g.home,a=g.away,fav=g.p_home>=.5?h:a,dog=fav===h?a:h;const pf=Math.max(g.p_home,1-g.p_home);
+ const sH=W.s_home,sA=W.s_away;const lines=[];
+ const diff=(fav===h?sH-sA:sA-sH);
+ lines.push(`<li><b>Talent.</b> ${CITY[h]} rate ${sg(sH)} points per game against an average team, ${CITY[a]} ${sg(sA)}. ${Math.abs(diff)<0.5?'That is basically even.':`${CITY[diff>0?fav:dog]} are better by ${Math.abs(diff).toFixed(1)} points.`}</li>`);
+ lines.push(`<li><b>Home court.</b> Worth ${W.hca!=null?W.hca.toFixed(1):'2'} points to ${CITY[h]}${(h==='DEN'||h==='UTA')?', plus about 1.9 more for the altitude':''}.</li>`);
+ const sch=[];const P=W.parts||{};
+ const side=(x,t)=>{if(!x)return;if(x.b2b)sch.push(`${CITY[t]} are on the second night of a back-to-back`);if(x.three4)sch.push(`${CITY[t]} are playing their third game in four nights`);if(x.tz>=2)sch.push(`${CITY[t]} crossed ${x.tz} time zones to get here`);if(x.rest>=3&&W.n_home+W.n_away>0)sch.push(`${CITY[t]} have had 3+ days off`)};
+ side(W.h,h);side(W.a,a);
+ const sTot=Object.entries(P).filter(([k])=>k!=='alt').reduce((s,[k,v])=>s+v,0);
+ lines.push(`<li><b>Schedule.</b> ${sch.length?sch.join('; ')+'. ':'No back-to-backs or long trips for either team. '}${Math.abs(sTot)>=0.3?`Net effect: ${sTot>0?CITY[h]:CITY[a]} +${Math.abs(sTot).toFixed(1)} points.`:''}</li>`);
+ const top=t=>(F.rosters[t]||[]).slice(0,8).sort((x,y)=>y.net-x.net).slice(0,3).map(p=>`${esc(p.name)} (${sg(p.net)})`).join(', ');
+ lines.push(`<li><b>Best players.</b> ${CITY[h]}: ${top(h)}. ${CITY[a]}: ${top(a)}.</li>`);
+ const oh=(F.out_now||{})[h]||[],oa=(F.out_now||{})[a]||[];if(oh.length||oa.length)lines.push(`<li><b>Out right now.</b> ${[...oh.map(n=>n+' ('+h+')'),...oa.map(n=>n+' ('+a+')')].join(', ')}.</li>`);
+ if(W.n_home||W.n_away)lines.push(`<li><b>This season so far.</b> After ${W.n_home} and ${W.n_away} games, about ${Math.round(100*W.n_home/(W.n_home+20))}% and ${Math.round(100*W.n_away/(W.n_away+20))}% of each team's rating comes from how they have actually played.</li>`);
+ const lose=Math.round(10*(1-pf));
+ return `<h3>${CITY[a]} at ${CITY[h]}: ${CITY[fav]} ${pct(pf)}</h3><p style="margin:0">Add it up and ${CITY[fav]} should win by about ${Math.abs(g.spread).toFixed(1)}. One game swings about ${W.sd||13} points either way on chance alone, so a ${pct(pf)} favorite still loses about ${lose} times in 10.</p><ul>${lines.join('')}</ul>`}
 function games(){const G=F.games.slice(0,16);if(!G.length){$('#games').innerHTML='<p class="muted">No games in the next ten days.</p>';return}
- $('#games').innerHTML=G.map(g=>{const fav=g.p_home>=.5?g.home:g.away;const sp=Math.abs(g.spread).toFixed(1);return `<div class="gm"><div class="d">${fmtDate(g.date)}</div><div class="ln"><span>${CITY[g.away]} <span class="muted">at</span></span><b>${pct(1-g.p_home)}</b></div><div class="ln"><span>${CITY[g.home]}</span><b>${pct(g.p_home)}</b></div><div class="wp"><i style="width:${(100*(1-g.p_home)).toFixed(1)}%"></i></div><div class="d" style="margin:6px 0 0">${fav} by ${sp}${g.sched!=null&&Math.abs(g.sched)>=0.5?` · schedule ${g.sched>0?CITY[g.home]:CITY[g.away]} +${Math.abs(g.sched).toFixed(1)}`:''}</div></div>`}).join('')}
+ $('#games').innerHTML=G.map(g=>{const fav=g.p_home>=.5?g.home:g.away;const sp=Math.abs(g.spread).toFixed(1);return `<div class="gm${selGame===g.date+g.home?' on':''}" data-g="${g.date+g.home}"><div class="d">${fmtDate(g.date)}</div><div class="ln"><span>${CITY[g.away]} <span class="muted">at</span></span><b>${pct(1-g.p_home)}</b></div><div class="ln"><span>${CITY[g.home]}</span><b>${pct(g.p_home)}</b></div><div class="wp"><i style="width:${(100*(1-g.p_home)).toFixed(1)}%"></i></div><div class="d" style="margin:6px 0 0">${fav} by ${sp}</div></div>`+(selGame===g.date+g.home?`<div class="gd">${why(g)}</div>`:'')}).join('');
+ $('#games').onclick=e=>{const c=e.target.closest('.gm');if(!c)return;selGame=selGame===c.dataset.g?null:c.dataset.g;games()}}
 function hist(){if(!H||H.length<2){$('#hist').innerHTML='<p class="key">A chart of title odds over time starts once there are two days of forecasts. The first forecast was made '+fmtDate(F.meta.updated)+'.</p>';return}
  const top=[...F.teams].sort((a,b)=>b.title-a.title).slice(0,6).map(t=>t.team);const w=900,h=220,n=H.length;const mx=Math.max(...H.flatMap(d=>top.map(t=>d.t[t]?d.t[t][2]:0)))*1.1;
  const X=i=>40+(w-60)*i/(n-1),Y=v=>h-(h-10)*v/mx;const pal=['var(--fill)','var(--acc)','var(--warm)','var(--hot)','var(--ok)','var(--mute)'];

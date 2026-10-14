@@ -64,7 +64,9 @@ def main():
     tests.append(dict(id="A1·coy", q="Coach of the Year (by team)", bar="reported, no bar", result=f"{x['hits']} of {x['of']}", pass_=None))
     out = dict(meta=dict(sim["meta"], season="2026-27", updated=datetime.date.today().isoformat()), teams=sim["teams"], games=sim["games"], recent=sim["recent"],
                awards={k: aw[k] for k in ("mvp", "dpoy", "roy", "smoy", "mip", "coy")}, games65=aw["games65"], award_sims=aw["sims"],
-               rosters=rost, players=players, tests=tests, team_inputs=team_inputs, backtest=dict(seasons="2015-16 to 2025-26", calib=bt["F3"]))
+               rosters=rost, players=players, tests=tests, team_inputs=team_inputs,
+               notes={k: v["text"] for k, v in json.load(open(mpath(f"fc_team_notes_{SEASON}.json"))).items()} if os.path.exists(mpath(f"fc_team_notes_{SEASON}.json")) else {},
+               out_now=sim.get("out_now", {}), backtest=dict(seasons="2015-16 to 2025-26", calib=bt["F3"]))
     os.makedirs(PUB, exist_ok=True)
     json.dump(out, open(os.path.join(PUB, "forecast.json"), "w"), separators=(",", ":"), allow_nan=False)
     # history: one snapshot per day

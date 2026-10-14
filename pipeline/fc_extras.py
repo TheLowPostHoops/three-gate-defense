@@ -58,7 +58,7 @@ def schedule_features(G):
     out = pd.DataFrame(index=G.index)
     for k in ("b2b", "r1", "r3", "34", "mi", "tz"): out[k] = F["h_" + k] - F["a_" + k]
     out["alt"] = F.alt
-    return pd.concat([G, out], axis=1)
+    return pd.concat([G, out, F.drop(columns="alt").add_prefix("raw_")], axis=1)
 
 
 SFEATS = ["b2b", "r1", "r3", "34", "mi", "tz", "alt"]

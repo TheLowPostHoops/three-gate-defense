@@ -91,3 +91,25 @@ S3 PASS  log score 510.8 (per-team spread) and 510.1 (spread + shift) vs 514.8
 S4 PASS  out of the race: -3.02 points per game in the last 15 (95% -3.99 to -2.06,
    81 team-seasons); seed locked: -2.45 (-4.10 to -0.80, 29).
    In the simulation the standings that decide this are taken when each team's last 15 games begin.
+
+FIXES AFTER REVIEW (2026-10-14, afternoon)
+- Training-camp invitees. The 2026-27 rosters list up to 21 players, including camp invitees who will rarely play.
+  They had been given the default 10 minutes a night, which squeezed every rotation (Gilgeous-Alexander got 25 of his
+  33 minutes). The backtest rosters only ever contain players who actually played, so this was an input mismatch,
+  not something the tests could see. Players who have never played an NBA game and were not picked in the last two
+  drafts now get 1 minute a night. Effect: Oklahoma City +7.0 -> +8.8 points per game; tests unchanged.
+- Tried and dropped: giving minutes strictly down the depth chart. Backtest F1 error 2.76 vs 2.68, F2 63.2% vs 63.4%.
+- Rookie minutes and scoring for the award odds (not for team strength): fit on 474 drafted rookies, 2014-15..2025-26.
+  Minutes = 30.1 -4.21 x log(pick) +0.0172 x open minutes on the roster
+  -0.366 x team's point differential last season (worse teams play their rookies more; t = -6.3).
+  Points per minute = 0.505 -0.0454 x log(pick); team quality did not change scoring per minute (t = 0.0).
+
+S5 Star premium (written 2026-10-14, before running). Each player's rating counts extra above +3 points per 100:
+   rating + B x max(rating - 3, 0), so stars add more than their plain rating. B is chosen on 2014-15..2019-20 only
+   (grid 0 to 1.5); pass if team point differential error on 2020-21..2025-26 drops by at least 1% vs B = 0.
+   Same settings for minutes as the published model (two-season minutes, 5% lean toward better-rated players).
+S5 FAIL  star premium. Error on 2015-16..2019-20 by B: 0 -> 2.224, 0.25 -> 2.262, 0.5 -> 2.299, 1.0 -> 2.377 (B = 0 chosen);
+   2020-21..2025-26: 3.012 at B = 0, 3.015 at 0.25, 3.075 at 1.0. Stars are already worth what their rating says.
+Minutes, adopted after testing (published model before this used last season's minutes, no lean):
+   two-season minutes weighted by games + 5% lean per rating point: F1 error 2.654 vs 2.676, log loss 0.6370 vs 0.6375.
+   Tried and dropped: concentrating minutes on the top of the rotation (exponent 1.5: 2.676, 2: 2.711, 3: 2.771).

@@ -247,6 +247,28 @@ def build_award_inputs():
     pick = pd.Series({p: dr.get(int(p), (0, 99))[1] for p in D.index})
     I["start_share"] = last.start_share.reindex(D.index)
     I.loc[I.start_share.isna(), "start_share"] = np.where(pick[I.start_share.isna()] <= 10, 0.6, 0.25)
+    # rookies: minutes from draft slot, open minutes on the roster and how bad the team was last season; scoring per
+    # minute from draft slot (fit on 2014-15..2025-26 rookies: worse teams give rookies more minutes, not more shots per minute)
+    rows = []
+    for t in range(2014, FP_SEASON):
+        g = FP.games(t); prev = FP.games(t - 1); T_ = pickle.load(open(os.path.join(OUT, f"tally_{t}.pkl"), "rb")); mv = FP.team_mov(t - 1)
+        for tm in g.team0.unique():
+            ps = g.team0[g.team0 == tm].index
+            vet = sum(min(prev.loc[q, "mpg"], 38) for q in ps if q in prev.index and prev.loc[q, "gp"] >= 10)
+            for q in ps:
+                if q in dr and dr[q][0] == t and q not in prev.index and g.loc[q, "gp"] >= 20:
+                    rows.append(dict(lp=np.log(dr[q][1]), open=240 - vet, mov=mv.get(tm, 0), mpg=g.loc[q, "mpg"], ppm=T_[q]["pts"] / (T_[q]["sec"] / 60)))
+    K = pd.DataFrame(rows)
+    bm = np.linalg.lstsq(np.column_stack([np.ones(len(K)), K.lp, K.open, K.mov]), K.mpg, rcond=None)[0]
+    bp = np.linalg.lstsq(np.column_stack([np.ones(len(K)), K.lp]), K.ppm, rcond=None)[0]
+    prev = FP.games(FP_SEASON - 1); A = {int(k): v for k, v in json.load(open(os.path.join(HERE, "coaches.json")))["teams"].items()}
+    mov = {A[k]: v for k, v in FP.team_mov(FP_SEASON - 1).items()}
+    vet = {tm: sum(min(prev.loc[q, "mpg"], 38) for q in D[D.team == tm].index if q in prev.index and prev.loc[q, "gp"] >= 10) for tm in D.team.unique()}
+    lpk = pd.Series({q: np.log(dr[q][1]) if q in dr and dr[q][0] >= FP_SEASON - 1 else np.nan for q in D.index})
+    I["mpg_rookie"] = (bm[0] + bm[1] * lpk + bm[2] * (240 - D.team.map(vet)) + bm[3] * D.team.map(mov)).clip(6, 34)
+    I["ppm_rookie"] = (bp[0] + bp[1] * lpk).clip(0.2, 0.7)
+    json.dump(dict(minutes=dict(zip(["const", "log_pick", "open_min", "team_mov_last"], map(float, bm))), ppm=dict(zip(["const", "log_pick"], map(float, bp))), n=len(K)),
+              open(os.path.join(OUT, "fc_rookie_model.json"), "w"), indent=1)
     I.to_csv(os.path.join(OUT, f"fc_award_inputs_{FP_SEASON}.csv"))
     sim = json.load(open(os.path.join(OUT, f"fc_sim_{FP_SEASON}.json")))
     json.dump({t["team"]: t["proj_w"] for t in sim["teams"]}, open(os.path.join(OUT, f"fc_preseason_{FP_SEASON}.json"), "w"))
@@ -265,7 +287,9 @@ def sim_awards(nmax=100_000, chunk=10_000, seed=7):
     I = pd.read_csv(mpath(f"fc_award_inputs_{FP_SEASON}.csv"), index_col=0)
     D = D.join(I.drop(columns=[c_ for c_ in ("name", "team") if c_ in I.columns]), how="left")
     D["first_year"] = D.first_year.fillna(False).astype(bool)
-    D["ppg_proj"] = np.where(D.ppm.notna(), D.ppm * D.mpg, D.ppg_rookie).astype(float)
+    rk = D.first_year & D.mpg_rookie.notna() & (L.gp < 5)                     # drafted rookies before they have 5 games
+    D.loc[rk, "mpg"] = D.mpg_rookie[rk]
+    D["ppg_proj"] = np.where(D.ppm.notna(), D.ppm * D.mpg, np.where(D.ppm_rookie.notna(), D.ppm_rookie * D.mpg, D.ppg_rookie)).astype(float)
     D["ppg_proj"] = pd.Series(D.ppg_proj, index=D.index).fillna(4.0).clip(lower=0)
     D["stocks"] = D.stocks.fillna(1.0); D["dreb"] = D.dreb.fillna(2.5); D["start_share"] = D.start_share.fillna(0.25)
     cur = L.gp >= 5

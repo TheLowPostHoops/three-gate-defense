@@ -144,13 +144,22 @@ def project(t, M, pids=None):
 
 
 # ------------------------------------------------------------------ minutes and team strength
+MPG_MODE = "blend"       # "last": last season's minutes; "blend": last two seasons, weighted by games played
+TILT = 0.05              # minutes lean toward better-rated players: share x exp(TILT x rating)
+STAR = 0.0               # star premium (S5): rating + STAR x max(rating - 3, 0)
+CONC = 1.0               # minutes concentrate on the top of the rotation: share proportional to (expected minutes) ^ CONC
+
+
 def expected_mpg(t, pids, P):
     """minutes per game before the season: last season's mpg (10+ games), else two seasons ago, else by draft slot / 12."""
     g1 = games(t - 1); g2 = games(t - 2) if t - 2 >= 2010 else None
     out = {}
     dr = draft()
     for p in pids:
-        if p in g1.index and g1.loc[p, "gp"] >= 10: out[p] = g1.loc[p, "mpg"]
+        if MPG_MODE == "blend" and p in g1.index and g2 is not None and p in g2.index and g2.loc[p, "gp"] >= 10:
+            w1 = max(g1.loc[p, "gp"], 1) * 2; w2 = g2.loc[p, "gp"]
+            out[p] = (g1.loc[p, "mpg"] * w1 + g2.loc[p, "mpg"] * w2) / (w1 + w2)
+        elif p in g1.index and g1.loc[p, "gp"] >= 10: out[p] = g1.loc[p, "mpg"]
         elif g2 is not None and p in g2.index and g2.loc[p, "gp"] >= 10: out[p] = g2.loc[p, "mpg"] * 0.9
         else:
             y, n = dr.get(int(p), (None, None))
@@ -158,15 +167,30 @@ def expected_mpg(t, pids, P):
     return pd.Series(out)
 
 
+def fill_minutes(mpg, total=240.0, cap=38.0):
+    """minutes go down the depth chart: players sorted by expected minutes get them in full until the team's 240 are
+    used; the end of the bench gets what is left. A short-handed team spreads the shortfall across everyone (cap 40)."""
+    m = mpg.clip(upper=cap).astype(float)
+    if m.sum() <= total:
+        return (m * total / max(m.sum(), 1e-9)).clip(upper=40)
+    o = m.sort_values(ascending=False); out = pd.Series(0.0, index=m.index); left = total
+    for p, v in o.items():
+        g = min(v, left); out[p] = g; left -= g
+        if left <= 0: break
+    return out
+
+
 def team_strength(P, roster, mpg, avail=None):
     """roster: Series pid -> team. Minutes per game scaled to 240 per team. avail: share of games each player plays."""
     D = pd.DataFrame(dict(team=roster, mpg=mpg)).join(P[["o", "d", "net"]], how="left")
     D["o"] = D.o.fillna(-1.0); D["d"] = D.d.fillna(-1.0); D["net"] = D.o + D.d
     if avail is not None: D["mpg"] = D.mpg * avail.reindex(D.index).fillna(1.0)
+    D["mpg"] = (D.mpg.clip(upper=38) / 38) ** CONC * 38 * np.exp(TILT * D.net)
     D["m"] = D.mpg.clip(upper=38) * 240 / D.groupby("team").mpg.transform(lambda s: s.clip(upper=38).sum())
     D["m"] = D.m.clip(upper=40)
     D["m"] = D.m * 240 / D.groupby("team").m.transform("sum")
-    T = D.assign(wo=D.o * D.m / 48, wd=D.d * D.m / 48).groupby("team")[["wo", "wd"]].sum()
+    prem = STAR * (D.net - 3).clip(lower=0)
+    T = D.assign(wo=(D.o + prem) * D.m / 48, wd=D.d * D.m / 48).groupby("team")[["wo", "wd"]].sum()
     T["net"] = T.wo + T.wd
     return T, D
 

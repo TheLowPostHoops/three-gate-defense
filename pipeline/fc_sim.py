@@ -237,7 +237,10 @@ def main(nsims=1_000_000, chunk=20_000, seed=None):
     nowS = nowS + np.where(bw > 0, bw * mshift, 0)
     adj_by = dict(zip(left.index, sched_adj))
     games = [dict(date=str(x.date.date()), home=x.home, away=x.away, p_home=round(float(_ncdf((nowS[TI[x.home]] - nowS[TI[x.away]] + hca_g + adj_by[i]) / sd_game)), 3),
-                  spread=round(float(nowS[TI[x.home]] - nowS[TI[x.away]] + hca_g + adj_by[i]), 1), sched=round(float(adj_by[i] + hca_g - hca), 1)) for i, x in zip(up.index, up.itertuples())]
+                  spread=round(float(nowS[TI[x.home]] - nowS[TI[x.away]] + hca_g + adj_by[i]), 1), sched=round(float(adj_by[i] + hca_g - hca), 1),
+                  why=dict(s_home=round(float(nowS[TI[x.home]]), 2), s_away=round(float(nowS[TI[x.away]]), 2), hca=round(float(hca_g), 2), sd=round(float(sd_game), 1),
+                           pre_home=round(float(pre[TI[x.home]] + mshift[TI[x.home]]), 2), pre_away=round(float(pre[TI[x.away]] + mshift[TI[x.away]]), 2),
+                           n_home=int(n_g[TI[x.home]]), n_away=int(n_g[TI[x.away]]), **SCHED_PARTS.get(i, {}))) for i, x in zip(up.index, up.itertuples())]
     recent = done.sort_values("date").tail(30)
     meta = dict(sims=n, run=datetime.datetime.now(datetime.timezone.utc).strftime("%Y-%m-%d %H:%M UTC"), schedule=S.source.iloc[0], games_played=int(len(done)), games_left=int(G),
                 k=k, hca=hca, sd_game=sd_game, sd_true=sd_true, K=K, kappa=KAPPA, seconds=(datetime.datetime.now() - t0).seconds,
@@ -248,6 +251,7 @@ def main(nsims=1_000_000, chunk=20_000, seed=None):
                         team_rem=82 - n_g, team_played=n_g, team_of=D.team.map(TI).values)
     D.to_csv(os.path.join(OUT, "fc_players_now.csv"))
     out["meta"]["live"] = live_info
+    out["out_now"] = {t: [n for n, a_, tt in zip(D.name, D.avail, D.team) if tt == t and a_ < 0.2] for t in TEAMS}
     print("done", n, "sims in", meta["seconds"], "s", flush=True)
     return out
 
@@ -293,6 +297,7 @@ def apply_live(D, S):
     return D, info
 
 
+SCHED_PARTS = {}
 ALT_IDX = np.array([1.0 if t in ("DEN", "UTA") else 0.0 for t in TEAMS])
 
 
@@ -310,6 +315,11 @@ def schedule_adjust(S, left, s1):
     F = fc_extras.schedule_features(G).set_index("_i")
     b = s1["coef_all"]
     adj = sum(b[f] * F.loc[left.index, f].values for f in fc_extras.SFEATS)
+    global SCHED_PARTS
+    SCHED_PARTS = {i: dict(parts={f: round(float(b[f] * F.loc[i, f]), 2) for f in fc_extras.SFEATS if abs(b[f] * F.loc[i, f]) >= 0.05},
+                           h=dict(b2b=int(F.loc[i, "raw_h_b2b"]), three4=int(F.loc[i, "raw_h_34"]), rest=int(3 if F.loc[i, "raw_h_r3"] else (1 if F.loc[i, "raw_h_r1"] else (0 if F.loc[i, "raw_h_b2b"] else 2))), mi=round(float(F.loc[i, "raw_h_mi"]) * 1000), tz=int(F.loc[i, "raw_h_tz"])),
+                           a=dict(b2b=int(F.loc[i, "raw_a_b2b"]), three4=int(F.loc[i, "raw_a_34"]), rest=int(3 if F.loc[i, "raw_a_r3"] else (1 if F.loc[i, "raw_a_r1"] else (0 if F.loc[i, "raw_a_b2b"] else 2))), mi=round(float(F.loc[i, "raw_a_mi"]) * 1000), tz=int(F.loc[i, "raw_a_tz"])))
+                   for i in left.index}
     # schedule effect in wins: change in each game's win chance for an even matchup, summed by team
     from scipy.special import ndtr
     d = ndtr((s1["hca_sched"] + adj) / 13.36) - ndtr(s1["hca_sched"] / 13.36)

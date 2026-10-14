@@ -49,6 +49,13 @@ def build():
     P = FP.project(SEASON, M, list(R.index))
     mpg = FP.expected_mpg(SEASON, list(R.index), P)
     av = availability(list(R.index))
+    # training-camp invitees: never played an NBA game and not picked in the last two drafts. Past rosters in the
+    # backtest only contain players who actually played, so these players are given 1 minute a night, not 10.
+    played = set()
+    for k in range(2010, SEASON): played |= set(FP.games(k).index)
+    dr = FP.draft()
+    camp = [p for p in R.index if p not in played and not (p in dr and dr[p][0] >= SEASON - 1)]
+    mpg.loc[[p for p in camp if p in mpg.index]] = 1.0
     D = R.join(P[["o", "d", "net", "rookie"]], how="left")
     D["rookie"] = D.rookie.fillna(False)
     D["mpg"] = mpg; D["avail"] = av

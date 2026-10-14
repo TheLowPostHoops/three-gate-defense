@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>College to NBA | Ghost Screen Analytics</title>
+<meta name="description" content="Every 2026 draft pick and the 2027 draft board, scored from college numbers and draft slot, with an 80% range and the tests the model passed and failed.">
+<style>
+:root{--bg:#ffffff;--ink:#121212;--mute:#6b6b6b;--line:#e3e3e3;--soft:#f5f5f4;--rule:#121212;--ok:#1a6d3a;--hot:#b3261e;--bar:#2b5fa8;--bar2:#9db8de}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121212;--ink:#f2f2f2;--mute:#a0a0a0;--line:#2e2e2e;--soft:#1c1c1c;--rule:#f2f2f2;--ok:#6fd08c;--hot:#ff8a80;--bar:#7fb0ee;--bar2:#35506f}}
+:root[data-theme="dark"]{--bg:#121212;--ink:#f2f2f2;--mute:#a0a0a0;--line:#2e2e2e;--soft:#1c1c1c;--rule:#f2f2f2;--ok:#6fd08c;--hot:#ff8a80;--bar:#7fb0ee;--bar2:#35506f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif}
+main{max-width:1120px;margin:0 auto;padding:22px 20px 64px}
+h1{font:700 1.75rem/1.15 Georgia,"Times New Roman",serif;margin:0 0 4px}
+.dek{font-size:.92rem;color:var(--mute);margin:0 0 22px;max-width:60em}
+h2{font:700 .8rem/1.2 -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;text-transform:uppercase;letter-spacing:.14em;margin:34px 0 14px;padding-top:12px;border-top:3px solid var(--rule)}
+.verdict{border:1px solid var(--line);border-left:5px solid var(--rule);padding:14px 18px;max-width:52em;font-size:.97rem}
+.verdict b.big{display:block;font:700 1.35rem/1.2 Georgia,"Times New Roman",serif;margin-bottom:6px}
+.bars{list-style:none;margin:14px 0 0;padding:0;max-width:52em;font-size:.9rem}
+.bars li{display:flex;justify-content:space-between;gap:14px;padding:8px 0;border-bottom:1px solid var(--line)}
+.bars li:first-child{border-top:1px solid var(--line)}
+.bars .r{white-space:nowrap;font-weight:700;text-align:right}
+.bars small{display:block;color:var(--mute);font-weight:400;font-size:.8rem}
+.pass{color:var(--ok)}.fail{color:var(--hot)}
+.tabs{display:flex;gap:0;margin:0 0 12px;flex-wrap:wrap}
+.tabs button{font:600 .74rem/1 -apple-system,Helvetica,Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;padding:11px 16px;border:1px solid var(--ink);background:var(--bg);color:var(--ink);cursor:pointer}
+.tabs button[aria-pressed=true]{background:var(--ink);color:var(--bg)}
+.tools{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:0 0 10px;font-size:.85rem;color:var(--mute)}
+.tools input{font:inherit;padding:8px 10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);min-width:200px;border-radius:2px}
+.wrap{overflow-x:auto;border-top:3px solid var(--rule)}
+table{border-collapse:collapse;width:100%;min-width:760px;font-size:.9rem}
+th{font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;text-align:left;padding:9px 8px;border-bottom:1px solid var(--ink);cursor:pointer;white-space:nowrap;user-select:none;color:var(--mute)}
+th:hover{color:var(--ink)}
+td{padding:8px;border-bottom:1px solid var(--line);vertical-align:middle}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+td.p{font-weight:700}
+.tag{font-size:.64rem;text-transform:uppercase;letter-spacing:.08em;color:var(--mute);border:1px solid var(--line);padding:1px 5px;margin-left:6px;white-space:nowrap}
+.rng{position:relative;height:14px;width:200px;min-width:200px}
+.rng i{position:absolute;top:6px;height:2px;background:var(--bar2)}
+.rng b{position:absolute;top:2px;width:3px;height:10px;background:var(--bar);margin-left:-1px}
+.rng u{position:absolute;top:3px;width:8px;height:8px;border:1.5px solid var(--mute);border-radius:50%;margin-left:-4px;background:var(--bg)}
+.rng s{position:absolute;top:0;height:14px;width:1px;background:var(--line)}
+.up{color:var(--ok)}.dn{color:var(--hot)}
+.note{font-size:.85rem;color:var(--mute);max-width:54em;margin:10px 0 0}
+.cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;max-width:60em}
+@media(max-width:760px){.cols{grid-template-columns:minmax(0,1fr)}}
+.cols p,.txt p{margin:0 0 12px;font-size:.95rem}
+.txt{max-width:52em}
+dt{font-weight:700;margin-top:10px;font-size:.92rem}dd{margin:2px 0 0;font-size:.92rem}
+a{color:var(--ink)}
+</style>
+<link rel="stylesheet" href="/three-gate-defense/assets/site.css">
+</head>
+<body>
+<header class="mast"><div><a class="brand" href="/three-gate-defense/">Ghost Screen Analytics</a><nav><a href="/three-gate-defense/">Home</a><div class="dd on"><a href="/three-gate-defense/models/">Models</a><div class="menu"><a href="/three-gate-defense/forecast/">Season Forecast<small>1,000,000 seasons, every day</small></a><a href="/three-gate-defense/defense/">Three Gates<small>Rim protection explorer</small></a><a href="/three-gate-defense/durability/">Load &amp; Durability<small>Who misses games, and why</small></a><a href="/three-gate-defense/college/" aria-current="page">College to NBA<small>Draft prospects, scored</small></a></div></div></nav></div></header>
+<main>
+<h1>College to NBA</h1>
+<p class="dek">Every 2026 draft pick and the 2027 draft board, scored from college numbers and draft slot, each with an 80% range. A Ghost Screen Analytics model, not an NBA stat. The tests were written before the model was run.</p>
+
+<div class="verdict" id="verdict">Loading results…</div>
+<ul class="bars" id="bars"></ul>
+
+<h2>The projections</h2>
+<div class="tabs" role="group" aria-label="Class">
+ <button id="t26" aria-pressed="true">2026 rookies</button><button id="t27" aria-pressed="false">2027 draft board</button>
+</div>
+<div class="tools"><input id="q" type="search" placeholder="Find a player or school" aria-label="Find a player or school"><span id="cap"></span></div>
+<div class="wrap"><table id="tb"><thead></thead><tbody></tbody></table></div>
+<p class="note" id="legend"></p>
+
+<h2>How to read it</h2>
+<div class="cols">
+ <div>
+  <dl>
+   <dt>Projected NBA rating</dt><dd>The expected level in NBA seasons 2 to 4, measured with LEBRON (a public all-in-one rating from BBall Index, in points per 100 possessions). Zero is an average NBA player, about -2 is replacement level (a player who barely plays or never makes the league counts as -2), and +2 or more is a clear starter.</dd>
+   <dt>Slot only</dt><dd>What the draft position alone would have predicted. The hollow circle on each range.</dd>
+   <dt>Model</dt><dd>Draft position plus the final college season: age, height, class year, minutes share, usage, shooting splits, rebounding, assists, turnovers, steals and blocks. The dark tick on each range.</dd>
+   <dt>80% range</dt><dd>The span the model expects to hold for about four of every five players. It is wide on purpose. Nobody in a class of 60 is a sure thing.</dd>
+  </dl>
+ </div>
+ <div class="txt">
+  <p id="learned"></p>
+  <p><b>2027 caveat.</b> The 2027 board uses the public Tankathon big board rank as the draft slot and last season's college numbers (the 2026-27 season has not been played). Freshmen, players coming from outside college basketball and anyone without a 2025-26 college season are scored from slot alone and tagged <em>slot only</em>. Treat that class as a rough first look.</p>
+ </div>
+</div>
+
+<h2>What it is built on</h2>
+<div class="txt">
+ <p>Sample: <span id="nall"></span> players drafted from 2008 to 2022 with a Division I season (international and non-college picks are left out), their final college season from Barttorvik, and their NBA rating over seasons 2 to 4. The test predicted each class from 2016 to 2022 using only earlier classes whose three NBA seasons had finished, so nothing in a test was seen in training.</p>
+ <p>The rules, the code, the data and every result, including the first run, are in the <a href="https://github.com/TheLowPostHoops/three-gate-defense/tree/main/college-to-nba">college-to-nba folder on GitHub</a>. A passed bar is not proof the model will keep working: it is seven classes and a few hundred players.</p>
+</div>
+</main>
+<script>
+const $=id=>document.getElementById(id),LO=-3.7,HI=2.6,W=200,x=v=>Math.max(0,Math.min(W,(v-LO)/(HI-LO)*W));
+let D,mode='r26',sortK=null,sortDir=1;
+const f2=v=>(v>0?'+':'')+v.toFixed(2).replace('-','−');
+const cols={r26:[['pick','Pick',1],['player','Player',0],['school','School',0],['proj_final','Projection',1],['slot_only','Slot only',1],['d','Model vs slot',1],['rng','80% range',0]],
+            r27:[['rank','Rank',1],['player','Player',0],['school','School',0],['proj_final','Projection',1],['slot_only','Slot only',1],['d','Model vs slot',1],['rng','80% range',0]]};
+function rows(){const a=mode==='r26'?D.rookies:D.board;return a.map(r=>({...r,d:r.proj_final-r.slot_only}))}
+function render(){
+ const c=cols[mode],kk=mode==='r26'?'pick':'rank',q=$('q').value.trim().toLowerCase();
+ let a=rows().filter(r=>!q||(r.player+' '+r.school).toLowerCase().includes(q));
+ const sk=sortK||kk;a.sort((p,q2)=>{const u=p[sk],v=q2[sk];return (typeof u==='string'?u.localeCompare(v):u-v)*sortDir*(sk===kk||sk==='player'||sk==='school'?1:1)});
+ $('tb').tHead.innerHTML='<tr>'+c.map(([k,l,n])=>`<th class="${n?'n':''}" data-k="${k}">${l}${sortK===k?(sortDir>0?' ▲':' ▼'):''}</th>`).join('')+'</tr>';
+ $('tb').tBodies[0].innerHTML=a.map(r=>`<tr><td class="n">${r[kk]}</td><td class="p">${r.player}${r.college_data?'':'<span class="tag">slot only</span>'}</td><td>${r.school}</td><td class="n p">${f2(r.proj_final)}</td><td class="n">${f2(r.slot_only)}</td><td class="n ${r.d>0.005?'up':r.d<-0.005?'dn':''}">${r.college_data?f2(r.d):'–'}</td><td><div class="rng" title="80% range ${f2(r.lo80)} to ${f2(r.hi80)}"><s style="left:${x(0)}px"></s><i style="left:${x(r.lo80)}px;width:${x(r.hi80)-x(r.lo80)}px"></i><u style="left:${x(r.slot_only)}px"></u><b style="left:${x(r.proj_final)}px"></b></div></td></tr>`).join('');
+ $('cap').textContent=a.length+' players · click a column to sort';
+ $('legend').innerHTML='Dark tick = model projection. Hollow circle = draft slot alone. Light line = 80% range. Thin vertical line = average NBA player (0). "Model vs slot" is how much the college numbers move a player up (green) or down (red) from where the draft position alone puts him.'+(mode==='r27'?' Slot = rank on the public big board.':'');
+ document.querySelectorAll('th').forEach(t=>t.onclick=()=>{const k=t.dataset.k;if(k==='rng')return;if(sortK===k)sortDir=-sortDir;else{sortK=k;sortDir=(k==='player'||k==='school'||k==='pick'||k==='rank')?1:-1}render()});
+}
+fetch('data.json?'+Date.now()).then(r=>r.json()).then(d=>{D=d;
+ const np=d.bars.filter(b=>b.passed).length;
+ $('verdict').innerHTML=`<b class="big">${np} of ${d.bars.length} pre-set bars passed</b>${d.verdict}`;
+ $('bars').innerHTML=d.bars.map(b=>`<li><span>${b.bar}</span><span class="r ${b.passed?'pass':'fail'}">${b.passed?'Pass':'Fail'}<small>${b.result}</small></span></li>`).join('');
+ $('learned').innerHTML=d.learned;$('nall').textContent=d.n_all;
+ render();
+}).catch(()=>{$('verdict').textContent='Results could not be loaded.'});
+$('t26').onclick=()=>{mode='r26';sortK=null;sortDir=1;$('t26').setAttribute('aria-pressed',true);$('t27').setAttribute('aria-pressed',false);if(D)render()};
+$('t27').onclick=()=>{mode='r27';sortK=null;sortDir=1;$('t27').setAttribute('aria-pressed',false);$('t27').setAttribute('aria-pressed',true);$('t26').setAttribute('aria-pressed',false);if(D)render()};
+$('q').oninput=()=>D&&render();
+</script>
+</body>
+</html>

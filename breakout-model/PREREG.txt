@@ -1,0 +1,42 @@
+BREAKOUT MODEL: RULES WRITTEN BEFORE THE MODEL WAS RUN
+Written 2026-10-15. Nothing below was changed after the first run.
+
+QUESTION
+For a young NBA player, how much better or worse will he be next season than he is now? Does anything beyond his current rating help predict that?
+
+DATA
+LEBRON ratings from BBall Index, seasons 2009-10 to 2025-26 (file lebron_master.csv; "year" is the season's ending year). Draft position from the draft lists already in the college-to-nba folder.
+
+SAMPLE
+Every player-season (season t) with at least 500 minutes and an age of 25 or younger, paired with the same player's rating in season t+1. A pair counts only if the player played at least 300 minutes in t+1. Players who left the league or barely played are not scored, and that limit is disclosed with the results.
+
+WHAT THE MODEL PREDICTS
+LEBRON in season t+1.
+
+FEATURES
+Current LEBRON, offensive and defensive LEBRON, age, log of minutes, last season's LEBRON when it exists (otherwise the current one), years since the draft, log of draft pick (undrafted = 61), and position group.
+
+MODEL
+Ridge regression with standardized features. The penalty is picked by leave-one-season-out testing inside the training years only.
+
+BASELINES
+1. Persistence: next season equals this season.
+2. Mean-reversion baseline: the same ridge method using current LEBRON alone.
+
+TEST
+Walk-forward. For each test season t from 2016 to 2025 (target seasons 2017 to 2026), the model trains only on pairs whose target season is already finished (target year <= t). The 80% range is the prediction plus or minus 1.2816 times the standard deviation of out-of-fold training errors.
+
+THE SEVEN BARS (pass or fail, decided in advance)
+B1 Accuracy: the model's mean absolute error is at least 3% below the mean-reversion baseline.
+B2 Consistency: the model beats the mean-reversion baseline in at least 7 of the 10 test seasons.
+B3 Beats persistence: the model's error is at least 10% below the persistence baseline.
+B4 Finds jumps: among the 10% of each test season's players with the highest predicted gain (predicted minus current rating), the actual average gain is at least 0.20 higher than the same group chosen by the mean-reversion baseline.
+B5 Range honesty: the 80% ranges contain between 75% and 85% of actual outcomes.
+B6 Not luck: the real gain over the baseline is larger than 95% of 200 runs in which the extra features are shuffled among players in the same season.
+B7 Breakout calls: players the model projects to gain 1.0 or more LEBRON points actually gain at least 0.5 on average, and at least 60% of them improve.
+
+REPORTING
+Every bar is reported pass or fail, including failures. If a data problem is found and fixed, both runs are published and the bars stay the same.
+
+OUTPUT
+Projections for 2026-27 for every player 25 or younger with at least 500 minutes in 2025-26, with ranges, and the list of biggest projected jumps.

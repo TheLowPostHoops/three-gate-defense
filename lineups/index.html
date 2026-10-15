@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Lineup Chemistry | Ghost Screen Analytics</title>
+<meta name="description" content="Do five-man NBA lineups beat the sum of their players' ratings? Every 2025-26 lineup against what its parts predicted, and the tests the model passed and failed.">
+<style>
+:root{--bg:#ffffff;--ink:#121212;--mute:#6b6b6b;--line:#e3e3e3;--soft:#f5f5f4;--rule:#121212;--ok:#1a6d3a;--hot:#b3261e;--bar:#2b5fa8;--bar2:#9db8de}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121212;--ink:#f2f2f2;--mute:#a0a0a0;--line:#2e2e2e;--soft:#1c1c1c;--rule:#f2f2f2;--ok:#6fd08c;--hot:#ff8a80;--bar:#7fb0ee;--bar2:#35506f}}
+:root[data-theme="dark"]{--bg:#121212;--ink:#f2f2f2;--mute:#a0a0a0;--line:#2e2e2e;--soft:#1c1c1c;--rule:#f2f2f2;--ok:#6fd08c;--hot:#ff8a80;--bar:#7fb0ee;--bar2:#35506f}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.55 -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif}
+main{max-width:1120px;margin:0 auto;padding:22px 20px 64px}
+h1{font:700 1.75rem/1.15 Georgia,"Times New Roman",serif;margin:0 0 4px}
+.dek{font-size:.92rem;color:var(--mute);margin:0 0 22px;max-width:60em}
+h2{font:700 .8rem/1.2 -apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;text-transform:uppercase;letter-spacing:.14em;margin:34px 0 14px;padding-top:12px;border-top:3px solid var(--rule)}
+.verdict{border:1px solid var(--line);border-left:5px solid var(--rule);padding:14px 18px;max-width:52em;font-size:.97rem}
+.verdict b.big{display:block;font:700 1.35rem/1.2 Georgia,"Times New Roman",serif;margin-bottom:6px}
+.bars{list-style:none;margin:14px 0 0;padding:0;max-width:52em;font-size:.9rem}
+.bars li{display:flex;justify-content:space-between;gap:14px;padding:8px 0;border-bottom:1px solid var(--line)}
+.bars li:first-child{border-top:1px solid var(--line)}
+.bars .r{white-space:nowrap;font-weight:700;text-align:right}
+.bars small{display:block;color:var(--mute);font-weight:400;font-size:.8rem}
+.pass{color:var(--ok)}.fail{color:var(--hot)}
+.tabs{display:flex;gap:0;margin:0 0 12px;flex-wrap:wrap}
+.tabs button{font:600 .74rem/1 -apple-system,Helvetica,Arial,sans-serif;letter-spacing:.1em;text-transform:uppercase;padding:11px 16px;border:1px solid var(--ink);background:var(--bg);color:var(--ink);cursor:pointer}
+.tabs button[aria-pressed=true]{background:var(--ink);color:var(--bg)}
+.tools{display:flex;gap:12px;align-items:center;flex-wrap:wrap;margin:0 0 10px;font-size:.85rem;color:var(--mute)}
+.tools input{font:inherit;padding:8px 10px;border:1px solid var(--line);background:var(--bg);color:var(--ink);min-width:200px;border-radius:2px}
+.wrap{overflow-x:auto;border-top:3px solid var(--rule)}
+table{border-collapse:collapse;width:100%;min-width:760px;font-size:.9rem}
+th{font-size:.68rem;text-transform:uppercase;letter-spacing:.1em;text-align:left;padding:9px 8px;border-bottom:1px solid var(--ink);cursor:pointer;white-space:nowrap;user-select:none;color:var(--mute)}
+th:hover{color:var(--ink)}
+td{padding:8px;border-bottom:1px solid var(--line);vertical-align:middle}
+td.n,th.n{text-align:right;font-variant-numeric:tabular-nums}
+td.p{font-weight:700}
+.tag{font-size:.64rem;text-transform:uppercase;letter-spacing:.08em;color:var(--mute);border:1px solid var(--line);padding:1px 5px;margin-left:6px;white-space:nowrap}
+.rng{position:relative;height:14px;width:200px;min-width:200px}
+.rng i{position:absolute;top:6px;height:2px;background:var(--bar2)}
+.rng b{position:absolute;top:2px;width:3px;height:10px;background:var(--bar);margin-left:-1px}
+.rng u{position:absolute;top:3px;width:8px;height:8px;border:1.5px solid var(--mute);border-radius:50%;margin-left:-4px;background:var(--bg)}
+.rng s{position:absolute;top:0;height:14px;width:1px;background:var(--line)}
+.up{color:var(--ok)}.dn{color:var(--hot)}
+.note{font-size:.85rem;color:var(--mute);max-width:54em;margin:10px 0 0}
+.cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px;max-width:60em}
+@media(max-width:760px){.cols{grid-template-columns:minmax(0,1fr)}}
+.cols p,.txt p{margin:0 0 12px;font-size:.95rem}
+.txt{max-width:52em}
+dt{font-weight:700;margin-top:10px;font-size:.92rem}dd{margin:2px 0 0;font-size:.92rem}
+a{color:var(--ink)}
+</style>
+<link rel="stylesheet" href="/three-gate-defense/assets/site.css">
+</head>
+<body>
+<header class="mast"><div><a class="brand" href="/three-gate-defense/">Ghost Screen Analytics</a><nav><a href="/three-gate-defense/">Home</a><div class="dd on"><a href="/three-gate-defense/models/">Models</a><div class="menu"><a href="/three-gate-defense/forecast/">Season Forecast<small>1,000,000 seasons, every day</small></a><a href="/three-gate-defense/defense/">Three Gates<small>Rim protection explorer</small></a><a href="/three-gate-defense/durability/">Load &amp; Durability<small>Who misses games, and why</small></a><a href="/three-gate-defense/college/" >College to NBA<small>Draft prospects, scored</small></a><a href="/three-gate-defense/breakout/">Breakout<small>Who is about to improve</small></a><a href="/three-gate-defense/aging/">Aging Curve<small>Who is about to decline</small></a><a href="/three-gate-defense/lineups/" aria-current="page">Lineup Chemistry<small>Do five beat the sum of parts</small></a></div></div></nav></div></header>
+<main>
+<h1>Lineup Chemistry</h1>
+<p class="dek" id="scale">Do five-man lineups play better than the sum of their players? Each lineup is compared with what last season's player ratings predicted. Ratings are LEBRON, a public all-in-one rating from BBall Index in points per 100 possessions: 0 is an average player, about -2 is replacement level, +2 or more is a clear starter. Lineup results are net rating, points scored minus points allowed per 100 possessions. A Ghost Screen Analytics model, not an NBA stat. The tests were written before the model was run.</p>
+
+<h2>How to read it</h2>
+<div class="cols">
+ <div>
+  <dl>
+   <dt>Expected</dt><dd>What the five players' ratings from the season before add up to, turned into a net rating. The dark tick on each range.</dd>
+   <dt>Actual</dt><dd>What the lineup really did. The hollow circle.</dd>
+   <dt>Gap</dt><dd>Actual minus expected. Green means the lineup beat its parts, red means it fell short.</dd>
+   <dt>80% range</dt><dd>Where about four of every five lineups land. It is very wide: a lineup with a few hundred possessions swings a lot on luck alone.</dd>
+  </dl>
+ </div>
+ <div class="txt"><p id="learned"></p>
+ <p><b>Who is left out.</b> Only lineups with 100+ possessions are scored. Coaches keep playing lineups that work, so the lineups that reach that mark skew good, and the biggest gaps below are partly selection and partly luck. A player with no rating the year before is set to replacement level (-2).</p></div>
+</div>
+
+<div class="verdict" id="verdict">Loading results…</div>
+<ul class="bars" id="bars"></ul>
+
+<h2>Does keeping players together help?</h2>
+<div class="wrap"><table id="ct"><thead><tr><th>Season</th><th class="n">Familiar lineups minus new ones</th></tr></thead><tbody></tbody></table></div>
+<p class="note">Points per 100 possessions by which lineups with 4 or 5 returning players beat their expected rating, compared with lineups with 0 to 2 returning players. Positive in 7 of 9 seasons. Description of bar L7.</p>
+
+<h2>The lineups</h2>
+<div class="tabs" role="group" aria-label="View">
+ <button id="t1" aria-pressed="true">2025-26 lineups</button><button id="t2" aria-pressed="false">Biggest gaps since 2017-18</button>
+</div>
+<div class="tools"><input id="q" type="search" placeholder="Find a player or team" aria-label="Find a player or team"><span id="cap"></span></div>
+<div class="wrap"><table id="tb"><thead></thead><tbody></tbody></table></div>
+<p class="note" id="legend"></p>
+
+<h2>What it is built on</h2>
+<div class="txt">
+ <p>Sample: <span id="nall"></span> lineup-seasons tested, 2017-18 to 2025-26, from the NBA's lineup tables (regular season, five-man lineups with 100+ possessions), scored against LEBRON ratings from the season before. Each test season used only earlier seasons for training. Inputs to the chemistry model: sum of ratings, best player, spread of ratings, offense and defense sums, centers, guards, returning players and average age.</p>
+ <p>The rules, code, data and results are in the <a href="https://github.com/TheLowPostHoops/three-gate-defense/tree/main/lineup-model">lineup-model folder on GitHub</a>. Four of seven bars passed, and the model is not better than simply adding up the parts. The 2026-27 season is not forecast lineup by lineup because rotations are not settled.</p>
+</div>
+</main>
+<script>
+const $=id=>document.getElementById(id),LO=-35,HI=45,W=200,x=v=>Math.max(0,Math.min(W,(v-LO)/(HI-LO)*W));
+let D,mode=1,sortK=null,sortDir=1;
+const f1=v=>(v>0?'+':'')+v.toFixed(1).replace('-','\u2212');
+function render(){
+ const ext=mode===2,q=$('q').value.trim().toLowerCase();
+ const cols=[...(ext?[['year','Season',1]]:[]),['team','Team',0],['lineup','Lineup',0],['poss','Poss',1],['exp','Expected',1],['act','Actual',1],['gap','Gap',1],['rng','80% range',0]];
+ let a=(ext?D.ext:D.cur).filter(r=>!q||(r.lineup+' '+r.team).toLowerCase().includes(q));
+ const dk=ext?'gap':'poss',dd=ext?1:-1,sk=sortK||dk,sd=sortK?sortDir:dd;
+ a=[...a].sort((p,q2)=>{const u=p[sk],v=q2[sk];return (typeof u==='string'?u.localeCompare(v):u-v)*sd});
+ $('tb').tHead.innerHTML='<tr>'+cols.map(([k,l,n])=>`<th class="${n?'n':''}" data-k="${k}">${l}${sortK===k?(sortDir>0?' \u25b2':' \u25bc'):''}</th>`).join('')+'</tr>';
+ $('tb').tBodies[0].innerHTML=a.map(r=>`<tr>${ext?`<td class="n">${r.year-1}-${String(r.year).slice(2)}</td>`:''}<td>${r.team}</td><td class="p">${r.lineup}</td><td class="n">${r.poss}</td><td class="n">${f1(r.exp)}</td><td class="n p">${f1(r.act)}</td><td class="n ${r.gap>0.05?'up':r.gap<-0.05?'dn':''}">${f1(r.gap)}</td><td><div class="rng" title="80% range ${f1(r.exp-1.2816*r.sd)} to ${f1(r.exp+1.2816*r.sd)}"><s style="left:${x(0)}px"></s><i style="left:${x(r.exp-1.2816*r.sd)}px;width:${x(r.exp+1.2816*r.sd)-x(r.exp-1.2816*r.sd)}px"></i><u style="left:${x(r.act)}px"></u><b style="left:${x(r.exp)}px"></b></div></td></tr>`).join('');
+ $('cap').textContent=a.length+' lineups · click a column to sort';
+ $('legend').textContent=ext?'The 12 biggest shortfalls and 12 biggest overperformers among lineups with 500+ possessions. Dark tick = expected. Hollow circle = actual. Light line = 80% range.':'2025-26 lineups with 300+ possessions. Dark tick = expected from last season\'s ratings. Hollow circle = actual. Light line = 80% range. Thin vertical line = a break-even lineup (0).';
+ document.querySelectorAll('#tb th').forEach(t=>t.onclick=()=>{const k=t.dataset.k;if(k==='rng')return;if(sortK===k)sortDir=-sortDir;else{sortK=k;sortDir=(k==='lineup'||k==='team')?1:-1}render()});
+}
+fetch('data.json?'+Date.now()).then(r=>r.json()).then(d=>{D=d;
+ const np=d.bars.filter(b=>b.passed).length;
+ $('verdict').innerHTML=`<b class="big">${np} of ${d.bars.length} pre-set bars passed</b>${d.verdict}`;
+ $('bars').innerHTML=d.bars.map(b=>`<li><span>${b.bar}</span><span class="r ${b.passed?'pass':'fail'}">${b.passed?'Pass':'Fail'}<small>${b.result}</small></span></li>`).join('');
+ $('learned').innerHTML=d.learned;$('nall').textContent=d.n.toLocaleString();
+ $('ct').tBodies[0].innerHTML=d.cont.map(c=>`<tr><td>${c.year-1}-${String(c.year).slice(2)}</td><td class="n p ${c.diff>0?'up':'dn'}">${f1(c.diff)}</td></tr>`).join('');
+ render();
+}).catch(()=>{$('verdict').textContent='Results could not be loaded.'});
+$('t1').onclick=()=>{mode=1;sortK=null;$('t1').setAttribute('aria-pressed',true);$('t2').setAttribute('aria-pressed',false);if(D)render()};
+$('t2').onclick=()=>{mode=2;sortK=null;$('t2').setAttribute('aria-pressed',true);$('t1').setAttribute('aria-pressed',false);if(D)render()};
+$('q').oninput=()=>D&&render();
+</script>
+</body>
+</html>

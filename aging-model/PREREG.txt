@@ -1,0 +1,40 @@
+AGING CURVE MODEL: RULES WRITTEN BEFORE THE MODEL WAS RUN
+Written 2026-10-15. Nothing below was changed after the first run.
+
+QUESTION
+After a player's mid-20s, how fast does his rating fall, does the speed depend on position, and can a curve built from age and position predict next season better than the player's current rating alone?
+
+DATA
+LEBRON ratings from BBall Index, seasons 2009-10 to 2025-26 (the same file as the breakout model). Position groups: guards (PG, SG), forwards (SF, PF), centers (C).
+
+SAMPLE
+Every player-season (season t) with at least 500 minutes and an age of 26 or older, paired with the same player's rating in season t+1. A pair counts only if the player played at least 300 minutes in t+1. This leaves out players who retire, are cut, or barely play. Because decliners drop out more often than improvers, the true average decline is larger than this sample shows. That limit is disclosed with the results.
+
+WHAT THE MODEL PREDICTS
+LEBRON in season t+1.
+
+MODEL
+Ridge regression with standardized features: current LEBRON, offensive and defensive LEBRON, last season's LEBRON when it exists (otherwise the current one), log of minutes, age (centered at 28) with age squared and age cubed, position-group flags, and age terms interacted with position-group flags. The penalty is picked by leave-one-season-out testing inside the training years only.
+
+BASELINES
+1. Persistence: next season equals this season.
+2. Rating-only baseline: the same ridge method using current LEBRON alone.
+3. Age-only curve: the same method with the rating features plus age, age squared and age cubed, but no position terms.
+
+TEST
+Walk-forward. For each test season t from 2016 to 2025 (target seasons 2017 to 2026), the model trains only on pairs whose target season is already finished. The 80% range is the prediction plus or minus 1.2816 times the standard deviation of out-of-fold training errors.
+
+THE SEVEN BARS (pass or fail, decided in advance)
+A1 Accuracy: the full model's mean absolute error is at least 3% below the rating-only baseline.
+A2 Consistency: the full model beats the rating-only baseline in at least 7 of the 10 test seasons.
+A3 Beats persistence: the full model's error is at least 8% below persistence.
+A4 Decline finder: among players 31 or older, the 20% with the lowest predicted change (predicted minus current rating) in each test season actually decline at least 0.15 more than the same group chosen by the rating-only baseline.
+A5 Range honesty: the 80% ranges contain between 75% and 85% of actual outcomes.
+A6 Not luck: the real gain over the rating-only baseline is larger than 95% of 200 runs in which the age and position features are shuffled among players in the same season.
+A7 Position matters: the full model (with position terms) has lower error than the age-only curve in at least 6 of the 10 test seasons.
+
+REPORTING
+Every bar is reported pass or fail, including failures. If a data problem is found and fixed, both runs are published and the bars stay the same. The page also shows the average change by age and position group as a description, labeled as such and not as a bar.
+
+OUTPUT
+Projections for 2026-27 for every player 26 or older with at least 500 minutes in 2025-26, with ranges, and the average age curve by position group.

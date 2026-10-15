@@ -1,0 +1,36 @@
+LINEUP CHEMISTRY MODEL: RULES WRITTEN BEFORE THE MODEL WAS RUN
+Written 2026-10-15. Nothing below was changed after the first run.
+One change was made before any model run: the first plan pulled lineup totals from pbpstats.com, whose server could not deliver 360 requests, so the NBA's own league lineup table (stats.nba.com, advanced measures) was used instead. It gives possessions and net rating directly. The bars did not change.
+
+QUESTION
+Do five-man lineups play better or worse than the sum of their players' ratings, and can the way a lineup is built (its mix of positions, how top-heavy it is, how balanced offense and defense are, how many of the five were together last season) predict that gap?
+
+DATA
+Five-man lineup totals for every team and regular season from 2014-15 to 2025-26 (the NBA's league lineup table, advanced measures): possessions, offensive rating, defensive rating and net rating. Only lineups with 100 or more possessions are in the file. Player ratings are LEBRON from BBall Index for the season BEFORE the lineup played, so the ratings cannot contain what the lineup later did. A player with no rating the year before (rookies, returners) is set to -2.0, the replacement level.
+
+UNIT AND OUTCOME
+One lineup in one team season, with at least 100 possessions on the floor (about 200 counting both teams' possessions). Outcome: the lineup's net rating per 100 possessions as reported by the NBA. Every fit and score is weighted by possessions, with weights capped at 750 so one huge lineup cannot dominate.
+
+BASELINE ("sum of parts")
+A line fit on the sum of the five players' prior-season LEBRON. Nothing else.
+
+FULL MODEL ("chemistry")
+Ridge regression with standardized features: sum of prior LEBRON, best player's prior LEBRON, spread (standard deviation) of the five prior LEBRONs, sum of prior offensive LEBRON, sum of prior defensive LEBRON, number of centers, number of guards (PG and SG), number of the five who were on the same team the season before (0 to 5), and average age. The penalty is picked by leave-one-season-out testing inside the training years only.
+
+TEST
+Walk-forward. For each test season from 2017-18 to 2025-26 (nine seasons), the model trains only on lineups from earlier seasons. The 80% range is the prediction plus or minus 1.2816 times sqrt(tau^2 + sigma^2 x 1000 / (2 x possessions)), where tau and sigma come from a least-squares fit of squared out-of-fold training errors on 1000 / (2 x possessions) (both floored at zero).
+
+THE SEVEN BARS (pass or fail, decided in advance)
+L1 Accuracy: the full model's possession-weighted mean absolute error is at least 3% below the sum-of-parts baseline.
+L2 Consistency: the full model beats the baseline in at least 6 of the 9 test seasons.
+L3 Parts matter: the baseline's error is at least 5% below simply predicting the training average for every lineup.
+L4 Chemistry finder: in each test season, take the 10% of lineups where the full model expects the biggest gain over the baseline and the 10% where it expects the biggest loss. Across all test seasons, the first group's average actual gap over the baseline (actual minus baseline prediction, weighted) must exceed the second group's by at least 1.0 point per 100 possessions.
+L5 Range honesty: the 80% ranges contain between 75% and 85% of actual outcomes.
+L6 Not luck: the real gain over the baseline is larger than 95% of 200 runs in which the structure features are shuffled among lineups in the same season.
+L7 Familiarity: lineups with 4 or 5 returning players beat their baseline prediction by at least 0.5 per 100 more than lineups with 0 to 2 returning players, in at least 6 of the 9 test seasons (weighted, no model needed).
+
+REPORTING
+Every bar is reported pass or fail, including failures. If a data problem is found and fixed, both runs are published and the bars stay the same. Lineups with fewer than 100 possessions are left out, which favors lineups coaches trust; that limit is disclosed with the results.
+
+OUTPUT
+For 2025-26: every qualifying lineup with its expected net rating from the parts, its actual net rating, and the gap. Also the best and worst gaps since 2014-15. The 2026-27 season cannot be forecast lineup by lineup because rosters and rotations are not settled; the page shows what the structure features say about the lineup types that tend to outperform.
